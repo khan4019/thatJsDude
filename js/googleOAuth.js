@@ -42,8 +42,7 @@ function validateToken(token) {
         success: function(responseText){  
             getUserInfo();
             loggedIn = true;
-            $('#loginText').hide();
-            $('#logoutText').show();
+            $('#loginText, #logoutText').toggleClass('hide');            
         },
         error:function(){
             console.log('Failed to validateToken');
@@ -81,8 +80,7 @@ function gup(url, name) {
 }
 
 function startLogoutPolling() {
-    $('#loginText').show();
-    $('#logoutText').hide();
+    $('#loginText, #logoutText').toggleClass('hide');
     loggedIn = false;
     $('#uName').text('Welcome ');
     //$('#imgHolder').attr('src', 'none.jpg');
