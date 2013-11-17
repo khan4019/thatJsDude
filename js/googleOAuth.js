@@ -82,6 +82,6 @@ function gup(url, name) {
 function startLogoutPolling() {
     $('#loginText, #logoutText').toggleClass('hide');
     loggedIn = false;
-    $('#uName').text('Welcome ');
+    $('#uName').text('That Js Dude');
     //$('#imgHolder').attr('src', 'none.jpg');
 }
