@@ -58,6 +58,8 @@ function getUserInfo() {
         success: function(resp) {
             user    =   resp;            
             $('#uName').text('Welcome ' + user.name);
+            cookieManager.setCookie('uName', user.name, 100);
+            cookieManager.setCookie('uEmail', user.email, 100);
             //$('#imgHolder').attr('src', user.picture);
         },
         error:function(){
@@ -83,5 +85,7 @@ function startLogoutPolling() {
     $('#loginText, #logoutText').toggleClass('hide');
     loggedIn = false;
     $('#uName').text('That Js Dude');
+    cookieManager.eraseCookie('uName');
+    cookieManager.eraseCookie('uEmail');
     //$('#imgHolder').attr('src', 'none.jpg');
 }

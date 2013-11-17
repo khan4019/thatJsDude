@@ -1,7 +1,7 @@
 //source: http://www.quirksmode.org/js/cookies.html
 cookieManager = {
 
-	createCookie: function (name,value,days) {
+	setCookie: function (name,value,days) {
 	  if (days) {
 	    var date = new Date();
 	    date.setTime(date.getTime()+(days*24*60*60*1000));
