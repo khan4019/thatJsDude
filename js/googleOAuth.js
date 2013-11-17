@@ -1,4 +1,4 @@
-//source: http://www.gethugames.in/blog/2012/04/authentication-and-authorization-for-google-apis-in-javascript-popup-window-tutorial.html
+    //source: http://www.gethugames.in/blog/2012/04/authentication-and-authorization-for-google-apis-in-javascript-popup-window-tutorial.html
 
 var OAUTHURL    =   'https://accounts.google.com/o/oauth2/auth?';
 var VALIDURL    =   'https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=';
