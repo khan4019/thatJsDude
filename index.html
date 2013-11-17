@@ -46,10 +46,10 @@
           <a class="navbar-brand" href="#">That Js Dude</a>
         </div>
         <div class="navbar-collapse collapse">
-          <a href='#' onClick='login();'  class="btn btn-success  navbar-right" id="loginText"'> Sign in </a>
-          <a href="#" style="display:none" id="logoutText" target='myIFrame' onclick="myIFrame.location='https://www.google.com/accounts/Logout'; startLogoutPolling();return false;"> Click here to logout </a>
-          <iframe name='myIFrame' id="myIFrame" style='display:none'></iframe>
-          <div id='uName'></div>
+          <a href='#' class="btn btn-success  navbar-right" id="loginText"> Sign in </a>
+          <a href="#" class="btn btn-success  navbar-right hide" id="logoutText">logout </a>
+          <iframe name="myIFrame" id="myIFrame" class="hide"></iframe>
+          <div id="uName"></div>
                     
         </div><!--/.navbar-collapse -->
       </div>
@@ -109,5 +109,16 @@
     <script src="jquery-2.0.3.min.js"></script>
     <script src="bootstrap.min.js"></script>
     <script src="js/googleOAuth.js"></script>
+    <script type="text/javascript">
+      $('#loginText').on('click', function(){
+        login();
+      });
+      $('#logout').on('click', function () {
+         
+         $('#myIFrame').location='https://www.google.com/accounts/Logout'; 
+         startLogoutPolling();
+         return false;
+      });
+    </script>
   </body>
 </html>
