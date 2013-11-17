@@ -21,6 +21,6 @@ cookieManager = {
 	  return null;
 	},
 	eraseCookie: function (name) {
-	  this.createCookie(name,"",-1);
+	  this.setCookie(name,"",-1);
 	}
 }
