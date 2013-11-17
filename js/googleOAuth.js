@@ -59,7 +59,7 @@ function getUserInfo() {
             user    =   resp;            
             $('#uName').text('Welcome ' + user.name);
             
-            saveNewUser({id:user.id, email:user.email, firstName:user.family_name, lastName:user.given_name});
+            checkUserExists({email:user.email}, user);
 
             cookieManager.setCookie('uName', user.name, 100);
             cookieManager.setCookie('uEmail', user.email, 100);
@@ -72,6 +72,25 @@ function getUserInfo() {
     });
 }
 
+function checkUserExists(data, user){
+    $.ajax({
+      type: "POST",
+      url: 'dbHandlers/getUser.php',
+      data: data,
+      dataType: 'json',
+      success: function(data){        
+            //if user dont exists. save him
+            if(!data || !data.length){
+              saveNewUser({id:user.id, email:user.email, firstName:user.family_name, lastName:user.given_name});  
+            }
+      },
+      error:function(x,e){
+        console.log(x.responseText);             
+      }
+    });
+    return false;
+}
+
 function saveNewUser(data){
     $.ajax({
       type: "POST",
@@ -82,7 +101,7 @@ function saveNewUser(data){
         console.log(data);
       },
       error:function(x,e){
-        console.log(x);             
+        console.log(x.responseText);             
       }
     });
     return false;
