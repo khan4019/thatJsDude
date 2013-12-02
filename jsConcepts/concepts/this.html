@@ -62,7 +62,7 @@
       <!-- Example row of columns -->
 
       <div class="row center">
-        <iframe width="853" height="480" src="//www.youtube.com/embed/yuo8YqKDQ-M" frameborder="0" allowfullscreen></iframe> 
+        <iframe class="videoLink" width="853" height="480" src="//www.youtube.com/embed/yuo8YqKDQ-M" frameborder="0" allowfullscreen></iframe> 
       </div>
       <div class="row">        
           <h2>this</h2>
@@ -89,7 +89,6 @@
     <script src="../../js/oAuth/googleOAuth.js"></script>
     <script src="../../js/oAuth/cookieManager.js"></script>
     <script type="text/javascript">
-
       var uName = cookieManager.getCookie('uName');
       if(uName){
         $('#loginText, #logoutText').toggleClass('hide');
@@ -104,6 +103,12 @@
          $('#myIFrame').location='https://www.google.com/accounts/Logout'; 
          startLogoutPolling();
          return false;
+      });
+    </script>
+    <script>
+      $(document).ready(function(){
+        // Target your .container, .wrapper, .post, etc.
+        $(".videoLink").fitVids();
       });
     </script>
   </body>
