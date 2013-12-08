@@ -57,7 +57,8 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <h1>> console</h1>
+        <h1>>console</h1>
+        <h3><input type="text" id="searchInput"> </h3>
         <p>To be a decent web developer you have to know developer tool. If you want to be a better JavaScript developer, you have to master in the console tab of dev tool. there is no exception. no hanky panky...</p>        
       </div>
     </div>
@@ -85,30 +86,6 @@
     <script src="../../js/bootstrap.min.js"></script>
     <script src="../../js/oAuth/googleOAuth.js"></script>
     <script src="../../js/oAuth/cookieManager.js"></script>
-    <script type="text/javascript">
-      var uName = cookieManager.getCookie('uName');
-      if(uName){
-        $('#loginText, #logoutText').toggleClass('hide');
-        $('#uName').text('Welcome ' + uName);
-      }else{
-        $('#uName').addClass('hide');
-      }
-
-      $('#loginText').on('click', function(){
-        login();
-      });
-      $('#logoutText').on('click', function () {
-         
-         $('#myIFrame').location='https://www.google.com/accounts/Logout'; 
-         startLogoutPolling();
-         return false;
-      });
-    </script>
-    <script>
-      $(document).ready(function(){
-        // Target your .container, .wrapper, .post, etc.
-        $(".videoLink").fitVids();
-      });
-    </script>
+    <script type="../../js/oAuth/manageLogin.js"></script>
   </body>
 </html>
