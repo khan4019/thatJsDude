@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="that js dude" content="">
+    <link rel="shortcut icon" href="../../images/favicon.jpg">
+
+    <title>JS: this</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <style>
+      /* Move down content because we have a fixed navbar that is 50px tall */
+      body {
+        padding-top: 50px;
+        padding-bottom: 20px;
+      }
+      .singInStuff{
+        margin-top: 9px;
+      }
+      #uName{
+        margin-top: -7px;
+      }
+    </style>
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">          
+          <a class="navbar-brand" href="../../index.html">That Js Dude</a>
+        </div>
+        <div class="navbar-collapse collapse singInStuff">          
+          <a href='#' class="btn btn-success  navbar-right" id="loginText"> sign in </a>
+          <a href="#" class="btn btn-success  navbar-right hide" id="logoutText">log out </a>
+          <a href="#" class="navbar-brand navbar-right" id="uName" >Welcome</a>
+          <iframe name="myIFrame" id="myIFrame" class="hide"></iframe>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </div>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1>> console</h1>
+        <p>To be a decent web developer you have to know developer tool. If you want to be a better JavaScript developer, you have to master in the console tab of dev tool. there is no exception. no hanky panky...</p>        
+      </div>
+    </div>
+      
+    <div class="container">
+      <!-- Example row of columns -->
+
+      <!-- <div class="row center">
+        <iframe class="videoLink" width="853" height="480" src="//www.youtube.com/embed/yuo8YqKDQ-M" frameborder="0" allowfullscreen></iframe> 
+      </div> -->
+      
+      <hr>
+
+      <footer>
+        <p>&copy;thatJSDude 2013</p>
+      </footer>
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../../js/jquery-2.0.3.min.js"></script>
+    <script src="../../js/jquery.fitvids.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/oAuth/googleOAuth.js"></script>
+    <script src="../../js/oAuth/cookieManager.js"></script>
+    <script type="text/javascript">
+      var uName = cookieManager.getCookie('uName');
+      if(uName){
+        $('#loginText, #logoutText').toggleClass('hide');
+        $('#uName').text('Welcome ' + uName);
+      }else{
+        $('#uName').addClass('hide');
+      }
+
+      $('#loginText').on('click', function(){
+        login();
+      });
+      $('#logoutText').on('click', function () {
+         
+         $('#myIFrame').location='https://www.google.com/accounts/Logout'; 
+         startLogoutPolling();
+         return false;
+      });
+    </script>
+    <script>
+      $(document).ready(function(){
+        // Target your .container, .wrapper, .post, etc.
+        $(".videoLink").fitVids();
+      });
+    </script>
+  </body>
+</html>
