@@ -10,10 +10,7 @@
 
     <title>JS Concepts</title>
 
-    <!-- Bootstrap core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
     <style>
       /* Move down content because we have a fixed navbar that is 50px tall */
       body {
@@ -78,7 +75,7 @@
         <div class="col-md-4">
           <h2>scope & hoisting</h2>
           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default warnNotImplemented" href="#" role="button">View details &raquo;</a></p>
+          <p><a data-toggle="modal" data-target="#notImplementedModal" class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div>
        </div>
       
@@ -87,17 +84,17 @@
         <div class="col-md-4">
           <h2>closure</h2>
           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default warnNotImplemented" href="#" role="button">View details &raquo;</a></p>
+          <p><a data-toggle="modal" data-target="#notImplementedModal" class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div>
         <div class="col-md-4">
           <h2>inheritance</h2>
           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default warnNotImplemented" href="#" role="button">View details &raquo;</a></p>
+          <p><a data-toggle="modal" data-target="#notImplementedModal" class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div>
         <div class="col-md-4">
           <h2>timers</h2>
           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default warnNotImplemented" href="#" role="button">View details &raquo;</a></p>
+          <p><a data-toggle="modal" data-target="#notImplementedModal" class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div>
        </div>
         <!-- third row  -->
@@ -105,17 +102,17 @@
         <div class="col-md-4">
           <h2>true lies</h2>
           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default warnNotImplemented" href="#" role="button">View details &raquo;</a></p>
+          <p><a data-toggle="modal" data-target="#notImplementedModal" class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div>
         <div class="col-md-4">
           <h2>use strict</h2>
           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default warnNotImplemented" href="#" role="button">View details &raquo;</a></p>
+          <p><a data-toggle="modal" data-target="#notImplementedModal" class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div>
         <div class="col-md-4">
           <h2>bind, call and apply</h2>
           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default warnNotImplemented" href="#" role="button">View details &raquo;</a></p>
+          <p><a data-toggle="modal" data-target="#notImplementedModal" class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div>
        </div>
       <hr>
@@ -124,27 +121,28 @@
         <p>&copy;thatJSDude 2013</p>
       </footer>
     </div> <!-- /container -->
-
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- Modal -->
+    <div id="notImplementedModal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h2 class="modal-title">Not Implemented!</h2>
+                </div>
+                <div class="modal-body">
+                  <h3>your JS Dude pormises =></h3>
+                  <h4>Someday he will implement those. at least before he starts playing candy crashes!!</h4>
+                </div>
+                <div class="modal-footer">
+                      Stay in touch <a href="https://www.youtube.com/user/khanLearning">you tube</a> or <a href="https://twitter.com/mdkhan005">@mdkhan005</a> or <a href="https://plus.google.com/101442958047741472626">g+</a> or get lost.
+                  </div>               
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
     <script src="../js/jquery-2.0.3.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/oAuth/googleOAuth.js"></script>
     <script src="../js/oAuth/cookieManager.js"></script>
     <script type="../js/oAuth/manageLogin.js"></script>
-    <script>
-      var notImplementedLinks = document.querySelectorAll('.warnNotImplemented'), 
-          notImplementedHandler = function(e){
-            alert('not implemented. Your JS Dude promoises, he will do it someday before he dies');
-            console.log('not implemented. Your JS Dude promoises, he will do it someday before he dies');
-          };
-
-      Array.prototype.forEach.call(notImplementedLinks, function (el){
-        el.addEventListener('click', notImplementedHandler);
-      });
-
-    </script>
   </body>
 </html>
