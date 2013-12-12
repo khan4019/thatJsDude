@@ -78,7 +78,7 @@
         <div class="col-md-4">
           <h2>scope & hoisting</h2>
           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          <p><a class="btn btn-default warnNotImplemented" href="#" role="button">View details &raquo;</a></p>
         </div>
        </div>
       
@@ -87,17 +87,17 @@
         <div class="col-md-4">
           <h2>closure</h2>
           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          <p><a class="btn btn-default warnNotImplemented" href="#" role="button">View details &raquo;</a></p>
         </div>
         <div class="col-md-4">
           <h2>inheritance</h2>
           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          <p><a class="btn btn-default warnNotImplemented" href="#" role="button">View details &raquo;</a></p>
         </div>
         <div class="col-md-4">
           <h2>timers</h2>
           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          <p><a class="btn btn-default warnNotImplemented" href="#" role="button">View details &raquo;</a></p>
         </div>
        </div>
         <!-- third row  -->
@@ -105,17 +105,17 @@
         <div class="col-md-4">
           <h2>true lies</h2>
           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          <p><a class="btn btn-default warnNotImplemented" href="#" role="button">View details &raquo;</a></p>
         </div>
         <div class="col-md-4">
           <h2>use strict</h2>
           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          <p><a class="btn btn-default warnNotImplemented" href="#" role="button">View details &raquo;</a></p>
         </div>
         <div class="col-md-4">
           <h2>bind, call and apply</h2>
           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          <p><a class="btn btn-default warnNotImplemented" href="#" role="button">View details &raquo;</a></p>
         </div>
        </div>
       <hr>
@@ -153,6 +153,18 @@
          startLogoutPolling();
          return false;
       });
+    </script>
+    <script>
+      var notImplementedLinks = document.querySelectorAll('.warnNotImplemented'), 
+          notImplementedHandler = function(e){
+            alert('not implemented. Your JS Dude promoises, he will do it someday before he dies');
+            console.log('not implemented. Your JS Dude promoises, he will do it someday before he dies');
+          };
+
+      Array.prototype.forEach.call(notImplementedLinks, function (el){
+        el.addEventListener('click', notImplementedHandler);
+      });
+
     </script>
   </body>
 </html>
