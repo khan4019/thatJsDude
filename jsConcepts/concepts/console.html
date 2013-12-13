@@ -71,9 +71,6 @@
       
       <h4>soon, i will make a blog with it.</h4><a href="https://gist.github.com/cavneb/7873485">github gist</a>
       <p>for now, go to the link above who sumaries topic discussed in the video.</p>
-<pre><code>
- var abc = 'test JS code highlighter';
-</code></pre>
       <ul>
         <li>$, $$</li>
         <li>Preserve</li>
@@ -92,6 +89,34 @@
         <li>$0-$4</li>
       </ul>
       
+      <pre><code>
+ > $('a');
+  = &lta class=​"navbar-brand" href=​"../​../​index.html"&gt​That Js Dude​&lt/a&gt​
+ 
+ > $('a') === document.querySelector('a')
+  = true
+</code></pre>
+<pre><code>
+ 
+ > $$('a');
+ = [
+    &lta class=​"navbar-brand" href=​"../​../​index.html"&gt​That Js Dude​&lt/a&gt​
+    , 
+    &lta href=​"#" class=​"btn btn-success  navbar-right" id=​"loginText"&gt​ sign in ​&lt/a&gt​
+    , 
+    &lta href=​"#" class=​"btn btn-success  navbar-right hide" id=​"logoutText"&gt​log out ​&lt/a&gt​
+    , 
+    &lta href=​"#" class=​"navbar-brand navbar-right" id=​"uName"&gt​Welcome​&lt/a&gt​
+    , 
+    &lta href=​"https:​/​/​gist.github.com/​cavneb/​7873485"&gt​github gist​&lt/a&gt​
+   ]
+
+ > $$('a').length;
+ = 4
+
+ >document.querySelectorAll('a').length;
+ =5
+</code></pre>
       <hr>
 
       <footer>
