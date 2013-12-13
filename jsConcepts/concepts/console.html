@@ -122,7 +122,16 @@
   //preserve console.log
   right cick on the console tabl and select "preserve log upon navigation"
 </code></pre>
+<pre><code>
+  //get all the event binded to input with Id 'myInput'
+ > getEventListeners($('#myInput'))
+  = Object {click: Array[1], keyup: Array[1], focus: Array[1]}
 
+  //there are three events (click, keyup and focus) binded to the input with id myInput
+
+  //to view the binded code/listener
+  //expand click, then Object, then lisenter
+</code></pre>
 
       <hr>
 
