@@ -220,8 +220,18 @@ when you have too many things to log, the console get flooded. you can simply lo
   //console.table
 </code></pre>
 <h2>10. $_</h2>
+$_ holds the value of the last result. this is very useful, you dont have to assign result to a variable explicity and use it in the next expression. However, $_ is not persistent. Its always the value of the last result.
 <pre><code>
-  
+  > 2+365+8/2*25
+   = 467
+  > $_
+   = 467
+  > $_*$_
+   = 218089
+  > $_
+   = 218089 //$_ is always the last result.
+  > Math.sqrt($_);
+   = 467
 </code></pre>
 <h2>11. clear</h2>
 For windows you can press Ctrl + L for mac Cmd + K to clear your console. it is an alias of console.clear that will clean your garbases in console
@@ -263,18 +273,22 @@ you can start profiling from console tab. After finishing profiling (profileEnd)
    = Profile 'myProfile' finished.
 </code></pre>
 <h2>15. dir</h2>
-<pre><code>
-  //to get the all the propertis of an object/DOM element
+to get the all the propertis of an object/DOM element
+<pre><code>  
   > dir($('#myInput'));
    = input#myInput
    //you can expand it to see all the properties
 </code></pre>
+<h2>16. inspect</h2>
+inspect a dom element from console tab
 <pre><code>
   > inpsect($('#myInput'));
-   // will swithc you to the element tab to inspect #myInput
+   // will switch you to the element tab to inspect #myInput
   > inspect($$('a')[3]);
     //this iwll start inspecting 4th anchor you have in a page 
 </code></pre>
+<h2>17. $0-$4</h2>
+get the previously accessed dom
 <pre><code>
   > $0
     //last element you have insepected
