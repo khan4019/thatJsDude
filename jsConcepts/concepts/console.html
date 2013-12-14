@@ -129,11 +129,6 @@ Just edit anything as if browser is a text editor. This is very helpful when you
     = true
   //now you can edit anything on the page like a text editor  
 </code></pre>
-<h2>3. Preserve Log</h2>
-<pre><code>
-  //preserve console.log
-  right cick on the console tabl and select "preserve log upon navigation"
-</code></pre>
 <h2>4. Log Object</h2>
 String concatenation with an object makes it teriible when you want to log object. you cant expand properties. Some developers tries to use JSON.stringify to log it but that becomes very tough to read and expand. use of comman instead of "+" sign will solve this problem. 
 <pre><code>  
@@ -146,7 +141,7 @@ String concatenation with an object makes it teriible when you want to log objec
    > console.log('window: ', window)
     = window: Window {top: Window, window: Window, location: Location, external: Object, chrome: Object…}
 </code></pre>
-<h2>4. getEventListeners</h2>
+<h2>5. getEventListeners</h2>
 getEventListeners is very helpful when you want to know what are the events a dom is listening. 
 <pre><code>
   //get all the event binded to input with Id 'myInput'
@@ -169,7 +164,7 @@ It depends on how events are binded to the DOM. if you use any library like JQue
   > getEventListeners($('#myInput')).click[0].listener 
     =function (){console.log('clicked');}  
 </code></pre>
-<h2>5. monitorEvents</h2>
+<h2>6. monitorEvents</h2>
 monitorEvents log the event fired by the element you passed to the fucntion. if you dont pass any parameter, it will log all events fired and your console will be flooded. to monitor a particular event of your interest, just pass the name of the event. if you want to monitor muliple events just pass an array of name of the events to the function. 
 <pre><code>  
   > monitorEvents($('#myInput'));
@@ -184,13 +179,17 @@ monitorEvents log the event fired by the element you passed to the fucntion. if 
     =...
     //will log all click, keyup and focus events fired   
 </code></pre>
-<h2>6. unmonitorEvents</h2>
+<h2>7. unmonitorEvents</h2>
 unmonitorEvents will stop logging events for the element you started monitoring. just pass the element to the fucntion. if you dont do this, browser will keep logging and this can become annoying.
 <pre><code>
   > unmonitorEvents($('#myInput'));
     //no more logging of events
 </code></pre>
-
+<h2>8. Preserve Log</h2>
+<pre><code>
+  //preserve console.log
+  right cick on the console tabl and select "preserve log upon navigation"
+</code></pre>
 <pre><code>
   > console.groupCollapsed('my Error Group');
     for(var i=50; i--;){
