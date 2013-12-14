@@ -236,6 +236,8 @@ For windows you can press Ctrl + L for mac Cmd + K to clear your console. it is 
    =  myTrace
    //you will get the call stack
 </code></pre>
+<h2>13. console.count</h2>
+count helps you to find number of hit. Everytime you hit the foo function, it will increase the count. You dont have to have a global variable to remember the count.
 <pre><code>
   > function foo(){
      console.count('fooed');
@@ -247,10 +249,10 @@ For windows you can press Ctrl + L for mac Cmd + K to clear your console. it is 
   > foo();
    = fooed: 3
   > foo();
-   = fooed: 4
-  //everytime you hit the foo function. it will increase the count
-  //you dont have to have a global variable to remember the count     
+   = fooed: 4  
 </code></pre>
+<h2>14. profile</h2>
+you can start profiling from console tab. After finishing profiling (profileEnd), go to the profile tab of dev tool. you will see 'myProfile' and do the digging you want to do. 
 <pre><code>
   > profile('myProfile');
    = Profile 'myProfile' started;
@@ -259,9 +261,6 @@ For windows you can press Ctrl + L for mac Cmd + K to clear your console. it is 
 
   > porfileEnd('myProfile');
    = Profile 'myProfile' finished.
-
-  //go to the profile tab of dev tool. you will see 'myProfile' 
-  //and do the digging you want to do. 
 </code></pre>
 <pre><code>
   //to get the all the propertis of an object/DOM element
