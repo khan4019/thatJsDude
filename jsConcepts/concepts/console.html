@@ -90,7 +90,7 @@
         <li>inspect</li>
         <li>$0-$4</li>
       </ul>
-      
+      When you dont have access to jQuery. you can pass any css selector to $. like $('a'), this will return the first elment of match. $ is an alias of document.querySelector
       <pre><code>
  > $('a');
   = &lta class=​"navbar-brand" href=​"../​../​index.html"&gt​That Js Dude​&lt/a&gt​
@@ -98,8 +98,8 @@
  > $('a') === document.querySelector('a')
   = true
 </code></pre>
-<pre><code>
- 
+$$ of chrome returns all the match for a css selector. This is equivalent to document.querySelectorAll. you will get an array of all the matched selectors.
+<pre><code> 
  > $$('a');
  = [
     &lta class=​"navbar-brand" href=​"../​../​index.html"&gt​That Js Dude​&lt/a&gt​
