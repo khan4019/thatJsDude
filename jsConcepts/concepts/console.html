@@ -121,10 +121,30 @@ $$ of chrome returns all the match for a css selector. This is equivalent to doc
  >document.querySelectorAll('a').length;
  = 4
 </code></pre>
+<h2>3. contentEditable</h2>
+Just edit anything as if browser is a text editor. This is very helpful when you want to take a quick screenshot. 
+<pre><code>
+  //edit texts in browser like a text editor
+  > document.body.contentEditable = true;
+    = true
+  //now you can edit anything on the page like a text editor  
+</code></pre>
 <h2>3. Preserve Log</h2>
 <pre><code>
   //preserve console.log
   right cick on the console tabl and select "preserve log upon navigation"
+</code></pre>
+<h2>4. Log Object</h2>
+String concatenation with an object makes it teriible when you want to log object. you cant expand properties. Some developers tries to use JSON.stringify to log it but that becomes very tough to read and expand. use of comman instead of "+" sign will solve this problem. 
+<pre><code>  
+  >console.log('window: '+ window)
+   = window: [object Window] 
+
+   //this is not useful at all. i want to get the object
+   //and would like to expand properties. to solve this problem, use comma
+
+   > console.log('window: ', window)
+    = window: Window {top: Window, window: Window, location: Location, external: Object, chrome: Object…}
 </code></pre>
 <h2>4. getEventListeners</h2>
 getEventListeners is very helpful when you want to know what are the events a dom is listening. 
@@ -169,23 +189,6 @@ unmonitorEvents will stop logging events for the element you started monitoring.
 <pre><code>
   > unmonitorEvents($('#myInput'));
     //no more logging of events
-</code></pre>
-<pre><code>
-  //edit texts in browser like a text editor
-  > document.body.contentEditable = true;
-    = true
-  //now you can edit anything on the page like a text editor  
-</code></pre>
-<pre><code>
-  //log object
-  >console.log('window: '+ window)
-   = window: [object Window] 
-
-   //this is not useful at all. i want to get the object
-   //and would like to expand properties. to solve this problem, use comma
-
-   > console.log('window: ', window)
-    = window: Window {top: Window, window: Window, location: Location, external: Object, chrome: Object…}
 </code></pre>
 
 <pre><code>
