@@ -99,7 +99,7 @@
  > $('a') === document.querySelector('a')
   = true
 </code></pre>
-<h2>2. $$</h2>
+<h3>$$</h3>
 $$ of chrome returns all the match for a css selector. This is equivalent to document.querySelectorAll. you will get an array of all the matched selectors.
 <pre><code> 
  > $$('a');
@@ -120,6 +120,11 @@ $$ of chrome returns all the match for a css selector. This is equivalent to doc
 
  >document.querySelectorAll('a').length;
  = 4
+</code></pre>
+<h2>2. Preserve Log</h2>
+<pre><code>
+  //preserve console.log
+  right cick on the console tabl and select "preserve log upon navigation"
 </code></pre>
 <h2>3. contentEditable</h2>
 Just edit anything as if browser is a text editor. This is very helpful when you want to take a quick screenshot. 
@@ -210,11 +215,6 @@ when you have too many things to log, the console get flooded. you can simply lo
   //remember you have to use console.groupEnd()
   //otherwise, all the consequence log would be grouped inside it 
 </code></pre>
-<h2>-. Preserve Log</h2>
-<pre><code>
-  //preserve console.log
-  right cick on the console tabl and select "preserve log upon navigation"
-</code></pre>
 <h2>9. console.table</h2>
 <pre><code>
   //console.table
@@ -262,6 +262,7 @@ you can start profiling from console tab. After finishing profiling (profileEnd)
   > porfileEnd('myProfile');
    = Profile 'myProfile' finished.
 </code></pre>
+<h2>15. dir</h2>
 <pre><code>
   //to get the all the propertis of an object/DOM element
   > dir($('#myInput'));
