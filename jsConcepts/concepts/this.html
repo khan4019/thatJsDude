@@ -85,25 +85,7 @@
     <script src="../../js/bootstrap.min.js"></script>
     <script src="../../js/oAuth/googleOAuth.js"></script>
     <script src="../../js/oAuth/cookieManager.js"></script>
-    <script type="text/javascript">
-      var uName = cookieManager.getCookie('uName');
-      if(uName){
-        $('#loginText, #logoutText').toggleClass('hide');
-        $('#uName').text('Welcome ' + uName);
-      }else{
-        $('#uName').addClass('hide');
-      }
-
-      $('#loginText').on('click', function(){
-        login();
-      });
-      $('#logoutText').on('click', function () {
-         
-         $('#myIFrame').location='https://www.google.com/accounts/Logout'; 
-         startLogoutPolling();
-         return false;
-      });
-    </script>
+    <script src="../../js/oAuth/managerLogin.js"></script>
     <script>
       $(document).ready(function(){
         // Target your .container, .wrapper, .post, etc.
