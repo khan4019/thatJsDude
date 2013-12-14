@@ -90,6 +90,7 @@
         <li>inspect</li>
         <li>$0-$4</li>
       </ul>
+      <h2>1. $</h2>
       When you dont have access to jQuery. you can pass any css selector to $. like $('a'), this will return the first elment of match. $ is an alias of document.querySelector
       <pre><code>
  > $('a');
@@ -98,6 +99,7 @@
  > $('a') === document.querySelector('a')
   = true
 </code></pre>
+<h2>2. $$</h2>
 $$ of chrome returns all the match for a css selector. This is equivalent to document.querySelectorAll. you will get an array of all the matched selectors.
 <pre><code> 
  > $$('a');
@@ -119,11 +121,13 @@ $$ of chrome returns all the match for a css selector. This is equivalent to doc
  >document.querySelectorAll('a').length;
  = 4
 </code></pre>
-
+<h2>3. Preserve Log</h2>
 <pre><code>
   //preserve console.log
   right cick on the console tabl and select "preserve log upon navigation"
 </code></pre>
+<h2>4. getEventListeners</h2>
+getEventListeners is very helpful when you want to know what are the events a dom is listening. 
 <pre><code>
   //get all the event binded to input with Id 'myInput'
  > getEventListeners($('#myInput'))
@@ -134,7 +138,18 @@ $$ of chrome returns all the match for a css selector. This is equivalent to doc
   //to view the binded code/listener
   //expand click, then Object, then lisenter
 </code></pre>
-
+It depends on how events are binded to the DOM. if you use any library like JQuery, you will not see your code attached to the listener. Rather, you will see, JQuery library code/ wrapper function that bind your code (callback fucntion) to the dom. By using vanila JS like this one bellow. if you see getEventListeners result and you expand click then first object and then listener you will get the function you have written. 
+<pre><code>
+  > $('#myInput').addEventListener('click', function (){ 
+      console.log('clicked'); 
+    });
+  
+  > getEventListensers($('#myInput'));
+    =Object {click:Array[1]}
+  > getEventListeners($('#myInput')).click[0].listener 
+    =function (){console.log('clicked');}  
+</code></pre>
+<h2>5. monitorEvents</h2>
 <pre><code>
   //monitorEvents
 </code></pre>
