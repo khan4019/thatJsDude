@@ -150,8 +150,19 @@ It depends on how events are binded to the DOM. if you use any library like JQue
     =function (){console.log('clicked');}  
 </code></pre>
 <h2>5. monitorEvents</h2>
-<pre><code>
-  //monitorEvents
+monitorEvents log the event fired by the element you passed to the fucntion. if you dont pass any parameter, it will log all events fired and your console will be flooded. to monitor a particular event of your interest, just pass the name of the event. if you want to monitor muliple events just pass an array of name of the events to the function. 
+<pre><code>  
+  > monitorEvents($('#myInput'));
+    =...
+    //this will monitor every single event happening to the input with ID myInput
+
+  > monitorEvents($('myInput'), 'click');
+    =...
+    //will log only when click event is fired from input with ID myInput
+
+  > monitorEvents($('#myInput'), ['click', 'keyup', 'focus']);
+    =...
+    //will log all click, keyup and focus events fired   
 </code></pre>
 <pre><code>
   //unmonitorEvents
