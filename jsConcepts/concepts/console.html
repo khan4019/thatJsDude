@@ -164,8 +164,11 @@ monitorEvents log the event fired by the element you passed to the fucntion. if 
     =...
     //will log all click, keyup and focus events fired   
 </code></pre>
+<h2>6. unmonitorEvents</h2>
+unmonitorEvents will stop logging events for the element you started monitoring. just pass the element to the fucntion. if you dont do this, browser will keep logging and this can become annoying.
 <pre><code>
-  //unmonitorEvents
+  > unmonitorEvents($('#myInput'));
+    //no more logging of events
 </code></pre>
 <pre><code>
   //edit texts in browser like a text editor
