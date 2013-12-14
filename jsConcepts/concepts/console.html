@@ -157,6 +157,19 @@
     = window: Window {top: Window, window: Window, location: Location, external: Object, chrome: Object…}
 </code></pre>
 
+<pre><code>
+  > console.groupCollapsed('my Error Group');
+    for(var i=50; i--;){
+       console.error(i);
+    }
+    console.groupEnd()
+  
+  == my Error Group
+  //if you expand "my Error Group" you will see all erros
+  //remember you have to use console.groupEnd()
+  //otherwise, all the consequence log would be grouped inside it 
+</code></pre>
+
       <hr>
 
       <footer>
