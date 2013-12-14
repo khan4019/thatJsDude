@@ -91,7 +91,7 @@
         <li>$0-$4</li>
       </ul>
       <h2>1. $</h2>
-      When you dont have access to jQuery. you can pass any css selector to $. like $('a'), this will return the first elment of match. $ is an alias of document.querySelector
+      When you dont have access to jQuery. You can pass any css selector to $. like $('a'), this will return the first elment of match. $ is an alias of document.querySelector
       <pre><code>
  > $('a');
   = &lta class=​"navbar-brand" href=​"../​../​index.html"&gt​That Js Dude​&lt/a&gt​
@@ -100,7 +100,7 @@
   = true
 </code></pre>
 <h3>$$</h3>
-$$ of chrome returns all the match for a css selector. This is equivalent to document.querySelectorAll. you will get an array of all the matched selectors.
+$$ of chrome returns all the match for a css selector. This is equivalent to document.querySelectorAll. You will get an array of all the matched selectors.
 <pre><code> 
  > $$('a');
  = [
@@ -118,13 +118,13 @@ $$ of chrome returns all the match for a css selector. This is equivalent to doc
  > $$('a').length;
  = 4
 
- >document.querySelectorAll('a').length;
+ > document.querySelectorAll('a').length;
  = 4
 </code></pre>
 <h2>2. Preserve Log</h2>
-<pre><code>
-  //preserve console.log
-  right cick on the console tabl and select "preserve log upon navigation"
+if you relaod the page, anything in the console get cleared. somtimes you want to compare values before after and want to preserve the log upon page load or navigate to a different site. This could easily be done.
+<pre><code>  
+  right cick on the console tab and select "preserve log upon navigation"
 </code></pre>
 <h2>3. contentEditable</h2>
 Just edit anything as if browser is a text editor. This is very helpful when you want to take a quick screenshot. 
@@ -145,6 +145,11 @@ String concatenation with an object makes it teriible when you want to log objec
 
    > console.log('window: ', window)
     = window: Window {top: Window, window: Window, location: Location, external: Object, chrome: Object…}
+
+   > console.log('window: ', window, 'body: ', document.body);
+    = widnow: Window{...}
+      body: <body class="hp vasq" onload="...">...</body>
+     
 </code></pre>
 <h2>5. getEventListeners</h2>
 getEventListeners is very helpful when you want to know what are the events a dom is listening. 
