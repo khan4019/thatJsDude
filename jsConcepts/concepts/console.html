@@ -177,7 +177,21 @@
    =  myTrace
    //you will get the call stack
 </code></pre>
-<pre><code></code></pre>
+<pre><code>
+  > function foo(){
+     console.count('fooed');
+   }
+  >foo();
+   = fooed: 1
+  >foo();
+   = fooed: 2
+  >foo();
+   = fooed: 3
+  >foo();
+   = fooed: 4
+  //everytime you hit the foo function. it will increase the count
+  //you dont have to have a global variable to remember the count     
+</code></pre>
 <pre><code></code></pre>
 
       <hr>
