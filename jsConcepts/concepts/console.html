@@ -67,29 +67,28 @@
       <div class="row center">        
         <iframe class="videoLink" width="853" height="480" src="//www.youtube.com/embed/2zmUSoVMyRU" frameborder="0" allowfullscreen></iframe> 
       </div>
-      
-      
-      <h4>soon, i will make a blog with it.</h4><a href="https://gist.github.com/cavneb/7873485">github gist</a>
-      <p>for now, go to the link above who sumaries topic discussed in the video.</p>
-      <ul>
-        <li>$, $$</li>
-        <li>Preserve</li>
-        <li>getEventListener</li>
-        <li>moitorEvents</li>
-        <li>unmonitorEvents</li>
-        <li>contentEditable</li>
-        <li>console.log(with comma)</li>
-        <li>groupCollapsable</li>
-        <li>console.table</li>
-        <li>console.trace</li>
-        <li>console.time</li>
-        <li>$_</li>
-        <li>console.count</li>
-        <li>profile</li>
-        <li>dir</li>
-        <li>inspect</li>
-        <li>$0-$4</li>
-      </ul>
+            
+      <h3>If you have hard time to follow this video, you can see the content below. Things you will learn-</h3>
+       <ul>
+         <li>use $, $$ like jQuery</li>
+         <li>preserve current content in the log</li>
+         <li>edit contents like a text editor</li>
+         <li>get all the event bound to a DOM</li>
+         <li>moitor specif Events when fired</li>
+         <li>stop monitoring Events when done</li>         
+         <li>log multiple object than can expand</li>
+         <li>group all or some log together</li>
+         <li>view multiple object in a table</li>
+         <li>get call stack anytime, anywhere</li>
+         <li>time to run code</li>
+         <li>get the last result in console</li>
+         <li>how manytimes a function is called</li>
+         <li>profile from console tab</li>
+         <li>get properties of dom or any object</li>
+         <li>inspect form console tab</li>
+         <li>get previous dom</li>
+       </ul>
+
       <h2>1. $</h2>
       When you dont have access to jQuery. You can pass any css selector to $. like $('a'), this will return the first elment of match. $ is an alias of document.querySelector
       <pre><code>
@@ -99,7 +98,6 @@
  > $('a') === document.querySelector('a')
   = true
 </code></pre>
-<h3>$$</h3>
 $$ of chrome returns all the match for a css selector. This is equivalent to document.querySelectorAll. You will get an array of all the matched selectors.
 <pre><code> 
  > $$('a');
@@ -148,13 +146,11 @@ String concatenation with an object makes it teriible when you want to log objec
 
    > console.log('window: ', window, 'body: ', document.body);
     = widnow: Window{...}
-      body: <body class="hp vasq" onload="...">...</body>
-     
+      body: <body class="hp vasq" onload="...">...</body>     
 </code></pre>
 <h2>5. getEventListeners</h2>
-getEventListeners is very helpful when you want to know what are the events a dom is listening. 
-<pre><code>
-  //get all the event binded to input with Id 'myInput'
+getEventListeners is very helpful when you want to know what are the events a dom is listening. Get all the event binded to input with Id 'myInput'
+<pre><code>  
  > getEventListeners($('#myInput'))
   = Object {click: Array[1], keyup: Array[1], focus: Array[1]}
 
