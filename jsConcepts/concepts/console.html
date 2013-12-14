@@ -179,11 +179,21 @@ monitorEvents log the event fired by the element you passed to the fucntion. if 
     =...
     //will log all click, keyup and focus events fired   
 </code></pre>
-<h2>7. unmonitorEvents</h2>
+<h3>unmonitorEvents</h3>
 unmonitorEvents will stop logging events for the element you started monitoring. just pass the element to the fucntion. if you dont do this, browser will keep logging and this can become annoying.
 <pre><code>
   > unmonitorEvents($('#myInput'));
     //no more logging of events
+</code></pre>
+<h2>7. console.time</h2>
+<pre><code>
+  > console.time('myLoop');
+    for(var i=0; i<100000; i++){
+      2+2*3;
+    }
+    console.timeEnd('myLoop');
+
+  = myLoop: 86.000ms 
 </code></pre>
 <h2>8. Preserve Log</h2>
 <pre><code>
