@@ -83,7 +83,9 @@
         <li>console.table</li>
         <li>console.trace</li>
         <li>console.time</li>
-        <li>console.profile</li>
+        <li>$_</li>
+        <li>console.count</li>
+        <li>profile</li>
         <li>dir</li>
         <li>inspect</li>
         <li>$0-$4</li>
@@ -181,28 +183,34 @@
   > function foo(){
      console.count('fooed');
    }
-  >foo();
+  > foo();
    = fooed: 1
-  >foo();
+  > foo();
    = fooed: 2
-  >foo();
+  > foo();
    = fooed: 3
-  >foo();
+  > foo();
    = fooed: 4
   //everytime you hit the foo function. it will increase the count
   //you dont have to have a global variable to remember the count     
 </code></pre>
 <pre><code>
-  >profile('myProfile');
+  > profile('myProfile');
    = Profile 'myProfile' started;
 
   //do whaterver you want to profile 
 
-  >porfileEnd('myProfile');
+  > porfileEnd('myProfile');
    = Profile 'myProfile' finished.
 
   //go to the profile tab of dev tool. you will see 'myProfile' 
   //and do the digging you want to do. 
+</code></pre>
+<pre><code>
+  //to get the all the propertis of an object/DOM element
+  > dir($('#myInput'));
+   = input#myInput
+   //you can expand it to see all the properties
 </code></pre>
 
       <hr>
