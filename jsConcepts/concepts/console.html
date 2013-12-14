@@ -186,6 +186,7 @@ unmonitorEvents will stop logging events for the element you started monitoring.
     //no more logging of events
 </code></pre>
 <h2>7. console.time</h2>
+console.time helps you to see how long a block of code tooks to execute. 
 <pre><code>
   > console.time('myLoop');
     for(var i=0; i<100000; i++){
@@ -195,11 +196,8 @@ unmonitorEvents will stop logging events for the element you started monitoring.
 
   = myLoop: 86.000ms 
 </code></pre>
-<h2>8. Preserve Log</h2>
-<pre><code>
-  //preserve console.log
-  right cick on the console tabl and select "preserve log upon navigation"
-</code></pre>
+<h2>8. console.group</h2>
+when you have too many things to log, the console get flooded. you can simply log console generating from one place. or all the palces. if you dont write console.groupEnd(), all the consequent console will be grouped. this could be useful.
 <pre><code>
   > console.groupCollapsed('my Error Group');
     for(var i=50; i--;){
@@ -212,9 +210,27 @@ unmonitorEvents will stop logging events for the element you started monitoring.
   //remember you have to use console.groupEnd()
   //otherwise, all the consequence log would be grouped inside it 
 </code></pre>
+<h2>-. Preserve Log</h2>
+<pre><code>
+  //preserve console.log
+  right cick on the console tabl and select "preserve log upon navigation"
+</code></pre>
+<h2>9. console.table</h2>
 <pre><code>
   //console.table
 </code></pre>
+<h2>10. $_</h2>
+<pre><code>
+  
+</code></pre>
+<h2>11. clear</h2>
+For windows you can press Ctrl + L for mac Cmd + K to clear your console. it is an alias of console.clear that will clean your garbases in console
+<pre><code>
+  > clear();
+    //will remove everything from your console.
+
+</code></pre>
+<h2>12. console.trace</h2>
 <pre><code>
   > console.trace('myTrace');
    =  myTrace
