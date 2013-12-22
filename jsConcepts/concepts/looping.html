@@ -152,6 +152,16 @@ myArr[-7] = -7;
 > myArr;
   = [1, 2, 3, 4]  
   </code></pre>
+  <strong>To soleve this problem:</strong>
+  <p>If you have random index, use object other than array. if you are looping, use for in loop</p>
+  <pre><code>
+var myObj = {};
+myObj[-7] = 7;
+myObj[68] = 69;
+
+> myObj;
+  = Object {68: 69, -7: 7}
+  </code></pre>
 </div>
 <!-- div>h2+p+pre>code -->
 
