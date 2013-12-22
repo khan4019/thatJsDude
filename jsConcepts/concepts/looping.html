@@ -232,7 +232,14 @@ for(;;i--){
   if(!i) break;
 }
 </code></pre>
-<p></p>
+<p>you can miss the third statement as well. Make sure u change looping variable otherwise you will run forever</p>
+<pre><code>
+var i=5;
+for(;;){
+  console.log(i--);
+  if(!i) break;
+}
+</code></pre>
 </div>
 
 <!-- div>h2+p+pre>code -->
