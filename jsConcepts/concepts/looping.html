@@ -241,7 +241,26 @@ for(;;){
 }
 </code></pre>
 </div>
+<div>
+  <h2>5. push pop</h2>
+  <p>you know you can push one at a time. do you know you can push more than one at a time. But dont push an array, that will be one element of the whole array</p>
+  <pre><code>
+var family= ['william', 'kate'];
+family.push('prince George', 'princess Nevada');
 
+> family;
+  = ["william", "kate", "prince George", "princess Nevada"]
+
+//don't insert an array, if u dont mean it
+family.push(['children', 'of', 'duke']);
+
+> family
+  = ["william", "kate", "prince George", "princess Nevada", Array[3] ]
+
+>family.length;
+  = 5  
+  </code></pre>
+</div>
 <!-- div>h2+p+pre>code -->
 
 
