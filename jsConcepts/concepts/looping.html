@@ -141,7 +141,17 @@ myArr[68] = 69;
   = 69
 > myArr;
   =[1, 2, 3, 4, undefined × 64, 69]
-  </code></pre>  
+  </code></pre>
+  <p>Don't insert by negative (-ve) index. they will simply be lost</p>
+  <pre><code>
+var myArr = [1,2,3,4];
+myArr[-7] = -7;
+
+> myArr.length;
+  = 4
+> myArr;
+  = [1, 2, 3, 4]  
+  </code></pre>
 </div>
 <!-- div>h2+p+pre>code -->
 
