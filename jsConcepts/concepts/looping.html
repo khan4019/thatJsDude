@@ -154,6 +154,21 @@ myArr['myDude'] = 'thatJSDude';
 > myArr;
   = [1, 2, 3, 4]  
   </code></pre>
+  <p>While reading by index. you cant trust it. it doesnt throw OutOfIndex error. if you try to get elements by using index higher than the length or invalid index, it just returns "underfined"</p>
+  <pre><code>
+var myArr = [1,2,3,4];
+
+> myArr[2];
+  = 3
+> myArr[169];
+  = undefined  
+> myArr[2.5];
+  = undefined
+> myArr['myDude'];
+  = undefined
+> myArr[-7];
+  = undefined
+  </code></pre>
   <strong>To soleve this problem:</strong>
   <p>If you have random index, use object other than array. if you are looping, use for in loop</p>
   <pre><code>
