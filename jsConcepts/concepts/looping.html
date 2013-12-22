@@ -71,8 +71,8 @@
       <h3>If you have hard time to follow this video, you can see the content below. Things you will learn-</h3>
        <ul>          
        </ul>
-<div>
-  <h2>Create Array</h2>
+<div id="create_array">
+  <h2>1. Create Array</h2>
   <p></p>
   <pre><code>
     //constructor
@@ -87,7 +87,14 @@
     > myArr.length;
       = 4 
   </code></pre>
-  <p>Additionally, you can set array length inside constructor. However, this is not recommended if you are not sure you will use the whole array</p>
+  <p>Additionally, you can set array length inside constructor. However, this is not recommended if you are not sure you will use the whole array. As this will create an array with "undefined" elements</p>
+  <pre><code>
+    var myArr = new Array(100);
+    > myArr;
+      = [undefined × 100]
+  </code></pre>
+  <p>rather construct it as empty array. if you know intial elements, its recommended to put them there rather inserting them later.</p>
+  
 </div>
 <!-- div>h2+p+pre>code -->
 
