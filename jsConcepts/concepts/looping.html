@@ -73,9 +73,9 @@
        </ul>
 <div id="create_array">
   <h2>1. Best way to Create Array</h2>
-  <p></p>
+  <strong>using constructor:</strong>
+  <p>One of the ways to create array is to call the new Array() constructor.</p>
   <pre><code>
-//constructor
 var myArr = new Array();
 myArr[0] = 'Happy';
 myArr[1] = 'New';
@@ -97,6 +97,7 @@ var myArr2 = new Array(2,3,4,5);
 > myArr;  
   = [2, 3, 4, 5]
   </code></pre>
+  <strong>better alternative:</strong>
   <p>rather construct it as empty array. if you know intial elements, its recommended to put them there rather inserting them later.</p>
   <pre><code>
 var myArr = [];
@@ -114,16 +115,17 @@ var myArr = ['javaScript', 'is', 'my', 'favorite', 'language' ];
 > myArr.length;
   = 5  
   </code></pre>
+  <strong>Don't blindly set length:</strong>
   <p>if you set the length you resize the array. If you set length to a number higher than the actual length, insert "underfined" elements. On the otherhand, if you set length lower than the actual length, it removes all the elements after the newly set length. <span style="color:purple;">So, be careful to set array.length</span></p>
 
   <pre><code>
 myArr.length = 8;
 > myArr;
-  = ["javaScript", "is", "my", "favorite", "language", undefined × 3] //three undefined elements
+  = ["javaScript", "is", "my", "favorite", "language", undefined × 3] //three undefined elements inserted
 
-myArr.length = 8;
+myArr.length = 4;
 > myArr;
-  = ["javaScript", "is", "my", "favorite", "language", undefined × 3] //three undefined elements
+  = ["javaScript", "is", "my", "favorite"] //removed 4 elements
 
   </code></pre>
 </div>
@@ -146,6 +148,7 @@ myArr[68] = 69;
 > myArr;
   =[1, 2, 3, 4, undefined × 64, 69]
   </code></pre>
+  <strong>Only use positive integer as Index:</strong>
   <p>Don't insert by negative (-ve) index. In fact, only use positive interger as index. Javascript will not give any error, they will simply be lost when you check array in bare eye. However they sticks, you can read as property or by using a for-in loop</p>
   <pre><code>
 var myArr = [1,2,3,4];
