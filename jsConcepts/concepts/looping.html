@@ -102,6 +102,27 @@
   </code></pre>
   ref: <a href="http://yuiblog.com/blog/2006/11/13/javascript-we-hardly-new-ya/">Hardly use new</a>, <a href="http://www.2ality.com/2012/06/dense-arrays.html">Sparse vs Dense Array</a>
 </div>
+<div id="array_length">
+  <h2>2. be careful to set array length</h2>
+  <p>array.length if you only want to read it</p>
+  <pre><code>
+var myArr = ['javaScript', 'is', 'my', 'favorite', 'language' ];
+> myArr.length;
+  = 5  
+  </code></pre>
+  <p>if you set the length you resize the array. If you set length to a number higher than the actual length, insert "underfined" elements. On the otherhand, if you set length lower than the actual length, it removes all the elements after the newly set length. <span style="color:purple;">So, be careful to set array.length</span></p>
+
+  <pre><code>
+myArr.length = 8;
+> myArr;
+  = ["javaScript", "is", "my", "favorite", "language", undefined × 3] //three undefined elements
+
+myArr.length = 8;
+> myArr;
+  = ["javaScript", "is", "my", "favorite", "language", undefined × 3] //three undefined elements
+
+  </code></pre>
+</div>
 <!-- div>h2+p+pre>code -->
 
 
