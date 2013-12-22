@@ -123,6 +123,26 @@ myArr.length = 8;
 
   </code></pre>
 </div>
+<div>
+  <h2>3. Don't randomly insert by Index</h2>
+  <p>if you insert elements in an arry by index. Please make sure you insert the element in the right place. If you just put an index much higher than the length of the array, JavaScript will put "underfined" elements in between and waste a lot of memory</p>
+  <pre><code>
+var myArr = [];
+myArr[0] = 1;
+myArr[1] = 2;
+myArr[2] = 3;
+myArr[3] = 4;
+
+> myArr.length;
+  = 4
+//just enter an element in higher index
+myArr[68] = 69;
+> myArr.length;
+  = 69
+> myArr;
+  =[1, 2, 3, 4, undefined × 64, 69]
+  </code></pre>  
+</div>
 <!-- div>h2+p+pre>code -->
 
 
