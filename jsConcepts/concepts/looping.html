@@ -142,10 +142,12 @@ myArr[68] = 69;
 > myArr;
   =[1, 2, 3, 4, undefined × 64, 69]
   </code></pre>
-  <p>Don't insert by negative (-ve) index. they will simply be lost</p>
+  <p>Don't insert by negative (-ve) index. In fact, only use positive interger as index. Javascript will not give any error, they will simply be lost</p>
   <pre><code>
 var myArr = [1,2,3,4];
 myArr[-7] = -7;
+myArr[2.5] = 3.5;
+myArr['myDude'] = 'thatJSDude';
 
 > myArr.length;
   = 4
