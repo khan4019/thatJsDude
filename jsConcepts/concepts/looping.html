@@ -75,30 +75,34 @@
   <h2>1. Best way to Create Array</h2>
   <p></p>
   <pre><code>
-    //constructor
-    var myArr = new Array();
-    myArr[0] = 'Happy';
-    myArr[1] = 'New';
-    myArr[2] = 'Year';
+//constructor
+var myArr = new Array();
+myArr[0] = 'Happy';
+myArr[1] = 'New';
+myArr[2] = 'Year';
 
-    > myArr;
-      = ["Happy", "New", "Year"]
+> myArr;
+  = ["Happy", "New", "Year"]
 
-    > myArr.length;
-      = 4 
+> myArr.length;
+  = 4 
   </code></pre>
-  <p>Additionally, you can set array length inside constructor. However, this is not recommended if you are not sure you will use the whole array. As this will create an array with "undefined" elements</p>
+  <p>Additionally, you can set array length inside constructor. However, this is not recommended if you are not sure you will use the whole array. As this will create an array with "undefined" elements. Besides, you can pass elements.</p>
   <pre><code>
-    var myArr = new Array(100);
-    > myArr;
-      = [undefined × 100]
+var myArr = new Array(100);
+> myArr;
+  = [undefined × 100]
+
+var myArr2 = new Array(2,3,4,5);
+> myArr;  
+  = [2, 3, 4, 5]
   </code></pre>
   <p>rather construct it as empty array. if you know intial elements, its recommended to put them there rather inserting them later.</p>
   <pre><code>
-    var myArr = [];
-    
-    //create with elements if you know
-    var myArr2 = ['You', 'Are', 'the', 'Best' ];    
+var myArr = [];
+
+//create with elements if you know
+var myArr2 = ['You', 'Are', 'the', 'Best' ];    
   </code></pre>
   ref: <a href="http://yuiblog.com/blog/2006/11/13/javascript-we-hardly-new-ya/">Hardly use new</a>, <a href="http://www.2ality.com/2012/06/dense-arrays.html">Sparse vs Dense Array</a>
 </div>
@@ -179,6 +183,7 @@ myObj[68] = 69;
 > myObj;
   = Object {68: 69, -7: 7}
   </code></pre>
+  ref: <a href="http://blog.caplin.com/2012/01/13/javascript-is-hard-part-1-you-cant-trust-arrays/">Can't Trust Array</a>
 </div>
 <!-- div>h2+p+pre>code -->
 
