@@ -297,27 +297,32 @@ bigFamily.unshift(["Uncle's gf", 'her daughter']);
 </div>
 <div>
   <h2>7. Basic Array method</h2>
-  <p>Most array methods of es5 has three parameters: elem, index, arr.</p>
+  <p>Nothing exciting in this section. Most array methods of es5 has three parameters: elem, index, arr.</p>
+  <strong>map</strong>
+  <p>returns new array by executing the callback function for each elements of the array</p>
   <pre><code>
-//get square of the elements    
 > [1,2,3].map(function(elem, index, arr){
     return elem * elem;
   });
   = [1, 4, 9];
-
+</code></pre>
+<pre><code>
 //filter elements by even index
 > [1,2,3,4,5,6,7].filter(function(elem, index, arr){
     return index % 2==0;
   });
   = [1, 3, 5, 7]
-
+</code></pre>
+<pre><code>
   //some is similar to C# Any. 
   //whether any of your elemnt fulfill the criteria
   >[1,2,3, 4].some(function(elem, index, arr){
     return elem >3;
   });
   = true;
-  </code></pre>
+</code></pre>
+
+  
 </div>
 
 <!-- div>h2+p+pre>code -->
