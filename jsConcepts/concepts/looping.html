@@ -146,7 +146,7 @@ myArr[68] = 69;
 > myArr;
   =[1, 2, 3, 4, undefined × 64, 69]
   </code></pre>
-  <p>Don't insert by negative (-ve) index. In fact, only use positive interger as index. Javascript will not give any error, they will simply be lost</p>
+  <p>Don't insert by negative (-ve) index. In fact, only use positive interger as index. Javascript will not give any error, they will simply be lost when you check array in bare eye. However they sticks, you can read as property or by using a for-in loop</p>
   <pre><code>
 var myArr = [1,2,3,4];
 myArr[-7] = -7;
@@ -174,7 +174,7 @@ var myArr = [1,2,3,4];
   = undefined
   </code></pre>
   <strong>To soleve this problem:</strong>
-  <p>If you have random index, use object other than array. if you are looping, use for in loop</p>
+  <p>If you have random index, use object/ Associated Array other than array. if you are looping, use for in loop</p>
   <pre><code>
 var myObj = {};
 myObj[-7] = 7;
