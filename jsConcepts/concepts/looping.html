@@ -20,6 +20,10 @@
         padding-top: 50px;
         padding-bottom: 20px;
       }
+      .purpleBold{
+        color:purple;        
+        font-weight: bold;
+      }
       .singInStuff{
         margin-top: 9px;
       }
@@ -116,7 +120,7 @@ var myArr = ['javaScript', 'is', 'my', 'favorite', 'language' ];
   = 5  
   </code></pre>
   <strong>Don't blindly set length:</strong>
-  <p>if you set the length you resize the array. If you set length to a number higher than the actual length, insert "underfined" elements. On the otherhand, if you set length lower than the actual length, it removes all the elements after the newly set length. <span style="color:purple;">So, be careful to set array.length</span></p>
+  <p>if you set the length you resize the array. If you set length to a number higher than the actual length, insert "underfined" elements. On the otherhand, if you set length lower than the actual length, it removes all the elements after the newly set length. <span class="purpleBold">So, be careful to set array.length</span></p>
 
   <pre><code>
 myArr.length = 8;
@@ -288,6 +292,8 @@ bigFamily.unshift(["Uncle's gf", 'her daughter']);
 > bigFamily.length;
   = 7
   </code></pre>
+  <p>shift will return you the first element of the array and will remove it. shift reduces the array length by 1.
+  <span class="purpleBold">unshift and shift is slower than push pop</span></p>
 </div>
 
 <!-- div>h2+p+pre>code -->
