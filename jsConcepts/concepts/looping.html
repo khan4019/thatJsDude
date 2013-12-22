@@ -196,6 +196,18 @@ for(statement-1; statement-2; setatement-3){
   //your awesome code here
 }
   </code></pre>
+  <p>The first statement is executed only once, before starting of the loop. This could save you calculating length againg and again.  You can have multiple declaration or you can miss it completely.</p>
+  <pre><code>
+//array length is calculated every single iteration
+for(var i =0; i&lt myArr.length;; i++){
+  //my awesome looping
+}
+
+//array length is calcaulted only once
+for(var i =0, len = myArr.length; i&ltlen; i++){
+  //my awesome looping
+}
+  </code></pre>
 </div>
 
 <!-- div>h2+p+pre>code -->
