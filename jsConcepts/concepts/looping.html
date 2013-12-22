@@ -263,6 +263,33 @@ family.push(['children', 'of', 'duke']);
   </code></pre>
   <p>pop just removes the last element and returns it. if there is no element in left, it returns undefined.</p>
 </div>
+<div>
+  <h2>6. unshift multiple</h2>
+  <p>unshfit inserts elements at the head (beginning) of the array and updates the length property. you can insert multiple property at the same time</p>
+  <pre><code>
+var bigFamily = ['Dad', 'uncle', 'me without gf'];
+bigFamily.unshift("Dad's gf");
+
+> bigFamily;
+  = ["Dad's gf", "Dad", "uncle", "me without gf"]
+
+bigFamily.unshift('grandPa', 'grandMa');
+
+> bigFamily;
+  = ["grandPa", "grandMa", "Dad's gf", "Dad", "uncle", "me without gf"]
+> bigFamily.length;
+  = 6
+
+//be careful to unshift array. it will be just one element
+bigFamily.unshift(["Uncle's gf", 'her daughter']);
+
+> bigFamily
+  = [ Array[2], "grandPa", "grandMa", "Dad's gf", "Dad", "uncle", "me without gf"]
+> bigFamily.length;
+  = 7
+  </code></pre>
+</div>
+
 <!-- div>h2+p+pre>code -->
 
 
