@@ -346,22 +346,35 @@ ref: <a href="http://es5.github.io/#x15.4.4.14">es5:indexOf</a>
   });
   = [1, 4, 9];
 </code></pre>
+<strong>filter</strong>
+<p>if the condition is true for an element, element is picked for the return array</p>
 <pre><code>
-//filter elements by even index
 > [1,2,3,4,5,6,7].filter(function(elem, index, arr){
     return index % 2==0;
   });
   = [1, 3, 5, 7]
 </code></pre>
+<strong>some</strong>
+<p>if any of element in the arrya fulfil the condition, some will return true else will return false</p>
 <pre><code>
-  //some is similar to C# Any. 
-  //whether any of your elemnt fulfill the criteria
   >[1,2,3, 4].some(function(elem, index, arr){
     return elem >3;
   });
   = true;
 </code></pre>
+<strong>every</strong>
+<p>it will return true if every elements in the array fulfil the condition. else return false</p>
+<pre><code>
+>[1,2,3, 4].some(function(elem, index, arr){
+    return elem >3;
+  });
+  = false;
 
+>[1,2,3, 4].some(function(elem, index, arr){
+    return elem >0;
+  });
+  = false;  
+</code></pre>
   
 </div>
 <div>
