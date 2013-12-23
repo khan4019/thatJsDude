@@ -122,11 +122,7 @@ var myArr2 = ['You', 'Are', 'the', 'Best' ];
   <h2>2. Don't randomly insert by Index</h2>
   <p>if you insert elements in an arry by index. Please make sure you insert the element in the right place. If you just put an index much higher than the length of the array, JavaScript will put "underfined" elements in between and waste a lot of memory</p>
   <pre><code>
-var myArr = [];
-myArr[0] = 1;
-myArr[1] = 2;
-myArr[2] = 3;
-myArr[3] = 4;
+var myArr = [1, 2, 3, 4];
 
 > myArr.length;
   = 4
@@ -141,7 +137,7 @@ myArr[68] = 69;
   <div>
     <h2>3. use right index to insert</h2>
   <strong>Only use positive integer as Index:</strong>
-  <p>Don't insert by negative (-ve) index. In fact, only use positive interger as index. Javascript will not give any error, they will simply be lost when you check array in bare eye. However they sticks, you can read as property or by using a for-in loop</p>
+  <p>if you use, negative (-ve) integer, float number or string as index, you will see it in array. even for loop will not display these.  In fact, only use positive interger as index. Javascript will not give any error, they will simply be lost when you check array in bare eye. However they sticks, you can read as property or by using a for-in loop. or use dir() in the browser.</p>
   <pre><code>
 var myArr = [1,2,3,4];
 myArr[-7] = -7;
@@ -153,7 +149,7 @@ myArr['myDude'] = 'thatJSDude';
 > myArr;
   = [1, 2, 3, 4]  
   </code></pre>
-  <p>While reading by index. you cant trust it. it doesnt throw OutOfIndex error. if you try to get elements by using index higher than the length or invalid index, it just returns "underfined"</p>
+  <p>However you can read those</p>
   <pre><code>
 var myArr = [1,2,3,4];
 
@@ -162,11 +158,11 @@ var myArr = [1,2,3,4];
 > myArr[169];
   = undefined  
 > myArr[2.5];
-  = undefined
+  = 3.5
 > myArr['myDude'];
-  = undefined
+  = "thatJSDude"
 > myArr[-7];
-  = undefined
+  = -7
   </code></pre>
   <strong>To soleve this problem:</strong>
   <p>If you have random index, use object/ Associated Array other than array. if you are looping, use for in loop</p>
