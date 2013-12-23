@@ -399,13 +399,28 @@ ref: <a href="http://es5.github.io/#x15.4.4.14">es5:indexOf</a>
   <p>ref: <a href="http://net.tutsplus.com/tutorials/javascript-ajax/what-they-didnt-tell-you-about-es5s-array-extras/">es5 array extra</a></p>
 </div>
 <div>
-  <h2>real length by reduce</h2>
-  <p></p>
+  <h2>13. real length by reduce</h2>
+  <p>talk about reduce here</p>
   <pre><code> 
 > ["hello", , , , , "javaScript"].reduce(function(count){ 
     return count + 1; 
   }, 0);
   = 2 
+  </code></pre>
+</div>
+<div>
+  <h2>14. check array</h2>
+  <p></p>
+  <pre><code>
+> typeof []
+  = "object"
+> typeof {}
+  = "object"  
+
+> Array.isArray([]);
+  = true
+> Array.isArray({});
+  = false
   </code></pre>
 </div>
 
