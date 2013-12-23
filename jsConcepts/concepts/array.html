@@ -212,15 +212,14 @@ bigFamily.unshift("Dad's gf");
 
 bigFamily.unshift('grandPa', 'grandMa');
 
-> bigFamily;
-  = ["grandPa", "grandMa", "Dad's gf", "Dad", "uncle", "me without gf"]
-> bigFamily.length;
-  = 6
-
+bigFamily;
+  = ['grandPa', 'grandMa', "Dad's gf", "Dad", "uncle", "me without gf"]
+  </code></pre>
+  <pre><code>
 //be careful to unshift array. it will be just one element
 bigFamily.unshift(["Uncle's gf", 'her daughter']);
 
-> bigFamily
+bigFamily
   = [ Array[2], "grandPa", "grandMa", "Dad's gf", "Dad", "uncle", "me without gf"]
 > bigFamily.length;
   = 7
