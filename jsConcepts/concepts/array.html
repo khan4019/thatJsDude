@@ -96,21 +96,10 @@
 <div id="create_array">
   <h2>1. Best way to Create Array</h2>
   <strong>using constructor:</strong>
-  <p>One of the ways to create array is to call the new Array() constructor.</p>
+  <p>One of the ways to create array is to call the new Array() constructor. Additionally, you can set array length inside constructor. However, this is not recommended if you are not sure you will use the whole array. As this will create an array with "undefined" elements. Besides, you can pass elements.</p>
   <pre><code>
 var myArr = new Array();
-myArr[0] = 'Happy';
-myArr[1] = 'New';
-myArr[2] = 'Year';
-
-> myArr;
-  = ["Happy", "New", "Year"]
-
-> myArr.length;
-  = 4 
-  </code></pre>
-  <p>Additionally, you can set array length inside constructor. However, this is not recommended if you are not sure you will use the whole array. As this will create an array with "undefined" elements. Besides, you can pass elements.</p>
-  <pre><code>
+//or
 var myArr = new Array(100);
 > myArr;
   = [undefined × 100]
