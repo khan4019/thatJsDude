@@ -398,6 +398,16 @@ ref: <a href="http://es5.github.io/#x15.4.4.14">es5:indexOf</a>
   </code></pre>
   <p>ref: <a href="http://net.tutsplus.com/tutorials/javascript-ajax/what-they-didnt-tell-you-about-es5s-array-extras/">es5 array extra</a></p>
 </div>
+<div>
+  <h2>real length by reduce</h2>
+  <p></p>
+  <pre><code> 
+> ["hello", , , , , "javaScript"].reduce(function(count){ 
+    return count + 1; 
+  }, 0);
+  = 2 
+  </code></pre>
+</div>
 
 <p>for more: <a href="http://blog.mikota.cz/2013/06/fun-with-javascript-arrays.html">Fun with JS Array</a>, <a href="https://www.destroyallsoftware.com/talks/wat">WAT</a></p>
 <!-- div>h2+p+pre>code -->
