@@ -327,6 +327,17 @@ ref: <a href="http://es5.github.io/#x15.4.4.14">es5:indexOf</a>
 <div>
   <h2>8. Basic Array method</h2>
   <p>callback function of map, filter, some, every, forEach has three parameters: elem, index, arr. And you can optionally pass "this" as second argument of these Array method.</p>
+  <strong>forEach</strong>
+  <p>forEach dont return anything. it just run the callback functionf or each element of the array</p>
+  <pre><code>
+> [1,2,3].forEach(function(elem, index, arr){
+    console.log(elem);
+  });
+  = 1
+  = 2
+  = 3
+    
+  </code></pre>
   <strong>map</strong>
   <p>returns new array by executing the callback function for each elements of the array</p>
   <pre><code>
@@ -353,6 +364,12 @@ ref: <a href="http://es5.github.io/#x15.4.4.14">es5:indexOf</a>
 
   
 </div>
+<div>
+  <h2></h2>
+  <p></p>
+  <pre><code></code></pre>
+</div>
+
 <p>for more: <a href="http://blog.mikota.cz/2013/06/fun-with-javascript-arrays.html">Fun with JS Array</a>, <a href="https://www.destroyallsoftware.com/talks/wat">WAT</a></p>
 <!-- div>h2+p+pre>code -->
 
