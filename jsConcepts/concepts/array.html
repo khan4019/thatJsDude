@@ -188,63 +188,12 @@ myObj[68] = 69;
 > myObj;
   = Object {68: 69, -7: 7}
   </code></pre>
+  <p class="purpleBold">talk about dir(myArr)</p>
   ref: <a href="http://blog.caplin.com/2012/01/13/javascript-is-hard-part-1-you-cant-trust-arrays/">Can't Trust Array</a>, <a href="http://coredogs.com/article/number-elements-javascript-array-length-misleading">misleading length</a>
 </div>
+
 <div>
-  <h2>4. Fun with For loop</h2>
-  <p>lets play with three statements of a for loop. You can miss one, more or all of them </p>
-  <pre><code>
-for(statement-1; statement-2; setatement-3){
-  //your awesome code here
-}
-  </code></pre>
-  <strong>Dont exectute length stupidly</strong>
-  <p>The first statement is executed only once, before starting of the loop. This could save you calculating length againg and again.  You can have multiple declaration or you can miss it completely.</p>
-  <pre><code>
-//array length is calculated every single iteration
-for(var i =0; i&lt myArr.length;; i++){
-  //my awesome looping
-}
-
-//array length is calcaulted only once
-for(var i =0, len = myArr.length; i&ltlen; i++){
-  //my awesome looping
-}
-
-//even you can hoist first statement
-var i =0, 
-    len = myArr.length;
-for(; i&ltlen; i++){
-  //my awesome looping
-}
-  </code></pre>
-<p>you can have multiple condition in the 2nd statement or you can skip it (make sure u have a break somewhere otherwise it will run forever)</p>
-<pre><code>
-var myArr = [1,2,3,4,5,6,7,8,9], 
-    i = myArr.length;
-
-for(; i>=0 && i%5!=0;i--){
-  console.log(myArr[i]);  
-}
-
-//skip second statement
-var i=5;
-for(;;i--){
-  console.log(i);
-  if(!i) break;
-}
-</code></pre>
-<p>you can miss the third statement as well. Make sure u change looping variable otherwise you will run forever</p>
-<pre><code>
-var i=5;
-for(;;){
-  console.log(i--);
-  if(!i) break;
-}
-</code></pre>
-</div>
-<div>
-  <h2>5. push multiple</h2>
+  <h2>4. push multiple</h2>
   <p>push inserts elements in the tail and updates length property of the array</p>
   <p>you know you can push one at a time. do you know you can push more than one at a time. But dont push an array, that will be one element of the whole array</p>
   <pre><code>
@@ -266,7 +215,7 @@ family.push(['children', 'of', 'duke']);
   <p>pop just removes the last element and returns it. if there is no element in left, it returns undefined.</p>
 </div>
 <div>
-  <h2>6. unshift multiple</h2>
+  <h2>5. unshift multiple</h2>
   <p>unshfit inserts elements at the head (beginning) of the array and updates the length property. you can insert multiple property at the same time</p>
   <pre><code>
 var bigFamily = ['Dad', 'uncle', 'me without gf'];
@@ -438,7 +387,59 @@ myArr.length = 4;
 
 <p>for more: <a href="http://blog.mikota.cz/2013/06/fun-with-javascript-arrays.html">Fun with JS Array</a>, <a href="https://www.destroyallsoftware.com/talks/wat">WAT</a></p>
 <!-- div>h2+p+pre>code -->
+<div>
+  <h2>Fun with For loop</h2>
+  <p>lets play with three statements of a for loop. You can miss one, more or all of them </p>
+  <pre><code>
+for(statement-1; statement-2; setatement-3){
+  //your awesome code here
+}
+  </code></pre>
+  <strong>Dont exectute length stupidly</strong>
+  <p>The first statement is executed only once, before starting of the loop. This could save you calculating length againg and again.  You can have multiple declaration or you can miss it completely.</p>
+  <pre><code>
+//array length is calculated every single iteration
+for(var i =0; i&lt myArr.length;; i++){
+  //my awesome looping
+}
 
+//array length is calcaulted only once
+for(var i =0, len = myArr.length; i&ltlen; i++){
+  //my awesome looping
+}
+
+//even you can hoist first statement
+var i =0, 
+    len = myArr.length;
+for(; i&ltlen; i++){
+  //my awesome looping
+}
+  </code></pre>
+<p>you can have multiple condition in the 2nd statement or you can skip it (make sure u have a break somewhere otherwise it will run forever)</p>
+<pre><code>
+var myArr = [1,2,3,4,5,6,7,8,9], 
+    i = myArr.length;
+
+for(; i>=0 && i%5!=0;i--){
+  console.log(myArr[i]);  
+}
+
+//skip second statement
+var i=5;
+for(;;i--){
+  console.log(i);
+  if(!i) break;
+}
+</code></pre>
+<p>you can miss the third statement as well. Make sure u change looping variable otherwise you will run forever</p>
+<pre><code>
+var i=5;
+for(;;){
+  console.log(i--);
+  if(!i) break;
+}
+</code></pre>
+</div>
 
 
 
