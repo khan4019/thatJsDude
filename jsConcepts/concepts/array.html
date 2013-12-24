@@ -194,12 +194,12 @@ for(var i in myArr){
 
 <div>
   <h2>4. push multiple</h2>
-  <p>push inserts elements in the tail and updates length property of the array</p>
+  <p>push inserts elements in the tail and returns updated length of the array</p>
   <p>you know you can push one at a time. do you know you can push more than one at a time. But dont push an array, that will be one element of the whole array</p>
   <pre><code>
 var family= ['william', 'kate'];
 family.push('prince George', 'princess Nevada');
-
+ = 4
 > family;
   = ["william", "kate", "prince George", "princess Nevada"]
 
@@ -216,16 +216,16 @@ family.push(['children', 'of', 'duke']);
 </div>
 <div>
   <h2>5. unshift multiple</h2>
-  <p>unshfit inserts elements at the head (beginning) of the array and updates the length property. you can insert multiple property at the same time</p>
+  <p>unshfit inserts elements at the head (beginning) of the array and returns updated length of the array. you can insert multiple property at the same time</p>
   <pre><code>
 var bigFamily = ['Dad', 'uncle', 'me without gf'];
 bigFamily.unshift("Dad's gf");
-
+ = 4
 > bigFamily;
   = ["Dad's gf", "Dad", "uncle", "me without gf"]
 
 bigFamily.unshift('grandPa', 'grandMa');
-
+ = 6
 bigFamily;
   = ['grandPa', 'grandMa', "Dad's gf", "Dad", "uncle", "me without gf"]
   </code></pre>
@@ -265,9 +265,16 @@ myArr.length = 4;
 </div>
 <div>
   <h2>7. IndexOf: type and instace sensitive </h2>
-  <p></p>
+  <p>indexOf compare type of the element and instance of the element. For the second example, though {b:2} looks identical, they are two seperate instance hence indexOf will not find it in the array.</p>
   <pre><code>
-//add code here
+[1,2,3,4].indexOf(3);
+ = 2
+ //'3' is a string where 3 is number
+[1,2,3,4].indexOf('3');
+ = -1
+
+[{a:1}, {b:2}].indexOf({b:2});
+ =-1
   </code></pre>
 </div>
 <div>
