@@ -265,7 +265,7 @@ myArr.length = 4;
 </div>
 <div>
   <h2>7. IndexOf: type and instace sensitive </h2>
-  <p>indexOf compare type of the element and instance of the element. For the second example, though {b:2} looks identical, they are two seperate instance hence indexOf will not find it in the array.</p>
+  <p>indexOf compare type of the element and instance of the element. For the second example, though {b:2} looks identical, they are two seperate instance hence indexOf will not find it in the array. similarly [3] in the third example and inside indexOf are two seperate instance of array. though they contain same element inside, they are two seperate instance</p>
   <pre><code>
 [1,2,3,4].indexOf(3);
  = 2
@@ -274,7 +274,19 @@ myArr.length = 4;
  = -1
 
 [{a:1}, {b:2}].indexOf({b:2});
- =-1
+ = -1
+
+ //similarly
+ [[1], [2], [3]].indexOf([3])
+ = -1
+  </code></pre>
+  <p>to solve the problem of object. you have to hold the reference</p>
+  <pre><code>
+var myObj = {a:1}, 
+    urObj = {b:2};
+
+[myObj, urObj].indexOf(urObj);
+ = 1    
   </code></pre>
 </div>
 <div>
