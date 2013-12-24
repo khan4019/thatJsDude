@@ -8,7 +8,7 @@
     <meta name="that js dude" content="">
     <link rel="shortcut icon" href="../../images/favicon.jpg">
 
-    <title>JS: array & looping</title>
+    <title>JS: array</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../../css/bootstrap.min.css" rel="stylesheet">
@@ -61,7 +61,8 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <h1>array & looping</h1>        
+        <h1>array</h1>        
+        <h2>15 things you need to know be master in JS array</h2>
         <p>need to add some junk text here...</p>        
       </div>
     </div>
@@ -78,43 +79,31 @@
         <li><a href="">Don't randomly insert by index</a></li>
         <li><a href="">use right index to insert</a></li>        
         <li><a href="">push multiple</a></li>
-        <li><a href="">unshift multiple</a></li>
-        <li><a href="">indexOf dont find everything</a></li>
+        <li><a href="">unshift multiple</a></li>        
         <li><a href="">Don't blindly set length</a></li>        
         <li><a href="">IndexOf: type and instance sensitive</a></li>
         <li><a href="">IndexOf Extra parameter</a></li>
         <li><a href="">slice splice</a></li>
         <li><a href="">delete dont delete</a></li>
-        <li><a href="">map, forEach, filter, some, every</a></li>
+        <li><a href="">(extra)map, forEach, filter, some, every</a></li>
+        <li><a href="">use build in function as callBack</a></li>
         <li><a href="">real length by reduce</a></li>
         <li><a href="">isArray</a></li>        
         <li><a href="">Array like object</a></li>
         <li><a href="">Array methods in string</a></li>
-        <li><a href="">sort, reverse</a></li>        
-        <!-- <li><a href="">Fun with for loop</a></li> -->
+        <li><a href="">(extra)sort, reverse</a></li>                
        </ol>
 <div id="create_array">
   <h2>1. Best way to Create Array</h2>
   <strong>using constructor:</strong>
-  <p>One of the ways to create array is to call the new Array() constructor.</p>
+  <p>One of the ways to create array is to call the new Array() constructor. Additionally, you can set array length inside constructor. However, this is not recommended if you are not sure you will use the whole array. As this will create an array with "undefined" elements. Besides, you can pass elements.</p>
   <pre><code>
 var myArr = new Array();
-myArr[0] = 'Happy';
-myArr[1] = 'New';
-myArr[2] = 'Year';
-
-> myArr;
-  = ["Happy", "New", "Year"]
-
-> myArr.length;
-  = 4 
-  </code></pre>
-  <p>Additionally, you can set array length inside constructor. However, this is not recommended if you are not sure you will use the whole array. As this will create an array with "undefined" elements. Besides, you can pass elements.</p>
-  <pre><code>
+//nor
 var myArr = new Array(100);
 > myArr;
   = [undefined × 100]
-
+//nor
 var myArr2 = new Array(2,3,4,5);
 > myArr;  
   = [2, 3, 4, 5]
@@ -124,7 +113,7 @@ var myArr2 = new Array(2,3,4,5);
   <pre><code>
 var myArr = [];
 
-//create with elements if you know
+//or, create with elements if you know
 var myArr2 = ['You', 'Are', 'the', 'Best' ];    
   </code></pre>
   ref: <a href="http://yuiblog.com/blog/2006/11/13/javascript-we-hardly-new-ya/">Hardly use new</a>, <a href="http://www.2ality.com/2012/06/dense-arrays.html">Sparse vs Dense Array</a>
@@ -133,11 +122,7 @@ var myArr2 = ['You', 'Are', 'the', 'Best' ];
   <h2>2. Don't randomly insert by Index</h2>
   <p>if you insert elements in an arry by index. Please make sure you insert the element in the right place. If you just put an index much higher than the length of the array, JavaScript will put "underfined" elements in between and waste a lot of memory</p>
   <pre><code>
-var myArr = [];
-myArr[0] = 1;
-myArr[1] = 2;
-myArr[2] = 3;
-myArr[3] = 4;
+var myArr = [1, 2, 3, 4];
 
 > myArr.length;
   = 4
@@ -152,32 +137,40 @@ myArr[68] = 69;
   <div>
     <h2>3. use right index to insert</h2>
   <strong>Only use positive integer as Index:</strong>
-  <p>Don't insert by negative (-ve) index. In fact, only use positive interger as index. Javascript will not give any error, they will simply be lost when you check array in bare eye. However they sticks, you can read as property or by using a for-in loop</p>
+  <p>if you use, negative (-ve) integer, float number or string as index, you will see it in array. even for loop will not display these.  In fact, only use positive interger as index. Javascript will not give any error, they will simply be lost when you check array in bare eye. However they sticks, you can read as property or by using a for-in loop. or use dir() in the browser.</p>
   <pre><code>
 var myArr = [1,2,3,4];
 myArr[-7] = -7;
 myArr[2.5] = 3.5;
 myArr['myDude'] = 'thatJSDude';
 
-> myArr.length;
+myArr.length;
   = 4
-> myArr;
+myArr;
   = [1, 2, 3, 4]  
   </code></pre>
-  <p>While reading by index. you cant trust it. it doesnt throw OutOfIndex error. if you try to get elements by using index higher than the length or invalid index, it just returns "underfined"</p>
+  <p>However you can read those</p>
   <pre><code>
 var myArr = [1,2,3,4];
 
-> myArr[2];
-  = 3
-> myArr[169];
+>myArr[169];
   = undefined  
-> myArr[2.5];
-  = undefined
-> myArr['myDude'];
-  = undefined
-> myArr[-7];
-  = undefined
+>myArr[2.5];
+  = 3.5
+>myArr['myDude'];
+  = "thatJSDude"
+>myArr[-7];
+  = -7
+  </code></pre>
+  <p>though u can access those elements by non-positive integer index. you will not see those in the array and for loop will not found those</p>
+  <pre><code>
+for(var i=0, len = myArr.length; i&lt;len; i++){
+   console.log(myArr[i]);
+}
+ = 1
+ = 2
+ = 3
+ = 4
   </code></pre>
   <strong>To soleve this problem:</strong>
   <p>If you have random index, use object/ Associated Array other than array. if you are looping, use for in loop</p>
@@ -188,6 +181,11 @@ myObj[68] = 69;
 
 > myObj;
   = Object {68: 69, -7: 7}
+
+//or use for in loop. But for in loop has its own issues
+for(var i in myArr){
+  console.log(myArr[i]);  
+}  
   </code></pre>
   <p class="purpleBold">talk about dir(myArr)</p>
   ref: <a href="http://blog.caplin.com/2012/01/13/javascript-is-hard-part-1-you-cant-trust-arrays/">Can't Trust Array</a>, <a href="http://coredogs.com/article/number-elements-javascript-array-length-misleading">misleading length</a>
@@ -195,12 +193,12 @@ myObj[68] = 69;
 
 <div>
   <h2>4. push multiple</h2>
-  <p>push inserts elements in the tail and updates length property of the array</p>
+  <p>push inserts elements in the tail and returns updated length of the array</p>
   <p>you know you can push one at a time. do you know you can push more than one at a time. But dont push an array, that will be one element of the whole array</p>
   <pre><code>
 var family= ['william', 'kate'];
 family.push('prince George', 'princess Nevada');
-
+ = 4
 > family;
   = ["william", "kate", "prince George", "princess Nevada"]
 
@@ -217,25 +215,24 @@ family.push(['children', 'of', 'duke']);
 </div>
 <div>
   <h2>5. unshift multiple</h2>
-  <p>unshfit inserts elements at the head (beginning) of the array and updates the length property. you can insert multiple property at the same time</p>
+  <p>unshfit inserts elements at the head (beginning) of the array and returns updated length of the array. you can insert multiple property at the same time</p>
   <pre><code>
 var bigFamily = ['Dad', 'uncle', 'me without gf'];
 bigFamily.unshift("Dad's gf");
-
+ = 4
 > bigFamily;
   = ["Dad's gf", "Dad", "uncle", "me without gf"]
 
 bigFamily.unshift('grandPa', 'grandMa');
-
-> bigFamily;
-  = ["grandPa", "grandMa", "Dad's gf", "Dad", "uncle", "me without gf"]
-> bigFamily.length;
-  = 6
-
+ = 6
+bigFamily;
+  = ['grandPa', 'grandMa', "Dad's gf", "Dad", "uncle", "me without gf"]
+  </code></pre>
+  <pre><code>
 //be careful to unshift array. it will be just one element
 bigFamily.unshift(["Uncle's gf", 'her daughter']);
 
-> bigFamily
+bigFamily
   = [ Array[2], "grandPa", "grandMa", "Dad's gf", "Dad", "uncle", "me without gf"]
 > bigFamily.length;
   = 7
@@ -267,22 +264,44 @@ myArr.length = 4;
 </div>
 <div>
   <h2>7. IndexOf: type and instace sensitive </h2>
-  <p></p>
+  <p>indexOf compare type of the element and instance of the element. For the second example, though {b:2} looks identical, they are two seperate instance hence indexOf will not find it in the array. similarly [3] in the third example and inside indexOf are two seperate instance of array. though they contain same element inside, they are two seperate instance</p>
   <pre><code>
-//add code here
+[1,2,3,4].indexOf(3);
+ = 2
+ //'3' is a string where 3 is number
+[1,2,3,4].indexOf('3');
+ = -1
+
+[{a:1}, {b:2}].indexOf({b:2});
+ = -1
+
+ //similarly
+ [[1], [2], [3]].indexOf([3])
+ = -1
+  </code></pre>
+  <p>to solve the problem of object. you have to hold the reference</p>
+  <pre><code>
+var myObj = {a:1}, 
+    urObj = {b:2};
+
+[myObj, urObj].indexOf(urObj);
+ = 1    
   </code></pre>
 </div>
 <div>
   <h2>8. indexOf extra fromIndex</h2>
-  <p>good part of indexOf is that you can start from an index</p>
+  <p>good part of indexOf is that you can provide second parameter to tell from where indexOf should start searching for ur element</p>
   <pre><code>
-//add code
+[1,2,3,4,5,4,3,2,1].indexOf(3);
+= 2
+
+[1,2,3,4,5,4,3,2,1].indexOf(3, 4);
+= 6
+
+[1,2,3,4,5,4,3,2,1].indexOf(3, 7);
+= -1
   </code></pre>
-  <p>bad part about index it doesnt match other than primitive type</p>
-<pre><code>
-//add example
-</code></pre>
-<p>samething is true for lastIndexOf</p>
+<p>samething is true for lastIndexOf. use ur own brain to think how that will work. or open console and check it out.</p>
 ref: <a href="http://es5.github.io/#x15.4.4.14">es5:indexOf</a>
 </div>
 
@@ -293,9 +312,13 @@ ref: <a href="http://es5.github.io/#x15.4.4.14">es5:indexOf</a>
 </div>
 <div>
   <h2>10. delete dont delete</h2>
-  <p></p>
+  <p>delete just creates a hole in ur array. dont delete element, use splice/ slice</p>
   <pre><code>
-//add your code here
+var myArr = [1,2,3,4,5,6,7];
+delete myArr[3]
+ = true
+myArr
+ = [1, 2, 3, undefined × 1, 5, 6, 7]
   </code></pre>
 </div>
 <div>
@@ -403,62 +426,6 @@ ref: <a href="http://es5.github.io/#x15.4.4.14">es5:indexOf</a>
 
 <p>for more: <a href="http://blog.mikota.cz/2013/06/fun-with-javascript-arrays.html">Fun with JS Array</a>, <a href="https://www.destroyallsoftware.com/talks/wat">WAT</a></p>
 <!-- div>h2+p+pre>code -->
-<div>
-  <h2>Fun with For loop</h2>
-  <p>lets play with three statements of a for loop. You can miss one, more or all of them </p>
-  <pre><code>
-for(statement-1; statement-2; setatement-3){
-  //your awesome code here
-}
-  </code></pre>
-  <strong>Dont exectute length stupidly</strong>
-  <p>The first statement is executed only once, before starting of the loop. This could save you calculating length againg and again.  You can have multiple declaration or you can miss it completely.</p>
-  <pre><code>
-//array length is calculated every single iteration
-for(var i =0; i&lt myArr.length;; i++){
-  //my awesome looping
-}
-
-//array length is calcaulted only once
-for(var i =0, len = myArr.length; i&ltlen; i++){
-  //my awesome looping
-}
-
-//even you can hoist first statement
-var i =0, 
-    len = myArr.length;
-for(; i&ltlen; i++){
-  //my awesome looping
-}
-  </code></pre>
-<p>you can have multiple condition in the 2nd statement or you can skip it (make sure u have a break somewhere otherwise it will run forever)</p>
-<pre><code>
-var myArr = [1,2,3,4,5,6,7,8,9], 
-    i = myArr.length;
-
-for(; i>=0 && i%5!=0;i--){
-  console.log(myArr[i]);  
-}
-
-//skip second statement
-var i=5;
-for(;;i--){
-  console.log(i);
-  if(!i) break;
-}
-</code></pre>
-<p>you can miss the third statement as well. Make sure u change looping variable otherwise you will run forever</p>
-<pre><code>
-var i=5;
-for(;;){
-  console.log(i--);
-  if(!i) break;
-}
-</code></pre>
-</div>
-
-
-
       <hr>
 
       <footer>
