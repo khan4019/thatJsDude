@@ -100,11 +100,11 @@
   <p>One of the ways to create array is to call the new Array() constructor. Additionally, you can set array length inside constructor. However, this is not recommended if you are not sure you will use the whole array. As this will create an array with "undefined" elements. Besides, you can pass elements.</p>
   <pre><code>
 var myArr = new Array();
-//or
+//nor
 var myArr = new Array(100);
 > myArr;
   = [undefined × 100]
-
+//nor
 var myArr2 = new Array(2,3,4,5);
 > myArr;  
   = [2, 3, 4, 5]
@@ -114,7 +114,7 @@ var myArr2 = new Array(2,3,4,5);
   <pre><code>
 var myArr = [];
 
-//create with elements if you know
+//or, create with elements if you know
 var myArr2 = ['You', 'Are', 'the', 'Best' ];    
   </code></pre>
   ref: <a href="http://yuiblog.com/blog/2006/11/13/javascript-we-hardly-new-ya/">Hardly use new</a>, <a href="http://www.2ality.com/2012/06/dense-arrays.html">Sparse vs Dense Array</a>
@@ -154,16 +154,24 @@ myArr;
   <pre><code>
 var myArr = [1,2,3,4];
 
-> myArr[2];
-  = 3
-myArr[169];
+>myArr[169];
   = undefined  
-myArr[2.5];
+>myArr[2.5];
   = 3.5
-myArr['myDude'];
+>myArr['myDude'];
   = "thatJSDude"
-myArr[-7];
+>myArr[-7];
   = -7
+  </code></pre>
+  <p>though u can access those elements by non-positive integer index. you will not see those in the array and for loop will not found those</p>
+  <pre><code>
+for(var i=0, len = myArr.length; i&lt;len; i++){
+   console.log(myArr[i]);
+}
+ = 1
+ = 2
+ = 3
+ = 4
   </code></pre>
   <strong>To soleve this problem:</strong>
   <p>If you have random index, use object/ Associated Array other than array. if you are looping, use for in loop</p>
@@ -174,6 +182,11 @@ myObj[68] = 69;
 
 > myObj;
   = Object {68: 69, -7: 7}
+
+//or use for in loop. But for in loop has its own issues
+for(var i in myArr){
+  console.log(myArr[i]);  
+}  
   </code></pre>
   <p class="purpleBold">talk about dir(myArr)</p>
   ref: <a href="http://blog.caplin.com/2012/01/13/javascript-is-hard-part-1-you-cant-trust-arrays/">Can't Trust Array</a>, <a href="http://coredogs.com/article/number-elements-javascript-array-length-misleading">misleading length</a>
