@@ -313,9 +313,13 @@ ref: <a href="http://es5.github.io/#x15.4.4.14">es5:indexOf</a>
 </div>
 <div>
   <h2>10. delete dont delete</h2>
-  <p></p>
+  <p>delete just creates a hole in ur array. dont delete element, use splice/ slice</p>
   <pre><code>
-//add your code here
+var myArr = [1,2,3,4,5,6,7];
+delete myArr[3]
+ = true
+myArr
+ = [1, 2, 3, undefined × 1, 5, 6, 7]
   </code></pre>
 </div>
 <div>
