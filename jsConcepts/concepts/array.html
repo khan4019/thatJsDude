@@ -419,7 +419,7 @@ myArr
 </div>
 <div>
   <h2>reduce</h2>
-  <p>reduce cache the value. for example u want to get the sum of all the element. alternatively, you can </p>
+  <p>reduce cache the value. for example u want to get the sum of all the element. alternatively, you can initially </p>
   <pre><code>
 [1, 2, 3, 4].reduce(function(sum, el, idx, arr){
   return sum + el;
@@ -461,7 +461,32 @@ myArr
   <h2>14. deal with Array-like objects</h2>
   <p></p>
   <pre><code>
-//add your code here
+function foo(){
+  console.log(arguments, 'len', arguments.length, '2nd', arguments[1])
+}
+
+foo(1, 2, 3,4)
+ = [1, 2, 3, 4] "len" 4 "2nd" 2 
+  </code></pre>
+  <pre><code>
+function foo(){
+  console.log(Array.isArray(arguments));
+  arguments.push(5);
+  console.log(arguments, 'len', arguments.length, '2nd', arguments[1])
+}
+foo(1, 2, 3,4)
+ = false
+ = TypeError: Object #&lt;Object&gt; has no method 'push'
+  </code></pre>
+  <pre><code>
+function foo(){
+  var args = Array.prototype.slice.call(arguments);
+  args.push(5);
+  console.log(args, 'len', args.length, '2nd', args[1])
+}
+
+foo(1, 2, 3,4)
+ = [1, 2, 3, 4, 5] "len" 5 "2nd" 2 
   </code></pre>
 </div>
 <div>
