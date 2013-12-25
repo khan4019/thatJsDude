@@ -310,7 +310,8 @@ ref: <a href="http://es5.github.io/#x15.4.4.14">es5:indexOf</a>
 
 <div>
   <h2>9. slice & splice</h2>
-  <p>slice</p>
+  <strong>slice</strong>
+  <p>slice retuns the sliced array but dont change the original array</p>
   <pre><code>
 var GFs = ['Winter', 'Spring', 'summer', 'fall', 'rain', 'harvest'];
 
@@ -318,6 +319,22 @@ GFs.slice(2);
  = ['summer', 'fall', 'rain', 'harvest']
 
 GFs.slice(2, 2);
+ = ['summer', 'fall'] 
+
+GFs
+ = ['Winter', 'Spring', 'summer', 'fall', 'rain', 'harvest']; 
+  </code></pre>
+  <strong>splice</strong>
+  <p>splice change the original array</p>
+  <pre><code>
+var GFs = ['Winter', 'Spring', 'summer', 'fall', 'rain', 'harvest'];
+
+GFs.splice(2);
+ = ['summer', 'fall', 'rain', 'harvest']
+GFs 
+ = ['Winter', 'Spring']
+
+GFs.splice(2, 2);
  = ['summer', 'fall'] 
   </code></pre>
 </div>
