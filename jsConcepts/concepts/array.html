@@ -87,14 +87,15 @@
         <li><a href="#indexOf_sensitive">IndexOf: type and instance sensitive</a></li>
         <li><a href="#indexOf_extra">IndexOf Extra parameter</a></li>
         <li><a href="#slice_splice">slice splice</a></li>
-        <li><a href="">delete dont delete</a></li>
-        <li class="skipListItem"><a href="">map, forEach, filter, some, every</a></li>
-        <li value="11"><a href="">use build in function as callBack</a></li>
-        <li><a href="">real length by reduce</a></li>
-        <li><a href="">isArray</a></li>        
-        <li><a href="">Array like object</a></li>
-        <li><a href="">Array methods in string</a></li>
-        <li class="skipListItem"><a href="">sort, reverse</a></li>                
+        <li><a href="#delete_element">delete dont delete</a></li>
+        <li class="skipListItem"><a href="#array_method">map, forEach, filter, some, every</a></li>
+        <li value="11"><a href="#buildIn_function">use build in function as callBack</a></li>
+        <li><a href="#real_length">real length by reduce</a></li>
+        <li><a href="#isArray">isArray</a></li>        
+        <li><a href="#array_like">Array like object</a></li>
+        <li><a href="#string_method">Array methods in string</a></li>
+        <li class="skipListItem"><a href="">sort, reverse (not added)</a></li>
+        <li class="skipListItem"><a href="">join, concat (not added)</a></li>
        </ol>
 <div id="create_array">
   <h2>1. Best way to Create Array</h2>
@@ -345,7 +346,7 @@ GFs.splice(2, 2, 'Texas GF', 'Florida GF', 'Hawai GF')
   =["Winter", "Spring", "Texas GF", "Florida GF", "Hawai GF", "rain", "harvest"] 
   </code></pre>
 </div>
-<div>
+<div id="delete_element">
   <h2>10. delete dont delete</h2>
   <p>delete just creates a hole in ur array. dont delete element, use splice/ slice</p>
   <pre><code>
@@ -356,7 +357,7 @@ myArr
  = [1, 2, 3, undefined × 1, 5, 6, 7]
   </code></pre>
 </div>
-<div>
+<div id="array_method">
   <h2>Basic Array method</h2>
   <p>callback function of map, filter, some, every, forEach has three parameters: elem, index, arr. And you can optionally pass "this" as second argument of these Array method.</p>
   <strong>forEach</strong>
@@ -443,7 +444,7 @@ myArr
   = 2 
   </code></pre>
 </div>
-<div>
+<div id="isArray">
   <h2>13. check array</h2>
   <p></p>
   <pre><code>
@@ -458,7 +459,7 @@ myArr
   = false
   </code></pre>
 </div>
-<div>
+<div id="array_like">
   <h2>14. deal with Array-like objects</h2>
   <p></p>
   <pre><code>
@@ -490,7 +491,7 @@ foo(1, 2, 3,4)
  = [1, 2, 3, 4, 5] "len" 5 "2nd" 2 
   </code></pre>
 </div>
-<div>
+<div id="string_method">
   <h2>15. array method in string</h2>
   <p></p>
   <pre><code>
