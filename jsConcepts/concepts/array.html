@@ -295,13 +295,13 @@ var myObj = {a:1},
   <h2>8. indexOf extra fromIndex</h2>
   <p>good part of indexOf is that you can provide second parameter to tell from where indexOf should start searching for ur element</p>
   <pre><code>
-[1,2,3,4,5,4,3,2,1].indexOf(3);
+[1,2,3,4,5,4,3,2,1].indexOf(3)
 = 2
 
-[1,2,3,4,5,4,3,2,1].indexOf(3, 4);
+[1,2,3,4,5,4,3,2,1].indexOf(3, 4)
 = 6
 
-[1,2,3,4,5,4,3,2,1].indexOf(3, 7);
+[1,2,3,4,5,4,3,2,1].indexOf(3, 7)
 = -1
   </code></pre>
 <p>samething is true for lastIndexOf. use ur own brain to think how that will work. or open console and check it out.</p>
@@ -336,6 +336,12 @@ GFs
 
 GFs.splice(2, 2);
  = ['summer', 'fall'] 
+
+GFs.splice(2, 2, 'Texas GF', 'Florida GF', 'Hawai GF')
+ = ["summer", "fall"]
+
+ GFs
+  =["Winter", "Spring", "Texas GF", "Florida GF", "Hawai GF", "rain", "harvest"] 
   </code></pre>
 </div>
 <div>
