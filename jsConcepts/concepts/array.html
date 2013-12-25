@@ -493,8 +493,18 @@ foo(1, 2, 3,4)
   <h2>15. array method in string</h2>
   <p></p>
   <pre><code>
-//use it from video
-//or find the link
+var dd = 'that JS Dude';
+
+dd.filter(function (el, idx){
+  return idx>7;
+})
+ = TypeError: Object that JS Dude has no method 'filter'
+  </code></pre>
+  <pre><code>
+[].filter.call(dd, function(el, idx){
+ return idx>7;
+})
+ = ["D", "u", "d", "e"]
   </code></pre>
 </div>
 
