@@ -418,6 +418,21 @@ myArr
   <p>ref: <a href="http://net.tutsplus.com/tutorials/javascript-ajax/what-they-didnt-tell-you-about-es5s-array-extras/">es5 array extra</a></p>
 </div>
 <div>
+  <h2>reduce</h2>
+  <p>reduce cache the value. for example u want to get the sum of all the element. alternatively, you can </p>
+  <pre><code>
+[1, 2, 3, 4].reduce(function(sum, el, idx, arr){
+  return sum + el;
+})
+ = 10
+
+[1, 2, 3, 4].reduce(function(sum, el, idx, arr){
+  return sum + el;
+}, 100)
+ = 110
+  </code></pre>
+</div>
+<div>
   <h2>12. real length by reduce</h2>
   <p>talk about reduce here</p>
   <pre><code> 
