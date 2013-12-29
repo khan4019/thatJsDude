@@ -199,6 +199,35 @@ for(var i in myArr){
  = 1
  = 2 
   </code></pre>
+<strong>properties that are iterated</strong>
+<p>will be iterate over all the properties whose [[enumerable]] is true. also over [[enumerable]] properties that are inherited via prototype chain.</p>
+<pre><code>
+var myArr = [1,2,3]
+myArr['-7'] = -7;
+myArr[2.5] =2.5;
+myArr['dude'] = 'thatJsDude'
+
+for(var i in myArr){
+  console.log(myArr[i]);
+}
+
+ = 1
+ = 2
+ = 3
+ = -7
+ = 2.5
+ = thatJsDude
+
+
+ //for loop don't read properties
+ for(var i = 0, len = myArr.length; i&lt;len; i++){
+  console.log(myArr[i]);
+}
+ = 1
+ = 2
+ = 3 
+</code></pre>
+<p>for loop will not </p>
 </div>
 <div>
   <h2>for of</h2>
