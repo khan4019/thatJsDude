@@ -241,6 +241,18 @@ for(var i in myArr){
  = 3
  = function (){/*do something*/}
 </code></pre>
+<strong>hasOwnProperty</strong>
+<p>removes custom extension or inherited properties</p>
+<pre><code>
+for(var i in myArr){
+  if(myArr.hasOwnProperty(i)){
+     console.log(myArr[i]);
+  } 
+}
+ = 1
+ = 2
+ = 3
+</code></pre>
 </div>
 <div>
   <h2>for of</h2>
