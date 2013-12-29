@@ -156,6 +156,15 @@ for (var i=0, each; each = arr[i]; i++) {
     doSomething(each);
 }
 </code></pre>
+<strong>more expression codition</strong>
+<p>another from angus croll blog</p>
+<pre><code>
+function shoutOutSum(arr, x) {
+    for (var i=arr.length, r=0; i-- || alert(r); r += arr[i]);
+}
+ 
+shoutOutSum([3,5,0,-2,7,8]); //alerts "21"
+</code></pre>
 </div>
 <div>
   <h2>while</h2>
