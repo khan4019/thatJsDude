@@ -131,17 +131,54 @@ for(;;){
   if(!i) break;
 }
 </code></pre>
-</div>
-<div>
-  <h2>while</h2>
-  <p>not used that much.</p>
-  <p>find some good reasons</p>
-  <pre><code></code></pre>
-</div>
-<div>
-  <h2>do while</h2>
-  <p>find something for this as well</p>
-  <pre><code></code></pre>
+
+<strong>fun with for</strong>(work on this)
+<p>write something</p>
+<pre><code>
+for (
+    var i=2, r=[0,1];
+    i<15 || alert(r);
+    r.push(r[i-1] + r[i-2]), i++
+);
+//alerts "0,1,1,2,3,5,8,13,21,34,55,89,144,233,377"
+</code></pre>
+<p>ref <a href="http://javascriptweblog.wordpress.com/2010/10/11/rethinking-javascript-for-loops/#more-1479">Angus croll: </a> </p>
+<strong>another fun</strong>(work on this)
+<pre><code>
+for (var i=arr.length; i--;) {
+    var member = arr[i];
+    doSomething(member);
+}
+</code></pre>
+<strong>assigning member</strong>(work on this)
+<pre><code>
+for (var i=0, each; each = arr[i]; i++) {
+    doSomething(each);
+}
+</code></pre>
+<strong>more expression codition</strong>(work on this)
+<p>another from angus croll blog</p>
+<pre><code>
+function shoutOutSum(arr, x) {
+    for (var i=arr.length, r=0; i-- || alert(r); r += arr[i]);
+}
+ 
+shoutOutSum([3,5,0,-2,7,8]); //alerts "21"
+</code></pre>
+<strong>another similar but little good</strong>(work on this)
+<pre><code>
+function sumAndMultiply(arr, x) {
+    for (var i=arr.length, r=0; i-- || ((r = r*x) && false); r += arr[i]);
+    return r;
+}
+sumAndMultiply([3,5,0,-2,7,8], 5); //105
+//Brendan Eich suggested using the void operator instead:
+
+function sumAndMultiply(arr, x) {
+        for (var i=arr.length, r=0; i-- || void (r = r*x); r += arr[i]);
+    return r;
+}
+</code></pre>
 </div>
 <div>
   <h2>for..in</h2>
@@ -162,6 +199,79 @@ for(var i in myArr){
  = 1
  = 2 
   </code></pre>
+<strong>properties that are iterated</strong>
+<p>will be iterate over all the properties whose [[enumerable]] is true. also over [[enumerable]] properties that are inherited via prototype chain.</p>
+<pre><code>
+var myArr = [1,2,3]
+myArr['-7'] = -7;
+myArr[2.5] =2.5;
+myArr['dude'] = 'thatJsDude'
+
+for(var i in myArr){
+  console.log(myArr[i]);
+}
+
+ = 1
+ = 2
+ = 3
+ = -7
+ = 2.5
+ = thatJsDude
+
+
+ //for loop don't read from properties
+ for(var i = 0, len = myArr.length; i&lt;len; i++){
+  console.log(myArr[i]);
+}
+ = 1
+ = 2
+ = 3 
+</code></pre>
+<strong>dont modify build in function</strong>
+<p>custom extension will also show up</p>
+<pre><code>
+var myArr = [1, 2, 3];
+Array.prototype.myEach = function(){/*do something*/}
+
+for(var i in myArr){
+  console.log(myArr[i]);
+}
+ = 1
+ = 2
+ = 3
+ = function (){/*do something*/}
+</code></pre>
+<strong>hasOwnProperty</strong>
+<p>removes custom extension or inherited properties</p>
+<pre><code>
+for(var i in myArr){
+  if(myArr.hasOwnProperty(i)){
+     console.log(myArr[i]);
+  } 
+}
+ = 1
+ = 2
+ = 3
+</code></pre>
+<strong>order of iteration</strong>
+<p>add something for this</p>
+<pre><code>
+//add ur code here
+</code></pre>
+<strong>for...in could be better</strong>
+<p>if index is not maintined properly for in could be better.</p>
+<pre><code>
+var myArr = [];
+myArr[5] = 5;
+
+for(var i in myArr){
+  //iterate only once
+}
+
+for(var i =0, len = myArr.length; i&lt;len; i++){
+  //iterates 5 times  
+}
+</code></pre>
 </div>
 <div>
   <h2>for of</h2>
