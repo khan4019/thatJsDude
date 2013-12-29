@@ -219,7 +219,7 @@ for(var i in myArr){
  = thatJsDude
 
 
- //for loop don't read properties
+ //for loop don't read from properties
  for(var i = 0, len = myArr.length; i&lt;len; i++){
   console.log(myArr[i]);
 }
@@ -227,7 +227,20 @@ for(var i in myArr){
  = 2
  = 3 
 </code></pre>
-<p>for loop will not </p>
+<strong>dont modify build in function</strong>
+<p>custom extension will also show up</p>
+<pre><code>
+var myArr = [1, 2, 3];
+Array.prototype.myEach = function(){/*do something*/}
+
+for(var i in myArr){
+  console.log(myArr[i]);
+}
+ = 1
+ = 2
+ = 3
+ = function (){/*do something*/}
+</code></pre>
 </div>
 <div>
   <h2>for of</h2>
