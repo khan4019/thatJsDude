@@ -258,6 +258,20 @@ for(var i in myArr){
 <pre><code>
 //add ur code here
 </code></pre>
+<strong>for...in could be better</strong>
+<p>if index is not maintined properly for in could be better.</p>
+<pre><code>
+var myArr = [];
+myArr[5] = 5;
+
+for(var i in myArr){
+  //iterate only once
+}
+
+for(var i =0, len = myArr.length; i&lt;len; i++){
+  //iterates 5 times  
+}
+</code></pre>
 </div>
 <div>
   <h2>for of</h2>
