@@ -132,7 +132,7 @@ for(;;){
 }
 </code></pre>
 
-<strong>fun with for</strong>
+<strong>fun with for</strong>(work on this)
 <p>write something</p>
 <pre><code>
 for (
@@ -143,20 +143,20 @@ for (
 //alerts "0,1,1,2,3,5,8,13,21,34,55,89,144,233,377"
 </code></pre>
 <p>ref <a href="http://javascriptweblog.wordpress.com/2010/10/11/rethinking-javascript-for-loops/#more-1479">Angus croll: </a> </p>
-<strong>another fun</strong>
+<strong>another fun</strong>(work on this)
 <pre><code>
 for (var i=arr.length; i--;) {
     var member = arr[i];
     doSomething(member);
 }
 </code></pre>
-<strong>assigning member</strong>
+<strong>assigning member</strong>(work on this)
 <pre><code>
 for (var i=0, each; each = arr[i]; i++) {
     doSomething(each);
 }
 </code></pre>
-<strong>more expression codition</strong>
+<strong>more expression codition</strong>(work on this)
 <p>another from angus croll blog</p>
 <pre><code>
 function shoutOutSum(arr, x) {
@@ -164,6 +164,20 @@ function shoutOutSum(arr, x) {
 }
  
 shoutOutSum([3,5,0,-2,7,8]); //alerts "21"
+</code></pre>
+<strong>another similar but little good</strong>(work on this)
+<pre><code>
+function sumAndMultiply(arr, x) {
+    for (var i=arr.length, r=0; i-- || ((r = r*x) && false); r += arr[i]);
+    return r;
+}
+sumAndMultiply([3,5,0,-2,7,8], 5); //105
+//Brendan Eich suggested using the void operator instead:
+
+function sumAndMultiply(arr, x) {
+        for (var i=arr.length, r=0; i-- || void (r = r*x); r += arr[i]);
+    return r;
+}
 </code></pre>
 </div>
 <div>
