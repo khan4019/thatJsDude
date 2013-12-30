@@ -81,12 +81,13 @@
 <!-- div>h2+p+pre>code -->
 <div>
   <h2>Fun with For loop</h2>
-  <p>lets play with three statements of a for loop. You can miss one, more or all of them </p>
+  <p>For loop can have four parts and all of them are optional. Hence you can escape one or more</p>
   <pre><code>
-for(statement-1; statement-2; setatement-3){
-  //your awesome code here
+for(initiation; iteratingCondition; repeatingExpression){
+  repeatingCode
 }
   </code></pre>
+  intiation is usally have declaration of looping variable. however any valid expression is permitted  
   <strong>Dont exectute length stupidly</strong>
   <p>The first statement is executed only once, before starting of the loop. This could save you calculating length againg and again.  You can have multiple declaration or you can miss it completely.</p>
   <pre><code>
@@ -131,41 +132,45 @@ for(;;){
   if(!i) break;
 }
 </code></pre>
-
-<strong>fun with for</strong>(work on this)
-<p>write something</p>
+<strong>reverse direction</strong>
+<p>if you loop from the end of the array. when the value of i reacher 0, this is coerced to false and break the loop.</p>
+<pre><code>
+for (var i=myArr.length; i--;) {
+  console.log(myArr[i]);    
+}
+</code></pre>
+<strong>optional repeatingCode</strong>
+<p>you can run a loop without repeating code. you can take advantage of any valid expression in the iteratingCodition and repeatingExpression.</p>
+<p>disclaimer: next couple of example are shamelessly copied/ little modified from Angus Croll blog. ref <a href="http://javascriptweblog.wordpress.com/2010/10/11/rethinking-javascript-for-loops/#more-1479">Angus croll: </a> </p>
 <pre><code>
 for (
     var i=2, r=[0,1];
-    i<15 || alert(r);
+    i<10 || console.log(r);
     r.push(r[i-1] + r[i-2]), i++
 );
-//alerts "0,1,1,2,3,5,8,13,21,34,55,89,144,233,377"
+//[0,1,1,2,3,5,8,13,21,34]
 </code></pre>
-<p>ref <a href="http://javascriptweblog.wordpress.com/2010/10/11/rethinking-javascript-for-loops/#more-1479">Angus croll: </a> </p>
-<strong>another fun</strong>(work on this)
+<p>Here we are trying to get fibonacci series. first we declare a lopping variable i and an array, r with two elements. In the iteratingCodition we check whether i is less then 10, if not we console r. In the repeatingExpression we push add last two elements of the array to push it inside the array and increment i. Very simple. and then we get the fibonacci series upto 10.</p>
+<strong>assigning variable in iteratingCondition</strong>
 <pre><code>
-for (var i=arr.length; i--;) {
-    var member = arr[i];
-    doSomething(member);
+for (var i=0, item, myArr = [1, 2, 3, 4]; item = myArr[i]; i++) {
+  console.log(item);
 }
+ = 1
+ = 2
+ = 3
+ = 4
 </code></pre>
-<strong>assigning member</strong>(work on this)
+<strong>similar one</strong>
 <pre><code>
-for (var i=0, each; each = arr[i]; i++) {
-    doSomething(each);
-}
+for (var myArr = [1, 2, 3, 4], i = myArr.length, sum = 0; 
+     i-- || console.log(sum); 
+     sum += arr[i]);
+
+ = 10 
 </code></pre>
-<strong>more expression codition</strong>(work on this)
-<p>another from angus croll blog</p>
-<pre><code>
-function shoutOutSum(arr, x) {
-    for (var i=arr.length, r=0; i-- || alert(r); r += arr[i]);
-}
- 
-shoutOutSum([3,5,0,-2,7,8]); //alerts "21"
-</code></pre>
-<strong>another similar but little good</strong>(work on this)
+<p>Just looping backward. and if i becomes 0 that is considered as false and console the sum. in looping codition just add the value to sum.</p>
+<strong>another similar but little good</strong>(may be u can remove it)
 <pre><code>
 function sumAndMultiply(arr, x) {
     for (var i=arr.length, r=0; i-- || ((r = r*x) && false); r += arr[i]);
@@ -280,18 +285,7 @@ for(var i =0, len = myArr.length; i&lt;len; i++){
 // add ur code here
   </code></pre>
 </div>
-<div>
-  <h2>forEach</h2>
-  <p></p>
-  <pre><code>
-> [1,2,3].forEach(function(elem, index, arr){
-    console.log(elem);
-  });
-  = 1
-  = 2
-  = 3
-  </code></pre>
-</div>
+
 
       <hr>
 
