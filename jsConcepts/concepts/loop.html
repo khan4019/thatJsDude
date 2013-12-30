@@ -140,7 +140,8 @@ for (var i=myArr.length; i--;) {
 }
 </code></pre>
 <strong>optional repeatingCode</strong>
-<p>you can run a loop without repeating code. you can take advantage of any valid expression in the iteratingCodition and repeatingExpression</p>
+<p>you can run a loop without repeating code. you can take advantage of any valid expression in the iteratingCodition and repeatingExpression.</p>
+<p>disclaimer: next couple of example are shamelessly copied/ little modified from Angus Croll blog. ref <a href="http://javascriptweblog.wordpress.com/2010/10/11/rethinking-javascript-for-loops/#more-1479">Angus croll: </a> </p>
 <pre><code>
 for (
     var i=2, r=[0,1];
@@ -150,7 +151,6 @@ for (
 //[0,1,1,2,3,5,8,13,21,34]
 </code></pre>
 <p>Here we are trying to get fibonacci series. first we declare a lopping variable i and an array, r with two elements. In the iteratingCodition we check whether i is less then 10, if not we console r. In the repeatingExpression we push add last two elements of the array to push it inside the array and increment i. Very simple. and then we get the fibonacci series upto 10.</p>
-<p>shamelessly copied from Angus Croll blog. ref <a href="http://javascriptweblog.wordpress.com/2010/10/11/rethinking-javascript-for-loops/#more-1479">Angus croll: </a> </p>
 <strong>assigning variable in iteratingCondition</strong>
 <pre><code>
 for (var i=0, item, myArr = [1, 2, 3, 4]; item = myArr[i]; i++) {
@@ -170,7 +170,7 @@ for (var myArr = [1, 2, 3, 4], i = myArr.length, sum = 0;
  = 10 
 </code></pre>
 <p>Just looping backward. and if i becomes 0 that is considered as false and console the sum. in looping codition just add the value to sum.</p>
-<strong>another similar but little good</strong>(work on this)
+<strong>another similar but little good</strong>(may be u can remove it)
 <pre><code>
 function sumAndMultiply(arr, x) {
     for (var i=arr.length, r=0; i-- || ((r = r*x) && false); r += arr[i]);
