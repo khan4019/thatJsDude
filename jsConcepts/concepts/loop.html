@@ -133,23 +133,24 @@ for(;;){
 }
 </code></pre>
 <strong>reverse direction</strong>
-if you loop from the end of the array. when the value of i reacher 0, this is coerced to false and break the loop.
+<p>if you loop from the end of the array. when the value of i reacher 0, this is coerced to false and break the loop.</p>
 <pre><code>
 for (var i=myArr.length; i--;) {
   console.log(myArr[i]);    
 }
 </code></pre>
-<strong>fun with for</strong>(work on this)
-<p>write something</p>
+<strong>optional repeatingCode</strong>
+<p>you can run a loop without repeating code. you can take advantage of any valid expression in the iteratingCodition and repeatingExpression</p>
 <pre><code>
 for (
     var i=2, r=[0,1];
-    i<15 || alert(r);
+    i<10 || console.log(r);
     r.push(r[i-1] + r[i-2]), i++
 );
-//alerts "0,1,1,2,3,5,8,13,21,34,55,89,144,233,377"
+//[0,1,1,2,3,5,8,13,21,34]
 </code></pre>
-<p>ref <a href="http://javascriptweblog.wordpress.com/2010/10/11/rethinking-javascript-for-loops/#more-1479">Angus croll: </a> </p>
+<p>Here we are trying to get fibonacci series. first we declare a lopping variable i and an array, r with two elements. In the iteratingCodition we check whether i is less then 10, if not we console r. In the repeatingExpression we push add last two elements of the array to push it inside the array and increment i. Very simple. and then we get the fibonacci series upto 10.</p>
+<p>shamelessly copied from Angus Croll blog. ref <a href="http://javascriptweblog.wordpress.com/2010/10/11/rethinking-javascript-for-loops/#more-1479">Angus croll: </a> </p>
 <strong>another fun</strong>(work on this)
 <pre><code>
 for (var i=arr.length; i--;) {
