@@ -161,15 +161,15 @@ for (var i=0, item, myArr = [1, 2, 3, 4]; item = myArr[i]; i++) {
  = 3
  = 4
 </code></pre>
-<strong>more expression codition</strong>(work on this)
-<p>another from angus croll blog</p>
+<strong>similar one</strong>
 <pre><code>
-function shoutOutSum(arr, x) {
-    for (var i=arr.length, r=0; i-- || alert(r); r += arr[i]);
-}
- 
-shoutOutSum([3,5,0,-2,7,8]); //alerts "21"
+for (var myArr = [1, 2, 3, 4], i = myArr.length, sum = 0; 
+     i-- || console.log(sum); 
+     sum += arr[i]);
+
+ = 10 
 </code></pre>
+<p>Just looping backward. and if i becomes 0 that is considered as false and console the sum. in looping codition just add the value to sum.</p>
 <strong>another similar but little good</strong>(work on this)
 <pre><code>
 function sumAndMultiply(arr, x) {
