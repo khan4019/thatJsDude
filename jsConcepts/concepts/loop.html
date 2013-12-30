@@ -151,11 +151,15 @@ for (
 </code></pre>
 <p>Here we are trying to get fibonacci series. first we declare a lopping variable i and an array, r with two elements. In the iteratingCodition we check whether i is less then 10, if not we console r. In the repeatingExpression we push add last two elements of the array to push it inside the array and increment i. Very simple. and then we get the fibonacci series upto 10.</p>
 <p>shamelessly copied from Angus Croll blog. ref <a href="http://javascriptweblog.wordpress.com/2010/10/11/rethinking-javascript-for-loops/#more-1479">Angus croll: </a> </p>
-<strong>assigning member</strong>(work on this)
+<strong>assigning variable in iteratingCondition</strong>
 <pre><code>
-for (var i=0, each; each = arr[i]; i++) {
-    doSomething(each);
+for (var i=0, item, myArr = [1, 2, 3, 4]; item = myArr[i]; i++) {
+  console.log(item);
 }
+ = 1
+ = 2
+ = 3
+ = 4
 </code></pre>
 <strong>more expression codition</strong>(work on this)
 <p>another from angus croll blog</p>
