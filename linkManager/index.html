@@ -1,0 +1,287 @@
+<html>
+<head>
+	<title>Link Manager</title>
+	<h1 class="text-center page-Header">Link Manager</h1>
+	<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="lib/bootstrap/css/bootstrap-theme.min.css">
+	<style type="text/css">
+		.page-Header{
+			position: absolute;
+			top: -40px;
+			width: 100%;
+			font-size: 70px;
+			font-weight: bold;
+			text-align: center;
+			color: #b3b3b3;
+			color: rgba(255, 255, 255, 0.3);
+			text-shadow: -1px -1px rgba(0, 0, 0, 0.2);
+			-webkit-text-rendering: optimizeLegibility;
+			-moz-text-rendering: optimizeLegibility;
+			-ms-text-rendering: optimizeLegibility;
+			-o-text-rendering: optimizeLegibility;
+			text-rendering: optimizeLegibility;
+		}
+
+		li{
+			font-size: 2em;
+		}
+		#linkApp{
+			width: 850px;
+			margin: 100px auto 10px auto;
+		}
+		#divFilter{
+			margin-top: 7px;
+		}
+		#divFilter input{
+			margin-right: 5px;
+		}
+		.extraSmallText{
+			font-size: 0.5em;
+		}
+
+		/*color shades based on percent completed*/
+		.completed0{ background-color: #F0F5FF;}
+		.completed10{ background-color: #D1E0FF;}
+		.completed20{background-color: #B2CCFF;}
+		.completed30{background-color: #94B8FF;}
+		.completed40{background-color: #75A3FF;}
+		.completed50{background-color: #6699FF;}
+		.completed60{background-color: #5C8AE6;}
+		.completed70{background-color: #527ACC;}
+		.completed80{background-color: #5C85FF;}
+		.completed90{background-color: #4775FF;}
+		.completed100{background-color: #3366FF;}
+	</style>
+</head>
+<body>
+	
+	<section id="linkApp">
+		<div id="divFilterAndAdd">
+			<a data-toggle="modal" data-target="#addLinkModal" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-plus"></span> Add new</a>
+			<button id="swapArchived" class="btn btn-default btn-sm showArchived"><span class="glyphicon glyphicon-road"></span> Show Archived</button>
+			<div id="divFilter" class="row">
+				<label class="col-sm-1 control-label text-right">Filter: </label>
+				<input id="filterTitle" type="text" class="col-sm-2" placeholder="Title">
+				<input id="filterArea" type="text" class="col-sm-2" placeholder="Area">
+				<input id="filterTags" type="text" class="col-sm-2" placeholder="Tags">
+				<input id="filterImportance" type="text" class="col-sm-2" placeholder="Importance">
+				<button id="clearFilter" class="btn btn-default btn-xs">clear</button>			
+			</div>
+		</div>
+		<div class="links"></div>
+		<p class="muted text-center">*Trying out backbone, bootstrap and localStorage (not completed).</p>
+		<p class="muted text-center">*Chrome only. Firefox might be ok (not tested)</p>
+	</section>
+	
+	<!-- template for link render	 -->
+	<script id="linkTemplate" type ="text/template">
+		<button title="Add 10 more percent. Currently <%=completed%>% done" class="btn btn-xs add10Percent completed<%=completed%>"><span class="glyphicon glyphicon-circle-arrow-up"></span></button>
+		<button class="btn btn-warning btn-xs edit"><span class="glyphicon glyphicon-edit" title="Edit this link"></span></button>
+		<button title="Archive this link" class="btn btn-warning btn-xs archive"><span class="glyphicon glyphicon-floppy-save"></span></button>
+		<button title="Delete this link" class="btn btn-danger btn-xs delete"><span class="glyphicon glyphicon-trash"></span></button> 
+		<a href=<%=url%> > <%=title%> </a><span class="text-muted small extraSmallText">(<%=area%>:<%=tags%>-<%=importance%>)</span>
+	</script>
+
+	<!-- I dont like how many html i have to write for
+	bootstrap modal dialog. Jquery dialog() was cleaner
+	more readable -->
+		
+    <!-- Modal -->
+    <div id="addLinkModal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h2 class="modal-title">Add new Link</h2>
+                </div>
+                <form id="addLink" class="form-horizontal" role="form">	
+                	<div class="modal-body">
+                    	<div class="form-group">
+						    <label for="newLinkTitle" class="col-sm-2 control-label">Title</label>
+						    <div class="col-sm-10">
+						    	<input type="text" id="newLinkTitle" class="form-control"  placeholder="Title" required="true" >
+						    </div>
+						</div>
+                        <div class="form-group">
+						    <label for="newLinkURL" class="col-sm-2 control-label">URL</label>
+						    <div class="col-sm-10">
+						    	<input type="url" id="newLinkURL" class="form-control" placeholder="Paste URL" required="true" >
+						    </div>
+						</div>
+						<div class="form-group">
+						    <label for="newLinkArea" class="col-sm-2 control-label">Area</label>
+						    <div class="col-sm-10">
+						    	<input type="text" id="newLinkArea" class="form-control" placeholder="Define focus area (Javascript or css)" required="true" >
+						    </div>
+						</div>
+                        <div id="divMoreOptions" class="hide">
+                            <div class="form-group">
+							    <label for="newLinkDescription" class="col-sm-2 control-label">Description</label>
+							    <div class="col-sm-10">
+							    	<textarea id="newLinkDescription" class="form-control"  placeholder="Add a Description" rows="3"></textarea>							    	
+							    </div>
+							</div>
+                            <div class="form-group">
+							    <label for="newLinkSource" class="col-sm-2 control-label">Source</label>
+							    <div class="col-sm-10">
+							    	<input type="text" id="newLinkSource" class="form-control"  placeholder="Where you find this link">
+							    </div>
+							</div>
+							<div class="form-group">
+							    <label for="newLinkType" class="col-sm-2 control-label">Type</label>
+							    <div class="col-sm-10">
+							    	<input type="text" id="newLinkType" class="form-control" placeholder="Blog or Video or tutorial">
+							    </div>
+							</div>
+							<div class="form-group">
+							    <label for="newLinkTags" class="col-sm-2 control-label">Tags</label>
+							    <div class="col-sm-10">
+							    	<input type="text" id="newLinkTags" class="form-control" placeholder="Pug tags with space">
+							    </div>
+							</div>
+							<div class="form-group">
+							    <label for="newLinkImportance" class="col-sm-2 control-label">Importance</label>
+							    <div class="col-sm-10">							    	
+							    	<select class="form-control" id="newLinkImportance">
+									  <option>Not Bad</option>
+									  <option>Good</option>
+									  <option>Awesome</option>
+									  <option>Fantastic</option>
+									  <option>Mind Blowing</option>
+									</select>
+							    </div>
+							</div>          
+                        </div>
+                        <div class="col-sm-2">
+                        	<button id="btnMoreOptions" type="button" class="btn btn-default btn-xs">more...</button>	
+                        </div>
+                	</div>
+	                <div class="modal-footer">
+	                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	                    <button type="reset" class="btn btn-warning" id ="btnNewLinkReset">Reset</button>
+	                    <button type="submit" class="btn btn-primary">Submit</button>
+	                </div>
+                </form> 
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+	<!-- delete confimation model	 -->
+<!-- Button trigger modal -->
+<!-- <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#editLinkModal">
+  Launch demo modal
+</button>
+ -->
+<!-- Edit Link Modal -->
+<div class="modal fade" id="editLinkModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Are you sure you want to Delete?</h4>
+      </div>
+	   <div id="editModalBody"></div>   
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+	<!-- End of modal crap -->
+		
+	<script  id="editLinkTemplate" type ="text/template">
+		<form id="editLink" class="form-horizontal" role="form">
+		      <!-- should use a template...very verbose html -->
+		      <div class="modal-body">
+		        	<div class="form-group">
+					    <label for="editLinkTitle" class="col-sm-2 control-label">Title</label>
+					    <div class="col-sm-10">
+					    	<input type="text" id="editLinkTitle" class="form-control"  placeholder="Title" required="true" value="<%= title %>" >
+					    </div>
+					</div>
+		            <div class="form-group">
+					    <label for="editLinkURL" class="col-sm-2 control-label">URL</label>
+					    <div class="col-sm-10">
+					    	<input type="url" id="editLinkURL" class="form-control" placeholder="Paste URL" required="true" value="<%= url %>">
+					    </div>
+					</div>
+					<div class="form-group">
+					    <label for="editLinkArea" class="col-sm-2 control-label">Area</label>
+					    <div class="col-sm-10">
+					    	<input type="text" id="editLinkArea" class="form-control" placeholder="Define focus area (Javascript or css)" required="true" value="<%= area %>">
+					    </div>
+					</div>
+					<div class="form-group">
+					    <label for="editLinkDescription" class="col-sm-2 control-label">Description</label>
+					    <div class="col-sm-10">
+					    	<textarea id="editLinkDescription" class="form-control"  placeholder="Add a Description" rows="3" value="<%= description %>"></textarea>							    	
+					    </div>
+					</div>
+		            <div class="form-group">
+					    <label for="editLinkSource" class="col-sm-2 control-label">Source</label>
+					    <div class="col-sm-10">
+					    	<input type="text" id="editLinkSource" class="form-control"  placeholder="Where you find this link" value="<%= source %>">
+					    </div>
+					</div>
+					<div class="form-group">
+					    <label for="editLinkType" class="col-sm-2 control-label">Type</label>
+					    <div class="col-sm-10">
+					    	<input type="text" id="editLinkType" class="form-control" placeholder="Blog or Video or tutorial" value="<%= contentType %>">
+					    </div>
+					</div>
+					<div class="form-group">
+					    <label for="editLinkTags" class="col-sm-2 control-label">Tags</label>
+					    <div class="col-sm-10">
+					    	<input type="text" id="editLinkTags" class="form-control" placeholder="Pug tags with space" value="<%= tags %>">
+					    </div>
+					</div>
+					<div class="form-group">
+					    <label for="editLinkImportance" class="col-sm-2 control-label">Importance</label>
+					    <div class="col-sm-10">							    	
+					    	<select class="form-control" id="editLinkImportance" value="<%= importance %>">
+							  <option>Not Bad</option>
+							  <option>Good</option>
+							  <option>Awesome</option>
+							  <option>Fantastic</option>
+							  <option>Mind Blowing</option>
+							</select>
+					    </div>
+					</div> 
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		        <button type="button" id="updateLink" class="btn btn-Warning">Update</button>
+		      </div>
+	      </form>	
+	</script>		
+
+	<!-- TODO: use require for modularity -->
+	<script src ="lib/js/jquery-2.0.3.js"></script>
+	<script src ="lib/js/underscore.js"></script>
+	<script src ="lib/js/backbone.js"></script>
+	<script src ="lib/js/backbone.localStorage.js"></script>		
+	<script src="js/projectInitiation.js"></script>
+	<script src="js/models/linkModel.js"></script>
+	<script src="js/views/linkView.js"></script>
+	<script src="js/views/linksView.js"></script>
+	<script src="js/views/addLinkView.js"></script>
+	<script src="js/views/filteredLinks.js"></script>
+	<script src="js/views/editLinkView.js"></script>
+	<script src="js/collections/linkCollection.js"></script>
+	<script src="js/routers/linkAppRouters.js"></script>
+	<script src="js/main.js"></script>
+	<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+	<script src="js/database/manageLinks.js"></script>
+
+	<script>
+		//toggle extra form-control and button text
+		$('#btnMoreOptions').on('click', function(e){
+			var $el = $('#divMoreOptions'), 
+				isExpanding = $el.hasClass('hide'), 
+				btnOptionText = (isExpanding) ? 'less...' : 'more...';
+
+			$el.toggleClass('hide');
+			$(this).text(btnOptionText);
+			
+		});
+	</script>	
+</body>
+</html>
+
