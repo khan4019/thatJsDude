@@ -33,6 +33,9 @@
       .skipListItem{
         list-style-type: none;
       }
+      pre code{
+        font-size: 1.3em;
+      }
     </style>
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
@@ -78,26 +81,7 @@
       </div>
             
       <!-- <h3>If you have hard time to follow this video, you can see the content below. Things you will learn-</h3> -->
-       <!-- <ol>
-        <li><a href="#create_array">Best way to create Array</a></li>
-        <li><a href="#insert_by_index">Don't randomly insert by index</a></li>
-        <li><a href="#right_index">use right index to insert</a></li>        
-        <li><a href="#push_multiple">push multiple</a></li>
-        <li><a href="#unshift_multiple">unshift multiple</a></li>        
-        <li><a href="#set_length">Don't blindly set length</a></li>        
-        <li><a href="#indexOf_sensitive">IndexOf: type and instance sensitive</a></li>
-        <li><a href="#indexOf_extra">IndexOf Extra parameter</a></li>
-        <li><a href="#slice_splice">slice splice</a></li>
-        <li><a href="#delete_element">delete dont delete</a></li>
-        <li class="skipListItem"><a href="#array_method">map, forEach, filter, some, every</a></li>
-        <li value="11"><a href="#buildIn_function">use build in function as callBack</a></li>
-        <li><a href="#real_length">real length by reduce</a></li>
-        <li><a href="#isArray">isArray</a></li>        
-        <li><a href="#array_like">Array like object</a></li>
-        <li><a href="#string_method">Array methods in string</a></li>
-        <li class="skipListItem"><a href="">sort, reverse (not added)</a></li>
-        <li class="skipListItem"><a href="">join, concat (not added)</a></li>
-       </ol> -->
+       
        <div id="execution_Context">
          <h2>execution context</h2>
          <p>there are three context in javaScript</p>
@@ -106,6 +90,19 @@
            <li><strong>functional context</strong>-executing code inside a function</li>
            <li><strong>eval context</strong>-inside eval execution</li>
          </ol>
+         <pre><code>
+          <div style="border:3px solid purple; background-color: rgba(128, 128, 128, 0.2)"><span style="font-size: 1.25em;">// global context</span>
+var myBar = 'my awesome variable';
+var realBar = 'get drunk';
+
+function foo(){<div style=" margin:5px; border:3px solid rgb(144, 191, 120); background-color: rgba(128, 128, 128, 0.4)"><span style="font-size: 1.25em;">// function context</span>
+  var first = 'that',
+      last = 'Dude';
+  return first + ' js '+last;      
+            </div>}
+           </div> 
+         </code></pre>
+         
          <p>ref: <a href="http://davidshariff.com/blog/what-is-the-execution-context-in-javascript/">execution context</a></p>
        </div>
       <div id="scope">
