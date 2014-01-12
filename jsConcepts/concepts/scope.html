@@ -84,14 +84,14 @@
        
        <div id="execution_Context">
          <h2>execution context</h2>
+         <h3>read spec about these</h3>
          <p>there are three context in javaScript</p>
          <ol>
            <li><strong>global context</strong>- default environment for code execution</li>
            <li><strong>functional context</strong>-executing code inside a function</li>
            <li><strong>eval context</strong>-inside eval execution</li>
-         </ol>
-         <pre><code>
-          <div style="border:3px solid purple; background-color: rgba(128, 128, 128, 0.2)"><span style="font-size: 1.25em;">// global context</span>
+         </ol>         
+         <pre><code><div style="border:3px solid purple; background-color: rgba(128, 128, 128, 0.2)"><span style="font-size: 1.25em;">// global context</span>
 var myBar = 'my awesome variable';
 var realBar = 'get drunk';
 
@@ -99,11 +99,16 @@ function foo(){<div style=" margin:5px; border:3px solid rgb(144, 191, 120); bac
   var first = 'that',
       last = 'Dude';
   return first + ' js '+last;      
-            </div>}
-           </div> 
-         </code></pre>
-         
+            </div>}</div></code></pre>
+         <p>you will have as many function context as many function you have declared. function inside a function will create a function context inside the function. However, you will have only one global context.</p>
+         <p>each function call creates a new execution context event it calls itself</p>
          <p>ref: <a href="http://davidshariff.com/blog/what-is-the-execution-context-in-javascript/">execution context</a></p>
+       </div>
+       <div>
+          <h2>execution context in detail</h2>
+          <h3>read spec about this</h3>
+          
+         <p>there are </p>
        </div>
       <div id="scope">
         <h2>scope</h2>
@@ -112,9 +117,7 @@ function foo(){<div style=" margin:5px; border:3px solid rgb(144, 191, 120); bac
         <p>set the terminology</p>
         <p>what is the scope of single function. talk about that before talking about function inside a function</p>
         <p><strong>lexical scope</strong> at the time of compile, scope of a function is defined. </p>
-        <pre><code>
-          
-        </code></pre>
+        
       </div>
 
 
