@@ -399,12 +399,12 @@ myArr
 <strong>every</strong>
 <p>it will return true if every elements in the array fulfil the condition. else return false</p>
 <pre><code>
->[1,2,3, 4].some(function(elem, index, arr){
+>[1,2,3, 4].every(function(elem, index, arr){
     return elem >3;
   });
   = false;
 
->[1,2,3, 4].some(function(elem, index, arr){
+>[1,2,3, 4].every(function(elem, index, arr){
     return elem >0;
   });
   = false;  
