@@ -100,8 +100,7 @@ function foo(){<div style=" margin:5px; border:3px solid rgb(144, 191, 120); bac
       last = 'Dude';
   return first + ' js '+last;      
             </div>}</div></code></pre>
-         <p>you will have as many function context as many function you have declared. function inside a function will create a function context inside the function. However, you will have only one global context.</p>
-         <p>each function call creates a new execution context event it calls itself</p>
+         <p>you will have as many function context as many function you have declared. function inside a function will create a function context inside the function. However, you will have only one global context.</p>         
          <pre><code><div style="border:3px solid purple; background-color: rgba(128, 128, 128, 0.2)"><span style="font-size: 1.25em;">// global context</span>
 var myBar = 'my awesome variable';
 var realBar = 'get drunk';
@@ -117,9 +116,15 @@ function foo(){<div style=" margin:5px; border:3px solid rgb(144, 191, 120); bac
        </div>
        <div>
           <h2>execution context in detail</h2>
-          <h3>read spec about this</h3>
-
-         <p>if you execute a function, 2 things happens.</p>
+          <h3><a href="http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf">spec: 10.4</a></h3>
+          <p>each function establishes and enters a new execution context event it calls itself recursively. Every return exits an execution context. if exception is thrown a function could exit one or more execution context.</p>
+         <p>When a control enters an execution context, the following things are set</p>
+           <ul>
+             <li><strong>LexicalEnvironment</strong>- identify lexical environment to resolve identifier references made by code within this execution context</li>             
+             <li><strong>VariableEnvironment</strong>- variable and functions and parameters (for function code) within the execution context are added to variable environment.</li>
+             <li><strong>thisBinding</strong>- value associated with <code>this</code></li>             
+           </ul>
+         
          <p><strong></strong></p>
        </div>
       <div id="scope">
