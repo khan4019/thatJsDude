@@ -83,12 +83,11 @@
       <!-- <h3>If you have hard time to follow this video, you can see the content below. Things you will learn-</h3> -->
        
        <div id="execution_Context">
-         <h2>execution context</h2>
-         <h3>read spec about these</h3>
-         <p>there are three context in javaScript</p>
+         <h2>execution context</h2>         
+         <p>Three execution context in javaScript</p>
          <ol>
-           <li><strong>global context</strong>- default environment for code execution</li>
-           <li><strong>functional context</strong>-executing code inside a function</li>
+           <li><strong>global context</strong>- default environment for code execution. You will have only one global context and anything declared in the global context is accessible from anywhere of your code.</li>
+           <li><strong>functional context</strong>-executing code inside a function. anything declared inside a function can be accessed inside the function. However, from inside of a function you can access anything global.</li>
            <li><strong>eval context</strong>-inside eval execution</li>
          </ol>         
          <pre><code><div style="border:3px solid purple; background-color: rgba(128, 128, 128, 0.2)"><span style="font-size: 1.25em;">// global context</span>
@@ -120,15 +119,17 @@ function foo(){<div style=" margin:5px; border:3px solid rgb(144, 191, 120); bac
           <p>each function establishes and enters a new execution context event it calls itself recursively. Every return exits an execution context. if exception is thrown a function could exit one or more execution context.</p>
          <p>When a control enters an execution context, the following things are set</p>
            <ul>
-             <li><strong>LexicalEnvironment</strong>- identify lexical environment to resolve identifier references made by code within this execution context</li>             
-             <li><strong>VariableEnvironment</strong>- variable and functions and parameters (for function code) within the execution context are added to variable environment.</li>
-             <li><strong>thisBinding</strong>- value associated with <code>this</code></li>             
-           </ul>
-         
-         <p><strong></strong></p>
+             <li><strong>LexicalEnvironment</strong>- set lexical environment scope</li>             
+             <li><strong>VariableEnvironment</strong>- variables, functions and parameters/ arguments (for function code) are added to variable environment.</li>
+             <li><strong>thisBinding</strong>- set value associated with <code>this</code></li>             
+           </ul>         
+         <p><strong></strong>Then values are assigned, functions are refereed and code is executed.</p>
+
+         <p><strong>Animation:</strong> ref: <a href="http://davidshariff.com/blog/what-is-the-execution-context-in-javascrip">activation/variable object</a></p>
        </div>
       <div id="scope">
         <h2>scope</h2>
+        <p><strong>animate:</strong> ref: <a href="http://davidshariff.com/blog/javascript-scope-chain-and-closures/">i =5</a></p>
         <p>what is scope? does is it mean what you can see and what you cant see.</p>
         <p>talk about lexical scope and variable scope and execution scope</p>
         <p>set the terminology</p>
@@ -138,7 +139,7 @@ function foo(){<div style=" margin:5px; border:3px solid rgb(144, 191, 120); bac
       </div>
 
 
-<p>for more: <a href="http://blog.mikota.cz/2013/06/fun-with-javascript-arrays.html">Fun with JS Array</a>, <a href="https://www.destroyallsoftware.com/talks/wat">WAT</a></p>
+
 <!-- div>h2+p+pre>code -->
       <hr>
 
