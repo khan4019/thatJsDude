@@ -80,7 +80,9 @@ function checkUserExists(data, user){
       dataType: 'json',
       success: function(data){        
             //if user dont exists. save him
+            console.log(data, user);
             if(!data || !data.length){
+                console.log('saving data');
               saveNewUser({id:user.id, email:user.email, firstName:user.family_name, lastName:user.given_name});  
             }
       },
@@ -88,7 +90,7 @@ function checkUserExists(data, user){
         console.log(x.responseText);             
       }
     });
-    return false;
+    
 }
 
 function saveNewUser(data){
@@ -98,13 +100,13 @@ function saveNewUser(data){
       data: data,
       dataType: 'json',
       success: function(data){
-        console.log(data);
+        console.log('saved new user successfully');
       },
       error:function(x,e){
         console.log(x.responseText);             
       }
     });
-    return false;
+    
 }
 
 //credits: http://www.netlobo.com/url_query_string_javascript.html
