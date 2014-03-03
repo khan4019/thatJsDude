@@ -100,27 +100,9 @@
            <li><strong>functional context</strong>-executing code inside a function. anything declared inside a function can be accessed inside the function. However, from inside of a function you can access anything global.</li>
            <li><strong>eval context</strong>-inside eval execution</li>
          </ol>         
-         <pre><code><div style="border:3px solid purple; background-color: rgba(128, 128, 128, 0.2)"><span style="font-size: 1.25em;">// global context</span>
-var myBar = 'my awesome variable';
-var realBar = 'get drunk';
-
-function foo(){<div style=" margin:5px; border:3px solid rgb(144, 191, 120); background-color: rgba(128, 128, 128, 0.4)"><span style="font-size: 1.25em;">// function context</span>
-  var first = 'that',
-      last = 'Dude';
-  return first + ' js '+last;      
-            </div>}</div></code></pre>
+         
          <p>you will have as many function context as many function you have declared. function inside a function will create a function context inside the function. However, you will have only one global context.</p>         
-         <pre><code><div style="border:3px solid purple; background-color: rgba(128, 128, 128, 0.2)"><span style="font-size: 1.25em;">// global context</span>
-var myBar = 'my awesome variable';
-var realBar = 'get drunk';
 
-function foo(){<div style=" margin:5px; border:3px solid rgb(144, 191, 120); background-color: rgba(128, 128, 128, 0.2)"><span style="font-size: 1.25em;">// function context</span>
-  var first = 'that',
-      last = 'Dude';
-      function fooed(){<div style=" margin:5px; border:3px solid rgb(211, 171, 79); background-color: rgba(128, 128, 128, 0.2)">        <span style="font-size: 1.25em;">// another function context</span>
-        console.log('nicely fooed');</div>       }
-  return first + ' js '+last;      
-            </div>}</div></code></pre>
          <p>ref: <a href="http://davidshariff.com/blog/what-is-the-execution-context-in-javascript/">execution context</a></p>
        </div>
        <div>
