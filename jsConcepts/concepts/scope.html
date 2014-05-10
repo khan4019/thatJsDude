@@ -352,6 +352,38 @@ function getX(x){
 getX(5); // 7
          </code></pre>
        </div>
+       <div id="reduceGlobal">
+         <h2>Avoid Global</h2>
+          <p><strong>Less climbing on the Scope Chain: </strong> If you are asking for a global variable from inside of a function, you are climbing scope chain. In the code example you are climbing the scope chain for 1000000. Every single time, you have to check localScope, parameters and then get outside of the function. If you have more than one function inside function, this becomes even more expensive.</p>          
+          <pre><code>
+var myArr = [0,1,2,3, ...., 1000000];
+
+function getSum(){
+  var sum = 0;
+  for (var i =0; i&lt;1000000; i++){
+    sum += myArr[i];
+  }    
+  return sum;
+}
+
+getSum();
+          </code></pre>
+          <p>If you have to access global variable for several times, you can have a local copy of the global variable. In that case you dont have to climb scope chain</p>
+          <pre><code>
+var myArr = [0,1,2,3, ...., 1000000];
+
+function getSum(){
+  var sum = 0;
+  var localArr = myArr;
+  for (var i =0; i&lt;1000000; i++){
+    sum += localArr[i];
+  }    
+  return sum;
+}
+
+getSum();
+          </code></pre>          
+       </div>
        <div id="blockScope">
           <h2>Block Scope</h2>
          <p><strong>Block Scope::</strong> JavaScript dont support block scope. Hence</p>
