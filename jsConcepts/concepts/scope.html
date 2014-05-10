@@ -305,6 +305,57 @@ c();
           <h4>Take away</h4>
           <p>you will have as many function context as many function you have executed. Function inside a function will create a function context inside of the function it is executed. There would be a new scope, if a function calls itself. However, you will have only one global context.</p>          
        </div>
+       <div id="accessGlobal">
+         <h2>Access Global</h2>
+          <p>Say, we wake up Saturday afternoon (forgot there was a Friday night) and looking for the keys of your car.</p>
+          <ul>
+            <li><strong>First (Check Room): </strong> First thing you will do is to check your room (Image-16).</li>
+            <li><strong>Second (key Holder):</strong> If it is not there, you will check the key holder (Image-17) next to the door.</li>
+            <li><strong>Third (Other part of the house): </strong> If you live in big apartment building. you will look into inside of the building. May be in the front lobby (the way you get in to your apartment)</li>
+            <li><strong>Fourth (Outside): </strong> Next step would be check outside of the house (Image-18)</li>
+            <li><strong>Fifth (Lost): </strong> If you don't find it in the outside of the house, you have to say, your keys are lost.</li>
+          </ul>
+          <div class="imageContainer">
+             <div class="imageHolder">
+               <img src="../../images/scope/messyRoom.jpg" alt="">             
+               <p class="imgTitleHolder"><span>Image-16:</span><span class="imageTitle">Searching Key</span></p>
+             </div>
+             <div class="imageHolder">
+                <img src="../../images/scope/keyHolder.jpg" alt="">              
+               <p class="imgTitleHolder"><span>Image-17:</span><span class="imageTitle">Key Holder</span></p>
+             </div>
+             <div class="imageHolder">
+                <img src="../../images/scope/outsideHouse.jpg" alt="">              
+               <p class="imgTitleHolder"><span>Image-18:</span><span class="imageTitle">OutSide </span></p>
+             </div>
+           </div>
+            <h4>Why are you telling this stupid thing?</h4>
+         <div>If you ask for a global variable inside a function, JavaScript doesn't know right away whether this variable you are asking for is a  global variable or local variable. So, it has to follow the following steps.
+         <ul>
+            <li><strong>First (Local Scope): </strong>It checks with local variable. if it is in the local scope will grab it and give it to you.</li>
+            <li><strong>Second (Parameters): </strong>If the variable doesn't exists in the local scope then it check to the parameters.</li>
+            <li><strong>Third (Outer Scopes) </strong> If the variable you are asking for doesn't exists in the parameter then it starts walk outside of the function via scope chain. of the current scope through scope chain until it hits window (the last end of the scope chain)</li>
+            <li><strong>Fourth (Window): </strong> If the variable exists in the global scope, it would be a property of the global object "window".</li>
+            <li><strong>Fifth (Undefined): </strong>If the variable doesnt exists in the window object, JavaScript will return "undefined".</li>
+          </ul>    
+        </div>
+          
+         <p> Since local scope is the first place to look for variable, local variable gets priority over global.</p>
+         <pre><code>
+var x = 9;
+
+function getX(x){
+  var x = 7;
+  return x;  
+}
+
+getX(5); // 7
+         </code></pre>
+       </div>
+       <div id="blockScope">
+          <h2>Block Scope</h2>
+         <p><strong>Block Scope::</strong> JavaScript dont support block scope. Hence</p>
+       </div>
        <div class="contextVsScope">
          <h2 class="text-danger">don't mix up scope and context</h2>
          <h4>Scope</h4>
