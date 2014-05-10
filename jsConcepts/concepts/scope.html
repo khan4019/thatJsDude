@@ -382,7 +382,7 @@ function getSum(){
 }
 
 getSum();
-          </code></pre>          
+          </code></pre>
        </div>
        <div id="blockScope">
           <h2>Block Scope</h2>
@@ -438,6 +438,48 @@ function() {
     a = 5;        
 }
          </code></pre>
+       </div>
+       <div id="closure">
+         <h2>Closure</h2>
+         <pre><code>
+function counter(){
+    var i = 0;
+    
+    return function(){
+       return i++;
+    }
+}
+         </code></pre>
+         <pre><code>
+var a = counter();
+a(); //0
+a(); //1
+a(); //2
+a(); //3
+a(); //4
+a(); //5
+         </code></pre>
+         <pre><code>
+var b = counter();
+b(); //0
+b(); //1
+b(); //2
+b(); //3
+         </code></pre>
+         <div class="imageContainer">
+            <div class="imageHolder">
+              <img src="../../images/scope/closure.jpg" alt="">             
+              <p class="imgTitleHolder"><span>Image-19:</span><span class="imageTitle">Closure</span></p>
+            </div>
+            <div class="imageHolder">
+              <img src="../../images/scope/closureOneFunc.png" alt="">             
+              <p class="imgTitleHolder"><span>Image-20:</span><span class="imageTitle">Searching Key</span></p>
+            </div>
+            <div class="imageHolder">
+               <img src="../../images/scope/closureTwoFunc.png" alt="">              
+              <p class="imgTitleHolder"><span>Image-21:</span><span class="imageTitle">Key Holder</span></p>
+            </div>             
+          </div> 
        </div>
        <div class="contextVsScope">
          <h2 class="text-danger">don't mix up scope and context</h2>
