@@ -450,6 +450,7 @@ function counter(){
     }
 }
          </code></pre>
+         <p>private variable. save state. closure create encapsulation</p>
          <pre><code>
 var a = counter();
 a(); //0
@@ -459,6 +460,7 @@ a(); //3
 a(); //4
 a(); //5
          </code></pre>
+         <p>each closure have separate private variable</p>
          <pre><code>
 var b = counter();
 b(); //0
@@ -480,6 +482,21 @@ b(); //3
               <p class="imgTitleHolder"><span>Image-21:</span><span class="imageTitle">Key Holder</span></p>
             </div>             
           </div> 
+          <h4>Take Away</h4>
+          <p>talk about encapsulation. private variables</p>
+       </div>
+       <div id="closurePerf">
+         <h2>Closure Performance</h2>
+         <p>Don't hold excessively large private memory. this could cause memory leak</p>
+         <pre><code>
+//try to avoid this
+function a() {
+    var largeStr = new Array(1000000).join('x');
+    return function () {
+        return largeStr;
+    };
+}
+         </code></pre>
        </div>
        <div class="contextVsScope">
          <h2 class="text-danger">don't mix up scope and context</h2>
