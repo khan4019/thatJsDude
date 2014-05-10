@@ -402,6 +402,43 @@ getY(); //7
           <h4>ES6: let</h4>
          <p> You cannot have block scope but you can have block variable when ES6 "let" would be supported by major browsers. Read MDN documents to learn more about <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let">let</a>.</p>
        </div>
+       <div id="hoisting">
+         <h2>Hoisting</h2>
+         <p>Compare this with floating of stuff. or find good example</p>
+         <pre><code>
+function() {    
+    var bar = function() {
+            return 'world';
+        };    
+    function foo() {
+        return 'fooed';
+    }
+    var a = 5;
+}
+         </code></pre>
+         <p>what are the steps for hositing and scanning process. google it. Talk about variable declaration. function declaration and function assignment</p>
+         <ul>
+           <li><strong>function</strong></li>
+           <li><strong></strong></li>
+           <li><strong></strong></li>
+           <li><strong></strong></li>
+           <li><strong></strong></li>
+         </ul>
+         <p>after hoisting</p>
+         <pre><code>
+function() {
+    function foo() {
+        return 'fooed';
+    }    
+    var bar;
+    var a;    
+    bar = function() {
+            return 'world';
+        };
+    a = 5;        
+}
+         </code></pre>
+       </div>
        <div class="contextVsScope">
          <h2 class="text-danger">don't mix up scope and context</h2>
          <h4>Scope</h4>
