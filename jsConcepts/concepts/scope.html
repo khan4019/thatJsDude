@@ -235,7 +235,18 @@ console.log(d); //ReferenceError: d is not defined
              <p class="imgTitleHolder"><span>Image-12:</span><span class="imageTitle">Local Scope</span></p>
            </div>           
          </div>    
-         <p><strong>Implicit Global::</strong> if you forget to put var in front of the variable inside a function, it becomes a global variable. So, be careful.</p>     
+         <p><strong>Implicit Global::</strong> if you forget to put var in front of the variable inside a function, it becomes a global variable. In the code block below, "a", "e" and "i" are global variables. you might not wanted "e" and "i" to be global. So, be careful.</p>
+         <pre><code>
+var a = 21;
+
+function b(){
+  var d = 7;
+  e = 14;
+  for(i =0; i&lt;5; i++){
+    console.log(e);  
+  }  
+}
+         </code></pre>     
           <h4>Take away</h4>
           <p> Local variables are exactly like local stars. You can access it (get or set value of it) only inside that scope. Local function is like local events. you can execute (celebrate) only inside that scope.</p>          
           <p>Local variables and functions are executed in the local context.</p>
@@ -244,7 +255,7 @@ console.log(d); //ReferenceError: d is not defined
            <h2>Multiple context</h2>
            <p><strong>Multiple functions::</strong> If you have more than one functions and you execute them, each one of them will create their own scope. However, every execution context will be linked to the global scope. Thats how you will have access to the global scope. Have a look at Image -13.</p>
            <p><strong>Inside Scope::</strong> If you have a function inside of another function and you execute the inner function. The inner function will create a scope inside the outer function. Look at the Image-14. Remember, the inner one will have access to the outer function variable and outer one will have access to the global variable. Stare at Image-14 for 5 minutes and shed tears for 3 minutes.</p>
-           <p><strong>Closure::</strong> If you have a function inside a function, this is called closure. Closure is a powerful feature of JavaScript for encapsulation. Don't worry about it for now, we will talk about it. Some of your function could be closure (Image-15)</p>
+           <p><strong>Closure::</strong> If you have a function inside a function, this is called closure. Closure is a powerful feature of JavaScript for encapsulation. Don't worry about it for now, I will make a separate post on closure. Some of your function could be closure (Image-15)</p>
 
            <div class="imageContainer">
              <div class="imageHolder">
