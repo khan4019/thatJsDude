@@ -43,6 +43,31 @@
       { 
         color: rgba(218, 209, 149, 0.98);
       }
+      .imageContainer{
+        overflow: hidden;
+        margin: 1% 0 1% 0;
+      }
+      .imageHolder{
+        float: left;
+        padding: 1% 3% 0 3%;
+        margin: 0 1%;
+        border: 2px solid gray;
+        border-radius: 8px;
+      }
+      .imageHolder img{
+        max-height: 180px;
+        height: 180px;
+        width: 200px;
+        float: left;        
+      }
+      .imgTitleHolder{
+        margin: 0 0 0 8%;
+      }
+      .imageHolder .imageTitle{
+        font-weight: bold;
+        font-size: 1.2em;
+      }
+
       /*style for demo*/
       
     </style>
@@ -93,7 +118,7 @@
       </div>
            
       <div id="execution_Context">
-         <h2>execution context</h2>         
+         <h2>Execution context</h2>         
          <p>Three execution context in javaScript</p>
          <ol>
            <li><strong>global context</strong>- default environment for code execution. You will have only one global context and anything declared in the global context is accessible from anywhere of your code.</li>
@@ -106,9 +131,44 @@
          <p>ref: <a href="http://davidshariff.com/blog/what-is-the-execution-context-in-javascript/">execution context</a></p>
        </div>
        <div id="globalContext">
-         <h2>global context</h2>
-         <p><strong>Idea:</strong>put a image of world. and talk abuout global star like psy of korea. nelsen mendela. and jacky chan. they are global star and every one knows them. </p>
-         <p>add function like activities. olympic games or christmas. etc</p>
+           <h2>global context</h2>
+
+           <p><strong>Global::</strong> What comes to your mind, when somebody say global? You try to visualize the globe you have seen in high school. If you have never been to a high school, have a look at Image -1.</p>
+           <p><strong>Global Star::</strong> Look at image -2. If you cant see a person in the top right corner, borrow a magnifying glass from your grandma. It's Jackie Chan. He is a global star. People will recognize him from any part of the world.</p>
+           <p><strong>Global Variable::</strong> Global variable is exactly like global star. you can access it (get or set value of it), from any part of you application.</p>
+
+           <div class="imageContainer">
+             <div class="imageHolder">
+               <img src="../../images/scope/globe.png" alt="">             
+               <p class="imgTitleHolder"><span>Image-1:</span><span class="imageTitle">The Globe</span></p>
+             </div>
+             <div class="imageHolder">
+                <img src="../../images/scope/globeJackie.jpg" alt="">              
+               <p class="imgTitleHolder"><span>Image-2:</span><span class="imageTitle">The Global Star</span></p>
+             </div>
+             <div class="imageHolder">
+                <img src="../../images/scope/jackie.jpg" alt="">              
+               <p class="imgTitleHolder"><span>Image-3:</span><span class="imageTitle">Mr. Jackie Chan</span></p>
+             </div>
+           </div>
+          <br>
+          <p><strong>Global Things::</strong> So, you can easily recognize global star like Nelson Mandela, Princess Diana, etc. Similary, you can easily recognize global activities like "New Year celebration", "Christmas", "Olympic Games", etc. from any part of the world. Have a look at Image -4.</p>
+          <p><strong>Global Scope::</strong> Anything in the global scope could be accessible from any part of your application. You can put global variable which is similar to global star and global activities which is similar to global functions.</p>
+
+         <div class="imageContainer">
+           <div class="imageHolder">
+             <img src="../../images/scope/globeStars.jpg" alt="">             
+             <p class="imgTitleHolder"><span>Image-4:</span><span class="imageTitle">Global Things</span></p>
+           </div>
+           <div class="imageHolder">
+              <img src="../../images/scope/globalScope.png" alt="">              
+             <p class="imgTitleHolder"><span>Image-5:</span><span class="imageTitle">Global Scope</span></p>
+           </div>           
+         </div>
+         <br>
+          <h4>Take away</h4>
+          <p> Global variables are exactly like global stars. you can access it (get or set value of it), from any part of you application.</p>
+          <p>Global function is like global events. you can exectute (celebrate) from any part of your application</p>
        </div>
        <div>
           <h2>execution context in detail</h2>
