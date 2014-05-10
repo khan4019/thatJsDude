@@ -386,7 +386,21 @@ getSum();
        </div>
        <div id="blockScope">
           <h2>Block Scope</h2>
-         <p><strong>Block Scope::</strong> JavaScript dont support block scope. Hence</p>
+          <p>Block scope is a block/ part of a code surrounded by {}. JavaScript doesn't support block scope. Ref: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Statements?redirectlocale=en-US&redirectslug=JavaScript%2FGuide%2FStatements#Block_Statement">MDN: block scope</a></p>
+          <pre><code>
+function getY(){
+  var x = 5;
+  if(x>0){
+    var y = 7;  
+  }
+  return y;
+}
+
+getY(); //7
+          </code></pre>
+          <p>Not supporting block scope, makes javascript easier to understand, less complexity and perform better. Hoisting also plays a role here.</p>
+          <h4>ES6: let</h4>
+         <p> You cannot have block scope but you can have block variable when ES6 "let" would be supported by major browsers. Read MDN documents to learn more about <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let">let</a>.</p>
        </div>
        <div class="contextVsScope">
          <h2 class="text-danger">don't mix up scope and context</h2>
