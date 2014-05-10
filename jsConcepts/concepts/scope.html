@@ -49,7 +49,7 @@
       }
       .imageHolder{
         float: left;
-        padding: 1% 3% 0 3%;
+        padding: 1%;
         margin: 0 1%;
         border: 2px solid gray;
         border-radius: 8px;
@@ -57,7 +57,7 @@
       .imageHolder img{
         max-height: 180px;
         height: 180px;
-        width: 200px;
+        width: 280px;
         float: left;        
       }
       .imgTitleHolder{
@@ -131,7 +131,7 @@
          <p>ref: <a href="http://davidshariff.com/blog/what-is-the-execution-context-in-javascript/">execution context</a></p>
        </div>
        <div id="globalContext">
-           <h2>global context</h2>
+           <h2>Global context</h2>
 
            <p><strong>Global::</strong> What comes to your mind, when somebody say global? You try to visualize the globe you have seen in high school. If you have never been to a high school, have a look at Image -1.</p>
            <p><strong>Global Star::</strong> Look at image -2. If you cant see a person in the top right corner, borrow a magnifying glass from your grandma. It's Jackie Chan. He is a global star. People will recognize him from any part of the world.</p>
@@ -152,7 +152,7 @@
              </div>
            </div>
           <br>
-          <p><strong>Global Things::</strong> So, you can easily recognize global star like Nelson Mandela, Princess Diana, etc. Similary, you can easily recognize global activities like "New Year celebration", "Christmas", "Olympic Games", etc. from any part of the world. Have a look at Image -4.</p>
+          <p><strong>Global Things::</strong> So, you can easily recognize global star like Nelson Mandela, Princess Diana, etc. Similarly, you can easily recognize global activities like "New Year celebration", "Christmas", "Olympic Games", etc. from any part of the world. Have a look at Image -4.</p>
           <p><strong>Global Scope::</strong> Anything in the global scope could be accessible from any part of your application. You can put global variable which is similar to global star and global activities which is similar to global functions.</p>
 
          <div class="imageContainer">
@@ -167,8 +167,52 @@
          </div>
          <br>
           <h4>Take away</h4>
-          <p> Global variables are exactly like global stars. you can access it (get or set value of it), from any part of you application.</p>
-          <p>Global function is like global events. you can exectute (celebrate) from any part of your application</p>
+          <p> Global variables are exactly like global stars. you can access it (get or set value of it), from any part of you application. Global function is like global events. you can execute (celebrate) from any part of your application.</p>          
+          <p>Global variables and functions are executed in the global context.</p>
+       </div>
+       <div id="localContext">
+           <h2>Local context</h2>
+
+           <p><strong>Local::</strong> What comes to your mind, when somebody say local? If you are smart like me, you will say, what is not global is local. Think about a part of the world. for example, the USA. Its a country, a part of the world. If you don't know where is USA, I marked it for you in Image -6.</p>
+           <p><strong>Local Star::</strong> Look at image -7. If you are in USA, you might know her as she makes a lot of news (somehow manage to make news). But people outside of USA, will not recognize her. Sher is a local star.</p>
+           <p><strong>Local Variable::</strong> Local variables are exactly like local stars. you can access it (get or set value of it), only in the local scope. In JavaScript local scope is defined by a function. If you declare a variable inside a function, you can only access it (get or set value), inside the function. If you want to access it from outside of the function, you will get a reference error.</p>
+
+           <div class="imageContainer">
+             <div class="imageHolder">
+               <img src="../../images/scope/local.jpg" alt="">             
+               <p class="imgTitleHolder"><span>Image-6:</span><span class="imageTitle">The Local</span></p>
+             </div>
+             <div class="imageHolder">
+                <img src="../../images/scope/kd.jpg" alt="">              
+               <p class="imgTitleHolder"><span>Image-7:</span><span class="imageTitle">Kim Kardashian</span></p>
+             </div>
+             <div class="imageHolder">
+                <img src="../../images/scope/localStar.jpg" alt="">              
+               <p class="imgTitleHolder"><span>Image-8:</span><span class="imageTitle">The Local Star</span></p>
+             </div>
+           </div>
+          <br>
+          <p><strong>Local Events::</strong> Think about American football (Image-9). Not the football (soccer) rest of the world knows. Its crazily famous here including super bowl. But people outside of the world doesn't know about  it. Similarly, any functions inside a function will only be accessible inside it (you can execute it).</p>
+          <p><strong>Local Scope::</strong> Anything in the local scope (inside a function) is only accessible inside that local scope. You can compare local variable like local star and local activities like a function inside a function in Image-10.</p>
+          <p><strong>Connected to Global::</strong> Local scope is connected to the global scope. In the image-11, see a dotted line/chain towards global scope. Thats the way you have access to any global variables/functions. Wee will talk more about it later.</p>
+         <div class="imageContainer">
+           <div class="imageHolder">
+             <img src="../../images/scope/football.jpg" alt="">             
+             <p class="imgTitleHolder"><span>Image-9:</span><span class="imageTitle">Local Events</span></p>
+           </div>
+           <div class="imageHolder">
+             <img src="../../images/scope/localEvents.jpg" alt="">             
+             <p class="imgTitleHolder"><span>Image-10:</span><span class="imageTitle">Local Events</span></p>
+           </div>
+           <div class="imageHolder">
+              <img src="../../images/scope/localScope.png" alt="">              
+             <p class="imgTitleHolder"><span>Image-11:</span><span class="imageTitle">Local Scope</span></p>
+           </div>           
+         </div>
+         <br>
+          <h4>Take away</h4>
+          <p> Local variables are exactly like local stars. You can access it (get or set value of it) only inside that scope. Local function is like local events. you can execute (celebrate) only inside that scope.</p>          
+          <p>Local variables and functions are executed in the local context.</p>
        </div>
        <div>
           <h2>execution context in detail</h2>
