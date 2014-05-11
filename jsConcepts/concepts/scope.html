@@ -239,7 +239,7 @@ function b(){
        </div>
        <div id="multipleScope">
            <h2>3. Multiple Scope</h2>
-           <p><strong>Multiple functions::</strong> If you have more than one functions and you execute them, each one of them will create their own scope. However, every execution context will be linked to the global scope. Thats how you will have access to the global scope. Have a look at Image -13.</p>
+           <p><strong>Multiple functions::</strong> If you have more than one functions and you execute them, each one of them will create their own scope. However, every execution scope will be linked to the global scope. Thats how you will have access to the global scope. Have a look at Image -13.</p>
            <p><strong>Nested Scope::</strong> If you have a function inside of another function and you execute the inner function. The inner function will create a scope inside the outer function. Look at the Image-14. Remember, the inner scope will have access to the outer function variable and outer one will have access to the global variable. Stare at Image-14 for 5 minutes and shed tears for 3 minutes.</p>
            <p><strong>Closure::</strong> If you have a function inside a function, this is called closure. Closure is a powerful feature of JavaScript for encapsulation. Some of your function could be closure (Image-15). Don't worry about it for now, You will have a crystal clear idea about closure soon.</p>
 
@@ -258,7 +258,7 @@ function b(){
              </div>
            </div>
          <br>
-         <p>In the code block, below function "b" and function "c" creates separate context like Image-13</p>
+         <p>In the code block, below function "b" and function "c" creates separate scope like in Image-13</p>
          <pre><code>
 var a = 2;
 
@@ -270,8 +270,8 @@ function c(){
   console.log(a); 
 }
 
-b(); // context for executing function "b" 
-c(); // context for executing function "c" 
+b(); // scope created for executing function "b" 
+c(); // scope created for executing function "c" 
          </code></pre>
          <br>
          <p>In the code block below, at the time of execution of function "b", function "dog" will be executed and it will create a new scope inside the scope of function "b". Refer to Image-14 </p>
@@ -307,7 +307,7 @@ getY(); //7
          <p> You cannot have block scope but you can have block variable when ES6 "let" would be supported by major browsers. Read MDN documents to learn more about <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let">let</a>.</p>
        </div>
           <h4>Take away</h4>
-          <p>You will have as many function context as many function you have executed. Function inside a function will create a nested scope inside of the scope of the outer function. There would be a new scope, even a function calls itself. However, you will have only one global context.</p>  
+          <p>You will have as many function scope as many function you have executed. Function inside a function will create a nested scope inside of the scope of the outer function. There would be a new scope, even a function calls itself. However, you will have only one global scope.</p>  
 
        </div>
        <div id="accessGlobal">
@@ -356,9 +356,11 @@ function getX(x){
 
 getX(5); // 7
          </code></pre>
+         <h4>Take Away</h4>
+         <p>The order of accessing variable is local variables (inner scope), parameters, outer scope(s), global variable (window). If your variable doesn't exist in the global scope, you will get undefined.</p>
        </div>
-       <div id="reduceGlobal">
-         <h2>5. Access Global Variable</h2>
+       <div id="globalVarPerf">
+         <h2>5. Global Variable Performance</h2>
           <p><strong>Climbing through the Scope Chain: </strong> If you are asking for a global variable from inside of a function, you are climbing through the scope chain. In the code example you are climbing the scope chain for 1,000,000. Every single time, you have to check localScope, parameters and then get outside of the function. If you have more than one function inside function, then it becomes even more expensive.</p>          
           <pre><code>
 var myArr = [0,1,2,3, ...., 1000000];
@@ -388,6 +390,8 @@ function getSum(){
 
 getSum();
           </code></pre>
+          <h4>Take Away</h4>
+         <p>If you are accessing global variable for hundreds of times, have a local copy of the global variable. If you are doing it for once or twice, you can ignore this minor performance tips.</p>
        </div>       
        <div id="hoisting">
          <h2>6. Hoisting</h2>
@@ -537,8 +541,8 @@ function a() {
          </code></pre>
        </div>
           <h4>Take Away</h4>
-          <p>If you execute a function inside a function, a closure is created. Closure could return a function.</p>
-          <p>Closure save state of outer function variable but do not expose those private variable. In that way you can hide implementation detail while using closure. This is called encapsulation.</p>
+          <p>If you execute a function inside a function, a closure is created. It is not necessary to return a function to create a closure..</p>
+          <p>Closure saves state of outer function variable but do not expose those private variable. In that way you can hide implementation detail while using closure. This is called encapsulation.</p>
        </div>       
        <div class="contextVsScope">
          <h3 class="text-danger">don't mix up scope and context</h3>
@@ -547,8 +551,16 @@ function a() {
        </div>  
        <div id="summary">
         <h2>Summary</h2>
-        <h4>Don't Have time, read the summary</h4>
-        <p> Use your browsers search to find "Take Away" and read those. They are the summary for you.</p>
+        <h4>Summary is just a collection of Take Aways from each section</h4>
+        <ul>
+          <li><strong>Global Scope:: </strong>Global variables are exactly like global stars (Jackie Chan, Nelson Mandela). You can access them (get or set value of it), from any part of your application. Global functions are like global events (New Year, Christmas). You can execute (call) them from any part of your application.</li>
+          <li><strong>Local Scope::</strong>Local variables are like local stars. You can access it (get or set value of it) only inside that scope. Local function is like local events. you can execute (celebrate) only inside that scope.</li>
+          <li><strong>Multiple Scope:: </strong>You will have as many function scope as many function you have executed. Function inside a function will create a nested scope inside of the scope of the outer function. There would be a new scope, even a function calls itself. However, you will have only one global scope.</li>
+          <li><strong>Access Variable:: </strong>The order of accessing variable is local variables (inner scope), parameters, outer scope(s), global variable (window). If your variable doesn't exist in the global scope, you will get undefined.</li>
+          <li><strong>Global Variable Performance:: </strong>If you are accessing global variable for hundreds of times, have a local copy of the global variable. If you are doing it for once or twice, you can ignore this minor performance tips.</li>
+          <li><strong>Hoisting:: </strong>Only the declaration of a variable is hoisted. Value assigned remains at its place. Function declaration is hoisted. If you have a function expression only the variable part of the function expression will be hoisted.</li>
+          <li><strong>Closure:: </strong>If you execute a function inside a function, a closure is created. Closure could return a function. Closure saves state of outer function variable (private variable) but do not expose those. In that way you can hide implementation detail while using closure. This is called encapsulation.</li>
+        </ul>        
       </div>     
       <div id="references">
         <h2>references</h2>
