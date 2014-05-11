@@ -311,39 +311,39 @@ getY(); //7
        </div>
        <div id="accessGlobal">
          <h2>4. Access Global Variable</h2>
-          <p>Say, we wake up Saturday afternoon (forgot there was a Friday night) and looking for the keys of your car.</p>
+          <p>Say, you wake up at Saturday afternoon ( completely forgot what you have done at Friday night) and looking for your car keys. You might search in the following steps-</p>
           <ul>
-            <li><strong>First (Check Room): </strong> First thing you will do is to check your room (Image-16).</li>
+            <li><strong>First (Check Room): </strong> First thing you will do is to check inside your room (Image-16).</li>
             <li><strong>Second (key Holder):</strong> If it is not there, you will check the key holder (Image-17) next to the door.</li>
-            <li><strong>Third (Other part of the house): </strong> If you live in big apartment building. you will look into inside of the building. May be in the front lobby (the way you get in to your apartment)</li>
-            <li><strong>Fourth (Outside): </strong> Next step would be check outside of the house (Image-18)</li>
-            <li><strong>Fifth (Lost): </strong> If you don't find it in the outside of the house, you have to say, your keys are lost.</li>
-          </ul>
+            <li><strong>Third (Other part of the house): </strong> If you live in big apartment building. You will look into inside of the building. May be in the front lobby (the way you get in to your apartment)</li>
+            <li><strong>Fourth (Outside): </strong> Next step would be check outside of the house (Image-18) in the backyard or roadside where ever your park your car.</li>
+            <li><strong>Fifth (Lost): </strong> If you don't find your keys outside of the house, you have to say that lost your keys.</li>
+          </ul>          
+          <p>If you find the keys inside your room you will not go to check the keys holder or outside.</p>
           <div class="imageContainer">
              <div class="imageHolder">
                <img src="../../images/scope/messyRoom.jpg" alt="">             
-               <p class="imgTitleHolder"><span>Image-16:</span><span class="imageTitle">Searching Key</span></p>
+               <p class="imgTitleHolder"><span>Image-16: </span><span class="imageTitle">Searching Key</span></p>
              </div>
              <div class="imageHolder">
                 <img src="../../images/scope/keyHolder.jpg" alt="">              
-               <p class="imgTitleHolder"><span>Image-17:</span><span class="imageTitle">Key Holder</span></p>
+               <p class="imgTitleHolder"><span>Image-17: </span><span class="imageTitle">Key Holder</span></p>
              </div>
              <div class="imageHolder">
                 <img src="../../images/scope/outsideHouse.jpg" alt="">              
-               <p class="imgTitleHolder"><span>Image-18:</span><span class="imageTitle">OutSide </span></p>
+               <p class="imgTitleHolder"><span>Image-18: </span><span class="imageTitle">OutSide </span></p>
              </div>
            </div>
-            <h4>Why are you telling this stupid thing?</h4>
-         <div>If you ask for a global variable inside a function, JavaScript doesn't know right away whether this variable you are asking for is a  global variable or local variable. So, it has to follow the following steps.
+            <h4>Why are you telling this stupid every weekend story?</h4>
+         <div>If you ask for a variable inside a function, JavaScript doesn't know right away whether this variable you are asking for is a  global variable or local variable. So, it has to follow the following steps.
          <ul>
-            <li><strong>First (Local Scope): </strong>It checks with local variable. if it is in the local scope will grab it and give it to you.</li>
-            <li><strong>Second (Parameters): </strong>If the variable doesn't exists in the local scope then it check to the parameters.</li>
-            <li><strong>Third (Outer Scopes) </strong> If the variable you are asking for doesn't exists in the parameter then it starts walk outside of the function via scope chain. of the current scope through scope chain until it hits window (the last end of the scope chain)</li>
-            <li><strong>Fourth (Window): </strong> If the variable exists in the global scope, it would be a property of the global object "window".</li>
-            <li><strong>Fifth (Undefined): </strong>If the variable doesnt exists in the window object, JavaScript will return "undefined".</li>
+            <li><strong>First (Local Scope): </strong>It checks local variable. if it is in the local scope will grab it and give it to you.</li>
+            <li><strong>Second (Parameters): </strong>If the variable doesn't exists in the local scope then it check to the parameters. Similar to keys in the key holder (Image-17)</li>
+            <li><strong>Third (Outer Scopes) </strong> If the variable you are asking for doesn't exists in the parameter then it starts walking outside of the function via scope chain of the current scope until it hits the end of the chain. The end of the scope is called "window" object in JavaScript.</li>
+            <li><strong>Fourth (Window): </strong> If the variable exists in the global scope, it would be a property of the global object "window". JavaScript will grab it an give it to you.</li>
+            <li><strong>Fifth (Undefined): </strong>If the variable doesn't exists in the window object, JavaScript will return "undefined". This means the variable you are looking for, doesn't exists.</li>
           </ul>    
-        </div>
-          
+        </div>          
          <p> Since local scope is the first place to look for variable, local variable gets priority over global.</p>
          <pre><code>
 var x = 9;
