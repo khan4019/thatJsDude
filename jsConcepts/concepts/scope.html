@@ -88,8 +88,9 @@
     <div class="jumbotron">
       <div class="container">
         <h1>JS: Scope &amp; Closure</h1>                
-        <p>May 18, 2014</p>
-        <h3>Understanding of concept, that you will never forget.</h3>
+        <h3>Understand JavaScript scope, hoisting, closure and Performance secret.</h3>
+        <small>May 18, 2014</small>
+        
         <div id="fb-root"></div><div class="fb-like" data-href="http://www.thatjsdude.com/interview/js1.html" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div> &nbsp;<div class="g-plusone"></div>
       </div>
     </div>
@@ -104,55 +105,54 @@
           <li><a href="#globlaScope">Global Scope</a></li>
           <li><a href="#localScope">Local Scope</a></li>
           <li><a href="#multipleScope">Multiple Scope</a></li>
-          <li><a href="#accessGlobal">Access Global Variable</a></li>
-          <li><a href="#avoidGlobal">Avoid Global</a></li>
+          <li><a href="#accessGlobal">Access Variable</a></li>
+          <li><a href="#avoidGlobal">Access Global Variable</a></li>
           <li><a href="#hoisting">Hoisting</a></li>
           <li><a href="#closure">Closure</a></li>
+          <li><a href="#summary">Don't have time! Read Summary and get lost</a></li>
         </ol>
       </div>
-      <div id="scope">
-        <p><strong></strong></p>
-      </div>
        <div id="globlaScope">
-           <h2>Global Scope</h2>
-           <p><strong>Global::</strong> What comes to your mind, when somebody say global? You try to visualize the globe you have seen in high school. If you have never been to a high school, have a look at Image -1.</p>
+           <h2>1. Global Scope</h2>
+           <p><strong>Global::</strong> When somebody say global, what comes to your mind? You will try to visualize the globe you have seen in high school. If you have never been to a high school, have a look at Image -1.</p>
            <p><strong>Global Star::</strong> Look at image -2. If you cant see a person in the top right corner, borrow a magnifying glass from your grandma. It's Jackie Chan. He is a global star. People will recognize him from any part of the world.</p>
-           <p><strong>Global Variable::</strong> Global variable is exactly like global star. you can access it (get or set value of it), from any part of you application.</p>
+           <p><strong>Global Variable::</strong> Global variable is exactly like global star. you can access it (get or set the value of it), from any part of you application.</p>
 
            <div class="imageContainer">
              <div class="imageHolder">
                <img src="../../images/scope/globe.png" alt="">             
-               <p class="imgTitleHolder"><span>Image-1:</span><span class="imageTitle">The Globe</span></p>
+               <p class="imgTitleHolder"><span>Image-1: </span><span class="imageTitle">The Globe</span></p>
              </div>
              <div class="imageHolder">
                 <img src="../../images/scope/globeJackie.jpg" alt="">              
-               <p class="imgTitleHolder"><span>Image-2:</span><span class="imageTitle">The Global Star</span></p>
+               <p class="imgTitleHolder"><span>Image-2: </span><span class="imageTitle">The Global Star</span></p>
              </div>
              <div class="imageHolder">
                 <img src="../../images/scope/jackie.jpg" alt="">              
-               <p class="imgTitleHolder"><span>Image-3:</span><span class="imageTitle">Mr. Jackie Chan</span></p>
+               <p class="imgTitleHolder"><span>Image-3: </span><span class="imageTitle">Mr. Jackie Chan</span></p>
              </div>
            </div>
           <br>          
           <p><strong>Global Events::</strong> So, you can easily recognize global star like Nelson Mandela, Princess Diana, etc. Similarly, you can easily recognize global activities like "New Year celebration", "Christmas", "Olympic Games", etc. from any part of the world. Have a look at Image -5.</p>
-          <p><strong>Global Scope::</strong> Anything in the global scope could be accessible from any part of your application. You can put global variable which is similar to global star and global activities which is similar to global functions.</p>
+          <p><strong>Global Functions::</strong> Similarly, global functions could be accessible from any part of your application.</p>
+          <p><strong>Global Scope::</strong> Anything in the global scope could be accessible from any part of your application. Have a look into Image -6. You can have global variables like global stars and global functions like global events/activities.</p>
 
          <div class="imageContainer">
           <div class="imageHolder">
              <img src="../../images/scope/newYear.jpg" alt="">             
-             <p class="imgTitleHolder"><span>Image-4:</span><span class="imageTitle">Happy New Year</span></p>
+             <p class="imgTitleHolder"><span>Image-4: </span><span class="imageTitle">Happy New Year</span></p>
            </div>
            <div class="imageHolder">
              <img src="../../images/scope/globeStars.jpg" alt="">             
-             <p class="imgTitleHolder"><span>Image-5:</span><span class="imageTitle">Global Things</span></p>
+             <p class="imgTitleHolder"><span>Image-5: </span><span class="imageTitle">The Global Things</span></p>
            </div>
            <div class="imageHolder">
               <img src="../../images/scope/globalscope.png" alt="">              
-             <p class="imgTitleHolder"><span>Image-6:</span><span class="imageTitle">Global Scope</span></p>
+             <p class="imgTitleHolder"><span>Image-6: </span><span class="imageTitle">The Global Scope</span></p>
            </div>           
          </div>
          <br>
-         <p>In the code block below, "a" is a global variable and "b" is a global function. you can access global variable inside the function. Anything which is not inside of a function, is global.</p>
+         <p>In the code block below, "a" is a global variable and "b" is a global function. you can access global variable from anywhere of your application including inside of the function "b". Anything which is not inside of a function, is global.</p>
           <pre><code>
 //global variable
 var a = 2;
@@ -166,33 +166,34 @@ b(); //execute global function.
           </code></pre>
          <br>
           <h4>Take away</h4>
-          <p> Global variables are exactly like global stars. you can access it (get or set value of it), from any part of you application. Global function is like global events. you can execute (celebrate) from any part of your application.</p>          
-          <p>Global variables and functions are executed in the global context.</p>
+          <p> Global variables are exactly like global stars. You can access them (get or set value of it), from any part of your application. Global functions are like global events. You can execute (call) them from any part of your application.</p>          
+          <p>Global variables and functions are executed in the global context. If you need to understand more about JavaScript context, read <a href="http://davidshariff.com/blog/what-is-the-execution-context-in-javascript/">Execution context and Stack in JavaScript</a> or watch <a href="https://www.youtube.com/watch?v=yuo8YqKDQ-M">Understanding JavaScript this in a crystal clear way</a></p>
        </div>
        <div id="localScope">
-           <h2>Local Scope</h2>
+           <h2>2. Local Scope</h2>
 
-           <p><strong>Local::</strong> What comes to your mind, when somebody say local? If you are smart like me, you will say, what is not global is local. Think about a part of the world. for example, the USA. Its a country, a part of the world. If you don't know where is USA, I marked it for you in Image -7.</p>
-           <p><strong>Local Star::</strong> Look at image -8. If you are in USA, you might know her as she makes a lot of news (somehow manage to make news). But people outside of USA, will not recognize her. Sher is a local star.</p>
-           <p><strong>Local Variable::</strong> Local variables are exactly like local stars. you can access it (get or set value of it), only in the local scope. In JavaScript local scope is defined by a function. If you declare a variable inside a function, you can only access it (get or set value), inside the function. If you want to access it from outside of the function, you will get a reference error.</p>
+           <p><strong>Local::</strong> When somebody says local, what comes to your mind? If you are smart like me, you will say, something that is not global. Think about a part of the world. For example, the USA. It's a country, a part of the world. If you don't know where is the USA, I marked it for you in Image -7.</p>
+           <p><strong>Local Star::</strong> Look at image -8. If you are in the USA, you might know her as she makes a lot of news (somehow manage to make news). But people outside of the USA, will not recognize her. Sher is a local star.</p>
+           <p><strong>Local Variable::</strong> Local variables are exactly like local stars. you can access it (get or set the value of it), only in the local scope. In JavaScript local scope is defined by a function. If you declare a variable inside a function, you can only aWscess it (get or set value), inside the function. If you want to access it from outside of the function, you will get a reference error.</p>
 
            <div class="imageContainer">
              <div class="imageHolder">
                <img src="../../images/scope/local.jpg" alt="">             
-               <p class="imgTitleHolder"><span>Image-7:</span><span class="imageTitle">The Local</span></p>
+               <p class="imgTitleHolder"><span>Image-7: </span><span class="imageTitle">The Local</span></p>
              </div>
              <div class="imageHolder">
                 <img src="../../images/scope/kd.jpg" alt="">              
-               <p class="imgTitleHolder"><span>Image-8:</span><span class="imageTitle">Kim Kardashian</span></p>
+               <p class="imgTitleHolder"><span>Image-8: </span><span class="imageTitle">Kim Kardashian</span></p>
              </div>
              <div class="imageHolder">
                 <img src="../../images/scope/localStar.jpg" alt="">              
-               <p class="imgTitleHolder"><span>Image-9:</span><span class="imageTitle">The Local Star</span></p>
+               <p class="imgTitleHolder"><span>Image-9: </span><span class="imageTitle">The Local Star</span></p>
              </div>
            </div>
           <br>
-          <p><strong>Local Events::</strong> Think about American football (Image-10). Not the football (soccer) rest of the world knows. Its crazily famous here including super bowl. But people outside of the world doesn't know about  it. Similarly, any functions inside a function will only be accessible inside it (you can execute it).</p>
-          <p><strong>Local Scope::</strong> Anything in the local scope (inside a function) is only accessible inside that local scope. You can compare local variable like local star and local activities like a function inside a function in Image-11.</p>
+          <p><strong>Local Events::</strong> Think about American football (Image-10). Not the football (soccer) rest of the world knows. It's crazily famous here including super bowl. But people outside of the world doesn't know about  it. </p>
+          <p><strong>Local Functions:: </strong>Similarly, any functions inside a function is a local function. You can only execute it inside the outer function.</p>
+          <p><strong>Local Scope::</strong> Anything in the local scope (inside a function) is only accessible inside that local scope. You can compare local variables are like local stars and local functions are like local events. Have a look at Image-11.</p>
           <p><strong>Scope Chain::</strong> Local scope is connected to the global scope. In the Image-12, see a dotted line/chain towards global scope. Thats the way you have access to any global variables/functions. This link/chain is called scope chain. We will talk more about it later.</p>
          <div class="imageContainer">
            <div class="imageHolder">
@@ -209,7 +210,7 @@ b(); //execute global function.
            </div>           
          </div>
 
-          <p>In the code block below, "d" is a local variable. you can access it (get or set value) inside the function "b". If you want to access it outside of the function, you will throw a reference error.</p>
+          <p>In the code block below, "d" is a local variable. you can access it (get or set value) inside the function "b". If you want to access it outside of the function, you will get a reference error.</p>
           <pre><code>
 var a = 2; 
 function b(){
@@ -220,7 +221,7 @@ b();  // 21
 
 console.log(d); //ReferenceError: d is not defined
           </code></pre>    
-         <p><strong>Implicit Global::</strong> if you forget to put var in front of the variable inside a function, it becomes a global variable. In the code block below, "a", "e" and "i" are global variables. you might not wanted "e" and "i" to be global. So, be careful.</p>
+         <p><strong>Implicit Global::</strong> if you forget to put var in front of the variable inside a function, it becomes a global variable. In the code block below, "a", "e" and "i" are global variables. You might not wanted "e" and "i" to be global. So, be careful.</p>
          <pre><code>
 var a = 21;
 
@@ -237,27 +238,27 @@ function b(){
           <p>Local variables and functions are executed in the local context.</p>
        </div>
        <div id="multipleScope">
-           <h2>Multiple Scope</h2>
-           <p><strong>Multiple functions::</strong> If you have more than one functions and you execute them, each one of them will create their own scope. However, every execution context will be linked to the global scope. Thats how you will have access to the global scope. Have a look at Image -13.</p>
-           <p><strong>Inside Scope::</strong> If you have a function inside of another function and you execute the inner function. The inner function will create a scope inside the outer function. Look at the Image-14. Remember, the inner one will have access to the outer function variable and outer one will have access to the global variable. Stare at Image-14 for 5 minutes and shed tears for 3 minutes.</p>
-           <p><strong>Closure::</strong> If you have a function inside a function, this is called closure. Closure is a powerful feature of JavaScript for encapsulation. Don't worry about it for now, I will make a separate post on closure. Some of your function could be closure (Image-15)</p>
+           <h2>3. Multiple Scope</h2>
+           <p><strong>Multiple functions::</strong> If you have more than one functions and you execute them, each one of them will create their own scope. However, every execution scope will be linked to the global scope. Thats how you will have access to the global scope. Have a look at Image -13.</p>
+           <p><strong>Nested Scope::</strong> If you have a function inside of another function and you execute the inner function. The inner function will create a scope inside the outer function. Look at the Image-14. Remember, the inner scope will have access to the outer function variable and outer one will have access to the global variable. Stare at Image-14 for 5 minutes and shed tears for 3 minutes.</p>
+           <p><strong>Closure::</strong> If you have a function inside a function, this is called closure. Closure is a powerful feature of JavaScript for encapsulation. Some of your function could be closure (Image-15). Don't worry about it for now, You will have a crystal clear idea about closure soon.</p>
 
            <div class="imageContainer">
              <div class="imageHolder">
                <img src="../../images/scope/multiScope.png" alt="">             
-               <p class="imgTitleHolder"><span>Image-13:</span><span class="imageTitle">Multiple Scope</span></p>
+               <p class="imgTitleHolder"><span>Image-13: </span><span class="imageTitle">Multiple Scope</span></p>
              </div>
              <div class="imageHolder">
                 <img src="../../images/scope/closure1.png" alt="">              
-               <p class="imgTitleHolder"><span>Image-14:</span><span class="imageTitle">Nested Scope</span></p>
+               <p class="imgTitleHolder"><span>Image-14: </span><span class="imageTitle">Nested Scope</span></p>
              </div>
              <div class="imageHolder">
                 <img src="../../images/scope/closureScope.png" alt="">              
-               <p class="imgTitleHolder"><span>Image-15:</span><span class="imageTitle">JavaScript Scope</span></p>
+               <p class="imgTitleHolder"><span>Image-15: </span><span class="imageTitle">JavaScript Scope</span></p>
              </div>
            </div>
          <br>
-         <p>In the code block, below function "b" and function "c" creates separate context like Image-13</p>
+         <p>In the code block, below function "b" and function "c" creates separate scope like in Image-13</p>
          <pre><code>
 var a = 2;
 
@@ -269,8 +270,8 @@ function c(){
   console.log(a); 
 }
 
-b(); // context for executing function "b" 
-c(); // context for executing function "c" 
+b(); // scope created for executing function "b" 
+c(); // scope created for executing function "c" 
          </code></pre>
          <br>
          <p>In the code block below, at the time of execution of function "b", function "dog" will be executed and it will create a new scope inside the scope of function "b". Refer to Image-14 </p>
@@ -287,44 +288,63 @@ function c(){ console.log(a); }
 b();            
 c();
          </code></pre>
+         <div id="blockScope">
+          <h4>Block Scope</h4>
+          <p>Block scope is a block/ part of a code surrounded by {}. JavaScript doesn't support block scope. Read more about block scope at <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Statements?redirectlocale=en-US&redirectslug=JavaScript%2FGuide%2FStatements#Block_Statement">MDN: block scope</a></p>
+          <pre><code>
+function getY(){
+  var x = 5;
+  if(x>0){
+    var y = 7;  
+  }
+  return y;
+}
+
+getY(); //7
+          </code></pre>
+          <p>Not supporting block scope, makes javaScript easier to understand, less complexity and perform better. Hoisting also plays a role here. You will learn about hoisting soon.</p>
+          <h4>ES6: let</h4>
+         <p> You cannot have block scope but you can have block variable when ES6 "let" would be supported by major browsers. Read MDN documents to learn more about <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let">let</a>.</p>
+       </div>
           <h4>Take away</h4>
-          <p>you will have as many function context as many function you have executed. Function inside a function will create a function context inside of the function it is executed. There would be a new scope, if a function calls itself. However, you will have only one global context.</p>          
+          <p>You will have as many function scope as many function you have executed. Function inside a function will create a nested scope inside of the scope of the outer function. There would be a new scope, even a function calls itself. However, you will have only one global scope.</p>  
+
        </div>
        <div id="accessGlobal">
-         <h2>Access Global Variable</h2>
-          <p>Say, we wake up Saturday afternoon (forgot there was a Friday night) and looking for the keys of your car.</p>
+         <h2>4. Access Variable</h2>
+          <p>Say, you wake up at Saturday afternoon ( completely forgot what you have done at Friday night) and looking for your car keys. You might search in the following steps-</p>
           <ul>
-            <li><strong>First (Check Room): </strong> First thing you will do is to check your room (Image-16).</li>
+            <li><strong>First (Check Room): </strong> First thing you will do is to check inside your room (Image-16).</li>
             <li><strong>Second (key Holder):</strong> If it is not there, you will check the key holder (Image-17) next to the door.</li>
-            <li><strong>Third (Other part of the house): </strong> If you live in big apartment building. you will look into inside of the building. May be in the front lobby (the way you get in to your apartment)</li>
-            <li><strong>Fourth (Outside): </strong> Next step would be check outside of the house (Image-18)</li>
-            <li><strong>Fifth (Lost): </strong> If you don't find it in the outside of the house, you have to say, your keys are lost.</li>
-          </ul>
+            <li><strong>Third (Other part of the house): </strong> If you live in big apartment building. You will look into inside of the building. May be in the front lobby (the way you get in to your apartment)</li>
+            <li><strong>Fourth (Outside): </strong> Next step would be check outside of the house (Image-18) in the backyard or roadside where ever your park your car.</li>
+            <li><strong>Fifth (Lost): </strong> If you don't find your keys outside of the house, you have to say that lost your keys.</li>
+          </ul>          
+          <p>If you find the keys inside your room you will not go to check the keys holder or outside.</p>
           <div class="imageContainer">
              <div class="imageHolder">
                <img src="../../images/scope/messyRoom.jpg" alt="">             
-               <p class="imgTitleHolder"><span>Image-16:</span><span class="imageTitle">Searching Key</span></p>
+               <p class="imgTitleHolder"><span>Image-16: </span><span class="imageTitle">Searching Key</span></p>
              </div>
              <div class="imageHolder">
                 <img src="../../images/scope/keyHolder.jpg" alt="">              
-               <p class="imgTitleHolder"><span>Image-17:</span><span class="imageTitle">Key Holder</span></p>
+               <p class="imgTitleHolder"><span>Image-17: </span><span class="imageTitle">Key Holder</span></p>
              </div>
              <div class="imageHolder">
                 <img src="../../images/scope/outsideHouse.jpg" alt="">              
-               <p class="imgTitleHolder"><span>Image-18:</span><span class="imageTitle">OutSide </span></p>
+               <p class="imgTitleHolder"><span>Image-18: </span><span class="imageTitle">OutSide </span></p>
              </div>
            </div>
-            <h4>Why are you telling this stupid thing?</h4>
-         <div>If you ask for a global variable inside a function, JavaScript doesn't know right away whether this variable you are asking for is a  global variable or local variable. So, it has to follow the following steps.
+            <h4>Why are you telling this stupid every weekend story?</h4>
+         <div>If you ask for a variable inside a function, JavaScript doesn't know right away whether this variable you are asking for is a  global variable or local variable. So, it has to follow the following steps.
          <ul>
-            <li><strong>First (Local Scope): </strong>It checks with local variable. if it is in the local scope will grab it and give it to you.</li>
-            <li><strong>Second (Parameters): </strong>If the variable doesn't exists in the local scope then it check to the parameters.</li>
-            <li><strong>Third (Outer Scopes) </strong> If the variable you are asking for doesn't exists in the parameter then it starts walk outside of the function via scope chain. of the current scope through scope chain until it hits window (the last end of the scope chain)</li>
-            <li><strong>Fourth (Window): </strong> If the variable exists in the global scope, it would be a property of the global object "window".</li>
-            <li><strong>Fifth (Undefined): </strong>If the variable doesnt exists in the window object, JavaScript will return "undefined".</li>
+            <li><strong>First (Local Scope): </strong>It checks local variable. if it is in the local scope will grab it and give it to you.</li>
+            <li><strong>Second (Parameters): </strong>If the variable doesn't exists in the local scope then it check to the parameters. Similar to keys in the key holder (Image-17)</li>
+            <li><strong>Third (Outer Scopes) </strong> If the variable you are asking for doesn't exists in the parameter then it starts walking outside of the function via scope chain of the current scope until it hits the end of the chain. The end of the scope is called "window" object in JavaScript.</li>
+            <li><strong>Fourth (Window): </strong> If the variable exists in the global scope, it would be a property of the global object "window". JavaScript will grab it an give it to you.</li>
+            <li><strong>Fifth (Undefined): </strong>If the variable doesn't exists in the window object, JavaScript will return "undefined". This means the variable you are looking for, doesn't exists.</li>
           </ul>    
-        </div>
-          
+        </div>          
          <p> Since local scope is the first place to look for variable, local variable gets priority over global.</p>
          <pre><code>
 var x = 9;
@@ -336,10 +356,12 @@ function getX(x){
 
 getX(5); // 7
          </code></pre>
+         <h4>Take Away</h4>
+         <p>The order of accessing variable is local variables (inner scope), parameters, outer scope(s), global variable (window). If your variable doesn't exist in the global scope, you will get undefined.</p>
        </div>
-       <div id="reduceGlobal">
-         <h2>Avoid Global</h2>
-          <p><strong>Less climbing on the Scope Chain: </strong> If you are asking for a global variable from inside of a function, you are climbing scope chain. In the code example you are climbing the scope chain for 1000000. Every single time, you have to check localScope, parameters and then get outside of the function. If you have more than one function inside function, this becomes even more expensive.</p>          
+       <div id="globalVarPerf">
+         <h2>5. Global Variable Performance</h2>
+          <p><strong>Climbing through the Scope Chain: </strong> If you are asking for a global variable from inside of a function, you are climbing through the scope chain. In the code example you are climbing the scope chain for 1,000,000. Every single time, you have to check localScope, parameters and then get outside of the function. If you have more than one function inside function, then it becomes even more expensive.</p>          
           <pre><code>
 var myArr = [0,1,2,3, ...., 1000000];
 
@@ -353,7 +375,7 @@ function getSum(){
 
 getSum();
           </code></pre>
-          <p>If you have to access global variable for several times, you can have a local copy of the global variable. In that case you dont have to climb scope chain</p>
+          <p>If you have to access global variable for hundred times, you can have a local copy of the global variable. In that case you dont have to climb through the scope chain.</p>
           <pre><code>
 var myArr = [0,1,2,3, ...., 1000000];
 
@@ -368,28 +390,28 @@ function getSum(){
 
 getSum();
           </code></pre>
-       </div>
-       <div id="blockScope">
-          <h2>Block Scope</h2>
-          <p>Block scope is a block/ part of a code surrounded by {}. JavaScript doesn't support block scope. Ref: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Statements?redirectlocale=en-US&redirectslug=JavaScript%2FGuide%2FStatements#Block_Statement">MDN: block scope</a></p>
-          <pre><code>
-function getY(){
-  var x = 5;
-  if(x>0){
-    var y = 7;  
-  }
-  return y;
-}
-
-getY(); //7
-          </code></pre>
-          <p>Not supporting block scope, makes javascript easier to understand, less complexity and perform better. Hoisting also plays a role here.</p>
-          <h4>ES6: let</h4>
-         <p> You cannot have block scope but you can have block variable when ES6 "let" would be supported by major browsers. Read MDN documents to learn more about <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let">let</a>.</p>
-       </div>
+          <h4>Take Away</h4>
+         <p>If you are accessing global variable for hundreds of times, have a local copy of the global variable. If you are doing it for once or twice, you can ignore this minor performance tips.</p>
+       </div>       
        <div id="hoisting">
-         <h2>Hoisting</h2>
+         <h2>6. Hoisting</h2>
+         <p>Hoist is a verb which means raise something by means of rope and pulley. If you have never seen a hoist in your life, look at Image-19. Hoist is used in the factories to raise heavy things. One benefit of raising something at the ceiling is, you can see it from any part of the room/factory. (Image-20)</p>
+         <p>JavaScript does the exact same thing to hoist (raise) variable declaration and function declaration at the top of function scope. so that those variables and functions could be used from any part of the function without raising no reference Exception.</p>
          <p>Compare this with floating of stuff. or find good example</p>
+         <div class="imageContainer">
+            <div class="imageHolder">
+              <img src="../../images/scope/hoist.jpg" alt="">             
+              <p class="imgTitleHolder"><span>Image-19: </span><span class="imageTitle">Mechanical Hoist</span></p>
+            </div>
+            <div class="imageHolder">
+              <img src="../../images/scope/hoistBike.jpg" alt="">             
+              <p class="imgTitleHolder"><span>Image-20: </span><span class="imageTitle">Hoisting Bike</span></p>
+            </div>
+            <div class="imageHolder">
+               <img src="../../images/scope/antLifting.jpg" alt="">              
+              <p class="imgTitleHolder"><span>Image-21:</span><span class="imageTitle">Ant Hoist Power</span></p>
+            </div>             
+          </div> 
          <p>If you execute the following foo function, you will get undefined.</p>
          <pre><code>
 function foo(){
@@ -399,15 +421,24 @@ function foo(){
 
 foo(); //undefined
          </code></pre>
-         <p>While creating <a href="#">Context</a> of a function, JavaScript execution engine, scan through the whole function and bring variable declaration at the top. Hence the code above will be parsed as</p>
+         <p>While creating <a href="http://davidshariff.com/blog/what-is-the-execution-context-in-javascript/">Context</a> of a function, JavaScript execution engine, scan through the whole function and bring variable declaration at the top of the scope. Please note the value assignment will not be hoisted. Since, only variable declaration is hoisted, the default value of unassigned variable is "undefined". Hence, you will get "undefined" returned as value of "b".</p>
+
          <pre><code>
 function foo(){
   var b;
   return b;
   b = 7;
 }
+foo(); //undefined
          </code></pre>
-         <p>Remember only the declaration of a variable is taken (hoisted) toward the starting of the function. This is call hoisting. Similarly if you assign a function to a variable only the variable declaration will be hoisted. However if you have a function declaration, the full function will be hoisted</p>
+         <p>Similarly if you assign a function to a variable (function expression) only the variable part will be hoisted. However if you have a function declaration, the full function will be hoisted.</p>
+         <h4>Hoisting Process</h4>
+         <p> You can google more about it or read spec or explore V8 code. And if you find any good materials, please let me know.</p>
+         <ul>
+           <li><strong>function: </strong>Any function declaration will be hoisted at the top.</li>
+           <li><strong>variable: </strong>And then the variable declaration will be hoisted. If you have a function expression (set function to a variable), only the variable part will be hoisted. the assignment of the function to a variable will stay at its place.</li>           
+         </ul>
+         <p>In the following code block, you have a function expression where function is assigned to a variable "bar" and a function declaration named as "foo" and a variable "a".</p>
          <pre><code>
 function myFunc() {    
     var bar = function() {
@@ -419,13 +450,7 @@ function myFunc() {
     var a = 5;
 }
          </code></pre>
-
-         <p>what are the steps for hositing and scanning process. google it. Talk about variable declaration. function declaration and function assignment</p>
-         <ul>
-           <li><strong>function: </strong>Any function declaration will be hoisted at the top.</li>
-           <li><strong>variable: </strong>And then the variable declaration will be hoisted. If you have a function expression (set function to a variable), only the variable part will be hoisted. the assignment of the function to a variable will stay there</li>           
-         </ul>
-         <p>Hence, the above mentioned code after hoisting will look like</p>
+         <p>The above mentioned code after hoisting will look like</p>
          <pre><code>
 function myFunc() {
     function foo() {
@@ -439,10 +464,12 @@ function myFunc() {
     a = 5;        
 }
          </code></pre>
+         <h4>Take Away</h4>
+         <p>Only the declaration of a variable is hoisted. Value assigned remains at its location. Function declaration is hoisted. If you have a function expression only the variable part of the function expression will be hoisted.</p>
        </div>
        <div id="closure">
-         <h2>Closure</h2>
-         <p>if you have a function inside a function, execution of the inside function will create a scope inside of the outer function. Since, insider function scope is enclosed by outer function scope. The inner function scope is called closure. Remember, to be a closure, you dont have to return a function, you just have to call a function inside a function</p>
+         <h2>7. Closure</h2>
+         <p>if you have a function inside a function, execution of the inside function will create a scope inside of the outer function. You can call it nested scope. Since, insider function scope is enclosed by outer function scope. The inner function scope is called closure (I invented this definition). Remember, to be a closure, you dont have to return a function, you just have to call a function inside a function.</p>
          <pre><code>
 function a(){
   function b(){
@@ -451,7 +478,7 @@ function a(){
   b(); //creates closure
 }
          </code></pre>
-         <p><strong>Useful Closure:: </strong>Closure is a powerful feature of JavaScript. Let's have a look into the following example. we have a outer function that has a local/private variable "i" and it return a function. Inside the returning function, the inner function returns the value of i and increases it by 1.</p>
+         <p><strong>Closure Example:: </strong>Closure is a powerful feature of JavaScript. Let's have a look into the following example. We have a outer function called "counter" that has a local/private variable "i" and it returns a function (the returning function don't have a name and known as anonymous function). Inside the returning function (the inner function) returns the value of i and increases it by 1. Very simple.</p>
          <pre><code>
 function counter(){
     var i = 0;
@@ -461,10 +488,10 @@ function counter(){
     }
 }
          </code></pre>
-         <p> <strong>Step-1: </strong>In the following core, we execute counter function and assign the result of counter to a variable "a". Hence, the value of a will be the inner function which would be return by executing function counter.</p>
-         <p><strong>Step-2: </strong> Now if you execute function "a" (execute inner function), it will return 0 (value of i)  and will increase it by 1. If you execute function "a" again it will return 1 (current value of i)  and will increase the value of "i" by 1. Hence, you will get 2, 3, 4, 5 ....</p>
-         <p>This means, closure hold the state of local/private variable in the outer scope. And every time, you call it you get a value increased by 1.</p>
-                  
+         <p> <strong>Step-1: </strong>In the following code, we execute counter function and assign the result of counter to a variable "a". Hence, the value of "a" will be the inner function. Just remember inner function returns value of "i" and also increase the value of "i". The inner function will return value of "i" when we will execute the function "a".</p>
+         <p><strong>Step-2: </strong> Now if you execute function "a" (execute inner function), it will return 0 (value of i)  and will increase it by 1. If you execute function "a" again it will return 1 (current value of i)  and will increase the value of "i" by 1. Hence, in your subsequent call you will get 2, 3, 4, 5 ....</p>
+         <p>This means, closure hold the state of local/private variable in the outer scope. And every time, you call it you get the value of "i" increased by 1. Have a look at Image-22 and try to understand it. If you don't get anything, I'm sorry!</p>
+         
          <pre><code>
 var a = counter();
 a(); //0
@@ -482,29 +509,27 @@ b(); //1
 b(); //2
 b(); //3
          </code></pre>
-
-         <div class="imageContainer">
-            <div class="imageHolder">
-              <img src="../../images/scope/closure.jpg" alt="">             
-              <p class="imgTitleHolder"><span>Image-19:</span><span class="imageTitle">Closure is Fun</span></p>
-            </div>
+          <p>This means, each closure maintain separate private variable of the outer function. This is a very powerful feature of JavaScript. Have a look at Image-23</p>
+         <div class="imageContainer">            
             <div class="imageHolder">
               <img src="../../images/scope/closureOneFunc.png" alt="">             
-              <p class="imgTitleHolder"><span>Image-20:</span><span class="imageTitle">Scope inside Scope</span></p>
+              <p class="imgTitleHolder"><span>Image-22: </span><span class="imageTitle">Scope inside Scope</span></p>
             </div>
             <div class="imageHolder">
                <img src="../../images/scope/closureTwoFunc.png" alt="">              
-              <p class="imgTitleHolder"><span>Image-21:</span><span class="imageTitle">Separate Privacy</span></p>
+              <p class="imgTitleHolder"><span>Image-23: </span><span class="imageTitle">Separate Privacy</span></p>
             </div>             
+            <div class="imageHolder">
+              <img src="../../images/scope/closure.jpg" alt="">             
+              <p class="imgTitleHolder"><span>Image-24: </span><span class="imageTitle">Closure is Fun</span></p>
+            </div>
           </div> 
-          <p>This means, each closure maintain separate private variable of the outer function.</p>
+          
          <p><strong>Encapsulation:: </strong>You would not be able to access (get or set) the value of "i" form outside. Hence the privacy of the value of "i" is maintained secretly. This is called encapsulation in object oriented programming.</p>
-          <h4>Take Away</h4>
-          <p>talk about encapsulation. private variables</p>
-       </div>
-       <div id="closurePerf">
-         <h2>Closure Performance</h2>
-         <p>Don't hold excessively large private memory. this could cause memory leak</p>
+         <div id="closurePerf">
+         <h3>Closure Performance</h3>
+         <p>Don't use closure when you dont need a closure. And don't create too many nested scope. Then you don't have to work at all (Image-24)</p>
+         <p> Don't hold excessively large private memory. this could cause memory leak</p>
          <pre><code>
 //try to avoid this
 function a() {
@@ -515,17 +540,31 @@ function a() {
 }
          </code></pre>
        </div>
-       <div class="contextVsScope">
-         <h2 class="text-danger">don't mix up scope and context</h2>
-         <h4>Scope</h4>
-         <p>Scope determines variable access of a function when it is executed. It depends on where and how function is executed. And scope is unique to each execution. </p>
-         <h4>Context</h4>
-         <p>context depends on how the function is called. In a lamen version of context is the value of "this". If you want to learn more. refer to the video/blog</p>
-         <p>if you want to know more about context. w</p>
+          <h4>Take Away</h4>
+          <p>If you execute a function inside a function, a closure is created. It is not necessary to return a function to create a closure..</p>
+          <p>Closure saves state of outer function variable but do not expose those private variable. In that way you can hide implementation detail while using closure. This is called encapsulation.</p>
        </div>       
+       <div class="contextVsScope">
+         <h3 class="text-danger">don't mix up scope and context</h3>
+         <p><strong>Scope:: </strong>Scope determines variable access of a function when it is executed. It depends on where and how function is executed. And scope is unique to each execution. </p>
+         <p><strong>Context:: </strong>context depends on how the function is called. In a lamen version of context is the value of "this". If you want to learn more, read <a href="http://davidshariff.com/blog/what-is-the-execution-context-in-javascript/">Execution context and Stack in JavaScript</a> or watch <a href="https://www.youtube.com/watch?v=yuo8YqKDQ-M">Understanding JavaScript this in a crystal clear way</a></p>         
+       </div>  
+       <div id="summary">
+        <h2>Summary</h2>
+        <h4>Summary is just a collection of Take Aways from each section</h4>
+        <ul>
+          <li><strong>Global Scope:: </strong>Global variables are exactly like global stars (Jackie Chan, Nelson Mandela). You can access them (get or set value of it), from any part of your application. Global functions are like global events (New Year, Christmas). You can execute (call) them from any part of your application.</li>
+          <li><strong>Local Scope::</strong>Local variables are like local stars. You can access it (get or set value of it) only inside that scope. Local function is like local events. you can execute (celebrate) only inside that scope.</li>
+          <li><strong>Multiple Scope:: </strong>You will have as many function scope as many function you have executed. Function inside a function will create a nested scope inside of the scope of the outer function. There would be a new scope, even a function calls itself. However, you will have only one global scope.</li>
+          <li><strong>Access Variable:: </strong>The order of accessing variable is local variables (inner scope), parameters, outer scope(s), global variable (window). If your variable doesn't exist in the global scope, you will get undefined.</li>
+          <li><strong>Global Variable Performance:: </strong>If you are accessing global variable for hundreds of times, have a local copy of the global variable. If you are doing it for once or twice, you can ignore this minor performance tips.</li>
+          <li><strong>Hoisting:: </strong>Only the declaration of a variable is hoisted. Value assigned remains at its place. Function declaration is hoisted. If you have a function expression only the variable part of the function expression will be hoisted.</li>
+          <li><strong>Closure:: </strong>If you execute a function inside a function, a closure is created. Closure could return a function. Closure saves state of outer function variable (private variable) but do not expose those. In that way you can hide implementation detail while using closure. This is called encapsulation.</li>
+        </ul>        
+      </div>     
       <div id="references">
         <h2>references</h2>
-        <p><a href="http://davidshariff.com/blog/javascript-scope-chain-and-closures/">JavaScript Identity resolution and Scope chain</a>, <a href="http://davidshariff.com/blog/what-is-the-execution-context-in-javascript/">Execution context and Stack in JavaScript</a>, <a href="http://javascriptissexy.com/javascript-variable-scope-and-hoisting-explained/">JavaScript scope and hoisting explained</a>, <a href="http://ryanmorr.com/understanding-scope-and-context-in-javascript/">just can read it</a>, <a href="http://www.kirupa.com/html5/variable_scope_js.htm">variable scope explain</a>, <a href="http://www.kirupa.com/html5/closures_in_javascript.htm">Closure related: just keep the link</a>, <a href="http://ryanmorr.com/understanding-scope-and-context-in-javascript/">Understanding Scope and Context in JavaScript</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope">MDN: Functions and function scope</a>
+        <p><a href="http://davidshariff.com/blog/javascript-scope-chain-and-closures/">JavaScript Identity resolution and Scope chain</a>, <a href="http://ryanmorr.com/understanding-scope-and-context-in-javascript/">Understanding Scope and Context</a>, <a href="http://www.kirupa.com/html5/variable_scope_js.htm">Variable scope explain</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope">MDN: Functions and function scope</a>
       </div>
 
       <div>
