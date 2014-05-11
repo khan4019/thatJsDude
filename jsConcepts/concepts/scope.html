@@ -486,8 +486,8 @@ function counter(){
          </code></pre>
          <p> <strong>Step-1: </strong>In the following code, we execute counter function and assign the result of counter to a variable "a". Hence, the value of "a" will be the inner function. Just remember inner function returns value of "i" and also increase the value of "i". The inner function will return value of "i" when we will execute the function "a".</p>
          <p><strong>Step-2: </strong> Now if you execute function "a" (execute inner function), it will return 0 (value of i)  and will increase it by 1. If you execute function "a" again it will return 1 (current value of i)  and will increase the value of "i" by 1. Hence, in your subsequent call you will get 2, 3, 4, 5 ....</p>
-         <p>This means, closure hold the state of local/private variable in the outer scope. And every time, you call it you get the value of "i" increased by 1.</p>
-                  
+         <p>This means, closure hold the state of local/private variable in the outer scope. And every time, you call it you get the value of "i" increased by 1. Have a look at Image-22 and try to understand it. If you don't get anything, I'm sorry!</p>
+         
          <pre><code>
 var a = counter();
 a(); //0
@@ -505,30 +505,27 @@ b(); //1
 b(); //2
 b(); //3
          </code></pre>
-          <p>This means, each closure maintain separate private variable of the outer function. This is a very powerful feature of JavaScript.</p>
-         <div class="imageContainer">
-            <div class="imageHolder">
-              <img src="../../images/scope/closure.jpg" alt="">             
-              <p class="imgTitleHolder"><span>Image-19:</span><span class="imageTitle">Closure is Fun</span></p>
-            </div>
+          <p>This means, each closure maintain separate private variable of the outer function. This is a very powerful feature of JavaScript. Have a look at Image-23</p>
+         <div class="imageContainer">            
             <div class="imageHolder">
               <img src="../../images/scope/closureOneFunc.png" alt="">             
-              <p class="imgTitleHolder"><span>Image-20:</span><span class="imageTitle">Scope inside Scope</span></p>
+              <p class="imgTitleHolder"><span>Image-22: </span><span class="imageTitle">Scope inside Scope</span></p>
             </div>
             <div class="imageHolder">
                <img src="../../images/scope/closureTwoFunc.png" alt="">              
-              <p class="imgTitleHolder"><span>Image-21:</span><span class="imageTitle">Separate Privacy</span></p>
+              <p class="imgTitleHolder"><span>Image-23: </span><span class="imageTitle">Separate Privacy</span></p>
             </div>             
+            <div class="imageHolder">
+              <img src="../../images/scope/closure.jpg" alt="">             
+              <p class="imgTitleHolder"><span>Image-24: </span><span class="imageTitle">Closure is Fun</span></p>
+            </div>
           </div> 
           
          <p><strong>Encapsulation:: </strong>You would not be able to access (get or set) the value of "i" form outside. Hence the privacy of the value of "i" is maintained secretly. This is called encapsulation in object oriented programming.</p>
-          <h4>Take Away</h4>
-          <p>If you execute a function inside a function, a closure is created. Closure could return a function.</p>
-          <p>Closure save state of outer function variable but do not expose those private variable. In that way you can hide implementation detail while using closure. This is called encapsulation.</p>
-       </div>
-       <div id="closurePerf">
-         <h2>Closure Performance</h2>
-         <p>Don't hold excessively large private memory. this could cause memory leak</p>
+         <div id="closurePerf">
+         <h3>Closure Performance</h3>
+         <p>Don't use closure when you dont need a closure. And don't create too many nested scope. Then you don't have to work at all (Image-24)</p>
+         <p> Don't hold excessively large private memory. this could cause memory leak</p>
          <pre><code>
 //try to avoid this
 function a() {
@@ -539,18 +536,19 @@ function a() {
 }
          </code></pre>
        </div>
+          <h4>Take Away</h4>
+          <p>If you execute a function inside a function, a closure is created. Closure could return a function.</p>
+          <p>Closure save state of outer function variable but do not expose those private variable. In that way you can hide implementation detail while using closure. This is called encapsulation.</p>
+       </div>       
        <div class="contextVsScope">
-         <h2 class="text-danger">don't mix up scope and context</h2>
-         <h4>Scope</h4>
-         <p>Scope determines variable access of a function when it is executed. It depends on where and how function is executed. And scope is unique to each execution. </p>
-         <h4>Context</h4>
-         <p>context depends on how the function is called. In a lamen version of context is the value of "this". If you want to learn more. refer to the video/blog</p>
-         <p>if you want to know more about context. w</p>
+         <h3 class="text-danger">don't mix up scope and context</h3>
+         <p><strong>Scope:: </strong>Scope determines variable access of a function when it is executed. It depends on where and how function is executed. And scope is unique to each execution. </p>
+         <p><strong>Context:: </strong>context depends on how the function is called. In a lamen version of context is the value of "this". If you want to learn more, read <a href="http://davidshariff.com/blog/what-is-the-execution-context-in-javascript/">Execution context and Stack in JavaScript</a> or watch <a href="https://www.youtube.com/watch?v=yuo8YqKDQ-M">Understanding JavaScript this in a crystal clear way</a></p>         
        </div>  
        <div id="summary">
         <h2>Summary</h2>
-        <h4>Don't Have time, read the summary only</h4>
-        <p>Anything which is not inside a function is global. You can access it from any part of your application.</p>
+        <h4>Don't Have time, read the summary</h4>
+        <p> Use your browsers search to find "Take Away" and read those. They are the summary for you.</p>
       </div>     
       <div id="references">
         <h2>references</h2>
