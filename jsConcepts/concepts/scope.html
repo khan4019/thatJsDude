@@ -102,10 +102,11 @@
         <ol>          
           <li><a href="#globlaScope">Global Scope</a></li>
           <li><a href="#localScope">Local Scope</a></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
+          <li><a href="#multipleScope">Multiple Scope</a></li>
+          <li><a href="#accessGlobal">Access Global Variable</a></li>
+          <li><a href="#avoidGlobal">Avoid Global</a></li>
+          <li><a href="#hoisting">Hoisting</a></li>
+          <li><a href="#closure">Closure</a></li>
         </ol>
       </div>
       <div id="scope">
@@ -234,8 +235,8 @@ function b(){
           <p> Local variables are exactly like local stars. You can access it (get or set value of it) only inside that scope. Local function is like local events. you can execute (celebrate) only inside that scope.</p>          
           <p>Local variables and functions are executed in the local context.</p>
        </div>
-       <div id="multipleContext">
-           <h2>Multiple context</h2>
+       <div id="multipleScope">
+           <h2>Multiple Scope</h2>
            <p><strong>Multiple functions::</strong> If you have more than one functions and you execute them, each one of them will create their own scope. However, every execution context will be linked to the global scope. Thats how you will have access to the global scope. Have a look at Image -13.</p>
            <p><strong>Inside Scope::</strong> If you have a function inside of another function and you execute the inner function. The inner function will create a scope inside the outer function. Look at the Image-14. Remember, the inner one will have access to the outer function variable and outer one will have access to the global variable. Stare at Image-14 for 5 minutes and shed tears for 3 minutes.</p>
            <p><strong>Closure::</strong> If you have a function inside a function, this is called closure. Closure is a powerful feature of JavaScript for encapsulation. Don't worry about it for now, I will make a separate post on closure. Some of your function could be closure (Image-15)</p>
@@ -289,7 +290,7 @@ c();
           <p>you will have as many function context as many function you have executed. Function inside a function will create a function context inside of the function it is executed. There would be a new scope, if a function calls itself. However, you will have only one global context.</p>          
        </div>
        <div id="accessGlobal">
-         <h2>Access Global</h2>
+         <h2>Access Global Variable</h2>
           <p>Say, we wake up Saturday afternoon (forgot there was a Friday night) and looking for the keys of your car.</p>
           <ul>
             <li><strong>First (Check Room): </strong> First thing you will do is to check your room (Image-16).</li>
@@ -417,16 +418,13 @@ function myFunc() {
     var a = 5;
 }
          </code></pre>
-         
+
          <p>what are the steps for hositing and scanning process. google it. Talk about variable declaration. function declaration and function assignment</p>
          <ul>
-           <li><strong>function</strong></li>
-           <li><strong></strong></li>
-           <li><strong></strong></li>
-           <li><strong></strong></li>
-           <li><strong></strong></li>
+           <li><strong>function: </strong>Any function declaration will be hoisted at the top.</li>
+           <li><strong>variable: </strong>And then the variable declaration will be hoisted. If you have a function expression (set function to a variable), only the variable part will be hoisted. the assignment of the function to a variable will stay there</li>           
          </ul>
-         <p>after hoisting</p>
+         <p>Hence, the above mentioned code after hoisting will look like</p>
          <pre><code>
 function myFunc() {
     function foo() {
@@ -443,6 +441,16 @@ function myFunc() {
        </div>
        <div id="closure">
          <h2>Closure</h2>
+         <p>if you have a function inside a function, execution of the inside function will create a scope inside of the outer function. Since, insider function scope is enclosed by outer function scope. The inner function scope is called closure. Remember, to be a closure, you dont have to return a function, you just have to call a function inside a function</p>
+         <pre><code>
+function a(){
+  function b(){
+     console.log('closure');
+  }
+  b(); //creates closure
+}
+         </code></pre>
+         <p><strong>Useful Closure:: </strong>Closure is a powerful feature of JavaScript. Let's have a look into the following example. we have a outer function that has a local/private variable "i" and it return a function. Inside the returning function, the inner function returns the value of i and increases it by 1.</p>
          <pre><code>
 function counter(){
     var i = 0;
@@ -452,7 +460,10 @@ function counter(){
     }
 }
          </code></pre>
-         <p>private variable. save state. closure create encapsulation</p>
+         <p> <strong>Step-1: </strong>In the following core, we execute counter function and assign the result of counter to a variable "a". Hence, the value of a will be the inner function which would be return by executing function counter.</p>
+         <p><strong>Step-2: </strong> Now if you execute function "a" (execute inner function), it will return 0 (value of i)  and will increase it by 1. If you execute function "a" again it will return 1 (current value of i)  and will increase the value of "i" by 1. Hence, you will get 2, 3, 4, 5 ....</p>
+         <p>This means, closure hold the state of local/private variable in the outer scope. And every time, you call it you get a value increased by 1.</p>
+                  
          <pre><code>
 var a = counter();
 a(); //0
@@ -462,7 +473,7 @@ a(); //3
 a(); //4
 a(); //5
          </code></pre>
-         <p>each closure have separate private variable</p>
+         <p>Now you can have another variable "b" and assign the execution result of the function counter. If you execute "b" (the inner function of counter), you will get 0. if you execute again, you will get 1. and then 2, 3, 4, ...</p>
          <pre><code>
 var b = counter();
 b(); //0
@@ -470,6 +481,7 @@ b(); //1
 b(); //2
 b(); //3
          </code></pre>
+
          <div class="imageContainer">
             <div class="imageHolder">
               <img src="../../images/scope/closure.jpg" alt="">             
@@ -484,6 +496,8 @@ b(); //3
               <p class="imgTitleHolder"><span>Image-21:</span><span class="imageTitle">Key Holder</span></p>
             </div>             
           </div> 
+          <p>This means, each closure maintain separate private variable of the outer function.</p>
+         <p><strong>Encapsulation:: </strong>You would not be able to access (get or set) the value of "i" form outside. Hence the privacy of the value of "i" is maintained secretly. This is called encapsulation in object oriented programming.</p>
           <h4>Take Away</h4>
           <p>talk about encapsulation. private variables</p>
        </div>
@@ -507,51 +521,10 @@ function a() {
          <h4>Context</h4>
          <p>context depends on how the function is called. In a lamen version of context is the value of "this". If you want to learn more. refer to the video/blog</p>
          <p>if you want to know more about context. w</p>
-       </div>
-       <div>
-         <h3>Todos</h3>
-         <ol>
-           <li>ES6 dont support block scope</li>
-           <li>let</li>
-           <li>hoisting</li>
-           <li>local variable get preference over global variable <a href="http://javascriptissexy.com/javascript-variable-scope-and-hoisting-explained/">example</a></li>
-         </ol>
-       </div>
-       <div>
-          <h2>execution context in detail</h2>
-          <h3><a href="http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf">spec: 10.4</a></h3>
-          <p>each function establishes and enters a new execution context event it calls itself recursively. Every return exits an execution context. if exception is thrown a function could exit one or more execution context.</p>
-         <p>When a control enters an execution context, the following things are set</p>
-           <ul>
-             <li><strong>LexicalEnvironment</strong>- set lexical environment scope</li>             
-             <li><strong>VariableEnvironment</strong>- variables, functions and parameters/ arguments (for function code) are added to variable environment.</li>
-             <li><strong>thisBinding</strong>- set value associated with <code>this</code></li>             
-           </ul>         
-         <p><strong></strong>Then values are assigned, functions are refereed and code is executed.</p>
-
-         <p><strong>Animation:</strong> ref: <a href="http://davidshariff.com/blog/what-is-the-execution-context-in-javascrip">activation/variable object</a></p>
-       </div>
-      <div id="scope">
-        <h2>scope</h2>
-        <p><strong>animate:</strong> ref: <a href="http://davidshariff.com/blog/javascript-scope-chain-and-closures/">i =5</a> or ggl accidental closure</p>
-        <p>what is scope? does is it mean what you can see and what you cant see.</p>
-        <p>talk about lexical scope and variable scope and execution scope</p>
-        <p>set the terminology</p>
-        <p>what is the scope of single function. talk about that before talking about function inside a function</p>
-        <p><strong>lexical scope</strong> at the time of compile, scope of a function is defined. </p>
-        
-      </div> 
-      <div>
+       </div>       
+      <div id="references">
         <h2>references</h2>
-        <p>read these with shariff</p>
-        <ol>
-          <li><a href="http://www.kirupa.com/html5/variable_scope_js.htm">variable scope explain</a> </li>          
-          <li><a href="http://javascriptissexy.com/javascript-variable-scope-and-hoisting-explained/">scope and hoisting explained</a> </li>
-          <li> <a href="http://ryanmorr.com/understanding-scope-and-context-in-javascript/">just can read it</a></li>
-          <li><a href="http://www.kirupa.com/html5/closures_in_javascript.htm">Closure related: just keep the link</a> </li>
-          <li><a href="http://ryanmorr.com/understanding-scope-and-context-in-javascript/">can read it. not excellent</a></li>
-          <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope">Don't forget to talk about => and let</a></li>          
-        </ol>
+        <p><a href="http://davidshariff.com/blog/javascript-scope-chain-and-closures/">JavaScript Identity resolution and Scope chain</a>, <a href="http://davidshariff.com/blog/what-is-the-execution-context-in-javascript/">Execution context and Stack in JavaScript</a>, <a href="http://javascriptissexy.com/javascript-variable-scope-and-hoisting-explained/">JavaScript scope and hoisting explained</a>, <a href="http://ryanmorr.com/understanding-scope-and-context-in-javascript/">just can read it</a>, <a href="http://www.kirupa.com/html5/variable_scope_js.htm">variable scope explain</a>, <a href="http://www.kirupa.com/html5/closures_in_javascript.htm">Closure related: just keep the link</a>, <a href="http://ryanmorr.com/understanding-scope-and-context-in-javascript/">Understanding Scope and Context in JavaScript</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope">MDN: Functions and function scope</a>
       </div>
 
       <div>
