@@ -166,32 +166,33 @@ b(); //execute global function.
          <br>
           <h4>Take away</h4>
           <p> Global variables are exactly like global stars. You can access them (get or set value of it), from any part of your application. Global functions are like global events. You can execute (call) them from any part of your application.</p>          
-          <p>Global variables and functions are executed in the global context.</p>
+          <p>Global variables and functions are executed in the global context. If you need to understand more about JavaScript context, read <a href="http://davidshariff.com/blog/what-is-the-execution-context-in-javascript/">Execution context and Stack in JavaScript</a> or watch <a href="https://www.youtube.com/watch?v=yuo8YqKDQ-M">Understanding JavaScript this in a crystal clear way</a></p>
        </div>
        <div id="localScope">
            <h2>2. Local Scope</h2>
 
-           <p><strong>Local::</strong> What comes to your mind, when somebody say local? If you are smart like me, you will say, what is not global is local. Think about a part of the world. for example, the USA. Its a country, a part of the world. If you don't know where is USA, I marked it for you in Image -7.</p>
-           <p><strong>Local Star::</strong> Look at image -8. If you are in USA, you might know her as she makes a lot of news (somehow manage to make news). But people outside of USA, will not recognize her. Sher is a local star.</p>
-           <p><strong>Local Variable::</strong> Local variables are exactly like local stars. you can access it (get or set value of it), only in the local scope. In JavaScript local scope is defined by a function. If you declare a variable inside a function, you can only access it (get or set value), inside the function. If you want to access it from outside of the function, you will get a reference error.</p>
+           <p><strong>Local::</strong> When somebody says local, what comes to your mind? If you are smart like me, you will say, something that is not global. Think about a part of the world. For example, the USA. It's a country, a part of the world. If you don't know where is the USA, I marked it for you in Image -7.</p>
+           <p><strong>Local Star::</strong> Look at image -8. If you are in the USA, you might know her as she makes a lot of news (somehow manage to make news). But people outside of the USA, will not recognize her. Sher is a local star.</p>
+           <p><strong>Local Variable::</strong> Local variables are exactly like local stars. you can access it (get or set the value of it), only in the local scope. In JavaScript local scope is defined by a function. If you declare a variable inside a function, you can only aWscess it (get or set value), inside the function. If you want to access it from outside of the function, you will get a reference error.</p>
 
            <div class="imageContainer">
              <div class="imageHolder">
                <img src="../../images/scope/local.jpg" alt="">             
-               <p class="imgTitleHolder"><span>Image-7:</span><span class="imageTitle">The Local</span></p>
+               <p class="imgTitleHolder"><span>Image-7: </span><span class="imageTitle">The Local</span></p>
              </div>
              <div class="imageHolder">
                 <img src="../../images/scope/kd.jpg" alt="">              
-               <p class="imgTitleHolder"><span>Image-8:</span><span class="imageTitle">Kim Kardashian</span></p>
+               <p class="imgTitleHolder"><span>Image-8: </span><span class="imageTitle">Kim Kardashian</span></p>
              </div>
              <div class="imageHolder">
                 <img src="../../images/scope/localStar.jpg" alt="">              
-               <p class="imgTitleHolder"><span>Image-9:</span><span class="imageTitle">The Local Star</span></p>
+               <p class="imgTitleHolder"><span>Image-9: </span><span class="imageTitle">The Local Star</span></p>
              </div>
            </div>
           <br>
-          <p><strong>Local Events::</strong> Think about American football (Image-10). Not the football (soccer) rest of the world knows. Its crazily famous here including super bowl. But people outside of the world doesn't know about  it. Similarly, any functions inside a function will only be accessible inside it (you can execute it).</p>
-          <p><strong>Local Scope::</strong> Anything in the local scope (inside a function) is only accessible inside that local scope. You can compare local variable like local star and local activities like a function inside a function in Image-11.</p>
+          <p><strong>Local Events::</strong> Think about American football (Image-10). Not the football (soccer) rest of the world knows. It's crazily famous here including super bowl. But people outside of the world doesn't know about  it. </p>
+          <p><strong>Local Functions:: </strong>Similarly, any functions inside a function is a local function. You can only execute it inside the outer function.</p>
+          <p><strong>Local Scope::</strong> Anything in the local scope (inside a function) is only accessible inside that local scope. You can compare local variables are like local stars and local functions are like local events. Have a look at Image-11.</p>
           <p><strong>Scope Chain::</strong> Local scope is connected to the global scope. In the Image-12, see a dotted line/chain towards global scope. Thats the way you have access to any global variables/functions. This link/chain is called scope chain. We will talk more about it later.</p>
          <div class="imageContainer">
            <div class="imageHolder">
@@ -208,7 +209,7 @@ b(); //execute global function.
            </div>           
          </div>
 
-          <p>In the code block below, "d" is a local variable. you can access it (get or set value) inside the function "b". If you want to access it outside of the function, you will throw a reference error.</p>
+          <p>In the code block below, "d" is a local variable. you can access it (get or set value) inside the function "b". If you want to access it outside of the function, you will get a reference error.</p>
           <pre><code>
 var a = 2; 
 function b(){
@@ -219,7 +220,7 @@ b();  // 21
 
 console.log(d); //ReferenceError: d is not defined
           </code></pre>    
-         <p><strong>Implicit Global::</strong> if you forget to put var in front of the variable inside a function, it becomes a global variable. In the code block below, "a", "e" and "i" are global variables. you might not wanted "e" and "i" to be global. So, be careful.</p>
+         <p><strong>Implicit Global::</strong> if you forget to put var in front of the variable inside a function, it becomes a global variable. In the code block below, "a", "e" and "i" are global variables. You might not wanted "e" and "i" to be global. So, be careful.</p>
          <pre><code>
 var a = 21;
 
@@ -530,7 +531,7 @@ function a() {
       </div>     
       <div id="references">
         <h2>references</h2>
-        <p><a href="http://davidshariff.com/blog/javascript-scope-chain-and-closures/">JavaScript Identity resolution and Scope chain</a>, <a href="http://davidshariff.com/blog/what-is-the-execution-context-in-javascript/">Execution context and Stack in JavaScript</a>, <a href="http://javascriptissexy.com/javascript-variable-scope-and-hoisting-explained/">JavaScript scope and hoisting explained</a>, <a href="http://ryanmorr.com/understanding-scope-and-context-in-javascript/">just can read it</a>, <a href="http://www.kirupa.com/html5/variable_scope_js.htm">variable scope explain</a>, <a href="http://www.kirupa.com/html5/closures_in_javascript.htm">Closure related: just keep the link</a>, <a href="http://ryanmorr.com/understanding-scope-and-context-in-javascript/">Understanding Scope and Context in JavaScript</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope">MDN: Functions and function scope</a>
+        <p><a href="http://davidshariff.com/blog/javascript-scope-chain-and-closures/">JavaScript Identity resolution and Scope chain</a>, <a href="http://javascriptissexy.com/javascript-variable-scope-and-hoisting-explained/">JavaScript scope and hoisting explained</a>, <a href="http://ryanmorr.com/understanding-scope-and-context-in-javascript/">just can read it</a>, <a href="http://www.kirupa.com/html5/variable_scope_js.htm">variable scope explain</a>, <a href="http://www.kirupa.com/html5/closures_in_javascript.htm">Closure related: just keep the link</a>, <a href="http://ryanmorr.com/understanding-scope-and-context-in-javascript/">Understanding Scope and Context in JavaScript</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope">MDN: Functions and function scope</a>
       </div>
 
       <div>
