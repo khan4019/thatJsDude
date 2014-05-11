@@ -105,8 +105,8 @@
           <li><a href="#globlaScope">Global Scope</a></li>
           <li><a href="#localScope">Local Scope</a></li>
           <li><a href="#multipleScope">Multiple Scope</a></li>
-          <li><a href="#accessGlobal">Access Global Variable</a></li>
-          <li><a href="#avoidGlobal">Avoid Global</a></li>
+          <li><a href="#accessGlobal">Access Variable</a></li>
+          <li><a href="#avoidGlobal">Access Global Variable</a></li>
           <li><a href="#hoisting">Hoisting</a></li>
           <li><a href="#closure">Closure</a></li>
         </ol>
@@ -310,7 +310,7 @@ getY(); //7
 
        </div>
        <div id="accessGlobal">
-         <h2>4. Access Global Variable</h2>
+         <h2>4. Access Variable</h2>
           <p>Say, you wake up at Saturday afternoon ( completely forgot what you have done at Friday night) and looking for your car keys. You might search in the following steps-</p>
           <ul>
             <li><strong>First (Check Room): </strong> First thing you will do is to check inside your room (Image-16).</li>
@@ -357,8 +357,8 @@ getX(5); // 7
          </code></pre>
        </div>
        <div id="reduceGlobal">
-         <h2>5. Avoid Global</h2>
-          <p><strong>Less climbing on the Scope Chain: </strong> If you are asking for a global variable from inside of a function, you are climbing scope chain. In the code example you are climbing the scope chain for 1000000. Every single time, you have to check localScope, parameters and then get outside of the function. If you have more than one function inside function, this becomes even more expensive.</p>          
+         <h2>5. Access Global Variable</h2>
+          <p><strong>Climbing through the Scope Chain: </strong> If you are asking for a global variable from inside of a function, you are climbing through the scope chain. In the code example you are climbing the scope chain for 1,000,000. Every single time, you have to check localScope, parameters and then get outside of the function. If you have more than one function inside function, then it becomes even more expensive.</p>          
           <pre><code>
 var myArr = [0,1,2,3, ...., 1000000];
 
@@ -372,7 +372,7 @@ function getSum(){
 
 getSum();
           </code></pre>
-          <p>If you have to access global variable for several times, you can have a local copy of the global variable. In that case you dont have to climb scope chain</p>
+          <p>If you have to access global variable for hundred times, you can have a local copy of the global variable. In that case you dont have to climb through the scope chain.</p>
           <pre><code>
 var myArr = [0,1,2,3, ...., 1000000];
 
