@@ -109,6 +109,7 @@
           <li><a href="#avoidGlobal">Access Global Variable</a></li>
           <li><a href="#hoisting">Hoisting</a></li>
           <li><a href="#closure">Closure</a></li>
+          <li><a href="#summary">Don't have time! Read Summary and get lost</a></li>
         </ol>
       </div>
        <div id="globlaScope">
@@ -390,7 +391,23 @@ getSum();
        </div>       
        <div id="hoisting">
          <h2>6. Hoisting</h2>
+         <p>Hoist is a verb which means raise something by means of rope and pulley. If you have never seen a hoist in your life, look at Image-19. Hoist is used in the factories to raise heavy things. One benefit of raising something at the ceiling is, you can see it from any part of the room/factory. (Image-20)</p>
+         <p>JavaScript does the exact same thing to hoist (raise) variable declaration and function declaration at the top of function scope. so that those variables and functions could be used from any part of the function without raising no reference Exception.</p>
          <p>Compare this with floating of stuff. or find good example</p>
+         <div class="imageContainer">
+            <div class="imageHolder">
+              <img src="../../images/scope/hoist.jpg" alt="">             
+              <p class="imgTitleHolder"><span>Image-19: </span><span class="imageTitle">Mechanical Hoist</span></p>
+            </div>
+            <div class="imageHolder">
+              <img src="../../images/scope/hoistBike.jpg" alt="">             
+              <p class="imgTitleHolder"><span>Image-20: </span><span class="imageTitle">Hoisting Bike</span></p>
+            </div>
+            <div class="imageHolder">
+               <img src="../../images/scope/antLifting.jpg" alt="">              
+              <p class="imgTitleHolder"><span>Image-21:</span><span class="imageTitle">Hoisting Power</span></p>
+            </div>             
+          </div> 
          <p>If you execute the following foo function, you will get undefined.</p>
          <pre><code>
 function foo(){
@@ -400,15 +417,24 @@ function foo(){
 
 foo(); //undefined
          </code></pre>
-         <p>While creating <a href="#">Context</a> of a function, JavaScript execution engine, scan through the whole function and bring variable declaration at the top. Hence the code above will be parsed as</p>
+         <p>While creating <a href="http://davidshariff.com/blog/what-is-the-execution-context-in-javascript/">Context</a> of a function, JavaScript execution engine, scan through the whole function and bring variable declaration at the top of the scope. Please note the value assignment will not be hoisted. Since, only variable declaration is hoisted, the default value of unassigned variable is "undefined". Hence, you will get "undefined" returned as value of "b".</p>
+
          <pre><code>
 function foo(){
   var b;
   return b;
   b = 7;
 }
+foo(); //undefined
          </code></pre>
-         <p>Remember only the declaration of a variable is taken (hoisted) toward the starting of the function. This is call hoisting. Similarly if you assign a function to a variable only the variable declaration will be hoisted. However if you have a function declaration, the full function will be hoisted</p>
+         <p>Similarly if you assign a function to a variable (function expression) only the variable part will be hoisted. However if you have a function declaration, the full function will be hoisted.</p>
+         <h4>Hoisting Process</h4>
+         <p> You can google more about it or read spec or explore V8 code. And if you find any good materials, please let me know.</p>
+         <ul>
+           <li><strong>function: </strong>Any function declaration will be hoisted at the top.</li>
+           <li><strong>variable: </strong>And then the variable declaration will be hoisted. If you have a function expression (set function to a variable), only the variable part will be hoisted. the assignment of the function to a variable will stay at its place.</li>           
+         </ul>
+         <p>In the following code block, you have a function expression where function is assigned to a variable "bar" and a function declaration named as "foo" and a variable "a".</p>
          <pre><code>
 function myFunc() {    
     var bar = function() {
@@ -420,13 +446,7 @@ function myFunc() {
     var a = 5;
 }
          </code></pre>
-
-         <p>what are the steps for hositing and scanning process. google it. Talk about variable declaration. function declaration and function assignment</p>
-         <ul>
-           <li><strong>function: </strong>Any function declaration will be hoisted at the top.</li>
-           <li><strong>variable: </strong>And then the variable declaration will be hoisted. If you have a function expression (set function to a variable), only the variable part will be hoisted. the assignment of the function to a variable will stay there</li>           
-         </ul>
-         <p>Hence, the above mentioned code after hoisting will look like</p>
+         <p>The above mentioned code after hoisting will look like</p>
          <pre><code>
 function myFunc() {
     function foo() {
@@ -440,6 +460,8 @@ function myFunc() {
     a = 5;        
 }
          </code></pre>
+         <h4>Take Away</h4>
+         <p>Only the declaration of a variable is hoisted. Value assigned remains at its location. Function declaration is hoisted. If you have a function expression only the variable part of the function expression will be hoisted.</p>
        </div>
        <div id="closure">
          <h2>7. Closure</h2>
@@ -531,7 +553,7 @@ function a() {
       </div>     
       <div id="references">
         <h2>references</h2>
-        <p><a href="http://davidshariff.com/blog/javascript-scope-chain-and-closures/">JavaScript Identity resolution and Scope chain</a>, <a href="http://javascriptissexy.com/javascript-variable-scope-and-hoisting-explained/">JavaScript scope and hoisting explained</a>, <a href="http://ryanmorr.com/understanding-scope-and-context-in-javascript/">just can read it</a>, <a href="http://www.kirupa.com/html5/variable_scope_js.htm">variable scope explain</a>, <a href="http://www.kirupa.com/html5/closures_in_javascript.htm">Closure related: just keep the link</a>, <a href="http://ryanmorr.com/understanding-scope-and-context-in-javascript/">Understanding Scope and Context in JavaScript</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope">MDN: Functions and function scope</a>
+        <p><a href="http://davidshariff.com/blog/javascript-scope-chain-and-closures/">JavaScript Identity resolution and Scope chain</a>, <a href="http://ryanmorr.com/understanding-scope-and-context-in-javascript/">Understanding Scope and Context</a>, <a href="http://www.kirupa.com/html5/variable_scope_js.htm">Variable scope explain</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope">MDN: Functions and function scope</a>
       </div>
 
       <div>
