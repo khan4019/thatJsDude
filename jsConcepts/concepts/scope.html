@@ -405,7 +405,7 @@ getSum();
             </div>
             <div class="imageHolder">
                <img src="../../images/scope/antLifting.jpg" alt="">              
-              <p class="imgTitleHolder"><span>Image-21:</span><span class="imageTitle">Hoisting Power</span></p>
+              <p class="imgTitleHolder"><span>Image-21:</span><span class="imageTitle">Ant Hoist Power</span></p>
             </div>             
           </div> 
          <p>If you execute the following foo function, you will get undefined.</p>
@@ -465,7 +465,7 @@ function myFunc() {
        </div>
        <div id="closure">
          <h2>7. Closure</h2>
-         <p>if you have a function inside a function, execution of the inside function will create a scope inside of the outer function. Since, insider function scope is enclosed by outer function scope. The inner function scope is called closure. Remember, to be a closure, you dont have to return a function, you just have to call a function inside a function</p>
+         <p>if you have a function inside a function, execution of the inside function will create a scope inside of the outer function. You can call it nested scope. Since, insider function scope is enclosed by outer function scope. The inner function scope is called closure (I invented this definition). Remember, to be a closure, you dont have to return a function, you just have to call a function inside a function.</p>
          <pre><code>
 function a(){
   function b(){
@@ -474,7 +474,7 @@ function a(){
   b(); //creates closure
 }
          </code></pre>
-         <p><strong>Useful Closure:: </strong>Closure is a powerful feature of JavaScript. Let's have a look into the following example. we have a outer function that has a local/private variable "i" and it return a function. Inside the returning function, the inner function returns the value of i and increases it by 1.</p>
+         <p><strong>Closure Example:: </strong>Closure is a powerful feature of JavaScript. Let's have a look into the following example. We have a outer function called "counter" that has a local/private variable "i" and it returns a function (the returning function don't have a name and known as anonymous function). Inside the returning function (the inner function) returns the value of i and increases it by 1. Very simple.</p>
          <pre><code>
 function counter(){
     var i = 0;
@@ -484,9 +484,9 @@ function counter(){
     }
 }
          </code></pre>
-         <p> <strong>Step-1: </strong>In the following core, we execute counter function and assign the result of counter to a variable "a". Hence, the value of a will be the inner function which would be return by executing function counter.</p>
-         <p><strong>Step-2: </strong> Now if you execute function "a" (execute inner function), it will return 0 (value of i)  and will increase it by 1. If you execute function "a" again it will return 1 (current value of i)  and will increase the value of "i" by 1. Hence, you will get 2, 3, 4, 5 ....</p>
-         <p>This means, closure hold the state of local/private variable in the outer scope. And every time, you call it you get a value increased by 1.</p>
+         <p> <strong>Step-1: </strong>In the following code, we execute counter function and assign the result of counter to a variable "a". Hence, the value of "a" will be the inner function. Just remember inner function returns value of "i" and also increase the value of "i". The inner function will return value of "i" when we will execute the function "a".</p>
+         <p><strong>Step-2: </strong> Now if you execute function "a" (execute inner function), it will return 0 (value of i)  and will increase it by 1. If you execute function "a" again it will return 1 (current value of i)  and will increase the value of "i" by 1. Hence, in your subsequent call you will get 2, 3, 4, 5 ....</p>
+         <p>This means, closure hold the state of local/private variable in the outer scope. And every time, you call it you get the value of "i" increased by 1.</p>
                   
          <pre><code>
 var a = counter();
@@ -505,7 +505,7 @@ b(); //1
 b(); //2
 b(); //3
          </code></pre>
-
+          <p>This means, each closure maintain separate private variable of the outer function. This is a very powerful feature of JavaScript.</p>
          <div class="imageContainer">
             <div class="imageHolder">
               <img src="../../images/scope/closure.jpg" alt="">             
@@ -520,10 +520,11 @@ b(); //3
               <p class="imgTitleHolder"><span>Image-21:</span><span class="imageTitle">Separate Privacy</span></p>
             </div>             
           </div> 
-          <p>This means, each closure maintain separate private variable of the outer function.</p>
+          
          <p><strong>Encapsulation:: </strong>You would not be able to access (get or set) the value of "i" form outside. Hence the privacy of the value of "i" is maintained secretly. This is called encapsulation in object oriented programming.</p>
           <h4>Take Away</h4>
-          <p>talk about encapsulation. private variables</p>
+          <p>If you execute a function inside a function, a closure is created. Closure could return a function.</p>
+          <p>Closure save state of outer function variable but do not expose those private variable. In that way you can hide implementation detail while using closure. This is called encapsulation.</p>
        </div>
        <div id="closurePerf">
          <h2>Closure Performance</h2>
