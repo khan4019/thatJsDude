@@ -239,21 +239,21 @@ function b(){
        <div id="multipleScope">
            <h2>3. Multiple Scope</h2>
            <p><strong>Multiple functions::</strong> If you have more than one functions and you execute them, each one of them will create their own scope. However, every execution context will be linked to the global scope. Thats how you will have access to the global scope. Have a look at Image -13.</p>
-           <p><strong>Inside Scope::</strong> If you have a function inside of another function and you execute the inner function. The inner function will create a scope inside the outer function. Look at the Image-14. Remember, the inner one will have access to the outer function variable and outer one will have access to the global variable. Stare at Image-14 for 5 minutes and shed tears for 3 minutes.</p>
-           <p><strong>Closure::</strong> If you have a function inside a function, this is called closure. Closure is a powerful feature of JavaScript for encapsulation. Don't worry about it for now, I will make a separate post on closure. Some of your function could be closure (Image-15)</p>
+           <p><strong>Nested Scope::</strong> If you have a function inside of another function and you execute the inner function. The inner function will create a scope inside the outer function. Look at the Image-14. Remember, the inner scope will have access to the outer function variable and outer one will have access to the global variable. Stare at Image-14 for 5 minutes and shed tears for 3 minutes.</p>
+           <p><strong>Closure::</strong> If you have a function inside a function, this is called closure. Closure is a powerful feature of JavaScript for encapsulation. Some of your function could be closure (Image-15). Don't worry about it for now, You will have a crystal clear idea about closure soon.</p>
 
            <div class="imageContainer">
              <div class="imageHolder">
                <img src="../../images/scope/multiScope.png" alt="">             
-               <p class="imgTitleHolder"><span>Image-13:</span><span class="imageTitle">Multiple Scope</span></p>
+               <p class="imgTitleHolder"><span>Image-13: </span><span class="imageTitle">Multiple Scope</span></p>
              </div>
              <div class="imageHolder">
                 <img src="../../images/scope/closure1.png" alt="">              
-               <p class="imgTitleHolder"><span>Image-14:</span><span class="imageTitle">Nested Scope</span></p>
+               <p class="imgTitleHolder"><span>Image-14: </span><span class="imageTitle">Nested Scope</span></p>
              </div>
              <div class="imageHolder">
                 <img src="../../images/scope/closureScope.png" alt="">              
-               <p class="imgTitleHolder"><span>Image-15:</span><span class="imageTitle">JavaScript Scope</span></p>
+               <p class="imgTitleHolder"><span>Image-15: </span><span class="imageTitle">JavaScript Scope</span></p>
              </div>
            </div>
          <br>
@@ -289,7 +289,7 @@ c();
          </code></pre>
          <div id="blockScope">
           <h4>Block Scope</h4>
-          <p>Block scope is a block/ part of a code surrounded by {}. JavaScript doesn't support block scope. Ref: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Statements?redirectlocale=en-US&redirectslug=JavaScript%2FGuide%2FStatements#Block_Statement">MDN: block scope</a></p>
+          <p>Block scope is a block/ part of a code surrounded by {}. JavaScript doesn't support block scope. Read more about block scope at <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Statements?redirectlocale=en-US&redirectslug=JavaScript%2FGuide%2FStatements#Block_Statement">MDN: block scope</a></p>
           <pre><code>
 function getY(){
   var x = 5;
@@ -301,12 +301,12 @@ function getY(){
 
 getY(); //7
           </code></pre>
-          <p>Not supporting block scope, makes javascript easier to understand, less complexity and perform better. Hoisting also plays a role here.</p>
+          <p>Not supporting block scope, makes javaScript easier to understand, less complexity and perform better. Hoisting also plays a role here. You will learn about hoisting soon.</p>
           <h4>ES6: let</h4>
          <p> You cannot have block scope but you can have block variable when ES6 "let" would be supported by major browsers. Read MDN documents to learn more about <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let">let</a>.</p>
        </div>
           <h4>Take away</h4>
-          <p>you will have as many function context as many function you have executed. Function inside a function will create a function context inside of the function it is executed. There would be a new scope, if a function calls itself. However, you will have only one global context.</p>  
+          <p>You will have as many function context as many function you have executed. Function inside a function will create a nested scope inside of the scope of the outer function. There would be a new scope, even a function calls itself. However, you will have only one global context.</p>  
 
        </div>
        <div id="accessGlobal">
