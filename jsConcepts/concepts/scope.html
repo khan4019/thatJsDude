@@ -88,8 +88,9 @@
     <div class="jumbotron">
       <div class="container">
         <h1>JS: Scope &amp; Closure</h1>                
-        <p>May 18, 2014</p>
-        <h3>Understanding of concept, that you will never forget.</h3>
+        <h3>Understand JavaScript scope, hoisting, closure and Performance secret.</h3>
+        <small>May 18, 2014</small>
+        
         <div id="fb-root"></div><div class="fb-like" data-href="http://www.thatjsdude.com/interview/js1.html" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div> &nbsp;<div class="g-plusone"></div>
       </div>
     </div>
@@ -114,7 +115,7 @@
         <p><strong></strong></p>
       </div>
        <div id="globlaScope">
-           <h2>Global Scope</h2>
+           <h2>1. Global Scope</h2>
            <p><strong>Global::</strong> What comes to your mind, when somebody say global? You try to visualize the globe you have seen in high school. If you have never been to a high school, have a look at Image -1.</p>
            <p><strong>Global Star::</strong> Look at image -2. If you cant see a person in the top right corner, borrow a magnifying glass from your grandma. It's Jackie Chan. He is a global star. People will recognize him from any part of the world.</p>
            <p><strong>Global Variable::</strong> Global variable is exactly like global star. you can access it (get or set value of it), from any part of you application.</p>
@@ -170,7 +171,7 @@ b(); //execute global function.
           <p>Global variables and functions are executed in the global context.</p>
        </div>
        <div id="localScope">
-           <h2>Local Scope</h2>
+           <h2>2. Local Scope</h2>
 
            <p><strong>Local::</strong> What comes to your mind, when somebody say local? If you are smart like me, you will say, what is not global is local. Think about a part of the world. for example, the USA. Its a country, a part of the world. If you don't know where is USA, I marked it for you in Image -7.</p>
            <p><strong>Local Star::</strong> Look at image -8. If you are in USA, you might know her as she makes a lot of news (somehow manage to make news). But people outside of USA, will not recognize her. Sher is a local star.</p>
@@ -237,7 +238,7 @@ function b(){
           <p>Local variables and functions are executed in the local context.</p>
        </div>
        <div id="multipleScope">
-           <h2>Multiple Scope</h2>
+           <h2>3. Multiple Scope</h2>
            <p><strong>Multiple functions::</strong> If you have more than one functions and you execute them, each one of them will create their own scope. However, every execution context will be linked to the global scope. Thats how you will have access to the global scope. Have a look at Image -13.</p>
            <p><strong>Inside Scope::</strong> If you have a function inside of another function and you execute the inner function. The inner function will create a scope inside the outer function. Look at the Image-14. Remember, the inner one will have access to the outer function variable and outer one will have access to the global variable. Stare at Image-14 for 5 minutes and shed tears for 3 minutes.</p>
            <p><strong>Closure::</strong> If you have a function inside a function, this is called closure. Closure is a powerful feature of JavaScript for encapsulation. Don't worry about it for now, I will make a separate post on closure. Some of your function could be closure (Image-15)</p>
@@ -287,11 +288,30 @@ function c(){ console.log(a); }
 b();            
 c();
          </code></pre>
+         <div id="blockScope">
+          <h4>Block Scope</h4>
+          <p>Block scope is a block/ part of a code surrounded by {}. JavaScript doesn't support block scope. Ref: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Statements?redirectlocale=en-US&redirectslug=JavaScript%2FGuide%2FStatements#Block_Statement">MDN: block scope</a></p>
+          <pre><code>
+function getY(){
+  var x = 5;
+  if(x>0){
+    var y = 7;  
+  }
+  return y;
+}
+
+getY(); //7
+          </code></pre>
+          <p>Not supporting block scope, makes javascript easier to understand, less complexity and perform better. Hoisting also plays a role here.</p>
+          <h4>ES6: let</h4>
+         <p> You cannot have block scope but you can have block variable when ES6 "let" would be supported by major browsers. Read MDN documents to learn more about <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let">let</a>.</p>
+       </div>
           <h4>Take away</h4>
-          <p>you will have as many function context as many function you have executed. Function inside a function will create a function context inside of the function it is executed. There would be a new scope, if a function calls itself. However, you will have only one global context.</p>          
+          <p>you will have as many function context as many function you have executed. Function inside a function will create a function context inside of the function it is executed. There would be a new scope, if a function calls itself. However, you will have only one global context.</p>  
+
        </div>
        <div id="accessGlobal">
-         <h2>Access Global Variable</h2>
+         <h2>4. Access Global Variable</h2>
           <p>Say, we wake up Saturday afternoon (forgot there was a Friday night) and looking for the keys of your car.</p>
           <ul>
             <li><strong>First (Check Room): </strong> First thing you will do is to check your room (Image-16).</li>
@@ -338,7 +358,7 @@ getX(5); // 7
          </code></pre>
        </div>
        <div id="reduceGlobal">
-         <h2>Avoid Global</h2>
+         <h2>5. Avoid Global</h2>
           <p><strong>Less climbing on the Scope Chain: </strong> If you are asking for a global variable from inside of a function, you are climbing scope chain. In the code example you are climbing the scope chain for 1000000. Every single time, you have to check localScope, parameters and then get outside of the function. If you have more than one function inside function, this becomes even more expensive.</p>          
           <pre><code>
 var myArr = [0,1,2,3, ...., 1000000];
@@ -368,27 +388,9 @@ function getSum(){
 
 getSum();
           </code></pre>
-       </div>
-       <div id="blockScope">
-          <h2>Block Scope</h2>
-          <p>Block scope is a block/ part of a code surrounded by {}. JavaScript doesn't support block scope. Ref: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Statements?redirectlocale=en-US&redirectslug=JavaScript%2FGuide%2FStatements#Block_Statement">MDN: block scope</a></p>
-          <pre><code>
-function getY(){
-  var x = 5;
-  if(x>0){
-    var y = 7;  
-  }
-  return y;
-}
-
-getY(); //7
-          </code></pre>
-          <p>Not supporting block scope, makes javascript easier to understand, less complexity and perform better. Hoisting also plays a role here.</p>
-          <h4>ES6: let</h4>
-         <p> You cannot have block scope but you can have block variable when ES6 "let" would be supported by major browsers. Read MDN documents to learn more about <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let">let</a>.</p>
-       </div>
+       </div>       
        <div id="hoisting">
-         <h2>Hoisting</h2>
+         <h2>6. Hoisting</h2>
          <p>Compare this with floating of stuff. or find good example</p>
          <p>If you execute the following foo function, you will get undefined.</p>
          <pre><code>
@@ -441,7 +443,7 @@ function myFunc() {
          </code></pre>
        </div>
        <div id="closure">
-         <h2>Closure</h2>
+         <h2>7. Closure</h2>
          <p>if you have a function inside a function, execution of the inside function will create a scope inside of the outer function. Since, insider function scope is enclosed by outer function scope. The inner function scope is called closure. Remember, to be a closure, you dont have to return a function, you just have to call a function inside a function</p>
          <pre><code>
 function a(){
