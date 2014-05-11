@@ -111,49 +111,47 @@
           <li><a href="#closure">Closure</a></li>
         </ol>
       </div>
-      <div id="scope">
-        <p><strong></strong></p>
-      </div>
        <div id="globlaScope">
            <h2>1. Global Scope</h2>
-           <p><strong>Global::</strong> What comes to your mind, when somebody say global? You try to visualize the globe you have seen in high school. If you have never been to a high school, have a look at Image -1.</p>
+           <p><strong>Global::</strong> When somebody say global, what comes to your mind? You will try to visualize the globe you have seen in high school. If you have never been to a high school, have a look at Image -1.</p>
            <p><strong>Global Star::</strong> Look at image -2. If you cant see a person in the top right corner, borrow a magnifying glass from your grandma. It's Jackie Chan. He is a global star. People will recognize him from any part of the world.</p>
-           <p><strong>Global Variable::</strong> Global variable is exactly like global star. you can access it (get or set value of it), from any part of you application.</p>
+           <p><strong>Global Variable::</strong> Global variable is exactly like global star. you can access it (get or set the value of it), from any part of you application.</p>
 
            <div class="imageContainer">
              <div class="imageHolder">
                <img src="../../images/scope/globe.png" alt="">             
-               <p class="imgTitleHolder"><span>Image-1:</span><span class="imageTitle">The Globe</span></p>
+               <p class="imgTitleHolder"><span>Image-1: </span><span class="imageTitle">The Globe</span></p>
              </div>
              <div class="imageHolder">
                 <img src="../../images/scope/globeJackie.jpg" alt="">              
-               <p class="imgTitleHolder"><span>Image-2:</span><span class="imageTitle">The Global Star</span></p>
+               <p class="imgTitleHolder"><span>Image-2: </span><span class="imageTitle">The Global Star</span></p>
              </div>
              <div class="imageHolder">
                 <img src="../../images/scope/jackie.jpg" alt="">              
-               <p class="imgTitleHolder"><span>Image-3:</span><span class="imageTitle">Mr. Jackie Chan</span></p>
+               <p class="imgTitleHolder"><span>Image-3: </span><span class="imageTitle">Mr. Jackie Chan</span></p>
              </div>
            </div>
           <br>          
           <p><strong>Global Events::</strong> So, you can easily recognize global star like Nelson Mandela, Princess Diana, etc. Similarly, you can easily recognize global activities like "New Year celebration", "Christmas", "Olympic Games", etc. from any part of the world. Have a look at Image -5.</p>
-          <p><strong>Global Scope::</strong> Anything in the global scope could be accessible from any part of your application. You can put global variable which is similar to global star and global activities which is similar to global functions.</p>
+          <p><strong>Global Functions::</strong> Similarly, global functions could be accessible from any part of your application.</p>
+          <p><strong>Global Scope::</strong> Anything in the global scope could be accessible from any part of your application. Have a look into Image -6. You can have global variables like global stars and global functions like global events/activities.</p>
 
          <div class="imageContainer">
           <div class="imageHolder">
              <img src="../../images/scope/newYear.jpg" alt="">             
-             <p class="imgTitleHolder"><span>Image-4:</span><span class="imageTitle">Happy New Year</span></p>
+             <p class="imgTitleHolder"><span>Image-4: </span><span class="imageTitle">Happy New Year</span></p>
            </div>
            <div class="imageHolder">
              <img src="../../images/scope/globeStars.jpg" alt="">             
-             <p class="imgTitleHolder"><span>Image-5:</span><span class="imageTitle">Global Things</span></p>
+             <p class="imgTitleHolder"><span>Image-5: </span><span class="imageTitle">The Global Things</span></p>
            </div>
            <div class="imageHolder">
               <img src="../../images/scope/globalscope.png" alt="">              
-             <p class="imgTitleHolder"><span>Image-6:</span><span class="imageTitle">Global Scope</span></p>
+             <p class="imgTitleHolder"><span>Image-6: </span><span class="imageTitle">The Global Scope</span></p>
            </div>           
          </div>
          <br>
-         <p>In the code block below, "a" is a global variable and "b" is a global function. you can access global variable inside the function. Anything which is not inside of a function, is global.</p>
+         <p>In the code block below, "a" is a global variable and "b" is a global function. you can access global variable from anywhere of your application including inside of the function "b". Anything which is not inside of a function, is global.</p>
           <pre><code>
 //global variable
 var a = 2;
@@ -167,7 +165,7 @@ b(); //execute global function.
           </code></pre>
          <br>
           <h4>Take away</h4>
-          <p> Global variables are exactly like global stars. you can access it (get or set value of it), from any part of you application. Global function is like global events. you can execute (celebrate) from any part of your application.</p>          
+          <p> Global variables are exactly like global stars. You can access them (get or set value of it), from any part of your application. Global functions are like global events. You can execute (call) them from any part of your application.</p>          
           <p>Global variables and functions are executed in the global context.</p>
        </div>
        <div id="localScope">
@@ -524,7 +522,12 @@ function a() {
          <h4>Context</h4>
          <p>context depends on how the function is called. In a lamen version of context is the value of "this". If you want to learn more. refer to the video/blog</p>
          <p>if you want to know more about context. w</p>
-       </div>       
+       </div>  
+       <div id="summary">
+        <h2>Summary</h2>
+        <h4>Don't Have time, read the summary only</h4>
+        <p>Anything which is not inside a function is global. You can access it from any part of your application.</p>
+      </div>     
       <div id="references">
         <h2>references</h2>
         <p><a href="http://davidshariff.com/blog/javascript-scope-chain-and-closures/">JavaScript Identity resolution and Scope chain</a>, <a href="http://davidshariff.com/blog/what-is-the-execution-context-in-javascript/">Execution context and Stack in JavaScript</a>, <a href="http://javascriptissexy.com/javascript-variable-scope-and-hoisting-explained/">JavaScript scope and hoisting explained</a>, <a href="http://ryanmorr.com/understanding-scope-and-context-in-javascript/">just can read it</a>, <a href="http://www.kirupa.com/html5/variable_scope_js.htm">variable scope explain</a>, <a href="http://www.kirupa.com/html5/closures_in_javascript.htm">Closure related: just keep the link</a>, <a href="http://ryanmorr.com/understanding-scope-and-context-in-javascript/">Understanding Scope and Context in JavaScript</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope">MDN: Functions and function scope</a>
