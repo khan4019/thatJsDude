@@ -87,7 +87,7 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <h1>JS: scope &amp; hoisting</h1>                
+        <h1>JS: scope &amp; Closure</h1>                
         <p>March 16, 2014</p>
         <div id="fb-root"></div><div class="fb-like" data-href="http://www.thatjsdude.com/interview/js1.html" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div> &nbsp;<div class="g-plusone"></div>
       </div>
@@ -99,39 +99,20 @@
         <!-- <iframe width="853" height="480" src="//www.youtube.com/embed/Rx_JFOSxgpY" frameborder="0" allowfullscreen></iframe> -->
       </div>
       <div class="row center">
-        <ol>
-          <li>different ways to create function</li>
-          <li>function declaration, expression, IIFE</li>
-          <li>arguments</li>
-          <li>this</li>
-          <li>scope</li>
-          <li>how funtion is executed</li>
-          <li>bind call apply</li>
-          <li>function as a object</li>
-          <li></li>
-          <li></li>
+        <ol>          
+          <li><a href="#globlaScope">Global Scope</a></li>
+          <li><a href="#localScope">Local Scope</a></li>
           <li></li>
           <li></li>
           <li></li>
           <li></li>
         </ol>
       </div>
-      <div id="execution_Context">
-         <h2>Execution context</h2>         
-         <p>Three execution context in javaScript</p>
-         <ol>
-           <li><strong>global context</strong>- default environment for code execution. You will have only one global context and anything declared in the global context is accessible from anywhere of your code.</li>
-           <li><strong>functional context</strong>-executing code inside a function. anything declared inside a function can be accessed inside the function. However, from inside of a function you can access anything global.</li>
-           <li><strong>eval context</strong>-inside eval execution</li>
-         </ol>         
-         
-         <p>you will have as many function context as many function you have declared. function inside a function will create a function context inside the function. However, you will have only one global context.</p>         
-
-         <p>ref: <a href="http://davidshariff.com/blog/what-is-the-execution-context-in-javascript/">execution context</a></p>
-       </div>
-       <div id="globalContext">
-           <h2>Global context</h2>
-
+      <div id="scope">
+        <p><strong></strong></p>
+      </div>
+       <div id="globlaScope">
+           <h2>Global Scope</h2>
            <p><strong>Global::</strong> What comes to your mind, when somebody say global? You try to visualize the globe you have seen in high school. If you have never been to a high school, have a look at Image -1.</p>
            <p><strong>Global Star::</strong> Look at image -2. If you cant see a person in the top right corner, borrow a magnifying glass from your grandma. It's Jackie Chan. He is a global star. People will recognize him from any part of the world.</p>
            <p><strong>Global Variable::</strong> Global variable is exactly like global star. you can access it (get or set value of it), from any part of you application.</p>
@@ -150,20 +131,8 @@
                <p class="imgTitleHolder"><span>Image-3:</span><span class="imageTitle">Mr. Jackie Chan</span></p>
              </div>
            </div>
-          <br>
-          <p>In the code block below, "a" is a global variable and "b" is a global function. you can access global variable inside the function.</p>
-          <pre><code>
-//global variable
-var a = 2;
-
-//global function
-function b(){
-   console.log(a);  //access global variable
-}
-
-b(); //execute global function.
-          </code></pre>
-          <p><strong>Global Things::</strong> So, you can easily recognize global star like Nelson Mandela, Princess Diana, etc. Similarly, you can easily recognize global activities like "New Year celebration", "Christmas", "Olympic Games", etc. from any part of the world. Have a look at Image -5.</p>
+          <br>          
+          <p><strong>Global Events::</strong> So, you can easily recognize global star like Nelson Mandela, Princess Diana, etc. Similarly, you can easily recognize global activities like "New Year celebration", "Christmas", "Olympic Games", etc. from any part of the world. Have a look at Image -5.</p>
           <p><strong>Global Scope::</strong> Anything in the global scope could be accessible from any part of your application. You can put global variable which is similar to global star and global activities which is similar to global functions.</p>
 
          <div class="imageContainer">
@@ -176,17 +145,30 @@ b(); //execute global function.
              <p class="imgTitleHolder"><span>Image-5:</span><span class="imageTitle">Global Things</span></p>
            </div>
            <div class="imageHolder">
-              <img src="../../images/scope/globalScope.png" alt="">              
+              <img src="../../images/scope/globalscope.png" alt="">              
              <p class="imgTitleHolder"><span>Image-6:</span><span class="imageTitle">Global Scope</span></p>
            </div>           
          </div>
+         <br>
+         <p>In the code block below, "a" is a global variable and "b" is a global function. you can access global variable inside the function. Anything which is not inside of a function, is global.</p>
+          <pre><code>
+//global variable
+var a = 2;
+
+//global function
+function b(){
+   console.log(a);  //access global variable
+}
+
+b(); //execute global function.
+          </code></pre>
          <br>
           <h4>Take away</h4>
           <p> Global variables are exactly like global stars. you can access it (get or set value of it), from any part of you application. Global function is like global events. you can execute (celebrate) from any part of your application.</p>          
           <p>Global variables and functions are executed in the global context.</p>
        </div>
-       <div id="localContext">
-           <h2>Local context</h2>
+       <div id="localScope">
+           <h2>Local Scope</h2>
 
            <p><strong>Local::</strong> What comes to your mind, when somebody say local? If you are smart like me, you will say, what is not global is local. Think about a part of the world. for example, the USA. Its a country, a part of the world. If you don't know where is USA, I marked it for you in Image -7.</p>
            <p><strong>Local Star::</strong> Look at image -8. If you are in USA, you might know her as she makes a lot of news (somehow manage to make news). But people outside of USA, will not recognize her. Sher is a local star.</p>
@@ -207,17 +189,6 @@ b(); //execute global function.
              </div>
            </div>
           <br>
-          <p>In the code block below, "d" is a local variable. you can access it (get or set value) inside the function "b". If you want to access it outside of the function, you will throw a reference error.</p>
-          <pre><code>
-var a = 2; 
-function b(){
-   var d = 21; //local variable
-   console.log(d); //can access it inside the function
-}
-b();  // 21
-
-console.log(d); //ReferenceError: d is not defined
-          </code></pre>
           <p><strong>Local Events::</strong> Think about American football (Image-10). Not the football (soccer) rest of the world knows. Its crazily famous here including super bowl. But people outside of the world doesn't know about  it. Similarly, any functions inside a function will only be accessible inside it (you can execute it).</p>
           <p><strong>Local Scope::</strong> Anything in the local scope (inside a function) is only accessible inside that local scope. You can compare local variable like local star and local activities like a function inside a function in Image-11.</p>
           <p><strong>Connected to Global::</strong> Local scope is connected to the global scope. In the Image-12, see a dotted line/chain towards global scope. Thats the way you have access to any global variables/functions. This link/chain is called scope chain. We will talk more about it later.</p>
@@ -234,7 +205,19 @@ console.log(d); //ReferenceError: d is not defined
               <img src="../../images/scope/localScope.png" alt="">              
              <p class="imgTitleHolder"><span>Image-12:</span><span class="imageTitle">Local Scope</span></p>
            </div>           
-         </div>    
+         </div>
+
+          <p>In the code block below, "d" is a local variable. you can access it (get or set value) inside the function "b". If you want to access it outside of the function, you will throw a reference error.</p>
+          <pre><code>
+var a = 2; 
+function b(){
+   var d = 21; //local variable
+   console.log(d); //can access it inside the function
+}
+b();  // 21
+
+console.log(d); //ReferenceError: d is not defined
+          </code></pre>    
          <p><strong>Implicit Global::</strong> if you forget to put var in front of the variable inside a function, it becomes a global variable. In the code block below, "a", "e" and "i" are global variables. you might not wanted "e" and "i" to be global. So, be careful.</p>
          <pre><code>
 var a = 21;
@@ -405,8 +388,26 @@ getY(); //7
        <div id="hoisting">
          <h2>Hoisting</h2>
          <p>Compare this with floating of stuff. or find good example</p>
+         <p>If you execute the following foo function, you will get undefined.</p>
          <pre><code>
-function() {    
+function foo(){
+  return b;
+  var b = 7;  
+}
+
+foo(); //undefined
+         </code></pre>
+         <p>While creating <a href="#">Context</a> of a function, JavaScript execution engine, scan through the whole function and bring variable declaration at the top. Hence the code above will be parsed as</p>
+         <pre><code>
+function foo(){
+  var b;
+  return b;
+  b = 7;
+}
+         </code></pre>
+         <p>Remember only the declaration of a variable is taken (hoisted) toward the starting of the function. This is call hoisting. Similarly if you assign a function to a variable only the variable declaration will be hoisted. However if you have a function declaration, the full function will be hoisted</p>
+         <pre><code>
+function myFunc() {    
     var bar = function() {
             return 'world';
         };    
@@ -416,6 +417,7 @@ function() {
     var a = 5;
 }
          </code></pre>
+         
          <p>what are the steps for hositing and scanning process. google it. Talk about variable declaration. function declaration and function assignment</p>
          <ul>
            <li><strong>function</strong></li>
@@ -426,7 +428,7 @@ function() {
          </ul>
          <p>after hoisting</p>
          <pre><code>
-function() {
+function myFunc() {
     function foo() {
         return 'fooed';
     }    
