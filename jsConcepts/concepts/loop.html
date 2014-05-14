@@ -278,12 +278,46 @@ for(var i =0, len = myArr.length; i&lt;len; i++){
 }
 </code></pre>
 </div>
+<div id="whileLoop">
+  <h2>while, do while</h2>
+  <pre><code>
+var myArr = [1,2,3,4,5,6,7,8,9], 
+    len = myArr.length,
+    i =0;
+
+while (i++ &lt; len) {
+  console.log(myArr[i]);
+}
+
+//do while
+do {
+  someFn(arr[i]);
+} while (i--);
+  </code></pre>
+  <p>Reverse while is the fastest way to loop through an array</p>
+  <pre><code>
+var l = arr.length;
+
+while(l--) {
+  someFn(arr[l]);
+}
+  </code></pre>
+</div>
 <div>
   <h2>for of</h2>
   <p>ES 6 only</p>
   <pre><code>
 // add ur code here
   </code></pre>
+</div>
+<div id="summary">
+  <ul>
+    <li>Don't measure length in every iteration</li>
+    <li>catche object properties, function used in repeating code</li>
+    <li>backward for loop is faster than forward</li>
+    <li>for-in only when iterating over object</li>
+    <li>on array, reverse while is the fastest</li>
+  </ul>
 </div>
 
 
