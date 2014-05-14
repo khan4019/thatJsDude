@@ -184,6 +184,28 @@ function sumAndMultiply(arr, x) {
     return r;
 }
 </code></pre>
+<h3>filter vs if</h3>
+<pre><code>
+var myArray = [{"number":1,"name":"Fred"},{"number":2,"name":"John"},{"number":3,"name":"Toni"},{"number":4,"name":"Sarah"}];
+
+function byFilter(myArr, num){
+    return myArr.filter(function (el) {
+        return el.number === num;
+    });
+}
+</code></pre>
+<p>filter, foreach, some, any has to make the array cache and blah blah...read that</p>
+<pre><code>
+function byForLoop(myArr, num){
+    var i, l;
+    for (i = 0, l = myArr.length; i &lt; l; i += 1) {
+        if (myArr[i].number === num) {
+            return [myArr[i]];
+        }
+     }
+     return [];
+}
+</code></pre>
 </div>
 <div>
   <h2>for..in</h2>
@@ -311,6 +333,7 @@ while(l--) {
   </code></pre>
 </div>
 <div id="summary">
+  <h2> Summary</h2>
   <ul>
     <li>Don't measure length in every iteration</li>
     <li>catche object properties, function used in repeating code</li>
