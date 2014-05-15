@@ -240,9 +240,9 @@ function b(){
        </div>
        <div id="multipleScope">
            <h2>3. Multiple Scope</h2>
-           <p><strong>Multiple functions::</strong> If you have more than one functions and you execute them, each one of them will create their own scope. However, every execution scope will be linked to the global scope. Thats how you will have access to global scope variable and function from any part of your application. Have a look at Image -13.</p>
-           <p><strong>Nested Scope::</strong> If you have a function inside of another function and you execute the inner function. The inner function will create a scope inside the outer function. Look at the Image-14. Remember, the inner scope will have access to the outer function variable and outer one will have access to the global variable. Stare at Image-14 for 5 minutes and shed tears for 3 minutes.</p>
-           <p><strong>Closure::</strong> If you have a function inside a function, this is called closure. Closure is a powerful feature of JavaScript for encapsulation. Some of your function could be closure (Image-15). Don't worry about it for now, You will have a crystal clear idea about closure soon.</p>
+           <p><strong>Multiple functions::</strong> If you have more than one functions and you execute them, each one of them will create their own scope. However, every execution scope will be linked to the global scope. Thats is how you  have access to the global scope variable and function from any part of your application. Have a look at Image -13.</p>
+           <p><strong>Nested Scope::</strong> If you execute a function within a function, the inner function will create a scope inside the outer function. Look at the Image-14. Remember, the inner scope will have access to the outer function variable, while the outer one will have access to the global variable. Now take a minute to absorb  Image-14 and take another minute to sift through your confusion.</p>
+           <p><strong>Closure::</strong> If you have a function inside a function, this is called closure. Closure is a powerful feature of JavaScript for encapsulation. Some of your function could be closure (Image-15). Don't worry about it for now, Soon you will have a crystal clear understanding of closure.</p>
 
            <div class="imageContainer">
              <div class="imageHolder">
@@ -259,7 +259,7 @@ function b(){
              </div>
            </div>
          <br>
-         <p>In the code block, below function "b" and function "c" creates separate scope like in Image-13</p>
+         <p>In the code block, below function "b" and function "c" create separate scopes like you see in Image-13</p>
          <pre><code>
 var a = 2;
 
@@ -275,7 +275,7 @@ b(); // scope created for executing function "b"
 c(); // scope created for executing function "c" 
          </code></pre>
          <br>
-         <p>In the code block below, at the time of execution of function "b", function "dog" will be executed and it will create a new scope inside the scope of function "b". Refer to Image-14 </p>
+         <p>In the code block below, when executing of function "b", function "dog" will be executed and it will create a new scope within the scope of function "b". Refer to Image-14 </p>
          <pre><code>
 var a = 2; 
 function b(){ 
@@ -303,22 +303,22 @@ function getY(){
 
 getY(); //7
           </code></pre>
-          <p>Not supporting block scope, makes javaScript easy to understand, less complex and fast to parse. Hoisting also plays a role here. You will learn about hoisting soon (sorry, too many promises).</p>
+          <p>Congratulations to you! Because JavaScript does not support block scope, it is that much easy to understand. It is less complex and faster to parse. Hoisting also plays a role in this, but we will have to come back to that another time (sorry, too many promises).</p>
           <h4>ES6: let</h4>
-         <p> You cannot have block scope but you can have block scope variable when ES6 "let" would be supported by major browsers. Read MDN documents to learn more about <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let">let</a>.</p>
+         <p> JavaScript cannot use block scope but you can have a block scope variable when ES6 "let" is supported by major browsers. Read MDN documents to learn more about <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let">let</a>.</p>
        </div>
           <h4>Take away</h4>
-          <p>You will have as many function scope as many function you have executed. Function inside a function will create a nested scope inside of the scope of the outer function. There would be a new scope, even a function calls itself. However, you will have only one global scope.</p>  
+          <p>You will have as many function scopes as the functions you have executed. Functions inside functions create nested scopes inside the outer function scopes. There would be a new scope, even a function calls itself. However, you will have only one global scope.</p>  
 
        </div>
        <div id="accessGlobal">
          <h2>4. Access Variable</h2>
-          <p>Say, you wake up at Saturday afternoon ( completely forgot what you have done at Friday night) and looking for your car keys. You might search in the following steps-</p>
+          <p>Consider the situation - you wake up Saturday afternoon and start looking for car keys ( for whatever reason, you completely forgot what you did Friday night). You might search in the following steps-</p>
           <ul>
             <li><strong>First (Room): </strong> First thing you will do is to check inside your room (Image-16).</li>
-            <li><strong>Second (key Holder):</strong> If your keys is not found in your room, you will check the key holder (Image-17) next to the door.</li>
-            <li><strong>Third (Other part of the house): </strong> If you live in big apartment building. You will look into inside of the building. May be in the front lobby (the way you get in to your apartment)</li>
-            <li><strong>Fourth (Outside): </strong> Next step would be to check outside of the house (Image-18) in the backyard or roadside where ever your park your car.</li>
+            <li><strong>Second (key Holder):</strong> If your keys are not found in your room, you will check the key holder (Image-17) next to the door.</li>
+            <li><strong>Third (Other part of the house): </strong> If you live in a big apartment building. You will look through the inside of the building. May be in the front lobby (the building entrance)</li>
+            <li><strong>Fourth (Outside): </strong> Next step would be to check outside of the house (Image-18) in the backyard or roadside where your park your car.</li>
             <li><strong>Fifth (Lost): </strong> If you don't find your keys outside of the house, you have to say that you lost your keys.</li>
           </ul>          
           <p>If you find the keys inside your room you will not go to check the keys holder or outside.</p>
@@ -336,17 +336,17 @@ getY(); //7
                <p class="imgTitleHolder"><span>Image-18: </span><span class="imageTitle">OutSide </span></p>
              </div>
            </div>
-            <h4>Why are you telling this stupid every weekend story?</h4>
-         <div>If you ask for a variable inside a function, JavaScript doesn't know right away whether this variable you are asking for is a  global variable or local variable or a parameter. So, it has to follow the following steps. Every single times.
+            <h4>Why are you telling this stupid story every weekend?</h4>
+         <div>If you ask for a variable inside a function, JavaScript doesn't know right away whether this variable is a  global variable, a local variable or a parameter. So, it has to follow these same steps. Every single times.
          <ul>
-            <li><strong>First (Local Scope): </strong>It checks local variable. if it is in the local scope will grab it and give it to you.</li>
-            <li><strong>Second (Parameters): </strong>If the variable doesn't exists in the local scope then it check to the parameters. Similar to keys in the key holder (Image-17)</li>
-            <li><strong>Third (Outer Scopes) </strong> If the variable you are asking for doesn't exists in the parameter then it starts walking outside of the function via scope chain of the current scope until it hits the end of the chain. The end of the scope is called "window" object in JavaScript.</li>
-            <li><strong>Fourth (Window): </strong> If the variable exists in the global scope, it would be a property of the global object "window". JavaScript will grab it an give it to you.</li>
-            <li><strong>Fifth (Undefined): </strong>If the variable doesn't exists in the window object, JavaScript will return "undefined". This means the variable you are looking for, doesn't exists.</li>
+            <li><strong>First (Local Scope): </strong>It checks  the local variables. If it is in the local scope, JavaScript will grab it and give it to you.</li>
+            <li><strong>Second (Parameters): </strong>If the variable doesn't exists in the local scope, it will then check the the parameters. (Similar to keys in the key holder in Image-17)</li>
+            <li><strong>Third (Outer Scopes) </strong> If the variable you are asking for doesn't exists in the parameter, JavaScript starts walking outside of the function via the scope chain of the current scope. It does this until it hits the end of the chain. The end of the scope is called the "window" object in JavaScript.</li>
+            <li><strong>Fourth (Window): </strong> If the variable exists in the global scope, it would be a property of the global object "window". JavaScript will grab it and give it to you.</li>
+            <li><strong>Fifth (Undefined): </strong>If the variable doesn't exists in the window object, JavaScript will respond with "undefined". This means the variable you are looking for, doesn't exists.</li>
           </ul>    
         </div>          
-         <p> Since local scope is the first place to look for variable, local variable gets priority over global and parameter.</p>
+         <p> Since local scope is the first place to look for a variable, the local variable gets priority over global and parameter.</p>
          <pre><code>
 var x = 9;
 
@@ -358,7 +358,7 @@ function getX(x){
 getX(5); // 7
          </code></pre>
          <h4>Take Away</h4>
-         <p>The order of accessing variable is local variables (inner scope), parameters, outer scope(s), global variable (window). If your variable doesn't exist in the global scope, you will get undefined.</p>
+         <p>The order of accessing a variable is local variables (inner scope), parameters, outer scope(s) then as a last resort, the global variable (window). If your variable doesn't exist in the global scope, JavaScript will return an undefined.</p>
        </div>
        <div id="globalVarPerf">
          <h2>5. Global Variable Performance</h2>
