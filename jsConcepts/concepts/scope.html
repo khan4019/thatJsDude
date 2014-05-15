@@ -553,13 +553,13 @@ function a() {
         <h2>Summary</h2>
         <h4>Summary is just a collection of Take Aways from each section</h4>
         <ul>
-          <li><strong>Global Scope:: </strong>Global variables are exactly like global stars (Jackie Chan, Nelson Mandela). You can access them (get or set value of it), from any part of your application. Global functions are like global events (New Year, Christmas). You can execute (call) them from any part of your application.</li>
-          <li><strong>Local Scope::</strong>Local variables are like local stars. You can access it (get or set value of it) only inside that scope. Local function is like local events. you can execute (celebrate) only inside that scope.</li>
-          <li><strong>Multiple Scope:: </strong>You will have as many function scope as many function you have executed. Function inside a function will create a nested scope inside of the scope of the outer function. There would be a new scope, even a function calls itself. However, you will have only one global scope.</li>
-          <li><strong>Access Variable:: </strong>The order of accessing variable is local variables (inner scope), parameters, outer scope(s), global variable (window). If your variable doesn't exist in the global scope, you will get undefined.</li>
-          <li><strong>Global Variable Performance:: </strong>If you are accessing global variable for hundreds of times, have a local copy of the global variable. If you are doing it for once or twice, you can ignore this minor performance tips.</li>
-          <li><strong>Hoisting:: </strong>Only the declaration of a variable is hoisted. Value assigned remains at its place. Function declaration is hoisted. If you have a function expression only the variable part of the function expression will be hoisted.</li>
-          <li><strong>Closure:: </strong>If you execute a function inside a function, a closure is created. Closure could return a function. Closure saves state of outer function variable (private variable) but do not expose those. In that way you can hide implementation detail while using closure. This is called encapsulation.</li>
+          <li><strong>Global Scope:: </strong>Global variables are exactly like global stars (Jackie Chan, Nelson Mandela). You can access them (get or set the value), from any part of your application. Global functions are like global events (New Year, Christmas). You can execute (call) them from any part of your application.</li>
+          <li><strong>Local Scope::</strong>Local variables are like local stars. You can only access them (get or set the value) inside the scope. A local function is like local events - you can execute only (celebrate) inside that scope.</li>
+          <li><strong>Multiple Scope:: </strong>You will have as many function scopes as functions you have executed. Functions inside functions will create nested scopes inside of the outer scope. There will be a new scope, even if a function calls itself. However, you can have only one global scope.</li>
+          <li><strong>Access Variable:: </strong>The order of accessing variables is local variables (inner scope), parameters, outer scope(s) and the global variable (window). If your variable doesn't exist in the global scope, you will receive a response of undefined.</li>
+          <li><strong>Global Variable Performance:: </strong>If you are accessing the global variable over and over, have a local copy of the global variable. If you are doing it just once or twice, you can ignore this minor performance tip.</li>
+          <li><strong>Hoisting:: </strong>Only the declaration of a variable is hoisted. The value assigned remains at its place. Function declaration is also hoisted. If you have a function expression only the variable part of the function expression will be hoisted.</li>
+          <li><strong>Closure:: </strong>If you execute a function inside a function, a closure is created. Closure could return a function. Closure saves the states of outer function variable (private variable), but do not expose them. In this way, you can hide implementation details using a closure. This is called encapsulation.</li>
         </ul>        
       </div>     
       <div id="references">
@@ -569,7 +569,7 @@ function a() {
 
       <div>
         <h3 class="purpleBold">Express anger!</h3>
-        <p class="gray">Feel free to express your anger (sorry u have to use facebook). also find out mistakes ( technical, wrong answer, spelling, grammar, sentence, whatever), let ur dude learn and grow.</p>
+        <p class="gray">Feel free to express your anger (sorry folks, you have to use facebook). Also point out my mistakes ( technical, wrong answer, spelling, grammar, sentence..., whatever), let your dude learn and grow.</p>
         <div class="fb-comments" data-href="http://www.thatjsdude.com/interview/js1.html" data-numposts="5" data-colorscheme="light"></div>
       </div>
       <hr>
