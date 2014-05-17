@@ -67,7 +67,9 @@
         font-weight: bold;
         font-size: 1.2em;
       }
-
+      .toggleContent{
+        padding: 10px;                
+      }  
       /*style for demo*/
       
     </style>
@@ -90,14 +92,14 @@
         <h1>JS: Scope &amp; Closure</h1>                
         <h3>Understanding JavaScript scope, hoisting, closure with performance secret.</h3>
         <small>May 18, 2014</small>        
-        <div id="fb-root"></div><div class="fb-like" data-href="http://www.thatjsdude.com/interview/js1.html" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div> &nbsp;<div class="g-plusone"></div>
+        <div id="fb-root"></div><div class="fb-like" data-href="http://www.thatjsdude.com/jsConcepts/concepts/scope.html" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div> &nbsp;<div class="g-plusone"></div>
       </div>
     </div>
     <div class="container">
       <!-- Example row of columns -->
 
       <div class="row center">        
-        <iframe width="853" height="480" src="//www.youtube.com/embed/Rx_JFOSxgpY" frameborder="0" allowfullscreen></iframe>
+        <!-- <iframe width="853" height="480" src="//www.youtube.com/embed/Rx_JFOSxgpY" frameborder="0" allowfullscreen></iframe> -->
       </div>
       <div class="row center">
         <ol>          
@@ -464,6 +466,33 @@ function myFunc() {
     a = 5;        
 }
          </code></pre>
+         <div>
+          <button id = "nullVsUndefinedDetail" type="button" class="toggleExample btn btn-primary">Show Interesting Example</button>
+          <div id="nullVsUndefinedDetailExample" class="hide">
+            <div id="nullVsUndefined" class="bg-success toggleContent">
+              <h3>combination of hoisting and scope</h3>
+              <p><strong>Question:</strong> what will you see in the console for the following example?</p>
+              <pre><code>
+ var a = 1; 
+  function b() { 
+     a = 10; 
+     return; 
+     function a() {} 
+  } 
+ b(); 
+ console.log(a);
+              </code></pre>
+              <p><strong>Answer:</strong> 1</p>
+              <h4>Explanation</h4>
+              <ol>
+                <li>function declaration <code>function a(){}</code> is hoisted first and it behaves like <code>var a = function () {};</code>, hence in local scope <code>a</code> is created.</li>
+                <li>If you have two variable with same name (one in global another in local), local variable always get precedence over global variable. </li>
+                <li>When you set <code>a = 10;</code>, you are setting the local variable <code>a</code> , not the global one.</li>                
+              </ol>
+              <p>Hence, the value of global variable remain same and you get, 1 in the log. ref: <a href="http://stackoverflow.com/q/7506844/1535443">js hoisting/scope</a></p>
+            </div>
+          </div>
+          </div>
          <h4>Take Away</h4>
          <p>Only the declaration of a variable is hoisted. The value assigned remains at its location. A function declaration is hoisted. If you have a function expression only the variable part of the function expression will be hoisted.</p>
        </div>
@@ -570,10 +599,17 @@ function a() {
       <div>
         <h3 class="purpleBold">Express anger!</h3>
         <p class="gray">Feel free to express your anger (sorry folks, you have to use facebook). Also point out my mistakes ( technical, wrong answer, spelling, grammar, sentence..., whatever), let your dude learn and grow.</p>
-        <div class="fb-comments" data-href="http://www.thatjsdude.com/interview/js1.html" data-numposts="5" data-colorscheme="light"></div>
+        <script src="https://apis.google.com/js/plusone.js"></script>
+        <div class="g-comments"
+            data-href="[URL]"
+            data-width="642"
+            data-first_party_property="BLOGGER"
+            data-view_type="FILTERED_POSTMOD">
+        </div>
+        <div class="fb-comments" data-href="http://www.thatjsdude.com/jsConcepts/concepts/scope.html" data-numposts="5" data-colorscheme="light"></div>
       </div>
       <hr>
-
+      
       <footer>
         <p>&copy;thatJSDude 2014</p>
       </footer>
