@@ -61,7 +61,7 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <h1>looping</h1>        
+        <h1>Fast looping</h1>        
         <h2>loop loop looping</h2>
         <p>need to add some junk text here...</p>        
       </div>
@@ -91,16 +91,39 @@
         <li>something interesting</li>
       </ul>
 <!-- div>h2+p+pre>code -->
-<div>
-  <h2>Fun with For loop</h2>
-  <p>For loop can have four parts and all of them are optional. Hence you can escape one or more</p>
-  <pre><code>
+    <div>
+      <h2>Parts of For loop</h2>
+      <p>For loop can have four parts and all of them are optional. Hence you can escape one or more</p>
+      <pre><code>
 for(initiation; iteratingCondition; repeatingExpression){
   repeatingCode
 }
+      </code></pre>
+      <p><strong>initiation:</strong> runs only once</p>
+      <p>iteratingCondition, repeatingExpression and repeatingCode run every time loop is executing</p>
+      <p>all the four parts is optional</p>
+    </div>
+    <div>
+      <h2>Calculate length only once</h2>
+      <pre><code>
+for(var i =0; i&lt myArr.length; i++){
+  //my awesome looping
+}
   </code></pre>
+  <p>array length is calculated every single iteration</p>
+  <p>array length is calcaulted only once</p>
+  <pre><code>
+for(var i =0, len = myArr.length; i&ltlen; i++){
+  //my awesome looping
+}
+  </code></pre>
+    </div>
+<div>
+  
   intiation is usally have declaration of looping variable. however any valid expression is permitted  
   <strong>Dont exectute length stupidly</strong>
+
+
   <p>The first statement is executed only once, before starting of the loop. This could save you calculating length againg and again.  You can have multiple declaration or you can miss it completely.</p>
   <pre><code>
 //array length is calculated every single iteration
