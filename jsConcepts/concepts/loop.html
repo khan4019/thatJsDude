@@ -157,6 +157,42 @@ for (var i = 0; i &lt; 1000; i++) {
               </code></pre>
     </div>
     <div>
+      <h2>filter vs loop</h2>
+      <pre><code>
+var myArray = [{"number":1,"name":"Fred"},{"number":2,"name":"John"},{"number":3,"name":"Toni"},{"number":4,"name":"Sarah"}];
+
+function byFilter(myArr, num){
+    return myArr.filter(function (el) {
+        return el.number === num;
+    });
+}</code></pre>
+              <pre class="fragment"><code>
+function byForLoop(myArr, num){
+    var i, l;
+    for (i = 0, l = myArr.length; i &lt; l; i += 1) {
+        if (myArr[i].number === num) {
+            return [myArr[i]];
+        }
+     }
+     return [];
+}</code></pre>
+              <a href="http://jsperf.com/array-filter-vs-simple-loop/2">filter vs simple loop</a>
+              <ol class="fragment">
+                <li>range of elements is set before the first call</li>
+                <li>new elements will not be visited</li>
+                <li>if elements are changed or deleted, their value would be original</li>
+                <li class="fragment"> robustness comes with the expense of overhead</li>
+              </ol> 
+              <br><br>
+              <li class="fragment">also happens for: map, forEach, every, any, etc.</li>                      
+              <ol class="fragment">
+                <li>for trusted data</li>
+                <li>not to have deleted values</li>
+                <li>well behaved callbackfn</li>
+              </ol>
+              <a href="http://monkeyandcrow.com/blog/why_javascripts_filter_is_slow/">why native filter method is slow</a>
+    </div>
+    <div>
       <h2>extra</h2>
       <p>you can declare as many variable as needed in the initiation condition.</p>
       <p>if you care about <a href="scope.html#hoisting">hoisting</a> and you can declare the variables at the top of your scope and keep initiation empty.</p>
