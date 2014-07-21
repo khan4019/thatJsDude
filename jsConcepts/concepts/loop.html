@@ -62,7 +62,7 @@
     <div class="jumbotron">
       <div class="container">
         <h1>Fast looping</h1>        
-        <h2>loop loop looping</h2>
+        <h2>10 tricks to run faster loop</h2>
         <p>need to add some junk text here...</p>        
       </div>
     </div>
@@ -93,7 +93,7 @@
 <!-- div>h2+p+pre>code -->
     <div>
       <h2>a for loop</h2>
-      <p>here is the most innocent for loop that you write every single day</p>
+      <p>here is the innocent for loop that you write everyday</p>
       <pre><code>
 var a = [1, 2, 3, 4];
 
@@ -101,57 +101,46 @@ for(var i =0; i&lt;a.length; i++){
   console.log(a[i]);
 }
       </code></pre>
-      <h2>Parts of For loop</h2>
-      <p>For loop can have four parts and all of them are optional. Hence you can escape one or more</p>
+      <strong>Parts of For loop</strong>
+      <p> you need four semi-colon in your for loop, hence there are four parts of a for loop.</p>
       <pre><code>
 for(initiation; iteratingCondition; repeatingExpression){
   repeatingCode
 }
       </code></pre>
-      <p><strong>initiation:</strong> runs only once</p>
-      <p>iteratingCondition, repeatingExpression and repeatingCode run every time loop is executing</p>
-      <p>all the four parts is optional</p>
+      <p><strong>initiation:</strong> this initializes the variable(s). Usually, you declare one or more variables and assign values to them. One important not about this part is it will run only once while executing the for loop</p>
+      <p>iteratingCondition, repeatingExpression and repeatingCode run every time loop is executed</p>
+      <p>Another important note about all the four parts is they optional. This mean you can skip one, more or all of them. However you have to put the semicolons and have to have terminating condition, otherwise your loop will run forever.</p>
     </div>
     <div>
       <h2>Calculate length only once</h2>
-      <pre><code>
-for(var i =0; i&lt myArr.length; i++){
-  //my awesome looping
-}
-  </code></pre>
-  <p>array length is calculated every single iteration</p>
-  <p>array length is calcaulted only once</p>
+      <p>Now look at my innocent for loop. In the iterating condition, i have <code>i&lt;a.length</code> and iterating condition is executed every single time loop is executed. hence, length of the array will be calculated every single time. If you run the loop for 1000 times, you will get a performance hit.</p>
+      <p><strong>solution:</strong> The solution to this problem is to set the length of the array to a variable in the initiation stage and use that variable in the iteratingCondition. In this approach, you are calculating length of the array only once. </p>
   <pre><code>
-for(var i =0, len = myArr.length; i&ltlen; i++){
+for(var i =0, len = a.length; i&ltlen; i++){
   //my awesome looping
 }
   </code></pre>
     </div>
-<div>
-  
-  intiation is usally have declaration of looping variable. however any valid expression is permitted  
-  <strong>Dont exectute length stupidly</strong>
-
-
-  <p>The first statement is executed only once, before starting of the loop. This could save you calculating length againg and again.  You can have multiple declaration or you can miss it completely.</p>
-  <pre><code>
-//array length is calculated every single iteration
-for(var i =0; i&lt myArr.length; i++){
+    <div>
+      <h2>extra</h2>
+      <p>you can declare as many variable as needed in the initiation condition.</p>
+      <p>if you care about <a href="scope.html#hoisting">hoisting</a> and you can declare the variables at the top of your scope and keep initiation empty.</p>
+      <pre><code>
+for(var i =0, len = myArr.length, k = 15; i&ltlen; i++){
   //my awesome looping
 }
 
-//array length is calcaulted only once
-for(var i =0, len = myArr.length; i&ltlen; i++){
-  //my awesome looping
-}
-
-//even you can hoist first statement
+//skip initiation
 var i =0, 
     len = myArr.length;
 for(; i&ltlen; i++){
   //my awesome looping
 }
-  </code></pre>
+      </code></pre>
+    </div>    
+
+<div>
 <p>you can have multiple condition in the 2nd statement or you can skip it (make sure u have a break somewhere otherwise it will run forever)</p>
 <pre><code>
 var myArr = [1,2,3,4,5,6,7,8,9], 
