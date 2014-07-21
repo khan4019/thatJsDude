@@ -83,6 +83,7 @@
         <li>len</li>
         <li>optional</li>
         <li>why backward is faster</li>
+        <li>cache function</li>
         <li>for in</li>
         <li>while</li>
         <li>for of</li>
@@ -123,6 +124,39 @@ for(var i =0, len = a.length; i&ltlen; i++){
   </code></pre>
     </div>
     <div>
+      <h2>backward is faster</h2>
+      <pre><code>
+var myArr = [0,1,2,3,4,5 ...];
+
+//forward
+for(var j = 0; j&lt;1000; j++){
+  console.log(myArr[j]);
+}
+
+//backward
+for(var k = 1000; k>=0; k--){
+  console.log(myArr[k]);
+}
+      </code></pre>
+    </div>
+    <div>
+      <h2>cache loop function</h2>
+      <pre><code>
+var arr = [];
+for (var i = 0; i &lt; 1000; i++) {
+  arr.push([1, 2, 3].map(function (x) { return x * x; }));
+}
+              </code></pre>
+              <pre class="fragment"><code>
+var arr = [];
+var sq = function (x) { return x * x; };
+
+for (var i = 0; i &lt; 1000; i++) {
+  arr.push([1, 2, 3].map(sq));
+}
+              </code></pre>
+    </div>
+    <div>
       <h2>extra</h2>
       <p>you can declare as many variable as needed in the initiation condition.</p>
       <p>if you care about <a href="scope.html#hoisting">hoisting</a> and you can declare the variables at the top of your scope and keep initiation empty.</p>
@@ -141,6 +175,8 @@ for(; i&ltlen; i++){
     </div>    
 
 <div>
+
+<h2>loose parts starts from here</h2>
 <p>you can have multiple condition in the 2nd statement or you can skip it (make sure u have a break somewhere otherwise it will run forever)</p>
 <pre><code>
 var myArr = [1,2,3,4,5,6,7,8,9], 
@@ -157,6 +193,7 @@ for(;;i--){
   if(!i) break;
 }
 </code></pre>
+
 <p>you can miss the third statement as well. Make sure u change looping variable otherwise you will run forever</p>
 <pre><code>
 var i=5;
