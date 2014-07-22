@@ -79,7 +79,9 @@
        </ol>
       <h2>Parts of this blog</h2>
       <ul>
-        <li>create link</li>
+        <li>minimum things inside loop</li>
+        <li>get dom example</li>
+        <li>loop through everything else</li>
       </ul>
 <!-- div>h2+p+pre>code -->
     <div>
@@ -220,6 +222,52 @@ for(var j in myArr){
               <a href="http://jsperf.com/for-vs-forintest">for vs for-in</a>
     </div>
     <div>
+      <h2>for...in could be faster</h2>
+<p>if index is not maintined properly for in could be better.</p>
+<pre><code>
+var myArr = [];
+myArr[5] = 5;
+
+for(var i in myArr){
+  //iterate only once
+}
+
+for(var i =0, len = myArr.length; i&lt;len; i++){
+  //iterates 5 times  
+}
+</code></pre>
+    </div>
+    <div>
+  <h2>for..in</h2>
+  <p>for..in only iterate over all enumerable properties of the object itself and those the object inherits from its constructor's prototype. </p>
+<pre><code>
+var myArr = [1,2,3]
+myArr['-7'] = -7;
+myArr[2.5] =2.5;
+myArr['dude'] = 'thatJsDude'
+
+for(var i in myArr){
+  console.log(myArr[i]);
+}
+
+ = 1
+ = 2
+ = 3
+ = -7
+ = 2.5
+ = thatJsDude
+
+
+ //for loop don't read from properties
+ for(var i = 0, len = myArr.length; i&lt;len; i++){
+  console.log(myArr[i]);
+}
+ = 1
+ = 2
+ = 3 
+</code></pre>
+</div>
+    <div>
       <h3>reverse while</h3>
               <pre><code>
 var myArr = [1,2,3,4,5,6,7,8,9], 
@@ -241,6 +289,52 @@ while(l--) {
               <br>
               <a href="https://blogs.oracle.com/greimer/resource/loop-test.html">different looping</a>
     </div>    
+    <div>
+      <h2>don't access out of scope variable</h2>
+      <pre><code>
+var a = 10;
+function(){
+  
+  for(var i = 0; i &lt; 10000; i++){
+    console.log(a);
+  }  
+}
+      </code></pre>
+      <pre><code>
+//create a local variable
+
+      </code></pre>
+    </div>
+    <div>
+      <h2>do as little as possible inside loop</h2>
+      <pre><code>
+//find an example for this
+      </code></pre>
+    </div>
+    <div>
+      <h2>document fragment</h2>
+      <pre><code>
+var list = ['foo', 'bar', 'baz'],
+    el, text;
+for (var i = 0; i &lt; list.length; i++) {
+    el = document.createElement('li');
+    text = document.createTextNode(list[i]);
+    el.appendChild(text);
+    document.body.appendChild(el);
+}</code></pre>
+              <pre class="fragment"><code>
+var fragment = document.createDocumentFragment(),
+    list = ['foo', 'bar', 'baz'],
+    el, text;
+for (var i = 0; i &lt; list.length; i++) {
+    el = document.createElement('li');
+    text = document.createTextNode(list[i]);
+    el.appendChild(text);
+    fragment.appendChild(el);
+}
+document.body.appendChild(fragment);</code></pre>
+              <a href="https://developer.mozilla.org/en-US/docs/Web/API/document.createDocumentFragment">createDocumentFragment</a>
+    </div>
     <div>
       <h2>summary of looping</h2>
       <ol>
@@ -277,106 +371,6 @@ var i=5;
 for(;;){
   console.log(i--);
   if(!i) break;
-}
-</code></pre>
-<strong>reverse direction</strong>
-<p>if you loop from the end of the array. when the value of i reacher 0, this is coerced to false and break the loop.</p>
-<pre><code>
-for (var i=myArr.length; i--;) {
-  console.log(myArr[i]);    
-}
-</code></pre>
-</div>
-<div>
-  <h2>for..in</h2>
-  <p>for..in only iterate over all enumerable properties of the object itself and those the object inherits from its constructor's prototype. if you want to exclude inherited properties you can use hasOwnProperty</p>
-  <p>It is not guranteed that for..in will maintain an order. So, for..in should not be used to iterate over an Array where index order is important.</p>
-  <pre><code>
-var obj = {a:1, b:2}
-for(var i in obj){
-  console.log(obj[i]);
-}
- = 1
- = 2
-
-var myArr = [1,2];
-for(var i in myArr){
-  console.log(myArr[i]);
-}
- = 1
- = 2 
-  </code></pre>
-<strong>properties that are iterated</strong>
-<p>will be iterate over all the properties whose [[enumerable]] is true. also over [[enumerable]] properties that are inherited via prototype chain.</p>
-<pre><code>
-var myArr = [1,2,3]
-myArr['-7'] = -7;
-myArr[2.5] =2.5;
-myArr['dude'] = 'thatJsDude'
-
-for(var i in myArr){
-  console.log(myArr[i]);
-}
-
- = 1
- = 2
- = 3
- = -7
- = 2.5
- = thatJsDude
-
-
- //for loop don't read from properties
- for(var i = 0, len = myArr.length; i&lt;len; i++){
-  console.log(myArr[i]);
-}
- = 1
- = 2
- = 3 
-</code></pre>
-<strong>dont modify build in function</strong>
-<p>custom extension will also show up</p>
-<pre><code>
-var myArr = [1, 2, 3];
-Array.prototype.myEach = function(){/*do something*/}
-
-for(var i in myArr){
-  console.log(myArr[i]);
-}
- = 1
- = 2
- = 3
- = function (){/*do something*/}
-</code></pre>
-<strong>hasOwnProperty</strong>
-<p>removes custom extension or inherited properties</p>
-<pre><code>
-for(var i in myArr){
-  if(myArr.hasOwnProperty(i)){
-     console.log(myArr[i]);
-  } 
-}
- = 1
- = 2
- = 3
-</code></pre>
-<strong>order of iteration</strong>
-<p>add something for this</p>
-<pre><code>
-//add ur code here
-</code></pre>
-<strong>for...in could be better</strong>
-<p>if index is not maintined properly for in could be better.</p>
-<pre><code>
-var myArr = [];
-myArr[5] = 5;
-
-for(var i in myArr){
-  //iterate only once
-}
-
-for(var i =0, len = myArr.length; i&lt;len; i++){
-  //iterates 5 times  
 }
 </code></pre>
 </div>
