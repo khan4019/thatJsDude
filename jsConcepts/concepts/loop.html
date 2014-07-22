@@ -79,17 +79,7 @@
        </ol>
       <h2>Parts of this blog</h2>
       <ul>
-        <li>parts of a for loop</li>
-        <li>len</li>
-        <li>optional</li>
-        <li>why backward is faster</li>
-        <li>cache function</li>
-        <li>for in</li>
-        <li>while</li>
-        <li>for of</li>
-        <li>do while</li>
-        <li>build in array forEach</li>
-        <li>something interesting</li>
+        <li>create link</li>
       </ul>
 <!-- div>h2+p+pre>code -->
     <div>
@@ -123,6 +113,23 @@ for(var i =0, len = a.length; i&ltlen; i++){
 }
   </code></pre>
     </div>
+    <div>
+      <h2>extra</h2>
+      <p>you can declare as many variable as needed in the initiation condition.</p>
+      <p>if you care about <a href="scope.html#hoisting">hoisting</a> and you can declare the variables at the top of your scope and keep initiation empty.</p>
+      <pre><code>
+for(var i =0, len = myArr.length, k = 15; i&ltlen; i++){
+  //my awesome looping
+}
+
+//skip initiation
+var i =0, 
+    len = myArr.length;
+for(; i&ltlen; i++){
+  //my awesome looping
+}
+      </code></pre>
+    </div> 
     <div>
       <h2>backward is faster</h2>
       <pre><code>
@@ -244,24 +251,6 @@ while(l--) {
         <li class="fragment">on array, reverse while is the fastest</li>
       </ol>
     </div>
-    <div>
-      <h2>extra</h2>
-      <p>you can declare as many variable as needed in the initiation condition.</p>
-      <p>if you care about <a href="scope.html#hoisting">hoisting</a> and you can declare the variables at the top of your scope and keep initiation empty.</p>
-      <pre><code>
-for(var i =0, len = myArr.length, k = 15; i&ltlen; i++){
-  //my awesome looping
-}
-
-//skip initiation
-var i =0, 
-    len = myArr.length;
-for(; i&ltlen; i++){
-  //my awesome looping
-}
-      </code></pre>
-    </div>    
-
 <div>
 
 <h2>loose parts starts from here</h2>
@@ -297,74 +286,6 @@ for (var i=myArr.length; i--;) {
   console.log(myArr[i]);    
 }
 </code></pre>
-<strong>optional repeatingCode</strong>
-<p>you can run a loop without repeating code. you can take advantage of any valid expression in the iteratingCodition and repeatingExpression.</p>
-<p>disclaimer: next couple of example are shamelessly copied/ little modified from Angus Croll blog. ref <a href="http://javascriptweblog.wordpress.com/2010/10/11/rethinking-javascript-for-loops/#more-1479">Angus croll: </a> </p>
-<pre><code>
-for (
-    var i=2, r=[0,1];
-    i<10 || console.log(r);
-    r.push(r[i-1] + r[i-2]), i++
-);
-//[0,1,1,2,3,5,8,13,21,34]
-</code></pre>
-<p>Here we are trying to get fibonacci series. first we declare a lopping variable i and an array, r with two elements. In the iteratingCodition we check whether i is less then 10, if not we console r. In the repeatingExpression we push add last two elements of the array to push it inside the array and increment i. Very simple. and then we get the fibonacci series upto 10.</p>
-<strong>assigning variable in iteratingCondition</strong>
-<pre><code>
-for (var i=0, item, myArr = [1, 2, 3, 4]; item = myArr[i]; i++) {
-  console.log(item);
-}
- = 1
- = 2
- = 3
- = 4
-</code></pre>
-<strong>similar one</strong>
-<pre><code>
-for (var myArr = [1, 2, 3, 4], i = myArr.length, sum = 0; 
-     i-- || console.log(sum); 
-     sum += arr[i]);
-
- = 10 
-</code></pre>
-<p>Just looping backward. and if i becomes 0 that is considered as false and console the sum. in looping codition just add the value to sum.</p>
-<strong>another similar but little good</strong>(may be u can remove it)
-<pre><code>
-function sumAndMultiply(arr, x) {
-    for (var i=arr.length, r=0; i-- || ((r = r*x) && false); r += arr[i]);
-    return r;
-}
-sumAndMultiply([3,5,0,-2,7,8], 5); //105
-//Brendan Eich suggested using the void operator instead:
-
-function sumAndMultiply(arr, x) {
-        for (var i=arr.length, r=0; i-- || void (r = r*x); r += arr[i]);
-    return r;
-}
-</code></pre>
-<h3>filter vs if</h3>
-<pre><code>
-var myArray = [{"number":1,"name":"Fred"},{"number":2,"name":"John"},{"number":3,"name":"Toni"},{"number":4,"name":"Sarah"}];
-
-function byFilter(myArr, num){
-    return myArr.filter(function (el) {
-        return el.number === num;
-    });
-}
-</code></pre>
-<p>filter, foreach, some, any has to make the array cache and blah blah...read that</p>
-<pre><code>
-function byForLoop(myArr, num){
-    var i, l;
-    for (i = 0, l = myArr.length; i &lt; l; i += 1) {
-        if (myArr[i].number === num) {
-            return [myArr[i]];
-        }
-     }
-     return [];
-}
-</code></pre>
-<p>ref <a href="http://jsperf.com/array-filter-vs-simple-loop/2">jsPerf</a></p>
 </div>
 <div>
   <h2>for..in</h2>
@@ -458,31 +379,6 @@ for(var i =0, len = myArr.length; i&lt;len; i++){
   //iterates 5 times  
 }
 </code></pre>
-</div>
-<div id="whileLoop">
-  <h2>while, do while</h2>
-  <pre><code>
-var myArr = [1,2,3,4,5,6,7,8,9], 
-    len = myArr.length,
-    i =0;
-
-while (i++ &lt; len) {
-  console.log(myArr[i]);
-}
-
-//do while
-do {
-  someFn(arr[i]);
-} while (i--);
-  </code></pre>
-  <p>Reverse while is the fastest way to loop through an array</p>
-  <pre><code>
-var l = arr.length;
-
-while(l--) {
-  someFn(arr[l]);
-}
-  </code></pre>
 </div>
 <div>
   <h2>for of</h2>
