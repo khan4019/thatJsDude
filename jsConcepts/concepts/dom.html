@@ -73,7 +73,10 @@
       <div class="row center">        
         <!-- <iframe width="853" height="480" src="//www.youtube.com/embed/Rx_JFOSxgpY" frameborder="0" allowfullscreen></iframe> -->
       </div>
-      
+      <div>
+        <h2>questions or thoughts</h2>
+        <li>difference between attribute and property</li>
+      </div>
       <div id="references">
       <h2> References</h2>
         <ul>
@@ -89,6 +92,42 @@
           <li><a href=""></a></li>
         </ul>
       </div>
+      <div id="addClass">
+        <h2>add class</h2>
+        <p><strong>Question:</strong> How you could add a class to an element by query selector</p>
+        <p><strong></strong></p>
+        <pre><code>
+function addClass(selector, className){
+   var elm = document.querySelector(selector);
+   if (elm)
+      elm.classList.add(className);
+}
+        </code></pre>
+        <p>similar ones</p>
+        <pre><code>
+//IE9+
+el.classList.add('hide');
+el.classList.remove('hide');
+el.classList.toggle('hide'); 
+el.classList.contains('hide');
+        </code></pre>
+      </div>
+      <div id="isDescendant">
+        <h2>is Descendant</h2>
+        <p><strong>Question:</strong> Check if one element child of another?</p>
+        <p><strong>Answer:</strong> check if the parent of the child is the node passed. if not keep checking</p>
+        <pre><code>
+function isDescendant(parent, child){ 
+  while(child.parentNode ){ 
+    if(child.parentNode == parent)
+      return true;
+    else
+      child = child.parentNode;
+  }
+  return false;
+}
+        </code></pre>
+      </div>
 
                  
      
@@ -101,7 +140,7 @@
       <hr>
 
       <footer>
-        <p>&copy;thatJSDude 2014</p>
+        <p>&copy;thatJSDude <script type="text/javascript">document.write(new Date().getFullYear());</script></p>
       </footer>
     </div> <!-- /container -->
 

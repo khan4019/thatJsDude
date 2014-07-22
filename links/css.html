@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="that js dude" content="">
+    <link rel="shortcut icon" href="../images/favicon.jpg">
+
+    <title>JS Concepts</title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      /* Move down content because we have a fixed navbar that is 50px tall */
+      body {
+        padding-top: 50px;
+        padding-bottom: 20px;
+      }
+      .singInStuff{
+        margin-top: 9px;
+      }
+      #uName{
+        margin-top: -7px;
+      }
+      
+      .externalLink a{
+        font-size: 1.25em;
+      }
+
+    </style>
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">          
+          <a class="navbar-brand" href="../index.html">That Js Dude</a>
+        </div>
+        <div class="navbar-collapse collapse singInStuff">
+          <a href='#' class="btn btn-success  navbar-right" id="loginText"> sign in </a>
+          <a href="#" class="btn btn-success  navbar-right hide" id="logoutText">log out </a>
+          <a href="#" class="navbar-brand navbar-right" id="uName">Welcome</a>
+          <iframe name="myIFrame" id="myIFrame" class="hide"></iframe>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </div>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h2>CSS important links</h2>
+        <small>Intersting items I found and want to explore later...</small>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <h2>links</h2>
+       </div>
+      <div class="row externalLink">
+        <h2>Videos</h2>
+          <ol>
+            <li><a href="http://vimeo.com/100264064">Things u dont know about CSS</a> (50%) <strong>2014: css day</strong> fun, clever, xss game, css zen garden</li>
+          <li><a href="https://www.youtube.com/watch?v=3ikye7Qc7Ak">Another 10 things you might not know about css</a> (0%) <strong>2013 w3c: </strong> fun, clever, tips, tricks</li>  
+          </ol>
+        </div>
+      
+      <!-- second row  -->
+      
+        <!-- third row  -->
+      <div class="row">
+        <h2>Examples</h2>
+       </div>
+      <hr>
+
+      <footer>
+        <p>&copy;thatJSDude <script type="text/javascript">document.write(new Date().getFullYear());</script></p>
+      </footer>
+    </div> <!-- /container -->
+    <!-- Modal -->
+    <div id="notImplementedModal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h2 class="modal-title">Not Implemented!</h2>
+                </div>
+                <div class="modal-body">
+                  <h2 style ="color:gray;">your JS Dude pormises =></h2>
+                  <h4 style="color:purple;">Someday he will implement these. at least before he starts playing candy crashes!!</h4>
+                </div>
+                <div class="modal-footer">
+                      Stay in touch <a href="https://www.youtube.com/user/khanLearning">youTube</a> or <a href="https://twitter.com/mdkhan005">@mdkhan005</a> or <a href="https://plus.google.com/101442958047741472626">g+</a> or get lost.
+                  </div>               
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <script src="../js/jquery-2.0.3.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/oAuth/googleOAuth.js"></script>
+    <script src="../js/oAuth/cookieManager.js"></script>
+    <script src="../js/oAuth/manageLogin.js"></script>
+  </body>
+</html>

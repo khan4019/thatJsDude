@@ -61,8 +61,8 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <h1>looping</h1>        
-        <h2>loop loop looping</h2>
+        <h1>Fast looping</h1>        
+        <h2>10 tricks to run faster loop</h2>
         <p>need to add some junk text here...</p>        
       </div>
     </div>
@@ -77,54 +77,56 @@
        <ol>            
         <li><a href="">Fun with for loop</a></li>
        </ol>
-
+      <h2>Parts of this blog</h2>
+      <ul>
+        <li>minimum things inside loop</li>
+        <li>get dom example</li>
+        <li>loop through everything else</li>
+      </ul>
 <!-- div>h2+p+pre>code -->
-<div>
-  <h2>Fun with For loop</h2>
-  <p>For loop can have four parts and all of them are optional. Hence you can escape one or more</p>
-  <pre><code>
+    <div>
+      <h2>Understanding of a for loop</h2>
+      <p>Here is an innocent for loop that you write everyday to log every elements of an array</p>
+      <pre><code>
+var a = [1, 2, 3, 4];
+
+for(var i =0; i&lt;a.length; i++){
+  console.log(a[i]);
+}
+      </code></pre>
+      <p> <strong>Parts of For loop:</strong> You need four semi-colon in your for loop, hence there are four parts of a for loop.</p>
+      <pre><code>
 for(initiation; iteratingCondition; repeatingExpression){
   repeatingCode
 }
-  </code></pre>
-  intiation is usally have declaration of looping variable. however any valid expression is permitted  
-  <strong>Dont exectute length stupidly</strong>
-  <p>The first statement is executed only once, before starting of the loop. This could save you calculating length againg and again.  You can have multiple declaration or you can miss it completely.</p>
-  <pre><code>
-//array length is calculated every single iteration
-for(var i =0; i&lt myArr.length; i++){
+      </code></pre>
+      <p>Initializes the variable(s). Usually, you declare one or more variables and assign values to them. One important note about this part is it will run only once while executing the for loop. However, iteratingCondition, repeatingExpression and repeatingCode will run every time loop is executed</p>
+      <p>Another important note about all the four parts is they optional. This mean you can skip one, more or all of them. However you have to put the semicolons and have to have terminating condition, otherwise your loop will run forever.</p>
+      <h2>extra</h2>
+      <p>you can declare as many variable as needed in the initiation condition.</p>
+      <p>if you care about <a href="scope.html#hoisting">hoisting</a> and you can declare the variables at the top of your scope and keep initiation empty.</p>
+      <pre><code>
+for(var i =0, len = myArr.length, k = 15; i&ltlen; i++){
   //my awesome looping
 }
 
-//array length is calcaulted only once
-for(var i =0, len = myArr.length; i&ltlen; i++){
-  //my awesome looping
-}
-
-//even you can hoist first statement
+//skip initiation
 var i =0, 
     len = myArr.length;
 for(; i&ltlen; i++){
   //my awesome looping
 }
-  </code></pre>
-<p>you can have multiple condition in the 2nd statement or you can skip it (make sure u have a break somewhere otherwise it will run forever)</p>
-<pre><code>
-var myArr = [1,2,3,4,5,6,7,8,9], 
-    i = myArr.length;
-
-for(; i>=0 && i%5!=0;i--){
-  console.log(myArr[i]);  
-}
-
-//skip second statement
+      </code></pre>
+      <pre><code>
+//skip first and second parts
 var i=5;
 for(;;i--){
   console.log(i);
   if(!i) break;
 }
 </code></pre>
-<p>you can miss the third statement as well. Make sure u change looping variable otherwise you will run forever</p>
+
+<p>you can skip the third statement as well. Make sure u change looping variable otherwise you will run forever</p>
 <pre><code>
 var i=5;
 for(;;){
@@ -132,70 +134,61 @@ for(;;){
   if(!i) break;
 }
 </code></pre>
-<strong>reverse direction</strong>
-<p>if you loop from the end of the array. when the value of i reacher 0, this is coerced to false and break the loop.</p>
-<pre><code>
-for (var i=myArr.length; i--;) {
-  console.log(myArr[i]);    
+    </div>
+    <div>
+      <h2>Calculate length only once</h2>
+      <p>Now look at my innocent for loop. In the iterating condition, i have <code>i&lt;a.length</code> and iterating condition is executed every single time loop is executed. hence, length of the array will be calculated every single time. If you run the loop for 1000 times, you will get a performance hit.</p>
+      <p><strong>solution:</strong> The solution to this problem is to set the length of the array to a variable in the initiation stage and use that variable in the iteratingCondition. In this approach, you are calculating length of the array only once. </p>
+  <pre><code>
+for(var i =0, len = a.length; i&ltlen; i++){
+  //my awesome looping
 }
-</code></pre>
-<strong>optional repeatingCode</strong>
-<p>you can run a loop without repeating code. you can take advantage of any valid expression in the iteratingCodition and repeatingExpression.</p>
-<p>disclaimer: next couple of example are shamelessly copied/ little modified from Angus Croll blog. ref <a href="http://javascriptweblog.wordpress.com/2010/10/11/rethinking-javascript-for-loops/#more-1479">Angus croll: </a> </p>
-<pre><code>
-for (
-    var i=2, r=[0,1];
-    i<10 || console.log(r);
-    r.push(r[i-1] + r[i-2]), i++
-);
-//[0,1,1,2,3,5,8,13,21,34]
-</code></pre>
-<p>Here we are trying to get fibonacci series. first we declare a lopping variable i and an array, r with two elements. In the iteratingCodition we check whether i is less then 10, if not we console r. In the repeatingExpression we push add last two elements of the array to push it inside the array and increment i. Very simple. and then we get the fibonacci series upto 10.</p>
-<strong>assigning variable in iteratingCondition</strong>
-<pre><code>
-for (var i=0, item, myArr = [1, 2, 3, 4]; item = myArr[i]; i++) {
-  console.log(item);
-}
- = 1
- = 2
- = 3
- = 4
-</code></pre>
-<strong>similar one</strong>
-<pre><code>
-for (var myArr = [1, 2, 3, 4], i = myArr.length, sum = 0; 
-     i-- || console.log(sum); 
-     sum += arr[i]);
+  </code></pre>
+    </div>
+    <div>
+      <h2>backward is faster</h2>
+      <pre><code>
+var myArr = [0,1,2,3,4,5 ...];
 
- = 10 
-</code></pre>
-<p>Just looping backward. and if i becomes 0 that is considered as false and console the sum. in looping codition just add the value to sum.</p>
-<strong>another similar but little good</strong>(may be u can remove it)
-<pre><code>
-function sumAndMultiply(arr, x) {
-    for (var i=arr.length, r=0; i-- || ((r = r*x) && false); r += arr[i]);
-    return r;
+//forward
+for(var j = 0; j&lt;1000; j++){
+  console.log(myArr[j]);
 }
-sumAndMultiply([3,5,0,-2,7,8], 5); //105
-//Brendan Eich suggested using the void operator instead:
 
-function sumAndMultiply(arr, x) {
-        for (var i=arr.length, r=0; i-- || void (r = r*x); r += arr[i]);
-    return r;
+//backward
+for(var k = 1000; k>=0; k--){
+  console.log(myArr[k]);
 }
-</code></pre>
-<h3>filter vs if</h3>
-<pre><code>
+      </code></pre>
+    </div>
+    <div>
+      <h2>cache loop function</h2>
+      <pre><code>
+var arr = [];
+for (var i = 0; i &lt; 1000; i++) {
+  arr.push([1, 2, 3].map(function (x) { return x * x; }));
+}
+              </code></pre>
+              <pre class="fragment"><code>
+var arr = [];
+var sq = function (x) { return x * x; };
+
+for (var i = 0; i &lt; 1000; i++) {
+  arr.push([1, 2, 3].map(sq));
+}
+              </code></pre>
+    </div>
+    <div>
+      <h2>filter vs loop</h2>
+      <pre><code>
 var myArray = [{"number":1,"name":"Fred"},{"number":2,"name":"John"},{"number":3,"name":"Toni"},{"number":4,"name":"Sarah"}];
 
 function byFilter(myArr, num){
     return myArr.filter(function (el) {
         return el.number === num;
     });
-}
-</code></pre>
-<p>filter, foreach, some, any has to make the array cache and blah blah...read that</p>
-<pre><code>
+}</code></pre>
+              <pre class="fragment"><code>
 function byForLoop(myArr, num){
     var i, l;
     for (i = 0, l = myArr.length; i &lt; l; i += 1) {
@@ -204,31 +197,62 @@ function byForLoop(myArr, num){
         }
      }
      return [];
+}</code></pre>
+              <a href="http://jsperf.com/array-filter-vs-simple-loop/2">filter vs simple loop</a>
+              <ol class="fragment">
+                <li>range of elements is set before the first call</li>
+                <li>new elements will not be visited</li>
+                <li>if elements are changed or deleted, their value would be original</li>
+                <li class="fragment"> robustness comes with the expense of overhead</li>
+              </ol> 
+              <br><br>
+              <li class="fragment">also happens for: map, forEach, every, any, etc.</li>                      
+              <ol class="fragment">
+                <li>for trusted data</li>
+                <li>not to have deleted values</li>
+                <li>well behaved callbackfn</li>
+              </ol>
+              <a href="http://monkeyandcrow.com/blog/why_javascripts_filter_is_slow/">why native filter method is slow</a>
+    </div>
+    <div>
+      <h2>for vs for-in</h2>              
+              <pre><code>
+var myArr = [1, 2, 3, 4, 5, ... ];
+
+//faster
+for(var i =0; i&lt;1000; i++){
+ console.log(myArr[i]);
+}
+
+//than
+for(var j in myArr){
+  console.log(myArr[j]);
+}
+              </code></pre>
+              <br>
+              <p class="fragment">dont use for-in while traversing on an array</p>
+              <br>
+              <a href="http://jsperf.com/for-vs-forintest">for vs for-in</a>
+    </div>
+    <div>
+      <h2>for...in could be faster</h2>
+<p>if index is not maintined properly for in could be better.</p>
+<pre><code>
+var myArr = [];
+myArr[5] = 5;
+
+for(var i in myArr){
+  //iterate only once
+}
+
+for(var i =0, len = myArr.length; i&lt;len; i++){
+  //iterates 5 times  
 }
 </code></pre>
-<p>ref <a href="http://jsperf.com/array-filter-vs-simple-loop/2">jsPerf</a></p>
-</div>
-<div>
+    </div>
+    <div>
   <h2>for..in</h2>
-  <p>for..in only iterate over all enumerable properties of the object itself and those the object inherits from its constructor's prototype. if you want to exclude inherited properties you can use hasOwnProperty</p>
-  <p>It is not guranteed that for..in will maintain an order. So, for..in should not be used to iterate over an Array where index order is important.</p>
-  <pre><code>
-var obj = {a:1, b:2}
-for(var i in obj){
-  console.log(obj[i]);
-}
- = 1
- = 2
-
-var myArr = [1,2];
-for(var i in myArr){
-  console.log(myArr[i]);
-}
- = 1
- = 2 
-  </code></pre>
-<strong>properties that are iterated</strong>
-<p>will be iterate over all the properties whose [[enumerable]] is true. also over [[enumerable]] properties that are inherited via prototype chain.</p>
+  <p>for..in only iterate over all enumerable properties of the object itself and those the object inherits from its constructor's prototype. </p>
 <pre><code>
 var myArr = [1,2,3]
 myArr['-7'] = -7;
@@ -255,55 +279,10 @@ for(var i in myArr){
  = 2
  = 3 
 </code></pre>
-<strong>dont modify build in function</strong>
-<p>custom extension will also show up</p>
-<pre><code>
-var myArr = [1, 2, 3];
-Array.prototype.myEach = function(){/*do something*/}
-
-for(var i in myArr){
-  console.log(myArr[i]);
-}
- = 1
- = 2
- = 3
- = function (){/*do something*/}
-</code></pre>
-<strong>hasOwnProperty</strong>
-<p>removes custom extension or inherited properties</p>
-<pre><code>
-for(var i in myArr){
-  if(myArr.hasOwnProperty(i)){
-     console.log(myArr[i]);
-  } 
-}
- = 1
- = 2
- = 3
-</code></pre>
-<strong>order of iteration</strong>
-<p>add something for this</p>
-<pre><code>
-//add ur code here
-</code></pre>
-<strong>for...in could be better</strong>
-<p>if index is not maintined properly for in could be better.</p>
-<pre><code>
-var myArr = [];
-myArr[5] = 5;
-
-for(var i in myArr){
-  //iterate only once
-}
-
-for(var i =0, len = myArr.length; i&lt;len; i++){
-  //iterates 5 times  
-}
-</code></pre>
 </div>
-<div id="whileLoop">
-  <h2>while, do while</h2>
-  <pre><code>
+    <div>
+      <h3>reverse while</h3>
+              <pre><code>
 var myArr = [1,2,3,4,5,6,7,8,9], 
     len = myArr.length,
     i =0;
@@ -311,21 +290,74 @@ var myArr = [1,2,3,4,5,6,7,8,9],
 while (i++ &lt; len) {
   console.log(myArr[i]);
 }
-
-//do while
-do {
-  someFn(arr[i]);
-} while (i--);
-  </code></pre>
-  <p>Reverse while is the fastest way to loop through an array</p>
-  <pre><code>
+              </code></pre>
+              <pre class="fragment"><code>
 var l = arr.length;
 
 while(l--) {
   someFn(arr[l]);
 }
-  </code></pre>
-</div>
+              </code></pre>
+              <a href="http://jsperf.com/fastest-array-loops-in-javascript/32">fastest way to traverse array</a>
+              <br>
+              <a href="https://blogs.oracle.com/greimer/resource/loop-test.html">different looping</a>
+    </div>    
+    <div>
+      <h2>don't access out of scope variable</h2>
+      <pre><code>
+var a = 10;
+function(){
+  
+  for(var i = 0; i &lt; 10000; i++){
+    console.log(a);
+  }  
+}
+      </code></pre>
+      <pre><code>
+//create a local variable
+
+      </code></pre>
+    </div>
+    <div>
+      <h2>do as little as possible inside loop</h2>
+      <pre><code>
+//find an example for this
+      </code></pre>
+    </div>
+    <div>
+      <h2>document fragment</h2>
+      <pre><code>
+var list = ['foo', 'bar', 'baz'],
+    el, text;
+for (var i = 0; i &lt; list.length; i++) {
+    el = document.createElement('li');
+    text = document.createTextNode(list[i]);
+    el.appendChild(text);
+    document.body.appendChild(el);
+}</code></pre>
+              <pre class="fragment"><code>
+var fragment = document.createDocumentFragment(),
+    list = ['foo', 'bar', 'baz'],
+    el, text;
+for (var i = 0; i &lt; list.length; i++) {
+    el = document.createElement('li');
+    text = document.createTextNode(list[i]);
+    el.appendChild(text);
+    fragment.appendChild(el);
+}
+document.body.appendChild(fragment);</code></pre>
+              <a href="https://developer.mozilla.org/en-US/docs/Web/API/document.createDocumentFragment">createDocumentFragment</a>
+    </div>
+    <div>
+      <h2>summary of looping</h2>
+      <ol>
+        <li>don't measure length in every iteration</li>
+        <li>cache object properties, function used in repeatingCode</li>
+        <li>backward for loop is faster than forward</li>
+        <li class="fragment">for-in only when iterating over object</li>
+        <li class="fragment">on array, reverse while is the fastest</li>
+      </ol>
+    </div>
 <div>
   <h2>for of</h2>
   <p>ES 6 only</p>
@@ -348,7 +380,7 @@ while(l--) {
       <hr>
 
       <footer>
-        <p>&copy;thatJSDude 2013</p>
+        <p>&copy;thatJSDude <script type="text/javascript">document.write(new Date().getFullYear());</script></p>
       </footer>
     </div> <!-- /container -->
 

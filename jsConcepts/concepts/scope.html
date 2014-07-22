@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
+    <meta name="description" content="scope, hoist, hoisting, closure, javascript, learn javascript, understand javascript, tips, tricks, scope and hoisting, local scope, global scope, javascript scope, javascript hoisting, javascript hoist, javascript closure, explain javascript scope, what is javascript closure, what is javascript scope, learn scope, performance, understand closure">
     <meta name="that js dude" content="">    
     <title>JS: scope &amp; closure</title>
 
@@ -89,24 +89,26 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <h1>JS: Scope &amp; Closure</h1>                
-        <h3>Understanding JavaScript scope, hoisting, closure with performance secret.</h3>
-        <small>May 18, 2014</small>        
-        <div id="fb-root"></div><div class="fb-like" data-href="http://khan4019.github.io/thatJsDude/jsConcepts/concepts/scope.html" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div> &nbsp;<div class="g-plusone"></div>
+        <h1>JS: Scope &amp; Closure</h1>        
+        <h4>Easiest and Funniest way to </h4>
+        <h3>Understand JavaScript scope, hoisting, closure with performance secret.</h3>
+        <small>May 18, 2014</small>              
+        <div id="fb-root"></div><div class="fb-like" data-href="http://www.thatjsdude.com/jsConcepts/concepts/scope.html" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div><div class="g-plusone"></div> 
       </div>
     </div>
     <div class="container">
       <!-- Example row of columns -->
 
       <div class="row center">        
-        <!-- <iframe width="853" height="480" src="//www.youtube.com/embed/Rx_JFOSxgpY" frameborder="0" allowfullscreen></iframe> -->
+        <iframe width="853" height="480" src="//www.youtube.com/embed/7INtYcr8QIY" frameborder="0" allowfullscreen></iframe>
       </div>
       <div class="row center">
+        <h3>I promise, you will be able to explain the following concepts to your grandma.</h3>
         <ol>          
           <li><a href="#globlaScope">Global Scope</a></li>
           <li><a href="#localScope">Local Scope</a></li>
           <li><a href="#multipleScope">Multiple Scope</a></li>
-          <li><a href="#accessGlobal">Access Variable</a></li>
+          <li><a href="#accessVariable">Access a Variable</a></li>
           <li><a href="#avoidGlobal">Access Global Variable</a></li>
           <li><a href="#hoisting">Hoisting</a></li>
           <li><a href="#closure">Closure</a></li>
@@ -148,7 +150,7 @@
              <p class="imgTitleHolder"><span>Image-5: </span><span class="imageTitle">The Global Things</span></p>
            </div>
            <div class="imageHolder">
-              <img src="../../images/scope/globalscope.png" alt="">              
+              <img src="../../images/scope/globalScope.png" alt="">              
              <p class="imgTitleHolder"><span>Image-6: </span><span class="imageTitle">The Global Scope</span></p>
            </div>           
          </div>
@@ -313,8 +315,8 @@ getY(); //7
           <p>You will have as many function scopes as the functions you have executed. Functions inside functions create nested scopes inside the outer function scopes. There would be a new scope, even a function calls itself. However, you will have only one global scope.</p>  
 
        </div>
-       <div id="accessGlobal">
-         <h2>4. Access Variable</h2>
+       <div id="accessVariable">
+         <h2>4. Access a Variable</h2>
           <p>Consider the situation - you wake up Saturday afternoon and start looking for car keys ( for whatever reason, you completely forgot what you did Friday night). You might search in the following steps-</p>
           <ul>
             <li><strong>First (Room): </strong> First thing you will do is to check inside your room (Image-16).</li>
@@ -568,7 +570,7 @@ function a() {
     };
 }
          </code></pre>
-       </div>
+       </div>        
           <h4>Take Away</h4>
           <p>If you execute a function inside a function, a closure is created. It is not necessary to return a function in order to create a closure..</p>
           <p>Closure saves the state of the outer function variable but does not expose those private variables. Now you can hide implementation detail while using closure. This is called encapsulation.</p>
@@ -598,20 +600,21 @@ function a() {
 
       <div>
         <h3 class="purpleBold">Express anger!</h3>
-        <p class="gray">Feel free to express your anger (sorry folks, you have to use facebook). Also point out my mistakes ( technical, wrong answer, spelling, grammar, sentence..., whatever), let your dude learn and grow.</p>
+        <p><strong>Disclaimer:</strong> I promised you will be able to explain to your grandma but i didn't promised that she will understand.</p>
+        <p class="gray">Feel free to express your anger (sorry folks, you have to use g+.). Also point out my mistakes ( technical, wrong answer, spelling, grammar, sentence..., whatever), let your dude learn and grow.</p>
         <script src="https://apis.google.com/js/plusone.js"></script>
         <div class="g-comments"
-            data-href="http://khan4019.github.io/thatJsDude/jsConcepts/concepts/scope.html"
+            data-href="http://www.thatjsdude.com/jsConcepts/concepts/scope.html"
             data-width="642"
             data-first_party_property="BLOGGER"
             data-view_type="FILTERED_POSTMOD">
         </div>
-        <div class="fb-comments" data-href="http://khan4019.github.io/thatJsDude/jsConcepts/concepts/scope.html" data-numposts="5" data-colorscheme="light"></div>
+        <!-- <div class="fb-comments" data-href="http://www.thatjsdude.com/jsConcepts/concepts/scope.html" data-numposts="5" data-colorscheme="light"></div> -->
       </div>
       <hr>
       
       <footer>
-        <p>&copy;thatJSDude 2014</p>
+        <p>&copy;thatJSDude <script type="text/javascript">document.write(new Date().getFullYear());</script></p>
       </footer>
     </div> <!-- /container -->
 
