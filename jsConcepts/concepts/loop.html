@@ -213,6 +213,38 @@ for(var j in myArr){
               <a href="http://jsperf.com/for-vs-forintest">for vs for-in</a>
     </div>
     <div>
+      <h3>reverse while</h3>
+              <pre><code>
+var myArr = [1,2,3,4,5,6,7,8,9], 
+    len = myArr.length,
+    i =0;
+
+while (i++ &lt; len) {
+  console.log(myArr[i]);
+}
+              </code></pre>
+              <pre class="fragment"><code>
+var l = arr.length;
+
+while(l--) {
+  someFn(arr[l]);
+}
+              </code></pre>
+              <a href="http://jsperf.com/fastest-array-loops-in-javascript/32">fastest way to traverse array</a>
+              <br>
+              <a href="https://blogs.oracle.com/greimer/resource/loop-test.html">different looping</a>
+    </div>    
+    <div>
+      <h2>summary of looping</h2>
+      <ol>
+        <li>don't measure length in every iteration</li>
+        <li>cache object properties, function used in repeatingCode</li>
+        <li>backward for loop is faster than forward</li>
+        <li class="fragment">for-in only when iterating over object</li>
+        <li class="fragment">on array, reverse while is the fastest</li>
+      </ol>
+    </div>
+    <div>
       <h2>extra</h2>
       <p>you can declare as many variable as needed in the initiation condition.</p>
       <p>if you care about <a href="scope.html#hoisting">hoisting</a> and you can declare the variables at the top of your scope and keep initiation empty.</p>
