@@ -193,6 +193,26 @@ function byForLoop(myArr, num){
               <a href="http://monkeyandcrow.com/blog/why_javascripts_filter_is_slow/">why native filter method is slow</a>
     </div>
     <div>
+      <h2>for vs for-in</h2>              
+              <pre><code>
+var myArr = [1, 2, 3, 4, 5, ... ];
+
+//faster
+for(var i =0; i&lt;1000; i++){
+ console.log(myArr[i]);
+}
+
+//than
+for(var j in myArr){
+  console.log(myArr[j]);
+}
+              </code></pre>
+              <br>
+              <p class="fragment">dont use for-in while traversing on an array</p>
+              <br>
+              <a href="http://jsperf.com/for-vs-forintest">for vs for-in</a>
+    </div>
+    <div>
       <h2>extra</h2>
       <p>you can declare as many variable as needed in the initiation condition.</p>
       <p>if you care about <a href="scope.html#hoisting">hoisting</a> and you can declare the variables at the top of your scope and keep initiation empty.</p>
