@@ -30,6 +30,9 @@
       #uName{
         margin-top: -7px;
       }
+      .toggleContent{
+        padding: 10px;
+      }
     </style>
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
@@ -86,12 +89,10 @@
 <!-- div>h2+p+pre>code -->
     <div>
       <h2>Understanding of a for loop</h2>
-      <p>Here is an innocent for loop that you write everyday to log every elements of an array</p>
+      <p>Here is the most innocent for loop that you write everyday.</p>
       <pre><code>
-var a = [1, 2, 3, 4];
-
-for(var i =0; i&lt;a.length; i++){
-  console.log(a[i]);
+for(var i =0; i&lt;5; i++){
+  console.log(i);
 }
       </code></pre>
       <p> <strong>Parts of For loop:</strong> You need four semi-colon in your for loop, hence there are four parts of a for loop.</p>
@@ -100,40 +101,41 @@ for(initiation; iteratingCondition; repeatingExpression){
   repeatingCode
 }
       </code></pre>
-      <p>Initializes the variable(s). Usually, you declare one or more variables and assign values to them. One important note about this part is it will run only once while executing the for loop. However, iteratingCondition, repeatingExpression and repeatingCode will run every time loop is executed</p>
+      <p>Initialization initializes the variable(s). You declare one or more variables to use inside the loop and assign values to them. One important note about this part is it will run only once while executing the for loop. However, iteratingCondition, repeatingExpression and repeatingCode will run every time loop is executed</p>
       <p>Another important note about all the four parts is they optional. This mean you can skip one, more or all of them. However you have to put the semicolons and have to have terminating condition, otherwise your loop will run forever.</p>
-      <h2>extra</h2>
-      <p>you can declare as many variable as needed in the initiation condition.</p>
-      <p>if you care about <a href="scope.html#hoisting">hoisting</a> and you can declare the variables at the top of your scope and keep initiation empty.</p>
-      <pre><code>
-for(var i =0, len = myArr.length, k = 15; i&ltlen; i++){
-  //my awesome looping
-}
+      <div>
+          <button id = "forLoopBasic" type="button" class="toggleExample btn btn-primary">Show For Loop Skip</button>
+          <div id="forLoopBasicExample" class="hide bg-success toggleContent">
+            <h2>Skip parts of for loop</h2>
+            <p>you can declare as many variable as needed in the initiation condition.</p>
+            <p>if you care about <a href="scope.html#hoisting">hoisting</a> and you can declare the variables at the top of your scope and keep initiation empty.</p>
+            <pre><code>
+var i = 0;
 
 //skip initiation
-var i =0, 
-    len = myArr.length;
-for(; i&ltlen; i++){
-  //my awesome looping
-}
-      </code></pre>
-      <pre><code>
-//skip first and second parts
-var i=5;
-for(;;i--){
+for(; i &lt; 5; i++){
   console.log(i);
-  if(!i) break;
 }
-</code></pre>
+            </code></pre>
+            <pre><code>
+//skip first and second parts
+var i = 0;
+for( ; ; i++){
+  console.log(i);
+  if(i == 5) break;
+}
+          </code></pre>
 
-<p>you can skip the third statement as well. Make sure u change looping variable otherwise you will run forever</p>
-<pre><code>
-var i=5;
-for(;;){
-  console.log(i--);
-  if(!i) break;
+          <p>you can skip the third statement as well. Make sure u change looping variable otherwise you will run forever</p>
+          <pre><code>
+var i = 0;
+for( ; ; ){
+  console.log(i++);
+  if(i == 5) break;
 }
-</code></pre>
+          </code></pre>
+        </div>
+      </div>
     </div>
     <div>
       <h2>Calculate length only once</h2>
@@ -394,6 +396,7 @@ document.body.appendChild(fragment);</code></pre>
     <script src="../../js/oAuth/googleOAuth.js"></script>
     <script src="../../js/oAuth/cookieManager.js"></script>
     <script src="../../js/oAuth/managerLogin.js"></script>
+    <script src="../../js/toggleExample.js"></script>
     <script src="../../js/highlight.pack.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
 
