@@ -138,14 +138,14 @@ for( ; ; ){
       </div>
     </div>
     <div>
-      <h2>Calculate length only once</h2>
-      <p>If I have to write a for loop to log all the elements of an array, I will write something like the code block as below. In the iterating condition, i have <code>i&lt;a.length</code> and iterating condition is executed every single time loop is executed. hence, length of the array will be calculated every single time. If you run the loop for 1000 times, you will get a performance hit.</p>
+      <h2>1. Calculate length only once</h2>
+      <p>If I have to write a for loop to log all the elements in an array, I will write something like the code block as below. In the iterating condition, i have <code>i&lt;a.length</code> and iterating condition is executed every single time loop is executed. Hence, length of the array will be calculated every single time. If you run the loop for 1000 times, you will get a performance hit.</p>
       <p><strong>solution:</strong> The solution to this problem is to set the length of the array to a variable in the initiation stage and use that variable in the iteratingCondition. In this approach, you are calculating length of the array only once. </p>
       <pre><code>
 var a = [1, 2, 3, 4, 5, ... 10000];
 
 //slower
-for(var i =0; i &lt; a.length; i++){
+for(var i = 0; i &lt; a.length; i++){
   console.log(a[i])
 }
 
@@ -156,7 +156,9 @@ for(var i = 0, len = a.length; i &lt; len; i++){
       </code></pre>
     </div>
     <div>
-      <h2>backward is faster</h2>
+      <h2>2. Backward is faster</h2>
+      <p>(get gist of it) There is difference mainly important for very low-end and battery powered devices. The differences is that with i-- you compare to 0 for the end of the loop, while with i++ you compare with number > 0. I believe the performance difference was something like 20 nanoseconds (something like cmp ax,0 vs. cmp ax,bx) - which is nothing but if you loop thousands of times per second, why not have 20 nanoseconds gain for each :) </p>
+      <p>also read: <a href="http://stackoverflow.com/a/13159989/1535443">this</a></p>
       <pre><code>
 var a = [0,1,2,3,4,5 ... 10000];
 
@@ -200,8 +202,9 @@ function byFilter(myArr, num){
     return myArr.filter(function (el) {
         return el.number === num;
     });
-}</code></pre>
-              <pre class="fragment"><code>
+}
+      </code></pre>
+      <pre class="fragment"><code>
 function byForLoop(myArr, num){
     var i, l;
     for (i = 0, l = myArr.length; i &lt; l; i += 1) {
@@ -210,22 +213,24 @@ function byForLoop(myArr, num){
         }
      }
      return [];
-}</code></pre>
-              <a href="http://jsperf.com/array-filter-vs-simple-loop/2">filter vs simple loop</a>
-              <ol class="fragment">
-                <li>range of elements is set before the first call</li>
-                <li>new elements will not be visited</li>
-                <li>if elements are changed or deleted, their value would be original</li>
-                <li class="fragment"> robustness comes with the expense of overhead</li>
-              </ol> 
-              <br><br>
-              <li class="fragment">also happens for: map, forEach, every, any, etc.</li>                      
-              <ol class="fragment">
-                <li>for trusted data</li>
-                <li>not to have deleted values</li>
-                <li>well behaved callbackfn</li>
-              </ol>
-              <a href="http://monkeyandcrow.com/blog/why_javascripts_filter_is_slow/">why native filter method is slow</a>
+}
+      </code></pre>
+        <a href="http://www.symphonious.net/2010/10/09/javascript-performance-for-vs-foreach/">for vs forEach</a>
+        <a href="http://jsperf.com/array-filter-vs-simple-loop/2">filter vs simple loop</a>
+        <ol class="fragment">
+          <li>range of elements is set before the first call</li>
+          <li>new elements will not be visited</li>
+          <li>if elements are changed or deleted, their value would be original</li>
+          <li class="fragment"> robustness comes with the expense of overhead</li>
+        </ol> 
+        <br><br>
+        <li class="fragment">also happens for: map, forEach, every, any, etc.</li>                      
+        <ol class="fragment">
+          <li>for trusted data</li>
+          <li>not to have deleted values</li>
+          <li>well behaved callbackfn</li>
+        </ol>
+        <a href="http://monkeyandcrow.com/blog/why_javascripts_filter_is_slow/">why native filter method is slow</a>
     </div>
     <div>
       <h2>for vs for-in</h2>              
@@ -312,8 +317,7 @@ while(l--) {
 }
               </code></pre>
               <a href="http://jsperf.com/fastest-array-loops-in-javascript/32">fastest way to traverse array</a>
-              <br>
-              <a href="https://blogs.oracle.com/greimer/resource/loop-test.html">different looping</a>
+              <a href="http://blog.millermedeiros.com/why-i-favor-while-loops/">why i prefer while loop</a>
     </div>    
     <div>
       <h2>don't access out of scope variable</h2>
@@ -362,6 +366,10 @@ document.body.appendChild(fragment);</code></pre>
               <a href="https://developer.mozilla.org/en-US/docs/Web/API/document.createDocumentFragment">createDocumentFragment</a>
     </div>
     <div>
+      <h2>do as much as possible in a loop</h2>
+
+    </div>
+    <div>
       <h2>summary of looping</h2>
       <ol>
         <li>don't measure length in every iteration</li>
@@ -379,14 +387,10 @@ document.body.appendChild(fragment);</code></pre>
   </code></pre>
 </div>
 <div id="summary">
-  <h2> Summary</h2>
-  <ul>
-    <li>Don't measure length in every iteration</li>
-    <li>catche object properties, function used in repeating code</li>
-    <li>backward for loop is faster than forward</li>
-    <li>for-in only when iterating over object</li>
-    <li>on array, reverse while is the fastest</li>
-  </ul>
+  <h2> Must watch</h2>
+  <a href="http://channel9.msdn.com/Events/Build/2013/4-329">Native Code Performance and Memory: The Elephant in the CPU</a>
+  <h3>just have a a look</h3>
+  <a href="http://james.padolsey.com/javascript/looping-in-javascript/">looping in js</a>, <a href="https://blog.jcoglan.com/2010/10/18/i-am-a-fast-loop/">i am a fast loop</a>
 </div>
 
 
