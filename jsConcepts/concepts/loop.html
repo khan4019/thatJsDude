@@ -139,27 +139,35 @@ for( ; ; ){
     </div>
     <div>
       <h2>Calculate length only once</h2>
-      <p>Now look at my innocent for loop. In the iterating condition, i have <code>i&lt;a.length</code> and iterating condition is executed every single time loop is executed. hence, length of the array will be calculated every single time. If you run the loop for 1000 times, you will get a performance hit.</p>
+      <p>If I have to write a for loop to log all the elements of an array, I will write something like the code block as below. In the iterating condition, i have <code>i&lt;a.length</code> and iterating condition is executed every single time loop is executed. hence, length of the array will be calculated every single time. If you run the loop for 1000 times, you will get a performance hit.</p>
       <p><strong>solution:</strong> The solution to this problem is to set the length of the array to a variable in the initiation stage and use that variable in the iteratingCondition. In this approach, you are calculating length of the array only once. </p>
-  <pre><code>
-for(var i =0, len = a.length; i&ltlen; i++){
-  //my awesome looping
+      <pre><code>
+var a = [1, 2, 3, 4, 5, ... 10000];
+
+//slower
+for(var i =0; i &lt; a.length; i++){
+  console.log(a[i])
 }
-  </code></pre>
+
+//faster
+for(var i = 0, len = a.length; i &lt; len; i++){
+  console.log(a[i])
+}
+      </code></pre>
     </div>
     <div>
       <h2>backward is faster</h2>
       <pre><code>
-var myArr = [0,1,2,3,4,5 ...];
+var a = [0,1,2,3,4,5 ... 10000];
 
 //forward
-for(var j = 0; j&lt;1000; j++){
-  console.log(myArr[j]);
+for(var j = 0; j &lt; 10000; j++){
+  console.log(a[j]);
 }
 
 //backward
-for(var k = 1000; k>=0; k--){
-  console.log(myArr[k]);
+for(var k = 10000; k >= 0; k--){
+  console.log(a[k]);
 }
       </code></pre>
     </div>
@@ -183,7 +191,10 @@ for (var i = 0; i &lt; 1000; i++) {
     <div>
       <h2>filter vs loop</h2>
       <pre><code>
-var myArray = [{"number":1,"name":"Fred"},{"number":2,"name":"John"},{"number":3,"name":"Toni"},{"number":4,"name":"Sarah"}];
+var myArray = [{ name:"Fred", experience: 3 },
+               { name:"John", experience: 5 },
+               { name:"Toni", experience: 4 },
+               { name:"Sara", experience: 2 }];
 
 function byFilter(myArr, num){
     return myArr.filter(function (el) {
@@ -231,31 +242,13 @@ for(var j in myArr){
   console.log(myArr[j]);
 }
               </code></pre>
-              <br>
-              <p class="fragment">dont use for-in while traversing on an array</p>
-              <br>
-              <a href="http://jsperf.com/for-vs-forintest">for vs for-in</a>
-    </div>
-    <div>
-      <h2>for...in could be faster</h2>
-<p>if index is not maintined properly for in could be better.</p>
-<pre><code>
-var myArr = [];
-myArr[5] = 5;
-
-for(var i in myArr){
-  //iterate only once
-}
-
-for(var i =0, len = myArr.length; i&lt;len; i++){
-  //iterates 5 times  
-}
-</code></pre>
-    </div>
-    <div>
-  <h2>for..in</h2>
-  <p>for..in only iterate over all enumerable properties of the object itself and those the object inherits from its constructor's prototype. </p>
-<pre><code>
+              <p class="fragment">dont use for-in while traversing on an array <a href="http://jsperf.com/for-vs-forintest">for vs for-in</a></p>
+      <div>
+          <button id = "forInLoopBasic" type="button" class="toggleExample btn btn-primary">Show for...in Basic</button>
+          <div id="forInLoopBasicExample" class="hide bg-success toggleContent">
+            <h2>for..in</h2>
+            <p>for..in only iterate over all enumerable properties of the object itself and those the object inherits from its constructor's prototype. </p>
+            <pre><code>
 var myArr = [1,2,3]
 myArr['-7'] = -7;
 myArr[2.5] =2.5;
@@ -280,10 +273,28 @@ for(var i in myArr){
  = 1
  = 2
  = 3 
-</code></pre>
-</div>
+          </code></pre>        
+        </div>
+      </div>            
+    </div>
     <div>
-      <h3>reverse while</h3>
+      <h2>for...in could be faster</h2>
+<p>if index is not maintined properly for in could be better.</p>
+<pre><code>
+var myArr = [];
+myArr[5] = 5;
+
+for(var i in myArr){
+  //iterate only once
+}
+
+for(var i =0, len = myArr.length; i&lt;len; i++){
+  //iterates 5 times  
+}
+</code></pre>
+    </div>
+    <div>
+      <h2>reverse while</h2>
               <pre><code>
 var myArr = [1,2,3,4,5,6,7,8,9], 
     len = myArr.length,
