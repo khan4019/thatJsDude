@@ -157,7 +157,8 @@ for(var i = 0, len = a.length; i &lt; len; i++){
     </div>
     <div>
       <h2>2. Backward is faster</h2>
-      <p>(get gist of it) There is difference mainly important for very low-end and battery powered devices. The differences is that with i-- you compare to 0 for the end of the loop, while with i++ you compare with number > 0. I believe the performance difference was something like 20 nanoseconds (something like cmp ax,0 vs. cmp ax,bx) - which is nothing but if you loop thousands of times per second, why not have 20 nanoseconds gain for each :) </p>
+      <p class="text-danger">run experiment and put explanation or remove it</p>
+      <p> i-- is generally faster because it doesn't have to run a comparison to 0 each time it runs, test results on various methods are belowThis is about nanosecond. The differences is that with i-- you compare to 0 for the end of the loop, while with i++ you compare with number > 0. I believe the performance difference was something like 20 nanoseconds (something like cmp ax,0 vs. cmp ax,bx) - which is nothing but if you loop thousands of times per second, why not have 20 nanoseconds gain for each :) </p>
       <p>also read: <a href="http://stackoverflow.com/a/13159989/1535443">this</a></p>
       <pre><code>
 var a = [0,1,2,3,4,5 ... 10000];
@@ -175,6 +176,7 @@ for(var k = 10000; k >= 0; k--){
     </div>
     <div>
       <h2>cache loop function</h2>
+      <p>If you running same function inside a loop for hundreds of times. its better to cache it. So that JavaScript doesnt have to parse it every single time.</p>
       <pre><code>
 var arr = [];
 for (var i = 0; i &lt; 1000; i++) {
@@ -192,6 +194,7 @@ for (var i = 0; i &lt; 1000; i++) {
     </div>
     <div>
       <h2>filter vs loop</h2>
+      <p>Array has some good extension like filter, map, forEach, every, any, etc.. They are powerful and easy to write but they could be expensive. Let's see an example</p>
       <pre><code>
 var myArray = [{ name:"Fred", experience: 3 },
                { name:"John", experience: 5 },
@@ -204,6 +207,8 @@ function byFilter(myArr, num){
     });
 }
       </code></pre>
+      <p> The way, these extension method is designed is that range of the elements is set before loop execute the first iteration. If you add new element after running the filter, they will not be visited. Besides, if you update or delete any element, they will be executed with the original value before the loop starts. This robustness comes with the expense of performance overhead.</p>
+      <p> So for trusted data, when elements will not be modified or deleted, a simple for loop would be faster than a build in filter.</p>
       <pre class="fragment"><code>
 function byForLoop(myArr, num){
     var i, l;
@@ -215,26 +220,14 @@ function byForLoop(myArr, num){
      return [];
 }
       </code></pre>
-        <a href="http://www.symphonious.net/2010/10/09/javascript-performance-for-vs-foreach/">for vs forEach</a>
-        <a href="http://jsperf.com/array-filter-vs-simple-loop/2">filter vs simple loop</a>
-        <ol class="fragment">
-          <li>range of elements is set before the first call</li>
-          <li>new elements will not be visited</li>
-          <li>if elements are changed or deleted, their value would be original</li>
-          <li class="fragment"> robustness comes with the expense of overhead</li>
-        </ol> 
-        <br><br>
-        <li class="fragment">also happens for: map, forEach, every, any, etc.</li>                      
-        <ol class="fragment">
-          <li>for trusted data</li>
-          <li>not to have deleted values</li>
-          <li>well behaved callbackfn</li>
-        </ol>
-        <a href="http://monkeyandcrow.com/blog/why_javascripts_filter_is_slow/">why native filter method is slow</a>
+        <p>ref: <a href="http://www.symphonious.net/2010/10/09/javascript-performance-for-vs-foreach/">for vs forEach</a>, 
+        <a href="http://jsperf.com/array-filter-vs-simple-loop/2">filter vs simple loop</a>, 
+        <a href="http://monkeyandcrow.com/blog/why_javascripts_filter_is_slow/">why native filter method is slow</a></p>
     </div>
     <div>
-      <h2>for vs for-in</h2>              
-              <pre><code>
+      <h2>for vs for-in</h2> 
+      <p>If you are looping over an array, a for loop is always faster than for in loop. For in loop is developed to iterate over enumerable properties. Mostly iterating over an object. accessing by index is faster than accessing by properties. Besides, for in also enumerates over inherited properties and walk upward through inheritance chain.</p>
+      <pre><code>
 var myArr = [1, 2, 3, 4, 5, ... ];
 
 //faster
@@ -246,8 +239,8 @@ for(var i =0; i&lt;1000; i++){
 for(var j in myArr){
   console.log(myArr[j]);
 }
-              </code></pre>
-              <p class="fragment">dont use for-in while traversing on an array <a href="http://jsperf.com/for-vs-forintest">for vs for-in</a></p>
+      </code></pre>
+      <p class="fragment">dont use for-in while traversing on an array <a href="http://jsperf.com/for-vs-forintest">for vs for-in</a></p>
       <div>
           <button id = "forInLoopBasic" type="button" class="toggleExample btn btn-primary">Show for...in Basic</button>
           <div id="forInLoopBasicExample" class="hide bg-success toggleContent">
@@ -284,7 +277,7 @@ for(var i in myArr){
     </div>
     <div>
       <h2>for...in could be faster</h2>
-<p>if index is not maintined properly for in could be better.</p>
+<p>If you have a one or more hollow in you array this means index is not maintained properly then for in could be faster. Because simple for loop have to visit every single index of the array, even though there is no element. Whereas for in will visit only when elements exists.</p>
 <pre><code>
 var myArr = [];
 myArr[5] = 5;
@@ -318,7 +311,18 @@ while(l--) {
               </code></pre>
               <a href="http://jsperf.com/fastest-array-loops-in-javascript/32">fastest way to traverse array</a>
               <a href="http://blog.millermedeiros.com/why-i-favor-while-loops/">why i prefer while loop</a>
-    </div>    
+    </div> 
+    <div>
+      <h2>arr.pop()</h2>
+      <p>think out of the box and <code>arr.pop()</code> could actually iterate an array very fast. The reason it gets faster as the size of the array gets smaller</p>
+      <p>ref: <a href="http://jsperf.com/fastest-array-loops-in-javascript/15">js perf</a></p>
+      <pre><code>
+while( i = arr.pop() ) {
+  someFn(i);
+  newArr.push(i);
+}
+      </code></pre>
+    </div>   
     <div>
       <h2>don't access out of scope variable</h2>
       <pre><code>
@@ -367,7 +371,17 @@ document.body.appendChild(fragment);</code></pre>
     </div>
     <div>
       <h2>do as much as possible in a loop</h2>
-
+      <pre><code>
+var a = [1, 2, 3, 4, ... 100]
+//jump eight steps at the same time
+for(var i = 0, sum = 0; i &lt; 100; i += 5){
+  sum += a[i];
+  sum += a[i+1];
+  sum += a[i+2];
+  sum += a[i+3];
+  sum += a[i+4];
+}
+      </code></pre>
     </div>
     <div>
       <h2>summary of looping</h2>
