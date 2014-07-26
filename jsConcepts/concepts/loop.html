@@ -30,6 +30,9 @@
       #uName{
         margin-top: -7px;
       }
+      .toggleContent{
+        padding: 10px;
+      }
     </style>
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
@@ -86,12 +89,10 @@
 <!-- div>h2+p+pre>code -->
     <div>
       <h2>Understanding of a for loop</h2>
-      <p>Here is an innocent for loop that you write everyday to log every elements of an array</p>
+      <p>Here is the most innocent for loop that you write everyday.</p>
       <pre><code>
-var a = [1, 2, 3, 4];
-
-for(var i =0; i&lt;a.length; i++){
-  console.log(a[i]);
+for(var i =0; i&lt;5; i++){
+  console.log(i);
 }
       </code></pre>
       <p> <strong>Parts of For loop:</strong> You need four semi-colon in your for loop, hence there are four parts of a for loop.</p>
@@ -100,69 +101,104 @@ for(initiation; iteratingCondition; repeatingExpression){
   repeatingCode
 }
       </code></pre>
-      <p>Initializes the variable(s). Usually, you declare one or more variables and assign values to them. One important note about this part is it will run only once while executing the for loop. However, iteratingCondition, repeatingExpression and repeatingCode will run every time loop is executed</p>
+      <p>Initialization initializes the variable(s). You declare one or more variables to use inside the loop and assign values to them. One important note about this part is it will run only once while executing the for loop. However, iteratingCondition, repeatingExpression and repeatingCode will run every time loop is executed</p>
       <p>Another important note about all the four parts is they optional. This mean you can skip one, more or all of them. However you have to put the semicolons and have to have terminating condition, otherwise your loop will run forever.</p>
-      <h2>extra</h2>
-      <p>you can declare as many variable as needed in the initiation condition.</p>
-      <p>if you care about <a href="scope.html#hoisting">hoisting</a> and you can declare the variables at the top of your scope and keep initiation empty.</p>
-      <pre><code>
-for(var i =0, len = myArr.length, k = 15; i&ltlen; i++){
-  //my awesome looping
-}
+      <div>
+          <button id = "forLoopBasic" type="button" class="toggleExample btn btn-primary">Show For Loop Skip</button>
+          <div id="forLoopBasicExample" class="hide bg-success toggleContent">
+            <h2>Skip parts of for loop</h2>
+            <p>you can declare as many variable as needed in the initiation condition.</p>
+            <p>if you care about <a href="scope.html#hoisting">hoisting</a> and you can declare the variables at the top of your scope and keep initiation empty.</p>
+            <pre><code>
+var i = 0;
 
 //skip initiation
-var i =0, 
-    len = myArr.length;
-for(; i&ltlen; i++){
-  //my awesome looping
+for(; i &lt; 5; i++){
+  console.log(i);
+}
+            </code></pre>
+            <pre><code>
+//skip first and second parts
+var i = 0;
+for( ; ; i++){
+  console.log(i);
+  if(i == 5) break;
+}
+          </code></pre>
+
+          <p>you can skip the third statement as well. Make sure u change looping variable otherwise you will run forever</p>
+          <pre><code>
+var i = 0;
+for( ; ; ){
+  console.log(i++);
+  if(i == 5) break;
+}
+          </code></pre>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h2>0. test setup</h2>
+      <p> We will use <code>console.time</code> and <code>console.timeEnd</code> to measure the time in chrome devtool console. Just provide a name of the timer and chrome will log the time spend to execute your code. </p>
+      <pre><code>
+console.time('myTimer');
+//write your code here
+console.timeEnd('myTimer');
+
+//myTimer: 0.000ms 
+      </code></pre>
+    </div>
+    <div>
+      <h2>1. Calculate length only once</h2>
+      <p>If I have to write a for loop to log all the elements in an array, I will write something like the code block as below. In the iterating condition, i have <code>i&lt;a.length</code> and iterating condition is executed every single time loop is executed. Hence, length of the array will be calculated every single time. If you run the loop for 1000 times, you will get a performance hit.</p>
+      <p><strong>solution:</strong> The solution to this problem is to set the length of the array to a variable in the initiation stage and use that variable in the iteratingCondition. In this approach, you are calculating length of the array only once. </p>
+      <pre><code>
+var a = [1, 2, 3, 4, 5, ... 10000];
+
+//slower
+for(var i = 0; i &lt; a.length; i++){
+  console.log(a[i])
+}
+
+//faster
+for(var i = 0, len = a.length; i &lt; len; i++){
+  console.log(a[i])
 }
       </code></pre>
-      <pre><code>
-//skip first and second parts
-var i=5;
-for(;;i--){
-  console.log(i);
-  if(!i) break;
-}
-</code></pre>
-
-<p>you can skip the third statement as well. Make sure u change looping variable otherwise you will run forever</p>
-<pre><code>
-var i=5;
-for(;;){
-  console.log(i--);
-  if(!i) break;
-}
-</code></pre>
     </div>
     <div>
-      <h2>Calculate length only once</h2>
-      <p>Now look at my innocent for loop. In the iterating condition, i have <code>i&lt;a.length</code> and iterating condition is executed every single time loop is executed. hence, length of the array will be calculated every single time. If you run the loop for 1000 times, you will get a performance hit.</p>
-      <p><strong>solution:</strong> The solution to this problem is to set the length of the array to a variable in the initiation stage and use that variable in the iteratingCondition. In this approach, you are calculating length of the array only once. </p>
-  <pre><code>
-for(var i =0, len = a.length; i&ltlen; i++){
-  //my awesome looping
-}
-  </code></pre>
-    </div>
-    <div>
-      <h2>backward is faster</h2>
+      <h2>2. Backward is faster</h2>
+      <p class="text-danger">run experiment and put explanation or remove it</p>
+      <p> i-- is generally faster because it doesn't have to run a comparison to 0 each time it runs, test results on various methods are belowThis is about nanosecond. The differences is that with i-- you compare to 0 for the end of the loop, while with i++ you compare with number > 0. I believe the performance difference was something like 20 nanoseconds (something like cmp ax,0 vs. cmp ax,bx) - which is nothing but if you loop thousands of times per second, why not have 20 nanoseconds gain for each :) </p>
+      <p>also read: <a href="http://stackoverflow.com/a/13159989/1535443">this</a></p>
       <pre><code>
-var myArr = [0,1,2,3,4,5 ...];
+var a = [0,1,2,3,4,5 ... 10000000];
+var b = 0;
 
-//forward
-for(var j = 0; j&lt;1000; j++){
-  console.log(myArr[j]);
+console.time('forward');
+for(var i =0; i&lt;10000000; i++){
+   b += a[i];
 }
+console.timeEnd('forward');
 
-//backward
-for(var k = 1000; k>=0; k--){
-  console.log(myArr[k]);
+//forward: 14165.000ms
+      </code></pre>
+      <pre><code>
+var a = [0,1,2,3,4,5 ... 10000000];
+var c = 0;
+
+console.time('backward')
+for(var i =10000000; i>=0; i--){
+   c += a[i];
 }
+console.timeEnd('backward')
+
+backward: 14060.000ms 
       </code></pre>
     </div>
     <div>
       <h2>cache loop function</h2>
+      <p>If you running same function inside a loop for hundreds of times. its better to cache it. So that JavaScript doesnt have to parse it every single time.</p>
       <pre><code>
 var arr = [];
 for (var i = 0; i &lt; 1000; i++) {
@@ -180,15 +216,22 @@ for (var i = 0; i &lt; 1000; i++) {
     </div>
     <div>
       <h2>filter vs loop</h2>
+      <p>Array has some good extension like filter, map, forEach, every, any, etc.. They are powerful and easy to write but they could be expensive. Let's see an example</p>
       <pre><code>
-var myArray = [{"number":1,"name":"Fred"},{"number":2,"name":"John"},{"number":3,"name":"Toni"},{"number":4,"name":"Sarah"}];
+var myArray = [{ name:"Fred", experience: 3 },
+               { name:"John", experience: 5 },
+               { name:"Toni", experience: 4 },
+               { name:"Sara", experience: 2 }];
 
 function byFilter(myArr, num){
     return myArr.filter(function (el) {
         return el.number === num;
     });
-}</code></pre>
-              <pre class="fragment"><code>
+}
+      </code></pre>
+      <p> The way, these extension method is designed is that range of the elements is set before loop execute the first iteration. If you add new element after running the filter, they will not be visited. Besides, if you update or delete any element, they will be executed with the original value before the loop starts. This robustness comes with the expense of performance overhead.</p>
+      <p> So for trusted data, when elements will not be modified or deleted, a simple for loop would be faster than a build in filter.</p>
+      <pre class="fragment"><code>
 function byForLoop(myArr, num){
     var i, l;
     for (i = 0, l = myArr.length; i &lt; l; i += 1) {
@@ -197,26 +240,16 @@ function byForLoop(myArr, num){
         }
      }
      return [];
-}</code></pre>
-              <a href="http://jsperf.com/array-filter-vs-simple-loop/2">filter vs simple loop</a>
-              <ol class="fragment">
-                <li>range of elements is set before the first call</li>
-                <li>new elements will not be visited</li>
-                <li>if elements are changed or deleted, their value would be original</li>
-                <li class="fragment"> robustness comes with the expense of overhead</li>
-              </ol> 
-              <br><br>
-              <li class="fragment">also happens for: map, forEach, every, any, etc.</li>                      
-              <ol class="fragment">
-                <li>for trusted data</li>
-                <li>not to have deleted values</li>
-                <li>well behaved callbackfn</li>
-              </ol>
-              <a href="http://monkeyandcrow.com/blog/why_javascripts_filter_is_slow/">why native filter method is slow</a>
+}
+      </code></pre>
+        <p>ref: <a href="http://www.symphonious.net/2010/10/09/javascript-performance-for-vs-foreach/">for vs forEach</a>, 
+        <a href="http://jsperf.com/array-filter-vs-simple-loop/2">filter vs simple loop</a>, 
+        <a href="http://monkeyandcrow.com/blog/why_javascripts_filter_is_slow/">why native filter method is slow</a></p>
     </div>
     <div>
-      <h2>for vs for-in</h2>              
-              <pre><code>
+      <h2>for vs for-in</h2> 
+      <p>If you are looping over an array, a for loop is always faster than for in loop. For in loop is developed to iterate over enumerable properties. Mostly iterating over an object. accessing by index is faster than accessing by properties. Besides, for in also enumerates over inherited properties and walk upward through inheritance chain.</p>
+      <pre><code>
 var myArr = [1, 2, 3, 4, 5, ... ];
 
 //faster
@@ -228,32 +261,14 @@ for(var i =0; i&lt;1000; i++){
 for(var j in myArr){
   console.log(myArr[j]);
 }
-              </code></pre>
-              <br>
-              <p class="fragment">dont use for-in while traversing on an array</p>
-              <br>
-              <a href="http://jsperf.com/for-vs-forintest">for vs for-in</a>
-    </div>
-    <div>
-      <h2>for...in could be faster</h2>
-<p>if index is not maintined properly for in could be better.</p>
-<pre><code>
-var myArr = [];
-myArr[5] = 5;
-
-for(var i in myArr){
-  //iterate only once
-}
-
-for(var i =0, len = myArr.length; i&lt;len; i++){
-  //iterates 5 times  
-}
-</code></pre>
-    </div>
-    <div>
-  <h2>for..in</h2>
-  <p>for..in only iterate over all enumerable properties of the object itself and those the object inherits from its constructor's prototype. </p>
-<pre><code>
+      </code></pre>
+      <p class="fragment">dont use for-in while traversing on an array <a href="http://jsperf.com/for-vs-forintest">for vs for-in</a></p>
+      <div>
+          <button id = "forInLoopBasic" type="button" class="toggleExample btn btn-primary">Show for...in Basic</button>
+          <div id="forInLoopBasicExample" class="hide bg-success toggleContent">
+            <h2>for..in</h2>
+            <p>for..in only iterate over all enumerable properties of the object itself and those the object inherits from its constructor's prototype. </p>
+            <pre><code>
 var myArr = [1,2,3]
 myArr['-7'] = -7;
 myArr[2.5] =2.5;
@@ -278,10 +293,28 @@ for(var i in myArr){
  = 1
  = 2
  = 3 
-</code></pre>
-</div>
+          </code></pre>        
+        </div>
+      </div>            
+    </div>
     <div>
-      <h3>reverse while</h3>
+      <h2>for...in could be faster</h2>
+<p>If you have a one or more hollow in you array this means index is not maintained properly then for in could be faster. Because simple for loop have to visit every single index of the array, even though there is no element. Whereas for in will visit only when elements exists.</p>
+<pre><code>
+var myArr = [];
+myArr[5] = 5;
+
+for(var i in myArr){
+  //iterate only once
+}
+
+for(var i =0, len = myArr.length; i&lt;len; i++){
+  //iterates 5 times  
+}
+</code></pre>
+    </div>
+    <div>
+      <h2>reverse while</h2>
               <pre><code>
 var myArr = [1,2,3,4,5,6,7,8,9], 
     len = myArr.length,
@@ -299,9 +332,19 @@ while(l--) {
 }
               </code></pre>
               <a href="http://jsperf.com/fastest-array-loops-in-javascript/32">fastest way to traverse array</a>
-              <br>
-              <a href="https://blogs.oracle.com/greimer/resource/loop-test.html">different looping</a>
-    </div>    
+              <a href="http://blog.millermedeiros.com/why-i-favor-while-loops/">why i prefer while loop</a>
+    </div> 
+    <div>
+      <h2>arr.pop()</h2>
+      <p>think out of the box and <code>arr.pop()</code> could actually iterate an array very fast. The reason it gets faster as the size of the array gets smaller</p>
+      <p>ref: <a href="http://jsperf.com/fastest-array-loops-in-javascript/15">js perf</a></p>
+      <pre><code>
+while( i = arr.pop() ) {
+  someFn(i);
+  newArr.push(i);
+}
+      </code></pre>
+    </div>   
     <div>
       <h2>don't access out of scope variable</h2>
       <pre><code>
@@ -349,6 +392,20 @@ document.body.appendChild(fragment);</code></pre>
               <a href="https://developer.mozilla.org/en-US/docs/Web/API/document.createDocumentFragment">createDocumentFragment</a>
     </div>
     <div>
+      <h2>do as much as possible in a loop</h2>
+      <pre><code>
+var a = [1, 2, 3, 4, ... 100]
+//jump eight steps at the same time
+for(var i = 0, sum = 0; i &lt; 100; i += 5){
+  sum += a[i];
+  sum += a[i+1];
+  sum += a[i+2];
+  sum += a[i+3];
+  sum += a[i+4];
+}
+      </code></pre>
+    </div>
+    <div>
       <h2>summary of looping</h2>
       <ol>
         <li>don't measure length in every iteration</li>
@@ -366,14 +423,10 @@ document.body.appendChild(fragment);</code></pre>
   </code></pre>
 </div>
 <div id="summary">
-  <h2> Summary</h2>
-  <ul>
-    <li>Don't measure length in every iteration</li>
-    <li>catche object properties, function used in repeating code</li>
-    <li>backward for loop is faster than forward</li>
-    <li>for-in only when iterating over object</li>
-    <li>on array, reverse while is the fastest</li>
-  </ul>
+  <h2> Must watch</h2>
+  <a href="http://channel9.msdn.com/Events/Build/2013/4-329">Native Code Performance and Memory: The Elephant in the CPU</a>
+  <h3>just have a a look</h3>
+  <a href="http://james.padolsey.com/javascript/looping-in-javascript/">looping in js</a>, <a href="https://blog.jcoglan.com/2010/10/18/i-am-a-fast-loop/">i am a fast loop</a>
 </div>
 
 
@@ -394,6 +447,7 @@ document.body.appendChild(fragment);</code></pre>
     <script src="../../js/oAuth/googleOAuth.js"></script>
     <script src="../../js/oAuth/cookieManager.js"></script>
     <script src="../../js/oAuth/managerLogin.js"></script>
+    <script src="../../js/toggleExample.js"></script>
     <script src="../../js/highlight.pack.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
 
