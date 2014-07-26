@@ -138,6 +138,17 @@ for( ; ; ){
       </div>
     </div>
     <div>
+      <h2>0. test setup</h2>
+      <p> We will use <code>console.time</code> and <code>console.timeEnd</code> to measure the time in chrome devtool console. Just provide a name of the timer and chrome will log the time spend to execute your code. </p>
+      <pre><code>
+console.time('myTimer');
+//write your code here
+console.timeEnd('myTimer');
+
+//myTimer: 0.000ms 
+      </code></pre>
+    </div>
+    <div>
       <h2>1. Calculate length only once</h2>
       <p>If I have to write a for loop to log all the elements in an array, I will write something like the code block as below. In the iterating condition, i have <code>i&lt;a.length</code> and iterating condition is executed every single time loop is executed. Hence, length of the array will be calculated every single time. If you run the loop for 1000 times, you will get a performance hit.</p>
       <p><strong>solution:</strong> The solution to this problem is to set the length of the array to a variable in the initiation stage and use that variable in the iteratingCondition. In this approach, you are calculating length of the array only once. </p>
@@ -161,17 +172,28 @@ for(var i = 0, len = a.length; i &lt; len; i++){
       <p> i-- is generally faster because it doesn't have to run a comparison to 0 each time it runs, test results on various methods are belowThis is about nanosecond. The differences is that with i-- you compare to 0 for the end of the loop, while with i++ you compare with number > 0. I believe the performance difference was something like 20 nanoseconds (something like cmp ax,0 vs. cmp ax,bx) - which is nothing but if you loop thousands of times per second, why not have 20 nanoseconds gain for each :) </p>
       <p>also read: <a href="http://stackoverflow.com/a/13159989/1535443">this</a></p>
       <pre><code>
-var a = [0,1,2,3,4,5 ... 10000];
+var a = [0,1,2,3,4,5 ... 10000000];
+var b = 0;
 
-//forward
-for(var j = 0; j &lt; 10000; j++){
-  console.log(a[j]);
+console.time('forward');
+for(var i =0; i&lt;10000000; i++){
+   b += a[i];
 }
+console.timeEnd('forward');
 
-//backward
-for(var k = 10000; k >= 0; k--){
-  console.log(a[k]);
+//forward: 14165.000ms
+      </code></pre>
+      <pre><code>
+var a = [0,1,2,3,4,5 ... 10000000];
+var c = 0;
+
+console.time('backward')
+for(var i =10000000; i>=0; i--){
+   c += a[i];
 }
+console.timeEnd('backward')
+
+backward: 14060.000ms 
       </code></pre>
     </div>
     <div>
