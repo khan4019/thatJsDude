@@ -363,8 +363,26 @@ function(){
     </div>
     <div>
       <h2>do as little as possible inside loop</h2>
+      
       <pre><code>
-//find an example for this
+for(var i = 0; i &lt; someArray.length; i++) {
+
+   var container = document.getElementById('container');  
+   container.innerHtml += 'my number: ' + i;  
+   console.log(i);  
+}
+
+      </code></pre>
+      <pre><code>
+var container = document.getElementById('container');  
+
+for(var i = 0; i &lt; someArray.length; i++) {
+
+   container.innerHtml += 'my number: ' + i;  
+   console.log(i);  
+} 
+//caution, this cause reflow
+//use document fragment to avoid reflow
       </code></pre>
     </div>
     <div>

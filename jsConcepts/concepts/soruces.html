@@ -8,7 +8,7 @@
     <meta name="that js dude" content="">
     <link rel="shortcut icon" href="../../images/favicon.jpg">
 
-    <title>JS: console</title>
+    <title>source tab cheat sheet</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../../css/bootstrap.min.css" rel="stylesheet">
@@ -25,6 +25,9 @@
       }
       #uName{
         margin-top: -7px;
+      }
+      .done{
+        text-decoration: line-through;
       }
     </style>
 
@@ -57,7 +60,7 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <h1>>console</h1>        
+        <h1>>sources</h1>        
         <p>To be a decent web developer you have to know developer tool. If you want to be a better JavaScript developer, you have to master in the console tab of dev tool. there is no exception. no hanky panky...</p>   
         <p>first draft published: December 8, 2013</p>     
       </div>
@@ -65,12 +68,333 @@
     <div class="container">
       <!-- Example row of columns -->
 
-      <div class="row center">        
-        <iframe class="videoLink" width="853" height="480" src="//www.youtube.com/embed/2zmUSoVMyRU" frameborder="0" allowfullscreen></iframe> 
+      <div class="row center hide">        
+        <!-- <iframe class="videoLink" width="853" height="480" src="//www.youtube.com/embed/2zmUSoVMyRU" frameborder="0" allowfullscreen></iframe>  -->
       </div>
-            
+      <div class="container-fluid">
+        <h2>Sources</h2>
+        <ol>
+              
+            </ol>
+        <div class="item">
+          <h4>Open a file</h4>
+          <p>Use <code>Ctrl + P</code> just like sublime text</p>
+          <p>Or you can use <code>ctrl + o</code> or <code>cmd + o</code></p>
+          econd, third);
+          </code></pre>
+        </div>
+        <div class="item">
+          <h4>replace</h4>
+          <p>press <code>ctrl + F</code> and check replace... and replace option will be displayed. Dont press <code>ctrl + H</code> it will reveal your serch history</p>
+        </div>
+        <div class="item">
+          <h4>filter function</h4>
+          <p>see all the functions in file <code>ctrl + shift + o</code> or <code>cmd + opt + o</code></p>
+        </div>
+        <div class="item">
+          <h4>Goto a line</h4>
+          <p>just press <code>ctrl + G</code> and type line number. like sublime text</p>
+        </div>
+        <div class="item">
+          <h4>watch</h4>
+          <p>watch a variable</p>
+        </div>
+        <div class="item">
+          <h4>log object of array</h4>
+          <p></p>
+          <p>ref: <a href="http://stackoverflow.com/questions/10224691/output-multi-dimensional-arrays">output multi dimensional arrays</a></p>
+        </div>
+        <div class="item">
+          <h4>log multi dimensional array</h4>
+          <p></p>
+        </div>
+        <div class="item">
+          <h4></h4>
+          <p></p>
+        </div>
+        <div class="item">
+          <h4>different type of log</h4>
+          <p>error has red color and give u call stack. info and warn just have two icons to differenciate and God knows difference between log and debug</p>
+          <pre><code>
+console.log('simple log');
+console.debug('its an debug');
+console.info('its info');
+console.warn('be careful. i am warning you');
+console.error('something went wrong');
+          </code></pre>
+        </div>
+        <div class="item">
+          <h4>clear</h4>
+          <p>For windows you can press Ctrl + L for mac Cmd + K to clear your console. it is an alias of console.clear that will clean your garbases in console</p>
+          <pre><code>
+> clear();
+  //will remove everything from your console.
+
+> console.clear();
+  // will also clear
+          </code></pre>
+        </div>
+        <div class="item">
+          <h4>count</h4>
+          <p>count helps you to find number of hit. Everytime you hit the foo function, it will increase the count. You dont have to have a global variable to remember the count.</p>
+<pre><code>
+  > function add(a, b){
+     console.count('add function called');
+   }
+
+  > add(2,3);
+   = function called: 1
+  > add(4,5);
+   = function called: 2
+  > add(1,8);
+   = function called: 3
+  > add(12,5);
+   = function called: 4
+</code></pre>
+        </div>
+        <div class="item">
+          <h4>preserve upon navigation</h4>
+          <p>Just check <code>Preserve Log</code>. Console will not be cleared even if you relaod the page</p>
+        </div>
+        <div class="item">
+          <h4>console.group</h4>
+          <p>when you have too many things to log, the console get flooded. you can simply log console generating from one place. or all the palces. if you dont write console.groupEnd(), all the consequent console will be grouped. this could be useful.</p>
+<pre><code>
+  > console.groupCollapsed('my Error Group');
+
+    for(var i=50; i--;){
+       console.error(i);
+    }
+
+    console.groupEnd()
+
+  == my Error Group
+  //if you expand "my Error Group" you will see all erros
+  //remember you have to use console.groupEnd()
+  //otherwise, all the consequence log would be grouped inside it 
+</code></pre>
+        </div>
+        <div class="item">
+          <h4>filter</h4>
+          <p></p>
+        </div>
+        <div class="item">
+          <h4>iframe</h4>
+          <p></p>
+        </div>
+        <div class="item">
+          <h4></h4>
+          <p></p>
+        </div>
+        <div class="item">
+          <h4></h4>
+          <p></p>
+        </div>
+        <div class="item">
+          <h4></h4>
+          <p></p>
+        </div>
+        <div class="item">
+          <h4></h4>
+          <p></p>
+        </div>
+        <div class="item">
+          <h4>$0, $1, $2, $3</h4>
+          <p></p>
+        </div>
+      </div>
+      <div>
+        <h2>Log Ajax call</h2>
+        <div class="item">
+          <h4>log XMLHttpRequests</h4>
+          <p></p>
+        </div>
+        <div class="item">
+          <h4></h4>
+          <p></p>
+        </div>
+        <div class="item">
+          <h4></h4>
+          <p></p>
+        </div>
+        <div class="item">
+          <h4></h4>
+          <p></p>
+        </div>
+        <div class="item">
+          <h4></h4>
+          <p></p>
+        </div>
+      </div>
+      <div>
+        <h2>Sources</h2>
+        <div class="item">
+          <h4>ctrl + p</h4>
+          <p>to open any file</p>
+        </div>
+        <div class="item">
+          <h4>Live Edit</h4>
+          <p>and save: ctrl + s</p>
+          <p>edit javascript and continue execution</p>
+        </div>
+        <div class="item">
+          <h4>drag a file from source to your editor</h4>
+          <p></p>
+        </div>
+        <div class="item">
+          <h4>copy()</h4>
+          <p></p>
+        </div>
+        <div class="item">
+          <h4>drag image to your machine</h4>
+          <p></p>
+        </div>
+        <div class="item">
+          <h2>multipel cursor</h2>
+          <p>ctrl + click</p>
+        </div>
+        <div class="item">
+          <h4>column selection</h4>
+          <p>hold alt and drag mouse</p>
+        </div>
+        <div class="item">
+          <h4>local modification</h4>
+          <p>after change, right click on the file</p>
+        </div>
+        <div class="item">
+          <h4>ctrl + F</h4>
+          <p>Ctrl + Alt + F</p>
+        </div>
+        <div class="item">
+          <h4>console tab split view</h4>
+          <p>press esc</p>
+        </div>
+        <div class="item">
+          <h4>watch variable</h4>
+          <p></p>
+        </div>
+        <div class="item">
+          <h4>Add next occurences to selection</h4>
+          <p>Ctrl + D</p>
+        </div>
+        <div class="item">
+          <h4>call stack</h4>
+          <p></p>
+        </div>
+        <div class="item">
+          <h4>search for all function in a file</h4>
+          <p>ctrl + shift + o</p>
+        </div>
+        <div class="item">
+          <h4>Jump to a line</h4>
+          <p>Ctrl + G</p>
+        </div>
+        <div class="item">
+          <h4>source map</h4>
+          <p></p>
+        </div>
+        <div class="item">
+          <h4>debugger keyword</h4>
+          <p></p>
+        </div>
+        <div class="item">
+          <h4></h4>
+          <p></p>
+        </div>
+        <div class="item">
+          <h4></h4>
+          <p></p>
+        </div>
+        <div class="item">
+          <h4></h4>
+          <p></p>
+        </div>
+        <div class="item">
+          <h4>Black box script</h4>
+          <p>ggl it</p>
+        </div>
+      </div>
+      <div>
+        <h2>Elements</h2>
+        <div class="item">
+          <h4>$()</h4>
+          <p></p>
+        </div>
+        <div class="item">
+          <h4>$$()</h4>
+          <p></p>
+        </div>
+        <div class="item">
+          <h4></h4>
+          <p></p>
+        </div>
+        <div class="item">
+          <h4></h4>
+          <p></p>
+        </div>
+        <div class="item">
+          <h4>Break javascript when element has changed</h4>
+          <p></p>
+          <p>ref: <a href="http://www.elijahmanor.com/7-chrome-tips-developers-designers-may-not-know/">break js</a></p>
+        </div>
+        <div class="item">
+          <h4></h4>
+          <p></p>
+        </div>
+        <div class="item">
+          <h4></h4>
+          <p></p>
+        </div>
+        <div class="item">
+          <h4></h4>
+          <p></p>
+        </div>
+      </div>
+      <div>
+        <h2>Monitor Events</h2>
+        <div class="item">
+          <h4></h4>
+          <p></p>
+        </div>
+        <div class="item">
+          <h4></h4>
+          <p></p>
+        </div>
+        <div class="item">
+          <h4></h4>
+          <p></p>
+        </div>
+        <div class="item">
+          <h4></h4>
+          <p></p>
+        </div>
+        <div class="item">
+          <h4></h4>
+          <p></p>
+        </div>
+      </div>
+      <div>
+        <h2>Edit geo location</h2>
+        <div class="item">
+          <h4></h4>
+          <p></p>
+          <p>ref: <a href="http://www.hongkiat.com/blog/chrome-web-developers-tips/">edit geo location</a></p>
+        </div>
+        <div class="item">
+          <h4></h4>
+          <p></p>
+        </div>
+        <div class="item">
+          <h4></h4>
+          <p></p>
+        </div>
+        <div class="item">
+          <h4></h4>
+          <p></p>
+        </div>
+      </div>
       <h3>If you have hard time to follow this video, you can see the content below. Things you will learn-</h3>
-       <ul>
+       <ol>
          <li>use $, $$ like jQuery</li>
          <li>preserve current content in the log</li>
          <li>edit contents like a text editor</li>
@@ -88,7 +412,7 @@
          <li>get properties of dom or any object</li>
          <li>inspect form console tab</li>
          <li>get previous dom</li>
-       </ul>
+       </ol>
 
       <h2>1. $</h2>
       When you dont have access to jQuery. You can pass any css selector to $. like $('a'), this will return the first elment of match. $ is an alias of document.querySelector
@@ -203,20 +527,7 @@ console.time helps you to see how long a block of code tooks to execute.
 
   = myLoop: 86.000ms 
 </code></pre>
-<h2>8. console.group</h2>
-when you have too many things to log, the console get flooded. you can simply log console generating from one place. or all the palces. if you dont write console.groupEnd(), all the consequent console will be grouped. this could be useful.
-<pre><code>
-  > console.groupCollapsed('my Error Group');
-    for(var i=50; i--;){
-       console.error(i);
-    }
-    console.groupEnd()
-  
-  == my Error Group
-  //if you expand "my Error Group" you will see all erros
-  //remember you have to use console.groupEnd()
-  //otherwise, all the consequence log would be grouped inside it 
-</code></pre>
+
 <h2>9. console.table</h2>
 <pre><code>
   //console.table
@@ -235,33 +546,11 @@ $_ holds the value of the last result. this is very useful, you dont have to ass
   > Math.sqrt($_);
    = 467
 </code></pre>
-<h2>11. clear</h2>
-For windows you can press Ctrl + L for mac Cmd + K to clear your console. it is an alias of console.clear that will clean your garbases in console
-<pre><code>
-  > clear();
-    //will remove everything from your console.
-
-</code></pre>
 <h2>12. console.trace</h2>
 <pre><code>
   > console.trace('myTrace');
    =  myTrace
    //you will get the call stack
-</code></pre>
-<h2>13. console.count</h2>
-count helps you to find number of hit. Everytime you hit the foo function, it will increase the count. You dont have to have a global variable to remember the count.
-<pre><code>
-  > function foo(){
-     console.count('fooed');
-   }
-  > foo();
-   = fooed: 1
-  > foo();
-   = fooed: 2
-  > foo();
-   = fooed: 3
-  > foo();
-   = fooed: 4  
 </code></pre>
 <h2>14. profile</h2>
 you can start profiling from console tab. After finishing profiling (profileEnd), go to the profile tab of dev tool. you will see 'myProfile' and do the digging you want to do. 
@@ -284,7 +573,7 @@ to get the all the propertis of an object/DOM element
 <h2>16. inspect</h2>
 inspect a dom element from console tab
 <pre><code>
-  > inspect($('#myInput'));
+  > inpsect($('#myInput'));
    // will switch you to the element tab to inspect #myInput
   > inspect($$('a')[3]);
     //this iwll start inspecting 4th anchor you have in a page 
