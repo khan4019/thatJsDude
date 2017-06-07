@@ -14,6 +14,7 @@
   <!-- Bootstrap core CSS -->
   <link href="../../css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="../../css/zenburn.css">
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'  type='text/css'>
   <!-- Custom styles for this template -->
   <style>
     /* Move down content because we have a fixed navbar that is 50px tall */
@@ -21,6 +22,14 @@
     body {
       padding-top: 50px;
       padding-bottom: 20px;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+   .highlight .panel:hover{
+      color: #0c83f1;
+      box-shadow: rgba(222, 235, 247, 1) 0 16px 16px 0;
+      -webkit-box-shadow: rgba(222, 235, 247, 1) 0 16px 16px 0;
+      -moz-box-shadow: rgba(222, 235, 247, 1) 0 16px 16px 0;
     }
 
     .purpleBold {
@@ -28,8 +37,27 @@
       font-weight: bold;
     }
 
+    section{
+      margin-bottom: 30px;
+    }
     .singInStuff {
       margin-top: 9px;
+    }
+
+    .large-text{
+      font-size: 22px;
+    }
+
+    .medium-text{
+      font-size: 18px;
+    }
+
+    .small-text{
+      font-size: 15px;
+    }
+
+    .text-center{
+      text-align: center;
     }
 
     #uName {
@@ -67,112 +95,260 @@
       <!--/.navbar-collapse -->
     </div>
   </div>
-
-  <!-- Main jumbotron for a primary marketing message or call to action -->
   <div class="jumbotron">
     <div class="container">
       <h1>Getting Started with React</h1>
     </div>
   </div>
   <div class="container">
-    <!-- Example row of columns -->
-
-    <h2>[Workshop] Getting Started with React</h2>
-    <p>&nbsp;</p>
-    <p><strong>Description</strong></p>
-    <p>React is the most popular JavaScript framework out there due to it&rsquo;s clean and elegant approach to handle front end development. That&rsquo;s why every front end developer should learn and start thinking like a React developer. Understanding React will help you to keep your skillset competitive, land the next job and feel confident at your work.</p>
-    <p>This workshop is specially designed for front end developers who want to learn and build application with React without any prior experience. </p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <h3><strong>Who is this workshop for</strong></h3>
-    <p>Front end developers who want to upgrade their skillsets in order to get a raise or apply for better job under a better manager.</p>
-    <p>Lazy developers who are constantly hearing about react but still wondering what the heck is react. </p>
-    <p>Intermediate level Front end developers who are frustrated with the unorganized resources available on internet.</p>
-    <p>Beginners level programmer who are confused after seeing some tutorial and aren&rsquo;t getting anyone to ask question and show a straight path to learn React. </p>
-    <p>Curious Angular developers who is pulling hair out to understand so many strict rules and limitations. </p>
-    <p>Back-end developers who are tired of sitting behind and want to come to lime light of front end world with the effective skill in a short period of time. </p>
-    <p>&nbsp;</p>
-    <h3><strong>What You'll Learn</strong></h3>
-    <p>This workshop is broken into six modules to make your learning easy and effective. </p>
-    <p>&nbsp;</p>
-    <p><strong>Module-1: Getting Started with React</strong></p>
-    <ul>
-      <li>Understand the problems React solves</li>
-      <li>Writing very simple React App: Hello React</li>
-      <li>Intro to JSX</li>
-    </ul>
-    <p>&nbsp;</p>
-    <p><strong>Module-2: React Core Ideas</strong></p>
-    <ul>
-      <li>More about JSX</li>
-      <li>Virtual DOM</li>
-      <li>Component and Component Oriented Architecture</li>
-      <li>Inline Style or Loading CSS</li>
-    </ul>
-    <p>&nbsp;</p>
-    <p><strong>Module-3: Thinking Like React</strong></p>
-    <ul>
-      <li>Passing Dynamic Data</li>
-      <li>Properties</li>
-      <li>React Events</li>
-      <li>Component Life Cycle</li>
-      <li> Helper and Utility Functions</li>
-      <li>Loading Data from Server</li>
-    </ul>
-    <p>&nbsp;</p>
-    <p><strong>Module-4: Integral Part of a Large React App </strong></p>
-    <ul>
-      <li>Routing with React Router</li>
-      <li>Charting in React</li>
-      <li>Grid in react</li>
-      <li>React Form</li>
-      <li>Talk about tooling</li>
-      <li>Code Editor</li>
-      <li>Little Touch on ES6</li>
-    </ul>
-    <p>&nbsp;</p>
-    <p><strong>Module-5: Build a Professional React App </strong></p>
-    <ul>
-      <li>Use Starter Kit</li>
-      <li>Architecture of the React App</li>
-      <li>Add multiple Component</li>
-      <li>Component Interactions</li>
-      <li>Add chart</li>
-    </ul>
-    <p>&nbsp;</p>
-    <p><strong>Module-6: Deploy</strong></p>
-    <ul>
-      <li>Build</li>
-      <li>Unit Test with Jest</li>
-      <li>Deploy</li>
-    </ul>
-    <p>&nbsp;</p>
-    <h3><strong>How your day will look like</strong></h3>
-    <p>9.30-10.00: Ask for wi-fi password and caffeinate yourself </p>
-    <p>10.00-10.30: Getting Started with React</p>
-    <p>10.30-10.50: [Hands on] Hello React</p>
-    <p>10.50-11.00: Break</p>
-    <p>11.00-11.30: React Core Ideas</p>
-    <p>11.30-12.00: Think Like a React Developer</p>
-    <p>12.00-1.00: Lunch and QA</p>
-    <p>1.00-1.30: Routing and React Router</p>
-    <p>1.30-1.50: Other Integral part of a Large React App</p>
-    <p>1.50-2.00: Break and Light snacks</p>
-    <p>2.00-4.00: [Hands on] Build a Professional App with React</p>
-    <p>4.00-4.10: Break</p>
-    <p>4.10-4.40: Unit Test and Deploy</p>
-    <p>4.40-5.00: QA </p>
-    <p>&nbsp;</p>
-    <h3><strong>Who is this Dude?</strong></h3>
-    <h4>Jhankar (John-kar) Mahbub</h4>
-    <p>Jhankar Mahbub is a curious JavaScript developer, speaker, marathon runner, co-organizer of Chicago JavaScript meetup. He publishes his tips and tricks for intermediate JavaScript developers at 
-      <a href="http://www.thatjsdude.com">www.thatjsdude.com</a> and videos in 
-      <a href="https://www.youtube.com/user/khanLearning">youtube.com</a>
-    </p>
-    <p>He has been giving talk in popular conferences around the world on front end technologies, tools and frameworks. He published two books on programming. He is currently working at Nielsen as Senior Web Developers. </p>
-    <p>In a separate note, he confirmed that he showered recently. </p>
-
-    <p>for more information email: <a href="khan4019@gmail.com">khan4019@gmail.com</a></p>
+    <section id="description" class="hide1">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="panel panel-default">
+            <div class="panel-body large-text">
+              <p>Have you ever wondered how many times you planned to learn React and something else swamped away your weekend? Have you ever counted how many times you saw a tutorial or blog and wished you could finish that tutorial to build an app with React?</p>
+            </div>          
+          </div>        
+        </div>
+        <div class="col-md-3 visible-md visible-lg">
+          <div class="panel panel-default">
+            <img class="img-rounded img-responsive" src="../../images/workshop/crying.jpg" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-offset-3 col-md-8">
+          <div class="panel panel-default">
+            <div class="panel-body large-text">
+              <p>Don’t feel sad! It’s not only you. Most of us are like this. Because our burning desire to become a React Hero is slowed down by our laziness and unavoidable social events forced by our life partners. (Don’t tell the last line to your partner. Both you and I will be in trouble)</p>
+          </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-10">
+          <div class="panel panel-default">
+            <div class="panel-body medium-text">
+            <p>Regardless of the reasons, our skillsets are getting incompetent and insecurity feeling in our current job is increasing day by day. That’s why we created a daylong workshop so that you can block a day to explore and build a fully functional website with React. Besides, we kept a very minimal fee of $150 for a day long workshop so that you show up on time. Trust me- giving money is a powerful motivation to do something on time. </p>
+          </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="who" class="medium-text highlight">
+      <h2><strong>Who is this workshop for?</strong></h2>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <p>Social and family oriented developer who's plan to learn React is always swamped by something else.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <p>Ancient Developers with jQuery and backbone who know nothing outside of their cubicles. </p>
+            </div>
+          </div>
+        </div>        
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <p>Lazy developers who are constantly hearing about react but still wondering what the heck is react. </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <p>Intermediate level Front end developers who are frustrated with the unorganized resources available on internet.</p>
+            </div>
+          </div>
+        </div>        
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <p>Front end developers who want to upgrade their skillsets to get a raise or apply for better job under a better manager.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <p>Curious Angular developers who is pulling hair out to understand so many strict rules and limitations. </p>
+            </div>
+          </div>
+        </div>      
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <p>Beginners level programmer who are confused after seeing some tutorial and aren&rsquo;t getting anyone to ask question and show a straight path to learn React. </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <p>Back-end developers who are tired of sitting behind and want to come to lime light of front end world with the effective skill in a short period of time. </p>
+            </div>
+          </div>
+        </div>        
+      </div>
+    </section>
+    <section id="modules" class="highlight">
+      <h2><strong>What You'll Learn</strong></h2>
+      <p>This workshop is broken into six modules to make your learning easy and effective. </p>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <strong>Module-1: Getting Started with React</strong>
+            </div>
+            <div class="panel-body">
+              <ul>
+                <li>Understand the problems React solves</li>
+                <li>Writing very simple React App: Hello React</li>
+                <li>Introduction to JSX</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <strong>Module-2: React Core Ideas</strong>
+            </div>
+            <div class="panel-body">
+              <ul>
+                <li>Virtual DOM</li>
+                <li>Component and Component Architecture</li>
+                <li>Inline Style or Loading CSS</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <strong>Module-3: Thinking Like React</strong>
+            </div>
+            <div class="panel-body">
+              <ul>
+                <li>Component Life Cycle</li>
+                <li>Loading Data from Server</li>
+                <li>Events and Properties</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <strong>Module-4: Integral Part of a Large React App </strong>
+            </div>
+            <div class="panel-body">
+              <ul>
+                <li>Routing with React Router</li>
+                <li>Chart, Form, Grid</li>
+                <li>Optimize productivity: toolings, Code Editor</li>
+                <li>Little Touch on ES6</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <strong>Module-5: Build a Professional React App </strong>
+            </div>
+            <div class="panel-body">
+              <ul>
+                <li>Large Project setup</li>
+                <li>Architecture of a Larget React App</li>
+                <li>Component Design and Interactions</li>
+                <li>Routing and Routing Control</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <strong>Module-6: Deploy</strong>
+            </div>
+            <div class="panel-body">
+              <ul>
+                <li>Unit Test and Linting</li>
+                <li>Best practices</li>
+                <li>Build</li>                
+                <li>Deploy</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="schedule">
+      <h2><strong>How your day will look like</strong></h2>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <p>9.30-10.00: caffeinate and Ask for wi-fi password</p>
+              <p>10.00-10.30: Getting Started with React</p>
+              <p>10.30-10.50: [Hands on] Hello React</p>
+              <p>10.50-11.00: Break</p>
+              <p>11.00-11.30: React Core Ideas</p>
+              <p>11.30-12.00: Think Like a React Developer</p>
+              <p>12.00-1.00: Lunch and QA</p>
+              <p>1.00-1.30: Routing and React Router</p>
+              <p>1.30-1.50: Other Integral part of a Large React App</p>
+              <p>1.50-2.00: Break and Light snacks</p>
+              <p>2.00-4.00: [Hands on] Build a Large App</p>
+              <p>4.00-4.10: Break</p>
+              <p>4.10-4.40: Unit Test and Deploy</p>
+              <p>4.40-5.00: QA </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="dude">
+      <h2><strong>By the way, who is this Dude?</strong></h2>
+      <div class="row">        
+        <div class="col-md-2">
+          <img class="img-responsive img-circle" src="../../images/dude.jpeg" alt="">
+        </div>
+        <div class="col-md-9">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <p><strong>Jhankar (John-kar) Mahbub</strong> is a curious JavaScript developer, speaker, marathon runner, organizer of Chicago JavaScript meetup group. He publishes his tips and tricks for intermediate JavaScript developers at <a href="http://www.thatjsdude.com">thatjsdude.com</a> and videos in
+              <a href="https://www.youtube.com/user/khanLearning">youtube</a>
+              </p>
+              <p>He has been giving talk in popular conferences around the world on front end technologies, tools and frameworks. He published
+                two books on programming. He is currently working at Nielsen as Senior Web Developers. </p>
+              <p>In a separate note, he confirmed that he showered recently. </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8">
+          <h3>Want to start a conversation? </h3>
+          <p>Send him an email: <a href="khan4019@gmail.com">khan4019@gmail.com</a>. He never stops checking his email even though he could be sleeping, showering and pooping. However, he doesn't check his email when he does these three things at the same time.</p>
+        </div>
+      </div>
+    </section>
+    
     <!-- div>h2+p+pre>code -->
     <hr>
 
