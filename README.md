@@ -3,8 +3,7 @@ thatJsDude
 
 Website content for [thatJSDude.com](http://www.thatjsdude.com/)
 
--------
-###the site contains
+### The site contains
 
 1. Clear your confusion about JS confusing parts [this](http://www.thatjsdude.com/jsConcepts/concepts/this.html)
 
