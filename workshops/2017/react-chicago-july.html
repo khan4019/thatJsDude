@@ -85,6 +85,22 @@
       font-size: 5em;
       font-weight: 900;
     }
+    
+    .container-fluid.registration {
+      background: #eee;
+      padding-top: 120px;
+      padding-bottom: 60px;
+    }
+
+    .jumbotron1 {
+      background-size: cover;
+      background-position: top center;
+    }
+    
+    img.img-responsive.img-circle {
+      margin: auto;
+      margin-bottom: 20px;
+    }
   </style>
 
   <!-- Just for debugging purposes. Don't actually copy this line! -->
@@ -101,12 +117,12 @@
   <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
       <div class="navbar-header">
-        <a class="navbar-brand" href="../../index.html">That Js Dude</a>
+        <a class="navbar-brand" href="../index.html">That Js Dude</a>
       </div>
       <div class="navbar-collapse collapse singInStuff">
-        <a href='#' class="btn btn-success  navbar-right" id="loginText"> sign in </a>
+        <a href="#" class="btn btn-success  navbar-right" id="loginText"> sign in </a>
         <a href="#" class="btn btn-success  navbar-right hide" id="logoutText">log out </a>
-        <a href="#" class="navbar-brand navbar-right" id="uName">Welcome</a>
+        <a href="#" class="navbar-brand navbar-right hide" id="uName">Welcome</a>
         <iframe name="myIFrame" id="myIFrame" class="hide"></iframe>
       </div>
       <!--/.navbar-collapse -->
@@ -114,140 +130,66 @@
   </div>
   <div class="jumbotron1">
     <div class="container">
-      <img class="react-icon" src="../../images/workshop/react.png" alt="">
+      <img class="react-icon" src="../images/workshop/react.png" alt="">
     </div>
   </div>
   <div class="container">
     <section id="description" class="hide1">
-      <h1 class="workshop-title">Getting Started with React</h1>
+      <div class="title-container">
+        <h1 class="workshop-title">Exclusive React Training</h1>
+        <h4 class="sub-title">Give us one day, we will make you a Confident React Developer</h4>
+      </div>
       <div class="row">
         <div class="col-md-8">
           <div class="panel panel-default">
             <div class="panel-body large-text">
-              <p>
-                Have you planned on learning a new framework like React, but lack time or motivation, even on the weekends?
-                How many times have you skimmed a tutorial or a blog post, yet you still haven't built an app with React?
-                Everyone knows learning alone is hard. In fact... It's enough to make a grown man cry!
+              <p>Have you ever planned to <b>learn</b> and <b>master</b> a new framework like React, but felt
+                lack of <b>time</b> or <b>motivation</b>, even on the weekends?
               </p>
+              <p>Everyone knows learning alone is hard.</p>
+              <p>In fact... It's enough to make a grown person cry!</p>
             </div>
           </div>
         </div>
-        <div class="col-md-3 visible-md visible-lg">
+        <div class="col-md-4 visible-md visible-lg">
           <div class="panel panel-default">
-            <img class="img-rounded img-responsive" src="../../images/workshop/crying.jpg" alt="" />
-          </div>
-        </div>
-      </div>
-      <div class="row hide">
-        <div class="col-md-offset-3 col-md-8">
-          <div class="panel panel-default">
-            <div class="panel-body large-text">
-              <p>
-                Whether you need a safe space to get away from the wife and kids (don't tell them I said that or we will
-                both be in trouble!), or if you're interested in starting a side hustle asynchronous to your current job,
-                that burning desire to become a React developer will be within reach when you join my full-day course in
-                downtown Chicago.
-              </p>
-            </div>
+            <img class="img-rounded img-responsive" src="../images/workshop/crying.jpg" alt="">
           </div>
         </div>
       </div>
       <div class="row">
-        <div class="col-md-offset-3 col-md-8">
+        <div class="col-md-12">
           <div class="panel panel-default">
             <div class="panel-body medium-text">
-              <p>
-                In the technology industry, skillsets become inadequate every day you don't learn something new. That’s why
-                this daylong workshop was created, so that you can invest a day to explore React and build a fully functional
-                website with it.</p>
+              <p>Regardless of the reasons (or excuses), your skill sets are getting incompetent day by day. That’s
+                why we created a daylong workshop so that you can invest a day to explore React and build
+                a fully functional website with it!</p>
             </div>
           </div>
         </div>
       </div>
-      <div class="row">
-        <p class="medium-text">Just give us <a href="https://www.eventbrite.com/e/getting-started-with-react-tickets-35225612756">one day</a>. We will make you comfortable with React.</p>
-      </div>
-    </section>
-    <section id="who" class="medium-text highlight">
-      <h2><strong>Who is this workshop for?</strong></h2>
-      <div class="row hide">
-        <div class="col-md-6">
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <p>Social and family-oriented developer who's plan to learn React is always swamped by something else.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <p>Developers with ancient framework like jQuery and backbone who have become "stuck in the mud".</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <p>Developers who are constantly hearing about React, but still don't know what the heck it really is.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <p>Intermediate-level front end developers who are frustrated with unorganized internet resources.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <p>Front end developers who want to upgrade their skillsets to get a raise or apply for better job under a better
-                manager.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <p>Curious Angular developers pulling out their hair trying to understand the many strict rules and limitations.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <p>Beginner-level programmers who want to understand core concepts and build something to add to their resume.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <p>Back-end developers who want to shift to the front end and be effective in a short period of time.</p>
-            </div>
-          </div>
-        </div>
+      <div class="row-fluid">
+        <blockquote class="blockquote">
+          <p class="mb-0">Just give us one day. We will make you comfortable with React.</p>
+          <footer class="blockquote-footer">Someone famous named <cite title="That JS Dude">Jhankar Mahbub</cite></footer>
+        </blockquote>
       </div>
     </section>
+  </div>
+  <div class="container-fluid registration">
     <section id="registration">
       <div class="row">
-        <div class="col-md-offset-2 col-md-6 text-center">
+        <div class="col-md-offset-2 col-md-8 text-center">
           <p><a href="https://www.eventbrite.com/e/getting-started-with-react-tickets-35225612756" class="btn btn-success btn-lg"><strong>Register Now</strong></a></p>
-          <p>We kept a very minimal fee of $150 for a day long workshop. You can cancel your registration anytime. Moreover,
-            if you are not satisfied with the workshop you can ask for <strong>100% refund</strong> within seven days of
-            the workshop.</p>
-          </p>
+          <p>I don’t want your hard earned cash if you don’t get any value from this workshop.</p>
+          <p>Not happy with the workshop? I’ll give you <strong>100% refund</strong> of your money within seven days
+            of the workshop.</p>
+          <p></p>
         </div>
       </div>
     </section>
+  </div>
+  <div class="container">
     <section id="modules" class="highlight">
       <h2><strong>What You'll Learn</strong></h2>
       <p>This workshop is broken into six modules to make your learning easy and effective.</p>
@@ -306,7 +248,7 @@
                 <li>Routing with React Router</li>
                 <li>Chart, Form, Grid</li>
                 <li>Optimize Productivity: Tooling, Code Editor</li>
-                <li>Little Touch on ES6</li>
+                <li>Little Touch on ES6, webpack, this, promise</li>
               </ul>
             </div>
           </div>
@@ -319,7 +261,7 @@
             <div class="panel-body">
               <ul>
                 <li>Large Project setup</li>
-                <li>Architecture of a Larget React App</li>
+                <li>Architecture of a Largest React App</li>
                 <li>Component Design and Interactions</li>
                 <li>Routing and Routing Control</li>
               </ul>
@@ -333,35 +275,28 @@
             </div>
             <div class="panel-body">
               <ul>
+                <li>Debug a Large React App</li>
                 <li>Unit Test and Linting</li>
                 <li>Best practices</li>
-                <li>Build</li>
-                <li>Deploy</li>
+                <li>Build and Deploy</li>
               </ul>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <section id="venue">
+    <section>
       <div class="row">
-        <div class="col-md-offset-3 col-md-5">
+        <div id="venue" class="col-md-6">
           <h2><strong>Where and When</strong></h2>
           <div class="panel panel-default">
             <div class="panel-body">
-              <p><strong>Venue:</strong></p>
-              <p><a href="https://www.google.com/maps/place/215+W+Ohio+St,+Chicago,+IL+60654/@41.8901819,-87.6367768,16.5z/data=!4m15!1m9!4m8!1m6!1m2!1s0x880e2cb6c8fc884b:0x87ca96b1e220cd82!2sMerchandise+Mart,+Chicago,+IL!2m2!1d-87.633926!2d41.888969!1m0!3m4!1s0x880e2cb444f646c9:0x7945275dd8d4297d!8m2!3d41.8921364!4d-87.6348295">215 West Ohio Street, Chicago, IL</a></p>
-              <p>Minutes from Merchandise Mart</p>
-              <br>
-              <p>Date: Saturday, July 15, 2017 from 9:30 AM to 5:00 PM (CST)</p>
+              <p><strong>Venue:</strong> <a href="https://www.google.com/maps/place/215+W+Ohio+St,+Chicago,+IL+60654/@41.8901819,-87.6367768,16z/data=!4m15!1m9!4m8!1m6!1m2!1s0x880e2cb6c8fc884b:0x87ca96b1e220cd82!2sMerchandise+Mart,+Chicago,+IL!2m2!1d-87.633926!2d41.888969!1m0!3m4!1s0x880e2cb444f646c9:0x7945275dd8d4297d!8m2!3d41.8921364!4d-87.6348295">215 West Ohio Street, Chicago, IL</a>                                ( Close to Merchandise Mart)</p>
+              <p><strong>Date:</strong> Saturday, July 15, 2017 from 9:30 AM to 5:00 PM (CST)</p>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-    <section id="schedule">
-      <div class="row">
-        <div class="col-md-offset-3 col-md-5">
+        <div id="schedule" class="col-md-6">
           <h2><strong>How your day will look like</strong></h2>
           <div class="panel panel-default">
             <div class="panel-body">
@@ -384,49 +319,54 @@
         </div>
       </div>
     </section>
+  </div>
+  <div class="container-fluid registration">
     <section id="registration">
       <div class="row">
-        <div class="col-md-offset-2 col-md-6 text-center">
+        <div class="col-md-offset-2 col-md-8 text-center">
           <p><a href="https://www.eventbrite.com/e/getting-started-with-react-tickets-35225612756" class="btn btn-success btn-lg"><strong>Register Now</strong></a></p>
-          <p>We kept a very minimal fee of $150 for a day long workshop. You can cancel your registration anytime. Moreover,
-            if you are not satisfied with the workshop you can ask for <strong>100% refund</strong> within seven days of
-            the workshop.</p>
-          </p>
+          <p>I don’t want your hard earned cash if you don’t get any value from this workshop.</p>
+          <p>Not happy with the workshop? I’ll give you <strong>100% refund</strong> of your money within seven days
+            of the workshop.</p>
+          <p></p>
         </div>
       </div>
     </section>
+  </div>
+  <div class="container">
     <section id="dude">
-      <h2><strong>By the way, Who is this Dude?</strong></h2>
+      <h2><strong>By the way, who's this Dude?</strong></h2>
       <div class="row">
         <div class="col-md-2">
-          <img class="img-responsive img-circle" src="../../images/dude.jpeg" alt="">
+          <img class="img-responsive img-circle" src="../images/dude.jpeg" alt="">
         </div>
-        <div class="col-md-9">
+        <div class="col-md-10">
           <div class="panel panel-default">
             <div class="panel-body">
-              <p><strong>Jhankar (John-kar) Mahbub</strong> is a curious JavaScript developer, speaker, marathon runner, organizer
-                of Chicago JavaScript meetup group. He publishes his tips and tricks for JavaScript developers
-                at <a href="http://www.thatjsdude.com">thatjsdude.com</a> and videos on
+              <p><strong>Jhankar (John-kar) Mahbub</strong> is a curious JavaScript developer, speaker, marathon
+                runner, organizer of Chicago JavaScript meetup group. He publishes his tips and tricks for
+                JavaScript developers at <a href="http://www.thatjsdude.com">thatjsdude.com</a> and videos
+                on
                 <a href="https://www.youtube.com/user/khanLearning">youtube</a>
               </p>
-              <p>He has been giving talks in popular conferences around the world on front end technologies, tools and frameworks.
-                He published two books on programming. He is currently working at Nielsen as their Senior Web Developer.</p>
+              <p>He has been giving talks in popular conferences around the world on front end technologies, tools
+                and frameworks. He published two books on programming. He is currently working at Nielsen
+                as their Senior Web Developer.</p>
               <p>Surprisingly, he can confirm that he does have time to shower in between all of these activities!</p>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <section>
-      <p>If you want to watch a sample talk/video of this dude, check out <a href="https://www.youtube.com/watch?v=rOr1r1rSZQ8">this video on Angular 2</a>.</p>
-    </section>
+
     <section>
       <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-12">
+          <p>If you want to watch a sample talk/video of this dude, check out <a href="https://www.youtube.com/watch?v=rOr1r1rSZQ8">this video on Angular 2</a>.</p>
           <h3>Want to start a conversation? </h3>
-          <p>Send him an email: <a href="khan4019@gmail.com">khan4019@gmail.com</a>. He never stops checking his email, even
-            though he could be sleeping, showering or dropping the kids off at the pool. In fact, the only time he doesn't
-            check his email is when doing all three of these things at the same time!</p>
+          <p>Send him an email: <a href="khan4019@gmail.com">khan4019@gmail.com</a>. He never stops checking his email,
+            even though he could be sleeping, showering or dropping the kids off at the pool. In fact, the only
+            time he doesn't check his email is when doing all three of these things at the same time!</p>
         </div>
       </div>
     </section>
