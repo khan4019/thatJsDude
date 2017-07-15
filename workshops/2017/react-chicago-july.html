@@ -45,12 +45,14 @@
       margin-top: 9px;
     }
 
-    .large-text {
-      font-size: 22px;
-    }
+    @media (min-width: 500px) {
+      .large-text {
+        font-size: 22px;
+      }
 
-    .medium-text {
-      font-size: 18px;
+      .medium-text {
+        font-size: 18px;
+      }
     }
 
     .small-text {
@@ -72,24 +74,32 @@
     .jumbotron1 {
       height: 400px;
       margin-bottom: 30px;
-      background-image: url('../../images/workshop/cover.png');
+      background-image: url('../images/workshop/cover.png');
       background-size: 100% 100%;
       background-repeat: no-repeat;
     }
 
-
     .workshop-title {
-      /*margin-top: 250px;*/
       color: #61dafb;
-      margin-bottom: 50px;
-      font-size: 5em;
       font-weight: 900;
     }
+
+    .sub-title {
+      font-size: 1.5em;
+      color: gray;
+    }
     
+    @media (max-width: 500px) {
+      h1 {
+        font-size: 28px;
+      }
+    }
+
     .container-fluid.registration {
-      background: #eee;
+      background: url(http://www.rgbstock.com/cache1utL5e/users/x/xy/xymonau/300/o3BZoAu.jpg) #eee;
       padding-top: 120px;
       padding-bottom: 60px;
+      margin-bottom: 40px;
     }
 
     .jumbotron1 {
@@ -297,7 +307,7 @@
           </div>
         </div>
         <div id="schedule" class="col-md-6">
-          <h2><strong>How your day will look like</strong></h2>
+          <h2><strong>How your day will look</strong></h2>
           <div class="panel panel-default">
             <div class="panel-body">
               <p>9.30-10.00: Caffeinate and Ask for Wi-Fi Password</p>
@@ -335,7 +345,7 @@
   </div>
   <div class="container">
     <section id="dude">
-      <h2><strong>By the way, who's this Dude?</strong></h2>
+      <h2><strong>By the way, Who's this Dude?</strong></h2>
       <div class="row">
         <div class="col-md-2">
           <img class="img-responsive img-circle" src="../images/dude.jpeg" alt="">
@@ -383,10 +393,9 @@
         view_type: 'FILTERED_POSTMOD'
       });
     </script>
-    <hr>
 
     <footer>
-      <p>&copy;thatJSDude
+      <p>&copy; thatJSDude
         <script type="text/javascript">
           document.write(new Date().getFullYear());
         </script>
