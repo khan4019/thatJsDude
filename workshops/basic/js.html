@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Getting started with React">
+  <meta name="that js dude" content="">
+  <link rel="shortcut icon" href="../../images/favicon.jpg">
+
+  <title>Exclusive React Training: Become a React Developer</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../../css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/zenburn.css">
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <!-- Custom styles for this template -->
+  <style>
+    /* Move down content because we have a fixed navbar that is 50px tall */
+
+    body {
+      padding-top: 50px;
+      padding-bottom: 20px;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    .highlight .panel:hover {
+      color: #0c83f1;
+      box-shadow: rgba(222, 235, 247, 1) 0 16px 16px 0;
+      -webkit-box-shadow: rgba(222, 235, 247, 1) 0 16px 16px 0;
+      -moz-box-shadow: rgba(222, 235, 247, 1) 0 16px 16px 0;
+    }
+
+    .purpleBold {
+      color: purple;
+      font-weight: bold;
+    }
+
+    section {
+      margin-bottom: 40px;
+    }
+
+    .singInStuff {
+      margin-top: 9px;
+    }
+
+    .large-text {
+      font-size: 22px;
+    }
+
+    .medium-text {
+      font-size: 18px;
+    }
+
+    .small-text {
+      font-size: 15px;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    #uName {
+      margin-top: -7px;
+    }
+
+    .skipListItem {
+      list-style-type: none;
+    }
+
+    .jumbotron1 {
+      height: 400px;
+      margin-bottom: 30px;
+      background-image: url('../../images/workshop/cover.png');
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+    }
+
+    .title-container {
+      margin-bottom: 50px;
+    }
+
+    .workshop-title {
+      color: #61dafb;
+      font-size: 4em;
+      font-weight: 900;
+    }
+
+    .sub-title {
+      font-weight: 700;
+      font-size: 1.5em;
+      color: gray;
+    }
+
+    .container-fluid.registration {
+      background: url('../../images/workshop/background.jpg') #eee;
+      padding-top: 120px;
+      padding-bottom: 60px;
+      margin-bottom: 40px;
+    }
+
+    .jumbotron1 {
+      background-size: cover;
+      background-position: top center;
+    }
+    
+    img.img-responsive.img-circle {
+      margin: auto;
+      margin-bottom: 20px;
+    }
+    .image-container img{
+      width: 400px;
+      margin: 10px;
+    }
+  </style>
+
+  <!-- Just for debugging purposes. Don't actually copy this line! -->
+  <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="../../index.html">That Js Dude</a>
+      </div>
+      <div class="navbar-collapse collapse singInStuff">
+        <a href='#' class="btn btn-success  navbar-right" id="loginText"> sign in </a>
+        <a href="#" class="btn btn-success  navbar-right hide" id="logoutText">log out </a>
+        <a href="#" class="navbar-brand navbar-right" id="uName">Welcome</a>
+        <iframe name="myIFrame" id="myIFrame" class="hide"></iframe>
+      </div>
+      <!--/.navbar-collapse -->
+    </div>
+  </div>
+  <div class="jumbotron1">
+    <div class="container">
+      <img class="react-icon" src="../../images/workshop/react.png" alt="">
+    </div>
+  </div>
+  <div class="container">
+    <section id="description" class="hide1">
+      <div class="title-container">
+        <h1 class="workshop-title">React JS Workshop for Beginners</h1>
+        <h4 class="sub-title">Give us one day, we will teach React and help you to build an <a href="https://ema-john.firebaseapp.com/">e-commerce site</a> </h4>
+      </div>
+      <div class="row">
+        <div class="col-md-8">
+          <div class="panel panel-default">
+            <div class="panel-body large-text">
+              <p>Have you ever planned to learn a framework and got stuck within 10 minutes? or wished someone could fix the weird issue you are getting while following an online tutorial?
+              </p>
+              <p>Everyone knows learning alone is hard.</p>
+              <p>In fact... It's enough to make a grown person cry!</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 visible-md visible-lg">
+          <div class="panel panel-default">
+            <img class="img-rounded img-responsive" src="../../images/workshop/crying.jpg" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-default">
+            <div class="panel-body medium-text">
+              <p>That’s why we created a day-long workshop so that you can invest just one day to explore React and build
+                a fully functional <a href="https://ema-john.firebaseapp.com/">e-commerce website </a>! All by yourself with our help.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row-fluid">
+        <blockquote class="blockquote">
+          <p class="mb-0">Just give us one day. We will make you comfortable with React.</p>
+          <footer class="blockquote-footer">Someone famous named <cite title="That JS Dude">Jhankar Mahbub</cite></footer>
+        </blockquote>
+      </div>
+    </section>
+    <section id="who" class="medium-text highlight hide">
+      <h2><strong>Who is this workshop for?</strong></h2>
+      <div class="row hide">
+        <div class="col-md-6">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <p>Social and family oriented developer who's plan to learn React is always swamped by something else.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <p>Developers with ancient framework like jQuery and backbone who know nothing outside of their cubicles. </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <p>Developers who are constantly hearing about React, but still don't know what the heck it really is.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <p>Intermediate-level front end developers who are frustrated with unorganized internet resources.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <p>Front end developers who want to upgrade their skill sets to get a raise or apply for better job under a better
+                manager.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <p>Developers with ancient framework like jQuery and backbone who have become "stuck in the mud".</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <p>Beginner-level programmers who want to understand core concepts and build something to add to their resume.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <p>Back-end developers who want to shift to the front end and be effective in a short period of time.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+     <div class="container-fluid registration">
+    <section id="registration">
+      <div class="row">
+        <div class="col-md-offset-2 col-md-8 text-center">
+          <!-- <p><a href="https://goo.gl/forms/VV09byQCS7fhpMc42" class="btn btn-success btn-lg"><strong>Win a Ticket</strong></a></p> -->
+          <!-- <p>Just answer one question- <strong>Why you want to learn ReactJS?</strong> to get the opportunity to win one of the five free tickets. Winner will be emailed by August 15</p> -->
+          <p><a href="https://www.eventbrite.com/e/exclusive-react-training-tickets-36364023774" class="btn btn-success btn-lg"><strong>Register</strong></a></p>
+          <p class="hide1">I don’t want your hard earned cash if you don’t get any value from this workshop.</p>
+          <p class="hide1">Not happy with the workshop? I’ll give you <strong>100% refund</strong> of your money within seven days
+            of the workshop.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+     <div class="container">
+    <section id="modules" class="highlight">
+      <h2><strong>What You'll Learn</strong></h2>
+      <p>This workshop is broken into six modules to make your learning easy and effective.</p>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <strong>Module-1: Getting Started with React</strong>
+            </div>
+            <div class="panel-body">
+              <ul>
+                <li>Understand the problems React solves</li>
+                <li>Writing very simple React App: Hello React</li>
+                <li>Introduction to JSX</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <strong>Module-2: React Core Ideas</strong>
+            </div>
+            <div class="panel-body">
+              <ul>
+                <li>Virtual DOM and React Fiber</li>
+                <li>Component and Component Architecture</li>
+                <li>Inline Style or Loading CSS</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <strong>Module-3: Thinking Like a React Developer</strong>
+            </div>
+            <div class="panel-body">
+              <ul>
+                <li>Component Life Cycle</li>
+                <li>Loading Data from Server</li>
+                <li>Events handling, props, state management</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <strong>Module-4: Integral Parts of a Large React App</strong>
+            </div>
+            <div class="panel-body">
+              <ul>
+                <li>Routing with React Router</li>
+                <li>Use External Library</li>
+                <li>Optimize Productivity: Tooling, Code Editor</li>
+                <li>Basic ES6, webpack, this, promise, bind</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <strong>Module-5: Build a Professional React App</strong>
+            </div>
+            <div class="panel-body">
+              <ul>
+                <li>Large Project setup</li>
+                <li>Architecture of a Largest React App</li>
+                <li>Component Design and Interactions</li>
+                <li>Routing and Routing Control</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <strong>Module-6: Deploy</strong>
+            </div>
+            <div class="panel-body">
+              <ul>
+                <li>Debug a Large React App</li>
+                <li>Unit Test and Linting</li>
+                <li>Best practices</li>
+                <li>Build and Deploy</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="row">
+        <div id="venue" class="col-md-6">
+          <h2><strong>Where and When</strong></h2>
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <p><strong>Date:</strong> Saturday, August 19, 2017 from 9:45 AM to 5:00 PM (CST)</p>
+              <p><strong>Venue:</strong> <a href="https://www.google.com/maps?f=q&source=s_q&hl=en&geocode&q=300+Washington+Avenue+SE+Minneapolis,+MN+55455&sll=44.976381,-93.234036&sspn=0.009699,0.015149&ie=UTF8&ll=44.974514,-93.234787&spn=0.0097,0.015149&z=16&iwloc=A"> Memorial Union Room 301 </a></p>
+              <p>300 Washington Avenue Se</p>
+              <p>Minneapolis, MN, 55455</p>
+              <p class="parking hide"><strong>Parking</strong>: Free parking in the Anderson Parking Facility located at the intersection of Grand Avenue and Cretin Ave.</p>              
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div id="schedule" class="col-md-6">
+          <h2><strong>How your day will look</strong></h2>
+          <p class="hide">Learning modules will be introduced, explained and implemented as you will be building a web app.</p>
+          <p>You will spend 75% of your day for building <a href="https://ema-john.firebaseapp.com/">this e-commerce site</a>. 15% time on understanding react core concepts and rest 10% + extra 1 hour after the workshop to answer your questions.</p>
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <p>9.15-9.30: Grab a seat and Ask for Wi-Fi Password and socialize</p>
+              <p>9.30-10.00: Getting Started with React</p>
+              <p>10.00-10.30: [start coding] Hello React and Create component</p>
+              <p>10.30-10.50: props, state, component life cycle, load data from server</p>
+              <p>10.50-11.00: Break</p>
+              <p>11.00-11.30: Start building a real world <a href="https://ema-john.firebaseapp.com/">e-commerce site</a></p>
+              <p>11.30-12.00: Think Like a React Developer</p>
+              <p>12.00-1.00: Lunch break and QA</p>
+              <p>1.00-1.30: Managing state for large React app</p>
+              <p>1.30-1.50: Routing and React Router</p>
+              <p>1.50-2.00: Break</p>
+              <p>2.00-4.00: Multiple routes of large React App and database connection</p>
+              <p>4.00-4.10: Break</p>
+              <p>4.10-4.30: Unit Test and Deploy</p>
+              <p>4:30-4.40: Future steps and Redux</p>
+              <p>4.40-5.00: QA</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="modules" class="highlight">
+     <h2><strong>Prerequisite</strong></h2>
+     <div class="row">
+       <div class="col-md-6">
+         <div class="panel panel-default">
+           <div class="panel-heading">
+             <strong>You should be comfortable</strong>
+           </div>
+           <div class="panel-body">
+             <ul>
+               <li>Basic HTML, CSS and JavaScript</li>
+               <li>Using Node and npm before</li>
+               <li>Optional: Familiarty to any JavaScript framework</li>
+             </ul>
+           </div>
+         </div>
+       </div>
+     </div>
+   </section>
+  </div>
+    <div class="container-fluid registration">
+    <section id="registration">
+      <div class="row">
+        <div class="col-md-offset-2 col-md-8 text-center">
+          <!-- <p><a href="https://goo.gl/forms/VV09byQCS7fhpMc42" class="btn btn-success btn-lg"><strong>Win a Ticket</strong></a></p> -->
+          <!-- <p>Just answer one question- <strong>Why you want to learn ReactJS?</strong> to get the opportunity to win one of the five free tickets. Winner will be emailed by August 15</p>-->
+          <p><a href="https://www.eventbrite.com/e/exclusive-react-training-tickets-36364023774" class="btn btn-success btn-lg"><strong>Register</strong></a></p>
+          <p class="hide1">I don’t want your hard earned cash if you don’t get any value from this workshop.</p>
+          <p class="hide1">Not happy with the workshop? I’ll give you <strong>100% refund</strong> of your money within seven days
+            of the workshop.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="container">
+    <section id="dude">
+      <h2><strong>By the way, Who's this Dude?</strong></h2>
+      <div class="row">
+        <div class="col-md-2">
+          <img class="img-responsive img-circle" src="../../images/dude.jpeg" alt="">
+        </div>
+        <div class="col-md-10">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <p><strong>Jhankar (John-kar) Mahbub</strong> is a curious JavaScript developer, speaker, marathon
+                runner, organizer of Chicago JavaScript meetup group. He publishes his tips and tricks for
+                JavaScript developers at <a href="http://www.thatjsdude.com">thatjsdude.com</a> and videos
+                on
+                <a href="https://www.youtube.com/user/khanLearning">youtube</a>
+              </p>
+              <p>He has been giving talks in popular conferences around the world on front end technologies, tools
+                and frameworks. He published two books on programming. He is currently working at Nielsen
+                as their Senior Web Developer.</p>
+              <p>Surprisingly, he can confirm that he does have time to shower in between all of these activities!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="image-container">
+      <div class="row">
+        <div class="col-md-4">
+          <img src="../../images/workshop/one.jpeg" alt="">
+        </div>
+        <div class="col-md-4">
+          <img src="../../images/workshop/two.jpeg" alt="">
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="row">
+        <div class="col-md-12">
+          <p>If you want to watch a sample talk/video of this dude, check out <a href="https://www.youtube.com/watch?v=rOr1r1rSZQ8">this video on Angular 2</a>.</p>
+          <h3>Want to start a conversation? </h3>
+          <p>Send him an email: <a href="khan4019@gmail.com">khan4019@gmail.com</a>. He never stops checking his email,
+            even though he could be sleeping, showering or dropping the kids off at the pool. In fact, the only
+            time he doesn't check his email is when doing all three of these things at the same time!</p>
+        </div>
+      </div>
+    </section>
+    </div>
+
+    <!-- div>h2+p+pre>code -->
+    <hr>
+    <script src="https://apis.google.com/js/plusone.js"></script>
+    <div id="comments"></div>
+    <script>
+      gapi.comments.render('comments', {
+        href: window.location,
+        width: '624',
+        first_party_property: 'BLOGGER',
+        view_type: 'FILTERED_POSTMOD'
+      });
+    </script>
+    <hr>
+
+    <footer>
+      <p>&copy;thatJSDude
+        <script type="text/javascript">
+          document.write(new Date().getFullYear());
+        </script>
+      </p>
+      <p>Hosted by <a href="https://www.xeonbd.com">XeonBD</a></p>
+    </footer>
+  </div>
+  <!-- /container -->
+
+
+  <!-- Bootstrap core JavaScript
+    ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="../js/jquery-2.0.3.min.js"></script>
+  <script src="../js/jquery.fitvids.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/oAuth/googleOAuth.js"></script>
+  <script src="../js/oAuth/cookieManager.js"></script>
+  <script src="../js/oAuth/manageLogin.js"></script>
+  <script src="../js/highlight.pack.js"></script>
+  <script>
+          hljs.initHighlightingOnLoad();
+  </script>
+  <script>
+    (function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date(); a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-40601505-4', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+
+</body>
+
+</html>
